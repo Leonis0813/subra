@@ -1,0 +1,22 @@
+#!/bin/bash -e
+NGINX_HOME=/opt/nginx
+if [ -e ${NGINX_HOME}/html/adhafera_docs ];then
+    sudo rm ${NGINX_HOME}/html/adhafera_docs
+fi
+if [ -e ${NGINX_HOME}/html/algieba_docs ];then
+    sudo rm ${NGINX_HOME}/html/algieba_docs
+fi
+if [ -e ${NGINX_HOME}/html/regulus_docs ];then
+    sudo rm ${NGINX_HOME}/html/regulus_docs
+fi
+if [ -e ${NGINX_HOME}/html/zosma_docs ];then
+    sudo rm ${NGINX_HOME}/html/zosma_docs
+fi
+cd ${JENKINS_HOME}/jobs/chort_develop_deploy/workspace/adhafera/sphinx;make html
+cd ${JENKINS_HOME}/jobs/chort_develop_deploy/workspace/algieba/sphinx;make html
+cd ${JENKINS_HOME}/jobs/chort_develop_deploy/workspace/regulus/sphinx;make html
+cd ${JENKINS_HOME}/jobs/chort_develop_deploy/workspace/zosma/sphinx;make html
+sudo ln -s ${JENKINS_HOME}/jobs/chort_develop_deploy/workspace/adhafera/sphinx/_build/html ${NGINX_HOME}/html/adhafera_docs
+sudo ln -s ${JENKINS_HOME}/jobs/chort_develop_deploy/workspace/algieba/sphinx/_build/html ${NGINX_HOME}/html/algieba_docs
+sudo ln -s ${JENKINS_HOME}/jobs/chort_develop_deploy/workspace/regulus/sphinx/_build/html ${NGINX_HOME}/html/regulus_docs
+sudo ln -s ${JENKINS_HOME}/jobs/chort_develop_deploy/workspace/zosma/sphinx/_build/html ${NGINX_HOME}/html/zosma_docs
