@@ -1,5 +1,4 @@
 #!/bin/bash -e
 . ${JENKINS_HOME}/scripts/lib/util
-. ${JENKINS_HOME}/scripts/lib/system_test
 prepare_test regulus_dev
-execute_system_test
+execute_test requests result_system.html

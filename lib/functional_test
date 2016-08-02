@@ -1,5 +1,0 @@
-#!/bin/bash -e
-
-execute_functional_test () {
-    rvmsudo bundle exec rspec spec/{controllers,views} --format h --out result_function.html
-}

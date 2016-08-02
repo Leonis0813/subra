@@ -1,5 +1,0 @@
-#!/bin/bash -e
-
-execute_system_test () {
-    rvmsudo bundle exec rspec spec/requests --format h --out result_system.html 2> /dev/null
-}

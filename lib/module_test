@@ -1,5 +1,0 @@
-#!/bin/bash -e
-
-execute_module_test () {
-    rvmsudo bundle exec rspec spec/models --format h --out result_module.html
-}
