@@ -1,8 +1,5 @@
 #!/bin/bash -e
 
 execute_module_test () {
-    TEST_DIR=$1
-    . /etc/profile.d/rvm.sh
-    cd ${JENKINS_HOME}/jobs/${TEST_DIR}
     rvmsudo bundle exec rspec spec/models --format h --out result_module.html
 }

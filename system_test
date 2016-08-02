@@ -1,9 +1,0 @@
-#!/bin/bash -e
-APP_DIR=$1
-RAILS_ENV=$2
-. /etc/profile.d/rvm.sh
-if [ ${RAILS_ENV} = "development" ];then
-    APP_DIR=${APP_DIR}_dev
-fi
-cd ${JENKINS_HOME}/jobs/${APP_DIR}
-rvmsudo bundle exec rspec spec/requests --format h --out result_system.html 2> /dev/null

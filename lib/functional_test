@@ -1,8 +1,5 @@
 #!/bin/bash -e
 
 execute_functional_test () {
-    TEST_DIR=$1
-    . /etc/profile.d/rvm.sh
-    cd ${JENKINS_HOME}/jobs/${TEST_DIR}
     rvmsudo bundle exec rspec spec/{controllers,views} --format h --out result_function.html
 }

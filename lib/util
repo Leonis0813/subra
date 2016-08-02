@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+prepare_test () {
+    TEST_DIR=$1
+    . /etc/profile.d/rvm.sh
+    cd ${JENKINS_HOME}/jobs/${TEST_DIR}
+}
