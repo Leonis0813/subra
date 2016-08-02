@@ -1,0 +1,3 @@
+#!/bin/bash -e
+. ${JENKINS_HOME}/scripts/lib/functional_test.sh
+execute_functional_test regulus_dev
