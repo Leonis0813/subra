@@ -1,3 +1,3 @@
 #!/bin/bash -e
-. ${JENKINS_HOME}/scripts/lib/module_test.sh
+. ${JENKINS_HOME}/scripts/lib/module_test
 execute_module_test regulus_dev
