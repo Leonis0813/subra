@@ -1,0 +1,18 @@
+#!/bin/bash -e
+APP_ROOT=/opt/regulus_test
+SHARE=${APP_ROOT}/share
+RELEASES=${APP_ROOT}/releases
+DATE=`date +%s`
+
+sudo mkdir -p ${RELEASES} ${SHARE} ${SHARE}/vendor ${SHARE}/log ${SHARE}/backup
+sudo cp -r ${JENKINS_HOME}/jobs/regulus/script ${RELEASES}/${DATE}
+cd ${RELEASES}/${DATE}
+sudo ln -s ${SHARE}/vendor ${RELEASES}/${DATE}/vendor
+sudo ln -s ${SHARE}/log ${RELEASES}/${DATE}/log
+sudo ln -s ${SHARE}/backup ${RELEASES}/${DATE}/backup
+rvmsudo bundle install --path=vendor/bundle
+sudo ln -fns ${RELEASES}/${DATE} ${APP_ROOT}/current
+cd ${RELEASES}
+if [ `ls | wc -l` -gt 5 ];then
+    sudo rm -rf `ls | sort -n | head -1`
+fi
