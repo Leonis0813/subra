@@ -1,4 +1,4 @@
 #!/bin/bash -e
-. ${JENKINS_HOME}/scripts/lib/util
+. ${JENKINS_HOME}/scripts/util
 prepare_test regulus_dev
 execute_test controllers,views result_function.html
