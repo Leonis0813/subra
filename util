@@ -9,5 +9,5 @@ prepare_test () {
 execute_test () {
     SUBJECTS=$1
     OUTPUT_FILE=$2
-    rvmsudo bundle exec rspec spec/{${SUBJECTS}} --format h --out ${OUTPUT_FILE} 2> /dev/null
+    rvmsudo bundle exec rspec spec/${SUBJECTS} --format h --out ${OUTPUT_FILE} 2> /dev/null
 }
