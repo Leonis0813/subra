@@ -1,9 +1,10 @@
 #!/bin/bash -e
-APP_ROOT=/opt/regulus_test
+APP_ROOT=/opt/regulus
 SHARE=${APP_ROOT}/share
 RELEASES=${APP_ROOT}/releases
 DATE=`date +%s`
 
+. /etc/profile.d/rvm.sh
 sudo mkdir -p ${RELEASES} ${SHARE} ${SHARE}/vendor ${SHARE}/log ${SHARE}/backup
 sudo cp -r ${JENKINS_HOME}/jobs/regulus/script ${RELEASES}/${DATE}
 cd ${RELEASES}/${DATE}
