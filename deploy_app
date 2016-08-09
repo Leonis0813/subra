@@ -1,0 +1,34 @@
+#!/bin/bash -e
+array=(`echo ${JOB_NAME} | tr '_' ' '`)
+APP_NAME=${array[0]}
+ENV=${array[1]}
+
+APP_ROOT=/opt/nginx/apps/${APP_NAME}
+if [ ${ENV} = "development" ];then
+    APP_ROOT=${APP_ROOT}_dev
+fi
+
+. /etc/profile.d/rvm.sh
+if [ -e ${APP_ROOT} ];then
+    if [ -e ${APP_ROOT}/tmp/pids/unicorn.pid ];then
+	cd ${APP_ROOT}
+	rvmsudo bundle exec rake unicorn:stop
+    fi
+    sudo rm -rf ${APP_ROOT}
+fi
+sudo -u nginx cp -r ${WORKSPACE} ${APP_ROOT}
+sudo sed -i -e s/development/${ENV}/g ${APP_ROOT}/Rakefile
+cd ${APP_ROOT}
+rvmsudo bundle install --path vendor/bundle
+RAILS_ENV=${ENV} rvmsudo bundle exec rake db:migrate
+if [ ${ENV} = "production" ];then
+    sudo sed -i -e "s/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/`bundle exec rake secret`/g" ${APP_ROOT}/config/secrets.yml
+    rvmsudo bundle exec rake assets:precompile
+fi
+rvmsudo bundle exec rake unicorn:start
+sudo chown -R nginx:rvm ${APP_ROOT}/tmp
+sudo service nginx restart
+sudo sed -i -e s/${APP_NAME}/${APP_DIR}/g ${APP_ROOT}/bin/${APP_NAME}
+sudo sed -i -e s/development/${ENV}/g ${APP_ROOT}/bin/${APP_NAME}
+sudo ln -fns ${APP_ROOT}/bin/${APP_NAME} /etc/init.d/${APP_DIR}
+sudo chkconfig ${APP_DIR} on
