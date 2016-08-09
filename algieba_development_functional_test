@@ -1,0 +1,4 @@
+#!/bin/bash -e
+. ${JENKINS_HOME}/scripts/util
+prepare_test algieba_dev
+execute_test {controllers,views} result_function.html
