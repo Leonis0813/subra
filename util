@@ -1,14 +1,10 @@
 #!/bin/bash -e
 
-prepare_test () {
-    TEST_DIR=$1
-    . /etc/profile.d/rvm.sh
-    cd ${JENKINS_HOME}/jobs/${TEST_DIR}
-}
-
 execute_test () {
     SUBJECTS=$1
-    OUTPUT_FILE=$2
+    OUTPUT_FILE=`echo ${JOB_NAME} | cut -d '_' -f 3`.html
+    . /etc/profile.d/rvm.sh
+    cd ${WORKSPACE}
     rvmsudo bundle exec rspec spec/${SUBJECTS} --format h --out ${OUTPUT_FILE} 2> /dev/null
 }
 
