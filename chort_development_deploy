@@ -1,0 +1,13 @@
+#!/bin/bash -e
+NGINX_HOME=/opt/nginx
+
+build_doc () {
+    APP_NAME=$1
+    cd ${WORKSPACE}/${APP_NAME}/sphinx;make html
+    sudo ln -fns ${WORKSPACE}/${APP_NAME}/sphinx/_build/html ${NGINX_HOME}/html/${APP_NAME}_docs
+}
+
+build_doc adhafera
+build_doc algieba
+build_doc regulus
+build_doc zosma
