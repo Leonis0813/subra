@@ -7,3 +7,19 @@ execute_test () {
     cd ${WORKSPACE}
     rvmsudo bundle exec rspec spec/${SUBJECTS} --format h --out ${OUTPUT_FILE} 2> /dev/null
 }
+
+before_deploy () {
+    SHARE=${APP_ROOT}/share
+    RELEASES=${APP_ROOT}/releases
+    DATE=`date +%s`
+    sudo mkdir -p ${RELEASES} ${SHARE}
+    . /etc/profile.d/rvm.sh
+}
+
+after_deploy () {
+    sudo ln -fns ${RELEASES}/${DATE} ${APP_ROOT}/current
+    cd ${RELEASES}
+    if [ `ls | wc -l` -gt 5 ];then
+	sudo rm -rf `ls | sort -n | head -1`
+    fi
+}
