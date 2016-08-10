@@ -1,35 +1,9 @@
 #!/bin/bash -e
 
-prepare_test () {
-    TEST_DIR=$1
-    . /etc/profile.d/rvm.sh
-    cd ${JENKINS_HOME}/jobs/${TEST_DIR}
-}
-
 execute_test () {
     SUBJECTS=$1
-    OUTPUT_FILE=$2
-    rvmsudo bundle exec rspec spec/${SUBJECTS} --format h --out ${OUTPUT_FILE} 2> /dev/null
-}
-
-deploy_script () {
-    APP_ROOT=/opt/$1
-    TARGET_DIR=$2
-    SHARE=${APP_ROOT}/share
-    RELEASES=${APP_ROOT}/releases
-    DATE=`date +%s`
-
+    OUTPUT_FILE=`echo ${JOB_NAME} | cut -d '_' -f 3`.html
     . /etc/profile.d/rvm.sh
-    sudo mkdir -p ${RELEASES} ${SHARE} ${SHARE}/vendor ${SHARE}/log ${SHARE}/backup
-    sudo cp -r ${JENKINS_HOME}/jobs/$1/${TARGET_DIR} ${RELEASES}/${DATE}
-    cd ${RELEASES}/${DATE}
-    sudo ln -s ${SHARE}/vendor ${RELEASES}/${DATE}/vendor
-    sudo ln -s ${SHARE}/log ${RELEASES}/${DATE}/log
-    sudo ln -s ${SHARE}/backup ${RELEASES}/${DATE}/backup
-    rvmsudo bundle install --path=vendor/bundle
-    sudo ln -fns ${RELEASES}/${DATE} ${APP_ROOT}/current
-    cd ${RELEASES}
-    if [ `ls | wc -l` -gt 5 ];then
-	sudo rm -rf `ls | sort -n | head -1`
-    fi
+    cd ${WORKSPACE}
+    rvmsudo bundle exec rspec spec/${SUBJECTS} --format h --out ${OUTPUT_FILE} 2> /dev/null
 }

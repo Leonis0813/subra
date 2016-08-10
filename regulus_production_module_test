@@ -1,4 +1,0 @@
-#!/bin/bash -e
-. ${JENKINS_HOME}/scripts/util
-prepare_test regulus
-execute_test models result_module.html
