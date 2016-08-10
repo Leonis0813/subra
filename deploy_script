@@ -2,10 +2,10 @@
 
 APP_NAME=`echo ${JOB_NAME} | cut -d '_' -f 1`
 APP_ROOT=/opt/${APP_NAME}
-if [ ${APP_NAME} = "algieba" ];then
-    TARGET_DIR=script
-else
+if [ ${APP_NAME} = "alterf" ];then
     TARGET_DIR=.
+else
+    TARGET_DIR=script
 fi
 SHARE=${APP_ROOT}/share
 RELEASES=${APP_ROOT}/releases
