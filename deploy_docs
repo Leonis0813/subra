@@ -1,10 +1,9 @@
-#!/bin/bash -e
-NGINX_HOME=/opt/nginx
+#!/bin/bash -xe
 
 build_doc () {
     APP_NAME=$1
     cd ${WORKSPACE}/${APP_NAME}/sphinx;make html
-    sudo ln -fns ${WORKSPACE}/${APP_NAME}/sphinx/_build/html ${NGINX_HOME}/html/${APP_NAME}_docs
+    sudo ln -fns ${WORKSPACE}/${APP_NAME}/sphinx/_build/html /opt/nginx/html/${APP_NAME}_docs
 }
 
 build_doc adhafera

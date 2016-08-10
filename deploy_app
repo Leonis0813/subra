@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -xe
 array=(`echo ${JOB_NAME} | tr '_' ' '`)
 APP_NAME=${array[0]}
 ENV=${array[1]}
