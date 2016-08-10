@@ -3,10 +3,11 @@ array=(`echo ${JOB_NAME} | tr '_' ' '`)
 APP_NAME=${array[0]}
 ENV=${array[1]}
 
-APP_ROOT=/opt/nginx/apps/${APP_NAME}
+APP_DIR=${APP_NAME}
 if [ ${ENV} = "development" ];then
-    APP_ROOT=${APP_ROOT}_dev
+    APP_DIR=${APP_DIR}_dev
 fi
+APP_ROOT=/opt/nginx/apps/${APP_DIR}
 
 . /etc/profile.d/rvm.sh
 if [ -e ${APP_ROOT} ];then
