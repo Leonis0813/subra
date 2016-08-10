@@ -11,8 +11,7 @@ fi
 APP_ROOT=/opt/nginx/apps/${APP_DIR}
 
 before_deploy
-sudo mkdir -p ${SHARE}/bundle ${SHARE}/log ${SHARE}/tmp
-sudo chown -R nginx:rvm ${APP_ROOT}
+sudo -u nginx mkdir -p ${SHARE}/bundle ${SHARE}/log ${SHARE}/tmp
 sudo -u nginx cp -r ${WORKSPACE} ${RELEASES}/${DATE}
 cd ${RELEASES}/${DATE}
 sudo rm -rf log
