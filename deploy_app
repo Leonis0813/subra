@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash -e
 array=(`echo ${JOB_NAME} | tr '_' ' '`)
 APP_NAME=${array[0]}
 ENV=${array[1]}
@@ -13,11 +13,13 @@ RELEASES=${APP_ROOT}/releases
 DATE=`date +%s`
 
 . /etc/profile.d/rvm.sh
-sudo mkdir -p ${RELEASES} ${SHARE} ${SHARE}/vendor ${SHARE}/log ${SHARE}/tmp
+sudo mkdir -p ${RELEASES} ${SHARE} ${SHARE}/bundle ${SHARE}/log ${SHARE}/tmp
+sudo chown -R nginx:rvm ${APP_ROOT}
 sudo -u nginx cp -r ${WORKSPACE} ${RELEASES}/${DATE}
 
 cd ${RELEASES}/${DATE}
-sudo -u nginx ln -s ${SHARE}/vendor ${RELEASES}/${DATE}/vendor
+sudo rm -rf log
+sudo -u nginx ln -s ${SHARE}/bundle ${RELEASES}/${DATE}/vendor/bundle
 sudo -u nginx ln -s ${SHARE}/log ${RELEASES}/${DATE}/log
 sudo -u nginx ln -s ${SHARE}/tmp ${RELEASES}/${DATE}/tmp
 rvmsudo bundle install --path vendor/bundle
@@ -26,13 +28,13 @@ if [ ${ENV} = "production" ];then
     sudo sed -i -e "s/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/`bundle exec rake secret`/g" config/secrets.yml
     rvmsudo bundle exec rake assets:precompile
 fi
-sudo sed -i -e s/development/${ENV}/g Rakefile
-rvmsudo bundle exec rake unicorn:restart
-sudo service nginx restart
-sudo sed -i -e s/${APP_NAME}/${APP_DIR}/g ${RELEASES}/${DATE}/bin/${APP_NAME}
-sudo sed -i -e s/development/${ENV}/g ${RELEASES}/${DATE}/bin/${APP_NAME}
-sudo ln -fns ${APP_ROOT}/bin/${RELEASES}/${DATE} /etc/init.d/${APP_DIR}
+sudo sed -i -e "s|development|${ENV}|g" Rakefile
+sudo sed -i -e "s|${APP_NAME}|${APP_DIR}/releases/${DATE}|g" ${RELEASES}/${DATE}/bin/${APP_NAME}
+sudo sed -i -e "s|development|${ENV}|g" ${RELEASES}/${DATE}/bin/${APP_NAME}
+sudo ln -fns ${RELEASES}/${DATE}/bin/${APP_NAME} /etc/init.d/${APP_DIR}
 sudo chkconfig ${APP_DIR} on
+sudo service ${APP_DIR} restart
+sudo service nginx restart
 sudo ln -fns ${RELEASES}/${DATE} ${APP_ROOT}/current
 cd ${RELEASES}
 if [ `ls | wc -l` -gt 5 ];then
