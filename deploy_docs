@@ -2,7 +2,7 @@
 
 build_doc () {
     APP_NAME=$1
-    cd ${WORKSPACE}/${APP_NAME}/sphinx;make html
+    cd ${WORKSPACE}/${APP_NAME}/sphinx;make clean;make html
     sudo ln -fns ${WORKSPACE}/${APP_NAME}/sphinx/_build/html /opt/nginx/html/${APP_NAME}_docs
 }
 
