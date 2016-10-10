@@ -6,6 +6,8 @@ build_doc () {
     sudo ln -fns ${WORKSPACE}/${APP_NAME}/sphinx/_build/html /opt/nginx/html/${APP_NAME}_docs
 }
 
+sudo easy_install sphinxcontrib-plantuml sphinxcontrib-httpdomain
+
 build_doc adhafera
 build_doc algieba
 build_doc regulus
