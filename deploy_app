@@ -15,6 +15,7 @@ sudo -u nginx mkdir -p ${SHARE}/bundle ${SHARE}/log ${SHARE}/tmp
 sudo -u nginx cp -r ${WORKSPACE} ${RELEASES}/${DATE}
 cd ${RELEASES}/${DATE}
 sudo rm -rf log
+sudo -u nginx mkdir -p ${RELEASES}/${DATE}/vendor
 sudo -u nginx ln -s ${SHARE}/bundle ${RELEASES}/${DATE}/vendor/bundle
 sudo -u nginx ln -s ${SHARE}/log ${RELEASES}/${DATE}/log
 sudo -u nginx ln -s ${SHARE}/tmp ${RELEASES}/${DATE}/tmp
