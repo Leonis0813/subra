@@ -20,6 +20,9 @@ sudo -u nginx ln -s ${SHARE}/log ${RELEASES}/${DATE}/log
 sudo -u nginx ln -s ${SHARE}/tmp ${RELEASES}/${DATE}/tmp
 rvmsudo bundle install --path vendor/bundle
 RAILS_ENV=${ENV} rvmsudo bundle exec rake db:migrate
+if [ ${ENV} = "development" ];then
+    RAILS_ENV=development rvmsudo bundle exec rake db:seed
+fi
 if [ ${ENV} = "production" ];then
     sudo sed -i -e "s/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/`bundle exec rake secret`/g" config/secrets.yml
     RAILS_ENV=production rvmsudo bundle exec rake assets:precompile
