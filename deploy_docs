@@ -1,15 +1,7 @@
 #!/bin/bash -e
 
-build_doc () {
-    APP_NAME=$1
-    cd ${WORKSPACE}/${APP_NAME}/sphinx;make clean;make html
-    sudo ln -fns ${WORKSPACE}/${APP_NAME}/sphinx/_build/html /opt/nginx/html/${APP_NAME}_docs
-}
-
 sudo easy_install sphinxcontrib-plantuml sphinxcontrib-httpdomain
 sudo yum -y install graphviz
 
-build_doc adhafera
-build_doc algieba
-build_doc regulus
-build_doc zosma
+cd ${WORKSPACE};make clean;make html
+sudo ln -fns ${WORKSPACE}/_build/html /opt/nginx/html/docs
