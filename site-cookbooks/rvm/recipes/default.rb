@@ -12,4 +12,5 @@ gpg --keyserver #{node[:gpg][:server]} --recv-keys #{node[:gpg][:key]}
 curl -sSL #{node[:rvm][:server] | sudo bash -s stable
 rvm reload
   EOF
+  not_if rvm_installed?
 end
