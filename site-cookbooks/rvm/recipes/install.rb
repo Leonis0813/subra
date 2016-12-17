@@ -8,7 +8,7 @@
 #
 execute 'install rvm' do
   command <<-"EOF"
-gpg2 --keyserver #{node[:gpg][:server]} --recv-keys #{node[:gpg][:key]}
+curl -sSL #{node[:gpg][:server]} | gpg2 --import -
 curl -sSL #{node[:rvm][:server]} | sudo bash -s stable
 rvm reload
   EOF
