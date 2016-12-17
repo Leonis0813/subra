@@ -10,7 +10,7 @@ execute 'install rvm' do
   command <<-"EOF"
 curl -sSL #{node[:gpg][:server]} | gpg --import -
 curl -sSL #{node[:rvm][:server]} | sudo bash -s stable
-rvm reload
+#{node[:rvm][:install_dir]}/bin/rvm reload
   EOF
-  not_if { File.exists?('/usr/local/rvm') }
+  not_if { File.exists?(node[:rvm][:install_dir]) }
 end
