@@ -30,9 +30,9 @@ Just include `rvm` in your node's `run_list`:
 
 ```json
 {
-  'name':'my_node',
-  'run_list': [
-    'recipe[rvm]'
+  "name":"my_node",
+  "run_list": [
+    "recipe[rvm]"
   ]
 }
 ```
