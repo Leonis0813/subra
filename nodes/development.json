@@ -1,0 +1,6 @@
+{
+  "name": "development",
+  "run_list": [
+    "recipe[rvm::install]"
+  ]
+}

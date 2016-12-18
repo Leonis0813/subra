@@ -1,5 +1,5 @@
-default[:gpg] = {
-  :server => 'hkp://keys.gnupg.net',
-  :key => '409B6B1796C275462A1703113804BB82D39DC0E3',
+default[:gpg][:server] = 'https://rvm.io/mpapis.asc'
+default[:rvm] = {
+  :server => 'https://get.rvm.io',
+  :install_dir => '/usr/local/rvm',
 }
-default[:rvm][:server] = 'https://get.rvm.io'
