@@ -14,7 +14,7 @@ This cookbook install latest mysql
 
 ## Usage
 
-### mysql::default
+### mysql::install
 
 Just include `mysql` in your node's `run_list`:
 
