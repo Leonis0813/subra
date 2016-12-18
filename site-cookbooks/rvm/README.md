@@ -24,7 +24,7 @@ This cookbook install latest rvm.
 
 ## Usage
 
-### rvm::default
+### rvm::install
 
 Just include `rvm` in your node's `run_list`:
 
