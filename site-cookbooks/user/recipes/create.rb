@@ -9,6 +9,7 @@
 user 'developer' do
   home '/home/developer'
   manage_home true
+  password '$1$hvu.l2c/$CBK7AJrXkQGZNFv.wj4bB.'
   action :create
 end
 
