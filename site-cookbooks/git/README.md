@@ -1,24 +1,21 @@
-git Cookbook
-============
-TODO: Enter the cookbook description here.
+# git Cookbook
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook install git
 
-Requirements
-------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+## Requirements
 
-e.g.
-#### packages
-- `toaster` - git needs toaster to brown your bagel.
+### Platforms
 
-Attributes
-----------
-TODO: List your cookbook attributes here.
+- CentOS
 
-e.g.
+### Chef
+
+- Chef 12.0 or later
+
+## Attributes
+
 #### git::default
+
 <table>
   <tr>
     <th>Key</th>
@@ -34,35 +31,21 @@ e.g.
   </tr>
 </table>
 
-Usage
------
-#### git::default
-TODO: Write usage instructions for each cookbook.
+## Usage
 
-e.g.
+### git::install
+
 Just include `git` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[git]"
+    "recipe[git::install]"
   ]
 }
 ```
 
-Contributing
-------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
+## License and Authors
 
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
-
-License and Authors
--------------------
-Authors: TODO: List authors
+Authors: Leonis0813
