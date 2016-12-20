@@ -6,24 +6,24 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-user 'developer' do
-  home '/home/developer'
+user node[:user][:name] do
+  home node[:user][:home]
   manage_home true
-  password '$1$hvu.l2c/$CBK7AJrXkQGZNFv.wj4bB.'
+  password node[:user][:password]
   action :create
 end
 
-directory '/home/developer/.ssh' do
-  owner 'developer'
-  group 'developer'
+directory "#{node[:user][:home]}/.ssh" do
+  owner node[:user][:name]
+  group node[:user][:name]
   mode 0700
   action :create
 end
 
-file '/home/developer/.ssh/authorized_keys' do
+file "#{node[:user][:home]}/.ssh/authorized_keys" do
   content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/developer/id_rsa.pub'))
-  owner 'developer'
-  group 'developer'
+  owner node[:user][:name]
+  group node[:user][:name]
   mode '0644'
   action :create
 end
