@@ -14,7 +14,7 @@ This cookbook install git
 
 ## Attributes
 
-#### git::default
+### git::default
 
 |Key                  |Type         |Description                       |
 |---------------------|-------------|----------------------------------|
