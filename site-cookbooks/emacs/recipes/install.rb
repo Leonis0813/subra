@@ -6,15 +6,15 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package %w[ gcc make ncurses-devel ] do
+package node[:emacs][:requirements] do
   action :install
 end
 
-remote_file '/tmp/emacs-24.5.tar.gz' do
-  source 'http://ftp.gnu.org/pub/gnu/emacs/emacs-24.5.tar.gz'
+remote_file "/tmp/emacs-#{node[:emacs][:version]}.tar.gz" do
+  source "http://ftp.gnu.org/pub/gnu/emacs/emacs-#{node[:emacs][:version]}.tar.gz"
 end
 
-execute 'tar zxf emacs-24.5.tar.gz' do
+execute "tar zxf emacs-#{node[:emacs][:version]}.tar.gz" do
   cwd '/tmp'
 end
 
@@ -24,14 +24,14 @@ execute 'install emacs' do
 make
 sudo make install
   EOF
-  cwd '/tmp/emacs-24.5'
+  cwd "/tmp/emacs-#{node[:emacs][:version]}"
 end
 
-file '/tmp/emacs-24.5.tar.gz' do
+file "/tmp/emacs-#{node[:emacs][:version]}.tar.gz" do
   action :delete
 end
 
-directory '/tmp/emacs-24.5' do
+directory "/tmp/emacs-#{node[:emacs][:version]}" do
   recursive true
   action :delete
 end
