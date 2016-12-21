@@ -3,7 +3,7 @@
 This file is used to list changes made in each version of the emacs cookbook.
 
 ## 0.1.0
-- [your_name] - Initial release of emacs
+- Initial release of emacs
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
