@@ -16,6 +16,11 @@ This cookbook install emacs
 
 ### emacs::default
 
+|Key                    |Type         |Description                         |
+|-----------------------|-------------|------------------------------------|
+|[:emacs][:requirements]|Array[String]|prerequirements for installing emacs|
+|[:emacs][:version]     |String       |installed emacs version             |
+
 ## Usage
 
 ### emacs::install

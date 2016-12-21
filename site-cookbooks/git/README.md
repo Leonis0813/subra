@@ -19,7 +19,7 @@ This cookbook install git
 |Key                  |Type         |Description                       |
 |---------------------|-------------|----------------------------------|
 |[:git][:requirements]|Array[String]|prerequirements for installing git|
-|[:rvm][:version]     |String       |installed git version             |
+|[:git][:version]     |String       |installed git version             |
 
 ## Usage
 
