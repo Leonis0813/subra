@@ -16,11 +16,11 @@ This cookbook install latest rvm.
 
 ### rvm::default
 
-|Key                 |Type  |Description           |Default           |
-|--------------------|------|----------------------|------------------|
-|[:gpg][:server]     |String|key server for gpg key|hkp://keys.gnupg  |
-|[:rvm][:server]     |String|rvm server URI        |https://get.rvm.io|
-|[:rvm][:install_dir]|String|install directory path|/usr/local/rvm    |
+|Key                 |Type  |Description           |
+|--------------------|------|----------------------|
+|[:gpg][:server]     |String|key server for gpg key|
+|[:rvm][:server]     |String|rvm server URI        |
+|[:rvm][:install_dir]|String|install directory path|
 
 ## Usage
 
