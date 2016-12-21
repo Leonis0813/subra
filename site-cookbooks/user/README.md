@@ -16,6 +16,12 @@ This cookbook operate user.
 
 ### user::create
 
+|Key               |Type  |Description            |
+|------------------|------|-----------------------|
+|[:user][:name]    |String|user name              |
+|[:user][:home]    |String|home directory of user |
+|[:user][:password]|String|hashed password of user|
+
 ## Usage
 
 ### user::create

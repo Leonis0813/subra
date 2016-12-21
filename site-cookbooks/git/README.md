@@ -16,20 +16,10 @@ This cookbook install git
 
 #### git::default
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['git']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+|Key                  |Type         |Description                       |
+|---------------------|-------------|----------------------------------|
+|[:git][:requirements]|Array[String]|prerequirements for installing git|
+|[:rvm][:version]     |String       |installed git version             |
 
 ## Usage
 
