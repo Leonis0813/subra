@@ -31,5 +31,6 @@ file '/tmp/git-2.11.0.tar.gz' do
 end
 
 directory '/tmp/git-2.11.0' do
+  recursive true
   action :delete
 end
