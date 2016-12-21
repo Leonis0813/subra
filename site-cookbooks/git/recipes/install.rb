@@ -6,15 +6,15 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package %w[ curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-ExtUtils-MakeMaker ] do
+package node[:git][:requirements] do
   action :install
 end
 
-remote_file '/tmp/git-2.11.0.tar.gz' do
-  source 'https://www.kernel.org/pub/software/scm/git/git-2.11.0.tar.gz'
+remote_file "/tmp/git-#{node[:git][:version]}.tar.gz" do
+  source "https://www.kernel.org/pub/software/scm/git/git-#{node[:git][:version]}.tar.gz"
 end
 
-execute 'tar zxf git-2.11.0.tar.gz' do
+execute "tar zxf git-#{node[:git][:version]}.tar.gz" do
   cwd '/tmp'
 end
 
@@ -23,14 +23,14 @@ execute 'install git' do
 make prefix=/usr/local all
 make prefix=/usr/local install
   EOF
-  cwd '/tmp/git-2.11.0'
+  cwd "/tmp/git-#{node[:git][:version]}"
 end
 
-file '/tmp/git-2.11.0.tar.gz' do
+file "/tmp/git-#{node[:git][:version]}.tar.gz" do
   action :delete
 end
 
-directory '/tmp/git-2.11.0' do
+directory "/tmp/git-#{node[:git][:version]}" do
   recursive true
   action :delete
 end
