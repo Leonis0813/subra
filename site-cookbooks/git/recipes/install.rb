@@ -25,3 +25,11 @@ make prefix=/usr/local install
   EOF
   cwd '/tmp/git-2.11.0'
 end
+
+file '/tmp/git-2.11.0.tar.gz' do
+  action :delete
+end
+
+directory '/tmp/git-2.11.0' do
+  action :delete
+end
