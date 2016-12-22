@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: nginx
-# Recipe:: default
+# Recipe:: install
 #
-# Copyright 2016, YOUR_COMPANY_NAME
+# Copyright 2016, Leonis0813
 #
 # All rights reserved - Do Not Redistribute
 #
