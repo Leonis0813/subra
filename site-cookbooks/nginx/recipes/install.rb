@@ -20,7 +20,7 @@ execute 'install nginx' do
 make
 sudo make install
   EOF
-  cwd "/tmp/nginx-#{node[:nginx][:vesion]}"
+  cwd "/tmp/nginx-#{node[:nginx][:version]}"
 end
 
 file "/tmp/nginx-#{node[:nginx][:version]}.tar.gz" do
