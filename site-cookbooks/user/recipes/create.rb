@@ -10,6 +10,7 @@ user node[:user][:name] do
   home node[:user][:home]
   manage_home true
   password node[:user][:password]
+  shell '/bin/zsh'
   action :create
 end
 
