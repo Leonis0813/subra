@@ -8,11 +8,6 @@
 (setq make-backup-files nil)
 (setq frame-background-mode 'dark)
 
-(add-hook 'json-mode-hook
-	  (lambda ()
-	    (make-local-variable 'js-indent-level)
-	    (setq js-indent-level 2)))
-
 (require 'whitespace)
 (setq whitespace-style '(face trailing tabs spaces empty space-mark tab-mark))
 
