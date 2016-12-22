@@ -6,3 +6,28 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+remote_file "/tmp/nginx-#{node[:nginx][:version]}.tar.gz" do
+  source "https://nginx.org/download/nginx-#{node[:nginx][:version]}.tar.gz"
+end
+
+execute "tar zxf nginx-#{node[:nginx][:version]}.tar.gz" do
+  cwd '/tmp'
+end
+
+execute 'install nginx' do
+  command <<-EOF
+./configure --prefix=/opt/nginx
+make
+sudo make install
+  EOF
+  cwd "/tmp/nginx-#{node[:nginx][:vesion]}"
+end
+
+file "/tmp/nginx-#{node[:nginx][:version]}.tar.gz" do
+  action :delete
+end
+
+directory "/tmp/nginx-#{node[:nginx][:version]}" do
+  recursive true
+  action :delete
+end
