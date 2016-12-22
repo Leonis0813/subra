@@ -2,6 +2,12 @@
   "name": "development",
   "run_list": [
     "recipe[rvm::install]",
-    "recipe[mysql::install]"
+    "recipe[mysql::install]",
+    "recipe[emacs::install]",
+    "recipe[git::install]",
+    "recipe[zsh::install]",
+    "recipe[user::create]",
+    "recipe[user::zsh]",
+    "recipe[user::emacs]"
   ]
 }
