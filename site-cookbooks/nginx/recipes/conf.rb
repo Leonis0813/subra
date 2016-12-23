@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-file '/opt/nginx/conf/nginx.conf' do
+file "node[:nginx][:install_dir]/conf/nginx.conf" do
   content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/nginx.conf'))
   owner node[:nginx][:user]
   group node[:nginx][:user]

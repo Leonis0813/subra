@@ -15,8 +15,8 @@ execute "tar zxf nginx-#{node[:nginx][:version]}.tar.gz" do
 end
 
 execute 'install nginx' do
-  command <<-EOF
-./configure --prefix=/opt/nginx
+  command <<-"EOF"
+./configure --prefix=#{node[:nginx][:install_dir]}
 make
 sudo make install
   EOF

@@ -16,9 +16,11 @@ This cookbook install nginx
 
 ### nginx::default
 
-|Key               |Type  |Description            |
-|------------------|------|-----------------------|
-|[:nginx][:version]|String|installed nginx version|
+|Key                   |Type  |Description            |
+|----------------------|------|-----------------------|
+|[:nginx][:version]    |String|installed nginx version|
+|[:nginx][:user]       |String|nginx user             |
+|[:nginx][:install_dir]|String|install directory      |
 
 ## Usage
 
