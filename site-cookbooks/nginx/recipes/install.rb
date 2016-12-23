@@ -6,6 +6,10 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+package %w[ pcre pcre-devel ] do
+  action :install
+end
+
 remote_file "/tmp/nginx-#{node[:nginx][:version]}.tar.gz" do
   source "https://nginx.org/download/nginx-#{node[:nginx][:version]}.tar.gz"
 end
