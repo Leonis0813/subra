@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 unless File.exists?(node[:nginx][:install_dir])
-  package %w[ pcre pcre-devel ] do
+  package node[:nginx][:requirements] do
     action :install
   end
 
