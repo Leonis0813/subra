@@ -12,23 +12,17 @@ end
 
 remote_file "/tmp/git-#{node[:git][:version]}.tar.gz" do
   source "https://www.kernel.org/pub/software/scm/git/git-#{node[:git][:version]}.tar.gz"
+  not_if { File.exists?("/tmp/git-#{node[:git][:version]}.tar.gz") }
 end
 
 execute "tar zxf git-#{node[:git][:version]}.tar.gz" do
   cwd '/tmp'
+  not_if { File.exists?("/tmp/git-#{node[:git][:version]}") }
 end
 
 ['make prefix=/usr/local all', 'make prefix=/usr/local install'].each do |command|
   execute command do
     cwd "/tmp/git-#{node[:git][:version]}"
+    only_if { File.exists?("/tmp/git-#{node[:git][:version]}") }
   end
-end
-
-file "/tmp/git-#{node[:git][:version]}.tar.gz" do
-  action :delete
-end
-
-directory "/tmp/git-#{node[:git][:version]}" do
-  recursive true
-  action :delete
 end
