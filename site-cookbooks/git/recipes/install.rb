@@ -21,7 +21,7 @@ unless git_installed?
     not_if { File.exists?("/tmp/git-#{node[:git][:version]}") }
   end
 
-  ['make prefix=/usr/local all', 'make prefix=/usr/local install'].each do |command|
+  ["make prefix=#{node[:git][:install_dir]} all", "make prefix=#{node[:git][:install_dir]} install"].each do |command|
     execute command do
       cwd "/tmp/git-#{node[:git][:version]}"
       only_if { File.exists?("/tmp/git-#{node[:git][:version]}") }
