@@ -18,12 +18,15 @@ execute "tar zxf emacs-#{node[:emacs][:version]}.tar.gz" do
   cwd '/tmp'
 end
 
-execute 'install emacs' do
-  command <<-EOF
-./configure --without-x
-make
-sudo make install
-  EOF
+execute './configure --without-x' do
+  cwd "/tmp/emacs-#{node[:emacs][:version]}"
+end
+
+execute 'make' do
+  cwd "/tmp/emacs-#{node[:emacs][:version]}"
+end
+
+execute 'sudo make install' do
   cwd "/tmp/emacs-#{node[:emacs][:version]}"
 end
 
