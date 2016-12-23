@@ -9,5 +9,6 @@
 user node[:nginx][:user] do
   manage_home false
   shell '/sbin/nologin'
+  system true
   action :create
 end
