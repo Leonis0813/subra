@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-user 'nginx' do
+user node[:nginx][:user] do
   shell '/sbin/nologin'
   action :create
 end
