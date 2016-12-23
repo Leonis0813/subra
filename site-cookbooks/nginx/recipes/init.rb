@@ -13,3 +13,7 @@ file '/etc/init.d/nginx' do
   mode 0755
   action :create
 end
+
+service 'nginx' do
+  action :start
+end
