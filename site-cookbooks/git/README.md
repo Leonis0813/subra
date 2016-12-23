@@ -20,6 +20,7 @@ This cookbook install git
 |---------------------|-------------|----------------------------------|
 |[:git][:requirements]|Array[String]|prerequirements for installing git|
 |[:git][:version]     |String       |installed git version             |
+|[:git][:install_dir] |String       |install directory                 |
 
 ## Usage
 

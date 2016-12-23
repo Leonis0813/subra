@@ -13,3 +13,9 @@ user node[:user][:name] do
   shell '/bin/zsh'
   action :create
 end
+
+group 'rvm' do
+  append true
+  members [node[:user][:name]]
+  action :modify
+end

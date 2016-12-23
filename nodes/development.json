@@ -11,8 +11,6 @@
     "recipe[user::zsh]",
     "recipe[user::emacs]",
     "recipe[nginx::user]",
-    "recipe[nginx::install]",
-    "recipe[nginx::conf]",
-    "recipe[nginx::init]"
+    "recipe[nginx::install]"
   ]
 }
