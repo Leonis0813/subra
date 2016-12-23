@@ -18,13 +18,10 @@ execute "tar zxf nginx-#{node[:nginx][:version]}.tar.gz" do
   cwd '/tmp'
 end
 
-execute 'install nginx' do
-  command <<-"EOF"
-./configure --prefix=#{node[:nginx][:install_dir]}
-make
-sudo make install
-  EOF
-  cwd "/tmp/nginx-#{node[:nginx][:version]}"
+["./configure --prefix=#{node[:nginx][:install_dir]}", 'make', 'sudo make install'].each do |command|
+  execute command do
+    cwd "/tmp/nginx-#{node[:nginx][:version]}"
+  end
 end
 
 file "/tmp/nginx-#{node[:nginx][:version]}.tar.gz" do

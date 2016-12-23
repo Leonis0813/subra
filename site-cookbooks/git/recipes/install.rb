@@ -18,12 +18,10 @@ execute "tar zxf git-#{node[:git][:version]}.tar.gz" do
   cwd '/tmp'
 end
 
-execute 'install git' do
-  command <<-EOF
-make prefix=/usr/local all
-make prefix=/usr/local install
-  EOF
-  cwd "/tmp/git-#{node[:git][:version]}"
+['make prefix=/usr/local all', 'make prefix=/usr/local install'].each do |command|
+  execute command do
+    cwd "/tmp/git-#{node[:git][:version]}"
+  end
 end
 
 file "/tmp/git-#{node[:git][:version]}.tar.gz" do
