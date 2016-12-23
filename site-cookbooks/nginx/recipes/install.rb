@@ -26,3 +26,23 @@ end
     only_if { File.exists("/tmp/nginx-#{node[:nginx][:version]}") }
   end
 end
+
+file "#{node[:nginx][:install_dir]}/conf/nginx.conf" do
+  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/nginx.conf'))
+  owner node[:nginx][:user]
+  group node[:nginx][:user]
+  mode 0644
+  action :create
+end
+
+file '/etc/init.d/nginx' do
+  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/nginx'))
+  owner 'root'
+  group 'root'
+  mode 0755
+  action :create
+end
+
+service 'nginx' do
+  action :start
+end
