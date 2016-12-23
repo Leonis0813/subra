@@ -6,11 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-execute 'install rvm' do
-  command <<-"EOF"
-curl -sSL #{node[:gpg][:server]} | gpg --import -
-curl -sSL #{node[:rvm][:server]} | sudo bash -s stable
-#{node[:rvm][:install_dir]}/bin/rvm reload
-  EOF
-  not_if { File.exists?(node[:rvm][:install_dir]) }
+unless File.exists?(node[:rvm][:install_dir])
+  execute "curl -sSL #{node[:gpg][:server]} | gpg --import -"
+  execute "curl -sSL #{node[:rvm][:server]} | sudo bash -s stable"
+  execute "#{node[:rvm][:install_dir]}/bin/rvm reload"
 end
