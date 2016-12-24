@@ -21,8 +21,13 @@ unless emacs_installed?
     not_if { File.exists?("/tmp/emacs-#{node[:emacs][:version]}") }
   end
 
-  ['./configure --without-x', 'make', 'sudo make install'].each do |command|
-    execute command do
+  [
+    {:name => 'emacs configuration', :commond => './configure --without-x'},
+    {:name => 'make emacs', :command => 'make'},
+    {:name => 'install emacs', :command => 'sudo make install'},
+  ].each do |resource|
+    execute resource[:name] do
+      command resource[:command]
       cwd "/tmp/emacs-#{node[:emacs][:version]}"
       only_if { File.exists?("/tmp/emacs-#{node[:emacs][:version]}") }
     end
