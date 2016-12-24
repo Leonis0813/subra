@@ -21,8 +21,13 @@ unless File.exists?(node[:nginx][:install_dir])
     not_if { File.exists?("/tmp/nginx-#{node[:nginx][:version]}") }
   end
 
-  ["./configure --prefix=#{node[:nginx][:install_dir]}", 'make', 'sudo make install'].each do |command|
-    execute command do
+  [
+    {:name => 'nginx configuration', :command => "./configure --prefix=#{node[:nginx][:install_dir]}"},
+    {:name => 'make nginx', :command => 'make'},
+    {:name => 'install nginx', :command => 'sudo make install'},
+  ].each do |resource|
+    execute resource[:name] do
+      command resource[:command]
       cwd "/tmp/nginx-#{node[:nginx][:version]}"
       only_if { File.exists?("/tmp/nginx-#{node[:nginx][:version]}") }
     end
