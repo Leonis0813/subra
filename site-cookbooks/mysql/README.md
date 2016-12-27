@@ -12,6 +12,14 @@ This cookbook install latest mysql
 
 - Chef 12.0 or later
 
+## Attributes
+
+### mysql::default
+
+|Key                     |Type  |Description            |
+|------------------------|------|-----------------------|
+|[:mysql][:root_password]|String|root password for mysql|
+
 ## Usage
 
 ### mysql::install
