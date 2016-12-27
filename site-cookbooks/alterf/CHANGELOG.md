@@ -1,10 +1,8 @@
-alterf CHANGELOG
-================
+# alterf CHANGELOG
 
 This file is used to list changes made in each version of the alterf cookbook.
 
-0.1.0
------
+## 0.1.0
 - Initial release of alterf
 
 - - -
