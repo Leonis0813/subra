@@ -16,6 +16,12 @@ This cookbook deploy alterf
 
 ### alterf::default
 
+|Key                   |Type  |Description            |
+|----------------------|------|-----------------------|
+|[:alterf][:app_name]  |String|application name       |
+|[:alterf][:deploy_dir]|String|absolute path to deploy|
+|[:alterf][:repository]|String|github url for clone   |
+
 ## Usage
 
 ### alterf::deploy
