@@ -16,11 +16,13 @@ This cookbook deploy alterf
 
 ### alterf::default
 
-|Key                   |Type  |Description            |
-|----------------------|------|-----------------------|
-|[:alterf][:app_name]  |String|application name       |
-|[:alterf][:deploy_dir]|String|absolute path to deploy|
-|[:alterf][:repository]|String|github url for clone   |
+|Key                      |Type         |Description                  |
+|-------------------------|-------------|-----------------------------|
+|[:alterf][:app_name]     |String       |application name             |
+|[:alterf][:deploy_dir]   |String       |absolute path to deploy      |
+|[:alterf][:repository]   |String       |github url for clone         |
+|[:alterf][:cron_settings]|Array[Hash]  |settings for cron            |
+|[:alterf][:cron_paths]   |Array[String]|environment variable for PATH|
 
 ## Usage
 
