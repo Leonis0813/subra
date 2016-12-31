@@ -8,18 +8,18 @@
 #
 deploy node[:alterf][:deploy_dir] do
   repo node[:alterf][:repository]
-  branch 'develop'
+  branch node[:alterf][:branch]
   action :deploy
   migrate false
   create_dirs_before_symlink.clear
   purge_before_symlink.clear
   symlink_before_migrate.clear
-  symlinks 'log' => 'log', 'back_up' => 'back_up'
+  symlinks node[:alterf][:symlinks]
 
   before_migrate do
     directory File.join(release_path, 'vendor')
 
-    %w[ back_up/race_list back_up/races back_up/horses log bundle ].each do |dir|
+    node[:alterf][:shared_dirs].each do |dir|
       directory File.join(release_path, "../../shared/#{dir}") do
         recursive true
       end

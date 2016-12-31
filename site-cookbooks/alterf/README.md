@@ -21,6 +21,9 @@ This cookbook deploy alterf
 |[:alterf][:app_name]     |String       |application name             |
 |[:alterf][:deploy_dir]   |String       |absolute path to deploy      |
 |[:alterf][:repository]   |String       |github url for clone         |
+|[:alterf][:branch]       |String       |deployed github branch       |
+|[:alterf][:symlinks]     |Hash         |created symbolic links       |
+|[:alterf][:shared_dirs]  |Array[String]|directories created in shared|
 |[:alterf][:cron_settings]|Array[Hash]  |settings for cron            |
 |[:alterf][:cron_paths]   |Array[String]|environment variable for PATH|
 
