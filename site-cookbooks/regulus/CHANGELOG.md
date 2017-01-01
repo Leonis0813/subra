@@ -1,11 +1,9 @@
-regulus CHANGELOG
-=================
+# regulus CHANGELOG
 
 This file is used to list changes made in each version of the regulus cookbook.
 
-0.1.0
------
-- [your_name] - Initial release of regulus
+## 0.1.0
+- Initial release of regulus
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
