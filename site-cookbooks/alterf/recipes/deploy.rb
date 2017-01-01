@@ -34,8 +34,9 @@ deploy node[:alterf][:deploy_dir] do
       link_type :symbolic
     end
 
-    execute 'bundle install --path=vendor/bundle' do
+    execute 'rvm 2.2.0 do bundle install --path=vendor/bundle' do
       cwd release_path
+      environment 'PATH' => '/usr/local/rvm/bin:/usr/bin:/bin'
     end
   end
 end
