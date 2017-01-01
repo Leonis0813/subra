@@ -10,6 +10,9 @@
     "recipe[user::ssh]",
     "recipe[user::zsh]",
     "recipe[user::emacs]",
+    "recipe[alterf::ruby]",
+    "recipe[alterf::deploy]",
+    "recipe[alterf::mysql]",
     "recipe[nginx::user]",
     "recipe[nginx::install]"
   ]
