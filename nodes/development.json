@@ -13,6 +13,7 @@
     "recipe[alterf::ruby]",
     "recipe[alterf::deploy]",
     "recipe[alterf::mysql]",
+    "recipe[alterf::cron]",
     "recipe[nginx::user]",
     "recipe[nginx::install]"
   ]

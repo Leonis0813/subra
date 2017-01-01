@@ -22,7 +22,7 @@ unless emacs_installed?
   end
 
   [
-    {:name => 'emacs configuration', :commond => './configure --without-x'},
+    {:name => 'emacs configuration', :command => './configure --without-x'},
     {:name => 'make emacs', :command => 'make'},
     {:name => 'install emacs', :command => 'sudo make install'},
   ].each do |resource|
