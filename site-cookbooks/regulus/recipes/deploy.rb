@@ -6,6 +6,12 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+%w[ epel-release R ].each do |name|
+  package name do
+    action :install
+  end
+end
+
 deploy node[:regulus][:deploy_dir] do
   repo node[:regulus][:repository]
   branch node[:regulus][:branch]
