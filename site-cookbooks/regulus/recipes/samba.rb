@@ -16,13 +16,13 @@ template '/etc/smb.cred' do
   mode 0600
 end
 
-directory '/tmp/smb' do
+directory node[:regulus][:smb][:mount_dir] do
   user node[:regulus][:username]
   group node[:regulus][:username]
   mode 0755
 end
 
-mount '/tmp/smb' do
+mount node[:regulus][:smb][:mount_dir] do
   fstype 'cifs'
   device node[:regulus][:smb][:share_name]
   options 'credentials=/etc/smb.cred'
