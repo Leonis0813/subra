@@ -6,16 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-execute 'rpm --import https://packages.treasuredata.com/GPG-KEY-td-agent'
-
-file '/etc/yum.repos.d/treasuredata.repo' do
-  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/treasuredata.repo'))
-  owner 'root'
-  group 'root'
-  mode 0644
-  action :create
-end
-
-package 'td-agent' do
-  action :install
+execute 'curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent2.sh | sh' do
+  not_if { File.exists?('/etc/td-agent') }
 end
