@@ -16,6 +16,12 @@ template '/etc/smb.cred' do
   mode 0600
 end
 
+directory '/tmp/smb' do
+  user node[:regulus][:username]
+  group node[:regulus][:username]
+  mode 0755
+end
+
 mount '/tmp/smb' do
   fstype 'cifs'
   device node[:regulus][:smb][:share_name]
