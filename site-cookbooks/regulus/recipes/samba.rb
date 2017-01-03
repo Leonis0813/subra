@@ -18,7 +18,7 @@ end
 
 mount '/tmp/smb' do
   fstype 'cifs'
-  device '\\\\winServer.com\\dir\\folder\\subfolder'
+  device node[:regulus][:smb][:share_name]
   options 'credentials=/etc/smb.cred'
   action [:mount, :enable]
 end
