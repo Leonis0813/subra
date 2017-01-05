@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 node[:alterf][:cron_settings].each do |cron_setting|
-  cron cron_setting[:name] do
+  cron "#{node[:alterf][:app_name]} #{cron_setting[:name]}" do
     command [
       'cd /opt/alterf/current &&',
       "bundle exec ruby #{cron_setting[:name]}.rb",
