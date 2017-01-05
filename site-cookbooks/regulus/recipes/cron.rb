@@ -14,6 +14,6 @@ node[:regulus][:cron_settings].each do |cron_setting|
     ].join(' ')
     hour cron_setting[:hour]
     minute cron_setting[:minute]
-    path node[:alterf][:cron_paths].join(':')
+    path node[:regulus][:cron_paths].join(':')
   end
 end
