@@ -16,3 +16,4 @@ default[:regulus][:cron_paths] = [
   '/usr/bin',
   '/bin',
 ]
+default[:regulus][:delete_old_files] = false
