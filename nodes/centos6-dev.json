@@ -1,5 +1,5 @@
 {
-  "name": "development",
+  "name": "centos6-dev",
   "run_list": [
     "recipe[rvm::install]",
     "recipe[mysql::install]",
