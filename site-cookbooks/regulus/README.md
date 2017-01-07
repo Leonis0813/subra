@@ -28,6 +28,7 @@ This cookbook deploy regulus
 |[:regulus][:smb][:mount_dir] |String       |mount directory path         |
 |[:regulus][:cron_settings]   |Array[Hash]  |settings for cron            |
 |[:regulus][:cron_paths]      |Array[String]|environment variable for PATH|
+|[:regulus][:delete_old_files]|boolean      |whether delete old rate files|
 
 ## Usage
 
