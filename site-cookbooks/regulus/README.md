@@ -22,6 +22,8 @@ This cookbook deploy regulus
 |[:regulus][:deploy_dir]      |String       |absolute path to deploy      |
 |[:regulus][:repository]      |String       |github url for clone         |
 |[:regulus][:branch]          |String       |deployed github branch       |
+|[:regulus][:symlinks]        |Hash         |created symbolic links       |
+|[:regulus][:shared_dirs]     |Array[String]|directories created in shared|
 |[:regulus][:username]        |String       |regulus manager name         |
 |[:regulus][:password]        |String       |user password                |
 |[:regulus][:smb][:share_name]|String       |shared directory path        |
