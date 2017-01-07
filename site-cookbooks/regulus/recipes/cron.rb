@@ -20,7 +20,7 @@ end
 
 cron "#{node[:regulus][:app_name]} delete" do
   command 'cd /opt/regulus/current && ruby delete.rb'
-  hout '1'
+  hour '1'
   minute '0'
   path node[:regulus][:cron_paths].join(':')
   only_if { node[:regulus][:delete_old_files] }
