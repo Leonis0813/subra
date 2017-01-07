@@ -20,5 +20,29 @@ deploy node[:regulus][:deploy_dir] do
   symlink_before_migrate.clear
   create_dirs_before_symlink.clear
   purge_before_symlink.clear
-  symlinks.clear
+  symlinks node[:regulus][:symlinks]
+
+  before_migrate do
+    directory File.join(release_path, 'vendor')
+
+    node[:regulus][:shared_dirs].each do |dir|
+      directory File.join(release_path, "../../shared/#{dir}") do
+        recursive true
+      end
+    end
+
+    package 'mysql-devel' do
+      action :install
+    end
+
+    link File.join(release_path, 'vendor/bundle') do
+      to File.join(release_path, '../../shared/bundle')
+      link_type :symbolic
+    end
+
+    execute 'rvm 2.2.0 do bundle install --path=vendor/bundle' do
+      cwd release_path
+      environment 'PATH' => '/usr/local/rvm/bin:/usr/bin:/bin'
+    end
+  end
 end
