@@ -14,6 +14,11 @@
     "recipe[alterf::deploy]",
     "recipe[alterf::mysql]",
     "recipe[alterf::cron]",
+    "recipe[regulus::deploy]",
+    "recipe[regulus::mysql]",
+    "recipe[regulus::user]",
+    "recipe[regulus::samba]",
+    "recipe[regulus::cron]",
     "recipe[nginx::user]",
     "recipe[nginx::install]"
   ]
