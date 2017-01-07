@@ -1,5 +1,6 @@
 {
   "name": "centos6-dev",
+  "environment": "develoment",
   "run_list": [
     "recipe[rvm::install]",
     "recipe[mysql::install]",
