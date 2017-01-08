@@ -6,8 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-execute 'CREATE DATABASE IF NOT EXISTS regulus DEFAULT CHARACTER SET utf8'
-
-node[:regulus][:sql_files].each do |sql_file|
-  execute "mysql -u #{node[:regulus][:username]} -p#{node[:regulus][:password]} regulus < #{sql_file}"
+execute 'rvm 2.2.0 do bundle exec ruby mysql/initialize.rb' do
+  cwd "#{node[:regulus][:deploy_dir]}/current"
+  environment 'PATH' => '/usr/local/rvm/bin:/usr/bin:/bin'
 end
