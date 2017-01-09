@@ -9,8 +9,7 @@ default[:regulus][:password] = '7QiSlC?4'
 default[:regulus][:smb][:share_name] = '//27.134.255.192/share'
 default[:regulus][:smb][:mount_dir] = '/mnt/smb'
 default[:regulus][:cron_settings] = [
-  {:name => 'import', :hour => '0', :minute => '0'},
-  {:name => 'aggregate'},
+  {:name => 'aggregate', :hour => '0', :minute => '0'},
 ]
 default[:regulus][:cron_paths] = [
   '/usr/local/rvm/gems/ruby-2.2.0@global/bin',
