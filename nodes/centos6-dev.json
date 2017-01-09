@@ -17,6 +17,7 @@
     "recipe[alterf::deploy]",
     "recipe[alterf::mysql]",
     "recipe[alterf::cron]",
+    "recipe[regulus::ruby]",
     "recipe[regulus::deploy]",
     "recipe[regulus::mysql]",
     "recipe[regulus::user]",
