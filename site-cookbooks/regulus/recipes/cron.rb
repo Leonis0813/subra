@@ -19,7 +19,7 @@ node[:regulus][:cron_settings].each do |cron_setting|
 end
 
 cron "#{node[:regulus][:app_name]} delete" do
-  command 'cd /opt/regulus/current && ruby delete.rb'
+  command 'cd /opt/regulus/current && ruby aggregate/delete.rb'
   hour '1'
   minute '0'
   path node[:regulus][:cron_paths].join(':')
