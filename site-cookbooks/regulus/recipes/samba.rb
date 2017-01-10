@@ -20,6 +20,7 @@ directory node[:regulus][:smb][:mount_dir] do
   user node[:regulus][:username]
   group node[:regulus][:username]
   mode 0755
+  not_if { File.exists?(node[:regulus][:smb][:mount_dir]) }
 end
 
 mount node[:regulus][:smb][:mount_dir] do
