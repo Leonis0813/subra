@@ -18,18 +18,15 @@ This cookbook install jenkins
 
 ## Usage
 
-### jenkins::default
+### jenkins::install
 
-TODO: Write usage instructions for each cookbook.
-
-e.g.
 Just include `jenkins` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[jenkins]"
+    "recipe[jenkins::install]"
   ]
 }
 ```
