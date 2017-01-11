@@ -3,7 +3,7 @@
 This file is used to list changes made in each version of the jenkins cookbook.
 
 ## 0.1.0
-- [your_name] - Initial release of jenkins
+- Initial release of jenkins
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
