@@ -11,7 +11,7 @@ remote_file "/tmp/jenkins-#{node[:jenkins][:version]}-1.1.noarch.rpm" do
   owner 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?("/tmp/nginx-#{node[:jenkins][:version]}") }
+  not_if { File.exists?("/tmp/jenkins-#{node[:jenkins][:version]}-1.1.noarch.rpm") }
 end
 
 package 'jenkins' do
