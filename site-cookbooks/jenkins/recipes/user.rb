@@ -6,19 +6,21 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-remote_file "/tmp/jenkins-cli.jar" do
-  source 'http://localhost:8080/jnlpJars/jenkins-cli.jar'
+remote_file node[:jenkins][:cli_path] do
+  source node[:jenkins][:cli_url]
   owner 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?("/tmp/jenkins-cli.jar") }
+  not_if { File.exists?(node[:jenkins][:cli_path]) }
 end
 
-execute 'create account' do
-  command <<-EOF
-echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("leonis", "7QiSlC?4")' |
-java -jar /tmp/jenkins-cli.jar -s http://localhost:8080 groovy = --username=admin --password=6026710acdec4fb3a0997fdc05afd129
-  EOF
-  user 'root'
-  retries 5
+node[:jenkins][:accounts].each do |account|
+  execute "create account - #{account[:id]}" do
+    command <<-"EOF"
+echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("#{account[:id]}", "#{account[:password]}")' |
+java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} groovy = --username=#{node[:jenkins][:admin][:id]} --password=#{node[:jenkins][:admin][:password]}
+    EOF
+    user 'root'
+    retries 5
+  end
 end

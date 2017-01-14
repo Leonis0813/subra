@@ -6,19 +6,21 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-remote_file '/tmp/jenkins-cli.jar' do
-  source 'http://localhost:8080/jnlpJars/jenkins-cli.jar'
+remote_file node[:jenkins][:cli_path] do
+  source node[:jenkins][:cli_url]
   owner 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?('/tmp/jenkins-cli.jar') }
+  not_if { File.exists?(node[:jenkins][:cli_path]) }
 end
 
-execute 'create job' do
-  command <<-EOF
+node[:jenkins][:jobs].each do |job|
+  execute "create job - #{job}" do
+    command <<-EOF
 cat /tmp/config.xml |
-java -jar /tmp/jenkins-cli.jar -s http://localhost:8080 create-job test --username=admin --password=6026710acdec4fb3a0997fdc05afd129
-  EOF
-  user 'root'
-  retries 5
+java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} create-job #{job} --username=#{node[:jenkins][:admin][:id]} --password=#{node[:jenkins][:admin][:password]}
+    EOF
+    user 'root'
+    retries 5
+  end
 end

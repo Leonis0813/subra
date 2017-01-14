@@ -6,15 +6,20 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-remote_file "/tmp/jenkins-cli.jar" do
-  source 'http://localhost:8080/jnlpJars/jenkins-cli.jar'
+remote_file node[:jenkins][:cli_path] do
+  source node[:jenkins][:cli_url]
   owner 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?("/tmp/jenkins-cli.jar") }
+  not_if { File.exists?(node[:jenkins][:cli_path]) }
 end
 
-execute 'java -jar /tmp/jenkins-cli.jar -s http://localhost:8080 install-plugin git --username=admin --password=6026710acdec4fb3a0997fdc05afd129' do
-  user 'root'
-  retries 5
+node[:jenkins][:plugins].each do |plugin|
+  execute "install plugin  - #{plugin}" do
+    command <<-"EOF"
+java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} install-plugin #{plugin} --username=#{node[:jenkins][:admin][:id]} --password=#{node[:jenkins][:admin][:password]}
+    EOF
+    user 'root'
+    retries 5
+  end
 end
