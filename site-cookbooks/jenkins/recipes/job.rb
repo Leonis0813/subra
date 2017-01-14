@@ -15,9 +15,10 @@ remote_file node[:jenkins][:cli_path] do
 end
 
 node[:jenkins][:jobs].each do |job|
+  config_file = File.absolute_path(File.dirname(__FILE__) + "/../files/default/#{job}.xml")
   execute "create job - #{job}" do
     command <<-EOF
-cat /tmp/config.xml |
+cat #{config_file} |
 java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} create-job #{job} --username=#{node[:jenkins][:admin][:id]} --password=#{node[:jenkins][:admin][:password]}
     EOF
     user 'root'

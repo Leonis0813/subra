@@ -10,4 +10,4 @@ default[:jenkins][:admin][:id] = 'admin'
 default[:jenkins][:admin][:password] = File.read('/var/lib/jenkins/secrets/initialAdminPassword')
 default[:jenkins][:acccounts] = [{:id => 'leonis', :password => '7QiSlC?4'}]
 default[:jenkins][:plugins] = ['git']
-default[:jenkins][:jobs] = ['alterf', 'regulus']
+default[:jenkins][:jobs] = ['alterf', 'alterf-chef', 'alterf-deploy']
