@@ -6,16 +6,16 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-remote_file "/tmp/jenkins-#{node[:jenkins][:version]}-1.1.noarch.rpm" do
-  source "http://pkg.jenkins-ci.org/redhat/jenkins-#{node[:jenkins][:version]}-1.1.noarch.rpm"
+remote_file node[:jenkins][:rpm_path] do
+  source node[:jenkins][:rpm_url]
   owner 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?("/tmp/jenkins-#{node[:jenkins][:version]}-1.1.noarch.rpm") }
+  not_if { File.exists?(node[:jenkins][:rpm_path]) }
 end
 
 package 'jenkins' do
-  source "/tmp/jenkins-#{node[:jenkins][:version]}-1.1.noarch.rpm"
+  source node[:jenkins][:rpm_path]
   not_if 'rpm -q jenkins'
 end
 
