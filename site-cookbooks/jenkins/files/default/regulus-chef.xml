@@ -36,7 +36,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>alterf</upstreamProjects>
+      <upstreamProjects>regulus</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -49,7 +49,7 @@
   <builders/>
   <publishers>
     <hudson.tasks.BuildTrigger>
-      <childProjects>alterf-deploy</childProjects>
+      <childProjects>regulus-deploy</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
