@@ -34,7 +34,7 @@
   <customWorkspace>workspace/alterf-chef</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>chef-client -z -o alterf::deploy</command>
+      <command>sudo chef-client -z -o alterf::deploy</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
