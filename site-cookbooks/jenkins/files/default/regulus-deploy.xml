@@ -31,7 +31,7 @@
     </jenkins.triggers.ReverseBuildTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
-  <customWorkspace>workspace/alterf-chef</customWorkspace>
+  <customWorkspace>workspace/regulus-chef</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
       <command>sudo chef-client -z -o regulus::deploy</command>
