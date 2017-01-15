@@ -17,9 +17,10 @@ end
 node[:jenkins][:plugins].each do |plugin|
   execute "install plugin  - #{plugin}" do
     command <<-"EOF"
-java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} install-plugin #{plugin} --username=#{node[:jenkins][:admin][:id]} --password=#{node[:jenkins][:admin][:password]}
+java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} install-plugin #{plugin} --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]}
     EOF
     user 'root'
     retries 5
+    retry_delay 10
   end
 end

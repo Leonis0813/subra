@@ -19,9 +19,10 @@ node[:jenkins][:jobs].each do |job|
   execute "create job - #{job}" do
     command <<-EOF
 cat #{config_file} |
-java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} create-job #{job} --username=#{node[:jenkins][:admin][:id]} --password=#{node[:jenkins][:admin][:password]}
+java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} create-job #{job} --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]}
     EOF
     user 'root'
     retries 5
+    retry_delay 10
   end
 end

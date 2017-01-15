@@ -30,3 +30,8 @@ end
 service 'jenkins' do
   action [:enable, :start]
 end
+
+execute 'netstat -ant | grep 8080 | grep LISTEN' do
+  retries 5
+  retry_delay 10
+end
