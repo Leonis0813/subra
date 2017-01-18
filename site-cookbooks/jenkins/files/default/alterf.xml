@@ -43,7 +43,7 @@
   <builders/>
   <publishers>
     <hudson.tasks.BuildTrigger>
-      <childProjects>alterf-chef</childProjects>
+      <childProjects>alterf-deploy</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
