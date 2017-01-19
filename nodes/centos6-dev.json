@@ -9,6 +9,10 @@
     "recipe[user::ssh]",
     "recipe[user::zsh]",
     "recipe[user::emacs]",
+    "recipe[jenkins::install]",
+    "recipe[jenkins::user]",
+    "recipe[jenkins::plugin]",
+    "recipe[jenkins::job]",
     "role[alterf]",
     "role[regulus]"
   ]
