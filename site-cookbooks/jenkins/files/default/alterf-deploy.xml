@@ -48,7 +48,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo chef-client -z -r &apos;recipe[alterf::deploy]&apos;</command>
+      <command>sudo chef-client -z -r &apos;recipe[alterf::deploy],recipe[alterf::cron]&apos;</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
