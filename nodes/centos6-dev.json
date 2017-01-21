@@ -2,10 +2,6 @@
   "name": "centos6-dev",
   "environment": "develoment",
   "run_list": [
-    "recipe[nginx::user]",
-    "recipe[nginx::install]",
-    "recipe[mysql::install]",
-    "recipe[rvm::install]",
     "recipe[emacs::install]",
     "recipe[git::install]",
     "recipe[zsh::install]",
@@ -13,15 +9,11 @@
     "recipe[user::ssh]",
     "recipe[user::zsh]",
     "recipe[user::emacs]",
-    "recipe[alterf::ruby]",
-    "recipe[alterf::deploy]",
-    "recipe[alterf::mysql]",
-    "recipe[alterf::cron]",
-    "recipe[regulus::ruby]",
-    "recipe[regulus::deploy]",
-    "recipe[regulus::mysql]",
-    "recipe[regulus::user]",
-    "recipe[regulus::samba]",
-    "recipe[regulus::cron]"
+    "recipe[jenkins::install]",
+    "recipe[jenkins::user]",
+    "recipe[jenkins::plugin]",
+    "recipe[jenkins::job]",
+    "role[alterf]",
+    "role[regulus]"
   ]
 }

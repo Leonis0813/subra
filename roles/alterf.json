@@ -1,0 +1,11 @@
+{
+  "name": "alterf",
+  "run_list": [
+    "recipe[mysql::install]",
+    "recipe[rvm::install]",
+    "recipe[alterf::ruby]",
+    "recipe[alterf::deploy]",
+    "recipe[alterf::mysql]",
+    "recipe[alterf::cron]"
+  ]
+}

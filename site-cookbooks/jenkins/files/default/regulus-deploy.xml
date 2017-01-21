@@ -49,7 +49,7 @@
   <customWorkspace>workspace/regulus-chef</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo chef-client -z -r &apos;recipe[regulus::deploy]&apos;</command>
+      <command>sudo chef-client -z -r &apos;recipe[regulus::deploy],recipe[regulus::cron]&apos;</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
