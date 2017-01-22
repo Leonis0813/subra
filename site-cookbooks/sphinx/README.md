@@ -14,11 +14,11 @@ This cookbook install sphinx
 
 ## Attributes
 
-#### sphinx::default
+### sphinx::default
 
 ## Usage
 
-#### sphinx::install
+### sphinx::install
 
 Just include `sphinx` in your node's `run_list`:
 
