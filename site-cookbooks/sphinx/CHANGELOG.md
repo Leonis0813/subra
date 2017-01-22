@@ -1,11 +1,9 @@
-sphinx CHANGELOG
-================
+# sphinx CHANGELOG
 
 This file is used to list changes made in each version of the sphinx cookbook.
 
-0.1.0
------
-- [your_name] - Initial release of sphinx
+## 0.1.0
+- Initial release of sphinx
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
