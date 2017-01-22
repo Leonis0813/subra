@@ -6,3 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+package 'python-pip' do
+  action :install
+end
+
+execute 'pip install sphinx'
