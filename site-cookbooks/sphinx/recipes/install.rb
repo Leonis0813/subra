@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: sphinx
-# Recipe:: default
+# Recipe:: install
 #
-# Copyright 2017, YOUR_COMPANY_NAME
+# Copyright 2017, Leonis0813
 #
 # All rights reserved - Do Not Redistribute
 #
