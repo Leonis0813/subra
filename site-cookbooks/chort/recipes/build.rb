@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: chort
-# Recipe:: default
+# Recipe:: build
 #
-# Copyright 2017, YOUR_COMPANY_NAME
+# Copyright 2017, Leonis0813
 #
 # All rights reserved - Do Not Redistribute
 #
