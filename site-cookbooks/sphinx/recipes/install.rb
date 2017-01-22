@@ -6,8 +6,12 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package 'python-pip' do
+package %w[ python-pip graphviz ] do
   action :install
+end
+
+%w[ sphinxcontrib-plantuml sphinxcontrib-httpdomain ].each do |package|
+  execute "easy_install #{package}"
 end
 
 execute 'pip install sphinx'
