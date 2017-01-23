@@ -10,8 +10,6 @@ package %w[ python-pip graphviz ] do
   action :install
 end
 
-%w[ sphinxcontrib-plantuml sphinxcontrib-httpdomain ].each do |package|
-  execute "easy_install #{package}"
+%w[ sphinx==1.4.5 sphinxcontrib-plantuml sphinxcontrib-httpdomain ].each do |package|
+  execute "pip install #{package}"
 end
-
-execute 'pip install sphinx'
