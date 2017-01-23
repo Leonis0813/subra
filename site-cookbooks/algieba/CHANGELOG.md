@@ -1,11 +1,9 @@
-algieba CHANGELOG
-=================
+# algieba CHANGELOG
 
 This file is used to list changes made in each version of the algieba cookbook.
 
-0.1.0
------
-- [your_name] - Initial release of algieba
+## 0.1.0
+- Initial release of algieba
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
