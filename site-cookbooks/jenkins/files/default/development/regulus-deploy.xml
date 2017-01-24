@@ -33,23 +33,11 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers>
-    <jenkins.triggers.ReverseBuildTrigger>
-      <spec></spec>
-      <upstreamProjects>regulus</upstreamProjects>
-      <threshold>
-        <name>SUCCESS</name>
-        <ordinal>0</ordinal>
-        <color>BLUE</color>
-        <completeBuild>true</completeBuild>
-      </threshold>
-    </jenkins.triggers.ReverseBuildTrigger>
-  </triggers>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
-  <customWorkspace>workspace/regulus-chef</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo chef-client -z -r &apos;recipe[regulus::deploy],recipe[regulus::cron]&apos;</command>
+      <command>sudo chef-client -z -r regulus::deploy,regulus::cron</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

@@ -33,22 +33,11 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers>
-    <jenkins.triggers.ReverseBuildTrigger>
-      <spec></spec>
-      <upstreamProjects>alterf</upstreamProjects>
-      <threshold>
-        <name>SUCCESS</name>
-        <ordinal>0</ordinal>
-        <color>BLUE</color>
-        <completeBuild>true</completeBuild>
-      </threshold>
-    </jenkins.triggers.ReverseBuildTrigger>
-  </triggers>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo chef-client -z -r &apos;recipe[alterf::deploy],recipe[alterf::cron]&apos;</command>
+      <command>sudo chef-client -z -r alterf::deploy,alterf::cron</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
