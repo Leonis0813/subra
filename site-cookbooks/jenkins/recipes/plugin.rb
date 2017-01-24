@@ -15,7 +15,7 @@ remote_file node[:jenkins][:cli_path] do
 end
 
 node[:jenkins][:plugins].each do |plugin|
-  execute "install plugin  - #{plugin}" do
+  execute "install plugin - #{plugin}" do
     command <<-"EOF"
 java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} install-plugin #{plugin} --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]}
     EOF

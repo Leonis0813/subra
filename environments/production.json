@@ -1,0 +1,8 @@
+{
+  "name": "production",
+  "default_attributes": {
+    "jenkins": {
+      "environment": "production"
+    }
+  }
+}

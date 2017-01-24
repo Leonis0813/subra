@@ -8,7 +8,7 @@
 #
 deploy node[:alterf][:deploy_dir] do
   repo node[:alterf][:repository]
-  branch node[:alterf][:branch]
+  branch ENV['ALTERF_VERSION'] || node[:alterf][:branch]
   action :deploy
   migrate false
   create_dirs_before_symlink.clear
