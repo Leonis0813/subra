@@ -46,7 +46,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo REGULUS_VERSION=${version#origin/tags/} chef-client -z -r regulus::deploy</command>
+      <command>sudo REGULUS_VERSION=${version#origin/tags/} chef-client -z -r regulus::deploy -E production</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

@@ -37,7 +37,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo chef-client -z -r regulus::deploy,regulus::cron</command>
+      <command>sudo chef-client -z -r regulus::deploy,regulus::cron -E development</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
