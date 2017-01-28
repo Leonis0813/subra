@@ -41,7 +41,7 @@ deploy node[:algieba][:deploy_dir] do
     end
 
     execute 'add privileges' do
-      command "mysql -u root -p7QiSlC?4 -e 'GRANT ALL PRIVILEGES ON *.* TO '#{node[:algieba][:environment]}'@'localhost';'"
+      command "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO '#{node[:algieba][:environment]}'@'localhost';'"
     end
 
     execute 'rvm 2.2.0 do bundle exec rake db:create' do
