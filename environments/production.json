@@ -3,6 +3,9 @@
   "default_attributes": {
     "jenkins": {
       "environment": "production"
+    },
+    "algieba": {
+      "environment": "production"
     }
   }
 }
