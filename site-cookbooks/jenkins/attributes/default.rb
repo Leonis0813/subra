@@ -10,4 +10,4 @@ default[:jenkins][:admin][:username] = 'admin'
 default[:jenkins][:admin][:password_file] = '/var/lib/jenkins/secrets/initialAdminPassword'
 default[:jenkins][:accounts] = [{:id => 'leonis', :password => '7QiSlC?4'}]
 default[:jenkins][:plugins] = %w[ git parameterized-trigger ]
-default[:jenkins][:jobs] = %w[ alterf alterf-deploy regulus regulus-deploy ]
+default[:jenkins][:jobs] = %w[ alterf alterf-deploy regulus regulus-deploy algieba algieba-deploy ]
