@@ -46,7 +46,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo REGULUS_VERSION=${version} chef-client -z -r regulus::deploy</command>
+      <command>sudo ALGIEBA_VERSION=${version} chef-client -z -r algieba::deploy</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
