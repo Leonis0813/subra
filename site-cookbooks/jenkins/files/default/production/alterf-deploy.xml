@@ -46,7 +46,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>ALTERF_VERSION=${version} sudo chef-client -z -r alterf::deploy</command>
+      <command>sudo ALTERF_VERSION=${version} chef-client -z -r alterf::deploy</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
