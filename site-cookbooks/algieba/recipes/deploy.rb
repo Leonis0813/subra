@@ -66,5 +66,9 @@ deploy node[:algieba][:deploy_dir] do
     end
   end
 
-  restart_command 'rvm 2.2.0 do bundle exec rake unicorn:restart'
+  if File.exists?("#{node[:algieba][:deploy_dir]}/shared/tmp/pids/unicorn.pid")
+    restart_command 'rvm 2.2.0 do bundle exec rake unicorn:restart'
+  else
+    restart_command 'rvm 2.2.0 do bundle exec rake unicorn:start'
+  end
 end
