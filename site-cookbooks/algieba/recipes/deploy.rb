@@ -65,4 +65,6 @@ deploy node[:algieba][:deploy_dir] do
       only_if { node[:algieba][:environment] == 'production' }
     end
   end
+
+  restart_command 'rvm 2.2.0 do bundle exec rake unicorn:restart'
 end
