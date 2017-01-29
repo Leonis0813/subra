@@ -72,3 +72,17 @@ deploy node[:algieba][:deploy_dir] do
     restart_command 'rvm 2.2.0 do bundle exec rake unicorn:start'
   end
 end
+
+if node[:algieba][:environment] == 'development'
+  execute 'yum -y groupupdate "X Window System"' do
+    not_if 'rpm -q xorg-x11-server-Xvfb'
+  end
+
+  package 'xorg-x11-server-Xvfb' do
+    not_if 'rpm -q xorg-x11-server-Xvfb'
+  end
+
+  execute 'dbus-uuidgen > /var/lib/dbus/machine-id' do
+    not_if 'rpm -q xorg-x11-server-Xvfb'
+  end
+end

@@ -40,10 +40,15 @@
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
-  <builders/>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>PATH=/usr/local/rvm/bin:/usr/bin:$PATH
+rvm 2.2.0 do bundle install --path=vendor/bundle</command>
+    </hudson.tasks.Shell>
+  </builders>
   <publishers>
     <hudson.tasks.BuildTrigger>
-      <childProjects>algieba-deploy</childProjects>
+      <childProjects>algieba-module_test</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -52,5 +57,9 @@
       </threshold>
     </hudson.tasks.BuildTrigger>
   </publishers>
-  <buildWrappers/>
+  <buildWrappers>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.3">
+      <colorMapName>xterm</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+  </buildWrappers>
 </project>
