@@ -74,11 +74,15 @@ deploy node[:algieba][:deploy_dir] do
 end
 
 if node[:algieba][:environment] == 'development'
-  execute 'yum groupupdate "X Window System"' do
+  execute 'yum -y groupupdate "X Window System"' do
     not_if 'rpm -q Xvfb'
   end
 
   package 'xorg-x11-server-Xvfb' do
+    not_if 'rpm -q Xvfb'
+  end
+
+  execute 'dbus-uuidgen > /var/lib/dbus/machine-id' do
     not_if 'rpm -q Xvfb'
   end
 end
