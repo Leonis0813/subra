@@ -7,18 +7,21 @@
 # All rights reserved - Do Not Redistribute
 #
 unless emacs_installed?
+  download_path = File.join(node[:emacs][:download][:dir], node[:emacs][:download][:file])
+  extracted_dir = download_path.sub('.tar.gz', '')
+
   package node[:emacs][:requirements] do
     action :install
   end
 
-  remote_file "/tmp/emacs-#{node[:emacs][:version]}.tar.gz" do
-    source "http://ftp.gnu.org/pub/gnu/emacs/emacs-#{node[:emacs][:version]}.tar.gz"
-    not_if { File.exists?("/tmp/emacs-#{node[:emacs][:version]}.tar.gz") }
+  remote_file download_path do
+    source node[:emacs][:download][:url]
+    not_if { File.exists?(download_path) }
   end
 
-  execute "tar zxf emacs-#{node[:emacs][:version]}.tar.gz" do
-    cwd '/tmp'
-    not_if { File.exists?("/tmp/emacs-#{node[:emacs][:version]}") }
+  execute "tar zxf #{node[:emacs][:download][:file]}" do
+    cwd node[:emacs][:download][:dir]
+    not_if { File.exists?(extracted_dir) }
   end
 
   [
@@ -28,8 +31,8 @@ unless emacs_installed?
   ].each do |resource|
     execute resource[:name] do
       command resource[:command]
-      cwd "/tmp/emacs-#{node[:emacs][:version]}"
-      only_if { File.exists?("/tmp/emacs-#{node[:emacs][:version]}") }
+      cwd extracted_dir
+      only_if { File.exists?(extracted_dir) }
     end
   end
 end
