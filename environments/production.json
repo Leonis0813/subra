@@ -2,10 +2,15 @@
   "name": "production",
   "default_attributes": {
     "jenkins": {
-      "environment": "production"
-    },
-    "algieba": {
-      "environment": "production"
+      "jobs": [
+        "alterf",
+        "alterf-deploy",
+        "regulus",
+        "regulus-deploy",
+        "algieba",
+        "algieba-deploy",
+        "chort"
+      ]
     }
   }
 }

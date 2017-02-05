@@ -15,7 +15,7 @@ remote_file node[:jenkins][:cli_path] do
 end
 
 node[:jenkins][:jobs].each do |job|
-  config_file = File.absolute_path(File.dirname(__FILE__) + "/../files/default/#{node[:jenkins][:environment]}/#{job}.xml")
+  config_file = File.absolute_path(File.dirname(__FILE__) + "/../files/default/#{node[:chef_environment]}/#{job}.xml")
   execute "create job - #{job}" do
     command <<-EOF
 cat #{config_file} |

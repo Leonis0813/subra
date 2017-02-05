@@ -1,11 +1,3 @@
 {
-  "name": "development",
-  "default_attributes": {
-    "jenkins": {
-      "environment": "development"
-    },
-    "algieba": {
-      "environment": "development"
-    }
-  }
+  "name": "development"
 }
