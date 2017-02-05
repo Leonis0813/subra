@@ -14,7 +14,7 @@ remote_file node[:jenkins][:rpm_path] do
   not_if { File.exists?(node[:jenkins][:rpm_path]) }
 end
 
-package 'java' do
+package 'java-1.8.0-openjdk' do
   not_if 'rpm -q java'
 end
 
