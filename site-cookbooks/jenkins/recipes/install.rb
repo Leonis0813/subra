@@ -41,3 +41,7 @@ execute 'netstat -ant | grep 8080 | grep LISTEN' do
 end
 
 execute 'lokkit -p 8080:tcp'
+
+service 'network' do
+  action [:restart]
+end
