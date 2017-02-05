@@ -8,7 +8,7 @@
 #
 unless File.exists?(node[:nginx][:install_dir])
   download_path = File.join(node[:nginx][:download][:url], node[:nginx][:download][:file])
-  extracted_dir = download_path.sub('.tar.gz'. '')
+  extracted_dir = download_path.sub('.tar.gz', '')
 
   package node[:nginx][:requirements] do
     action :install
