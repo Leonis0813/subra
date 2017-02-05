@@ -6,11 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package %w[ samba-client cifs-utils ] do
+package node[:regulus][:smb][:packages] do
   action :install
 end
 
-template '/etc/smb.cred' do
+template node[:regulus][:smb][:credential_file] do
   user node[:regulus][:username]
   group node[:regulus][:username]
   mode 0600
@@ -26,6 +26,6 @@ end
 mount node[:regulus][:smb][:mount_dir] do
   fstype 'cifs'
   device node[:regulus][:smb][:share_name]
-  options 'credentials=/etc/smb.cred'
+  options "credentials=#{node[:regulus][:smb][:credential_file]}"
   action [:mount, :enable]
 end

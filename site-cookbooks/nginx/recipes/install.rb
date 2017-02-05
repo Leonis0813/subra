@@ -7,18 +7,21 @@
 # All rights reserved - Do Not Redistribute
 #
 unless File.exists?(node[:nginx][:install_dir])
+  download_path = File.join(node[:nginx][:download][:url], node[:nginx][:download][:file])
+  extracted_dir = download_path.sub('.tar.gz'. '')
+
   package node[:nginx][:requirements] do
     action :install
   end
 
-  remote_file "/tmp/nginx-#{node[:nginx][:version]}.tar.gz" do
-    source "https://nginx.org/download/nginx-#{node[:nginx][:version]}.tar.gz"
-    not_if { File.exists?("/tmp/nginx-#{node[:nginx][:version]}.tar.gz") }
+  remote_file download_path do
+    source node[:nginx][:download][:url]
+    not_if { File.exists?(download_path) }
   end
 
-  execute "tar zxf nginx-#{node[:nginx][:version]}.tar.gz" do
-    cwd '/tmp'
-    not_if { File.exists?("/tmp/nginx-#{node[:nginx][:version]}") }
+  execute "tar zxf #{node[:nginx][:download][:file]}" do
+    cwd node[:nginx][:download][:dir]
+    not_if { File.exists?(extracted_dir) }
   end
 
   [
@@ -28,8 +31,8 @@ unless File.exists?(node[:nginx][:install_dir])
   ].each do |resource|
     execute resource[:name] do
       command resource[:command]
-      cwd "/tmp/nginx-#{node[:nginx][:version]}"
-      only_if { File.exists?("/tmp/nginx-#{node[:nginx][:version]}") }
+      cwd extracted_dir
+      only_if { File.exists?(extracted_dir) }
     end
   end
 

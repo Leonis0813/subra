@@ -42,7 +42,7 @@ deploy node[:regulus][:deploy_dir] do
 
     execute 'rvm 2.2.0 do bundle install --path=vendor/bundle' do
       cwd release_path
-      environment 'PATH' => '/usr/local/rvm/bin:/usr/bin:/bin'
+      environment 'PATH' => node[:rvm][:path]
     end
   end
 end

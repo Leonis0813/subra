@@ -16,10 +16,13 @@ This cookbook install emacs
 
 ### emacs::default
 
-|Key                    |Type         |Description                         |
-|-----------------------|-------------|------------------------------------|
-|[:emacs][:requirements]|Array[String]|prerequirements for installing emacs|
-|[:emacs][:version]     |String       |installed emacs version             |
+|Key                       |Type         |Description                         |
+|--------------------------|-------------|------------------------------------|
+|[:emacs][:requirements]   |Array[String]|prerequirements for installing emacs|
+|[:emacs][:version]        |String       |installed emacs version             |
+|[:emacs][:download][:url] |String       |url for emacs package               |
+|[:emacs][:download][:dir] |String       |directory downloaded emacs package  |
+|[:emacs][:download][:file]|String       |file name downloaded emacs package  |
 
 ## Usage
 

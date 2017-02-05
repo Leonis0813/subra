@@ -6,8 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-['rvm install 2.2.0', 'rvm 2.2.0@global do gem install bundler'].each do |command|
+[
+  "rvm install #{node[:regulus][:ruby_version]}",
+  "rvm #{node[:regulus][:ruby_version]}@global do gem install bundler",
+].each do |command|
   execute command do
-    environment 'PATH' => '/usr/local/rvm/bin:/usr/bin:/bin'
+    environment 'PATH' => node[:rvm][:path]
   end
 end

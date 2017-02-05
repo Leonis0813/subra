@@ -7,24 +7,27 @@
 # All rights reserved - Do Not Redistribute
 #
 unless git_installed?
+  download_path = File.join(node[:git][:download][:dir], node[:git][:download][:file])
+  extracted_dir = download_path.sub('.tar.gz', '')
+
   package node[:git][:requirements] do
     action :install
   end
 
-  remote_file "/tmp/git-#{node[:git][:version]}.tar.gz" do
-    source "https://www.kernel.org/pub/software/scm/git/git-#{node[:git][:version]}.tar.gz"
-    not_if { File.exists?("/tmp/git-#{node[:git][:version]}.tar.gz") }
+  remote_file download_path do
+    source node[:git][:download][:url]
+    not_if { File.exists?(download_path) }
   end
 
-  execute "tar zxf git-#{node[:git][:version]}.tar.gz" do
-    cwd '/tmp'
-    not_if { File.exists?("/tmp/git-#{node[:git][:version]}") }
+  execute "tar zxf #{node[:git][:download][:file]}" do
+    cwd node[:git][:download][:dir]
+    not_if { File.exists?(extracted_dir) }
   end
 
-  ["make prefix=#{node[:git][:install_dir]} all", "make prefix=#{node[:git][:install_dir]} install"].each do |command|
+  node[:git][:install_commands].each do |command|
     execute command do
-      cwd "/tmp/git-#{node[:git][:version]}"
-      only_if { File.exists?("/tmp/git-#{node[:git][:version]}") }
+      cwd extracted_dir
+      only_if { File.exists?(extracted_dir) }
     end
   end
 end
