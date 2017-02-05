@@ -4,3 +4,4 @@ default[:algieba][:repository] = "https://github.com/Leonis0813/#{default[:algie
 default[:algieba][:branch] = 'develop'
 default[:algieba][:symlinks] = {'log' => 'log', 'tmp' => 'tmp'}
 default[:algieba][:shared_dirs] = %w[ log tmp ]
+default[:algieba][:path] = '/usr/local/rvm/bin:/usr/bin:/bin'
