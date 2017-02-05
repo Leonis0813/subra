@@ -16,7 +16,7 @@ deploy node[:algieba][:deploy_dir] do
   symlink_before_migrate.clear
   symlinks node[:algieba][:symlinks]
   migration_command 'rvm 2.2.0 do bundle exec rake db:migrate'
-  environment 'RAILS_ENV' => node[:chef_environment], 'PATH' => node[:rvm][:path]
+  environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
 
   before_migrate do
     directory File.join(release_path, 'vendor')
@@ -43,20 +43,20 @@ deploy node[:algieba][:deploy_dir] do
 
     execute 'rvm 2.2.0 do bundle exec rake db:create' do
       cwd release_path
-      environment 'RAILS_ENV' => node[:chef_environment], 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
     end
   end
 
   before_restart do
     execute 'rvm 2.2.0 do bundle exec rake db:seed' do
       cwd release_path
-      environment 'RAILS_ENV' => node[:chef_environment], 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
     end
 
     execute 'rvm 2.2.0 do bundle exec rake assets:precompile' do
       cwd release_path
-      environment 'RAILS_ENV' => node[:chef_environment], 'PATH' => node[:rvm][:path]
-      only_if { node[:chef_environment] == 'production' }
+      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+      only_if { node.chef_environment == 'production' }
     end
   end
 
@@ -67,7 +67,7 @@ deploy node[:algieba][:deploy_dir] do
   end
 end
 
-if node[:chef_environment] == 'development'
+if node.chef_environment == 'development'
   execute 'yum -y groupupdate "X Window System"' do
     not_if 'rpm -q xorg-x11-server-Xvfb'
   end
