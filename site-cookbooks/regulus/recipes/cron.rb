@@ -23,5 +23,5 @@ cron "#{node[:regulus][:app_name]} delete" do
   hour '1'
   minute '0'
   path node[:regulus][:cron_paths].join(':')
-  only_if { node[:regulus][:delete_old_files] }
+  only_if { node[:regulus][:environment] == 'production' }
 end

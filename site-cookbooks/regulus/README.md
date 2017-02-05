@@ -16,21 +16,23 @@ This cookbook deploy regulus
 
 ### regulus::default
 
-|Key                          |Type         |Description                  |
-|-----------------------------|-------------|-----------------------------|
-|[:regulus][:app_name]        |String       |application name             |
-|[:regulus][:deploy_dir]      |String       |absolute path to deploy      |
-|[:regulus][:repository]      |String       |github url for clone         |
-|[:regulus][:branch]          |String       |deployed github branch       |
-|[:regulus][:symlinks]        |Hash         |created symbolic links       |
-|[:regulus][:shared_dirs]     |Array[String]|directories created in shared|
-|[:regulus][:username]        |String       |regulus manager name         |
-|[:regulus][:password]        |String       |user password                |
-|[:regulus][:smb][:share_name]|String       |shared directory path        |
-|[:regulus][:smb][:mount_dir] |String       |mount directory path         |
-|[:regulus][:cron_settings]   |Array[Hash]  |settings for cron            |
-|[:regulus][:cron_paths]      |Array[String]|environment variable for PATH|
-|[:regulus][:delete_old_files]|boolean      |whether delete old rate files|
+|Key                               |Type         |Description                   |
+|----------------------------------|-------------|------------------------------|
+|[:regulus][:app_name]             |String       |application name              |
+|[:regulus][:deploy_dir]           |String       |absolute path to deploy       |
+|[:regulus][:repository]           |String       |github url for clone          |
+|[:regulus][:branch]               |String       |deployed github branch        |
+|[:regulus][:symlinks]             |Hash         |created symbolic links        |
+|[:regulus][:shared_dirs]          |Array[String]|directories created in shared |
+|[:regulus][:username]             |String       |regulus manager name          |
+|[:regulus][:password]             |String       |user password                 |
+|[:regulus][:smb][:packages]       |Array[String]|samba packages                |
+|[:regulus][:smb][:share_name]     |String       |shared directory path         |
+|[:regulus][:smb][:mount_dir]      |String       |mount directory path          |
+|[:regulus][:smb][:credential_file]|String       |credential file path for mount|
+|[:regulus][:cron_settings]        |Array[Hash]  |settings for cron             |
+|[:regulus][:cron_paths]           |Array[String]|environment variable for PATH |
+|[:regulus][:ruby_version]         |String       |ruby version for regulus      |
 
 ## Usage
 
