@@ -6,10 +6,10 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package %w[ python-pip graphviz ] do
+package node[:sphinx][:requirements] do
   action :install
 end
 
-%w[ sphinx==1.4.5 sphinxcontrib-plantuml sphinxcontrib-httpdomain ].each do |package|
+node[:sphinx][:packages].each do |package|
   execute "pip install #{package}"
 end

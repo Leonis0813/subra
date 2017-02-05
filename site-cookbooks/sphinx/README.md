@@ -16,6 +16,11 @@ This cookbook install sphinx
 
 ### sphinx::default
 
+|Key                     |Type         |Description                          |
+|------------------------|-------------|-------------------------------------|
+|[:sphinx][:requirements]|Array[String]|prerequirements for installing sphinx|
+|[:sphinx][:packages]    |Array[String]|pip packages for sphinx              |
+
 ## Usage
 
 ### sphinx::install
