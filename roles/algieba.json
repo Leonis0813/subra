@@ -1,0 +1,10 @@
+{
+  "name": "algieba",
+  "run_list": [
+    "recipe[mysql::install]",
+    "recipe[rvm::install]",
+    "recipe[nginx::user]",
+    "recipe[nginx::install]",
+    "recipe[algieba::deploy]",
+  ]
+}
