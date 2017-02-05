@@ -21,6 +21,7 @@ This cookbook install latest rvm.
 |[:gpg][:server]     |String|key server for gpg key|
 |[:rvm][:server]     |String|rvm server URI        |
 |[:rvm][:install_dir]|String|install directory path|
+|[:rvm][:path]       |String|environment variable  |
 
 ## Usage
 

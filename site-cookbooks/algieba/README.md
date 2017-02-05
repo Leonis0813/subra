@@ -24,7 +24,6 @@ This cookbook deploy algieba
 |[:algieba][:branch]       |String       |deployed github branch       |
 |[:algieba][:symlinks]     |Hash         |created symbolic links       |
 |[:algieba][:shared_dirs]  |Array[String]|directories created in shared|
-|[:algieba][:path]         |String       |environment variable         |
 
 ## Usage
 

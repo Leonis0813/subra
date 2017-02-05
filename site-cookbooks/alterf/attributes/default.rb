@@ -14,3 +14,4 @@ default[:alterf][:cron_paths] = [
   '/usr/bin',
   '/bin',
 ]
+default[:alterf][:ruby_version] = '2.2.0'
