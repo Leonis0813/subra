@@ -5,6 +5,7 @@
     "recipe[rvm::install]",
     "recipe[nginx::user]",
     "recipe[nginx::install]",
+    "recipe[algieba::ruby]",
     "recipe[algieba::deploy]"
   ]
 }
