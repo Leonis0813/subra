@@ -39,3 +39,5 @@ execute 'netstat -ant | grep 8080 | grep LISTEN' do
   retries 5
   retry_delay 10
 end
+
+execute 'lokkit -p 8080:tcp'
