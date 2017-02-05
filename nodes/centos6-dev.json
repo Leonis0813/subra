@@ -13,9 +13,7 @@
     "recipe[jenkins::user]",
     "recipe[jenkins::plugin]",
     "recipe[jenkins::job]",
-    "recipe[nginx::user]",
-    "recipe[nginx::install]",
-    "recipe[algieba::deploy]",
+    "role[algieba]",
     "role[alterf]",
     "role[regulus]"
   ]
