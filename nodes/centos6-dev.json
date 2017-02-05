@@ -5,6 +5,7 @@
     "recipe[emacs::install]",
     "recipe[git::install]",
     "recipe[zsh::install]",
+    "recipe[rvm::install]",
     "recipe[user::create]",
     "recipe[user::ssh]",
     "recipe[user::zsh]",
