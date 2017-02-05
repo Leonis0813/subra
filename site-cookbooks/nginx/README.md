@@ -16,12 +16,15 @@ This cookbook install nginx
 
 ### nginx::default
 
-|Key                    |Type         |Description                         |
-|-----------------------|-------------|------------------------------------|
-|[:nginx][:requirements]|Array[String]|prerequirements for installing nginx|
-|[:nginx][:version]     |String       |installed nginx version             |
-|[:nginx][:user]        |String       |nginx user                          |
-|[:nginx][:install_dir] |String       |install directory                   |
+|Key                       |Type         |Description                         |
+|--------------------------|-------------|------------------------------------|
+|[:nginx][:requirements]   |Array[String]|prerequirements for installing nginx|
+|[:nginx][:version]        |String       |installed nginx version             |
+|[:nginx][:user]           |String       |nginx user                          |
+|[:nginx][:download][:url] |String       |url for nginx package               |
+|[:nginx][:download][:dir] |String       |directory downloaded nginx package  |
+|[:nginx][:download][:file]|String       |file name downloaded nginx package  |
+|[:nginx][:install_dir]    |String       |install directory                   |
 
 ## Usage
 
