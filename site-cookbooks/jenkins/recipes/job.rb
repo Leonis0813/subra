@@ -24,6 +24,6 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} create-job #{
     user 'root'
     retries 5
     retry_delay 10
-    not_if { "java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} list-jobs --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]} | grep -e '^#{job}$'" }
+    not_if "java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} list-jobs --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]} | grep -e '^#{job}$'"
   end
 end
