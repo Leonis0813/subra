@@ -14,6 +14,7 @@
     "recipe[jenkins::user]",
     "recipe[jenkins::plugin]",
     "recipe[jenkins::job]",
+    "recipe[sphinx::install]",
     "role[algieba]",
     "role[alterf]",
     "role[regulus]"
