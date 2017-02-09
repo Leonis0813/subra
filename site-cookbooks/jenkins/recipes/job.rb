@@ -27,3 +27,10 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} create-job #{
     not_if "java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} list-jobs --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]} | grep -e '^#{job}$'"
   end
 end
+
+if node[:jenkins][:jobs].include?('chort')
+  link '/opt/nginx/html/docs' do
+    to '/var/lib/jenkins/workspace/chort/_build/html'
+    link_type :symbolic
+  end
+end
