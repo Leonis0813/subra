@@ -40,6 +40,7 @@ deploy node[:algieba][:deploy_dir] do
     end
 
     execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO '#{node.chef_environment}'@'localhost';'"
+    execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO 'test'@'localhost';'" if node.chef_environment == 'development'
 
     execute 'rvm 2.2.0 do bundle exec rake db:create' do
       cwd release_path
@@ -72,9 +73,7 @@ if node.chef_environment == 'development'
     not_if 'rpm -q xorg-x11-server-Xvfb'
   end
 
-  package 'xorg-x11-server-Xvfb' do
-    not_if 'rpm -q xorg-x11-server-Xvfb'
-  end
+  package %w[ xorg-x11-server-Xvfb firefox ]
 
   execute 'dbus-uuidgen > /var/lib/dbus/machine-id'
 end
