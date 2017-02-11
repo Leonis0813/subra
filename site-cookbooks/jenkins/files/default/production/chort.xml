@@ -8,12 +8,13 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
+        <refspec>+refs/tags/*:refs/remotes/origin/tags/*</refspec>
         <url>https://github.com/Leonis0813/chort.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>develop</name>
+        <name>*/tags/*</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -34,7 +35,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>make html
-sudo cp -r ${WORKSPACE}/_build/html /opt/nginx/html/docs</command>
+      sudo cp -r ${WORKSPACE}/chort/_build/html /opt/nginx/html/docs</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

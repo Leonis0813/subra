@@ -15,7 +15,7 @@ remote_file node[:jenkins][:cli_path] do
 end
 
 node[:jenkins][:jobs].each do |job|
-  config_file = File.absolute_path(File.dirname(__FILE__) + "/../files/default/#{node[:chef_environment]}/#{job}.xml")
+  config_file = File.absolute_path(File.dirname(__FILE__) + "/../files/default/#{node.chef_environment}/#{job}.xml")
   execute "create job - #{job}" do
     command <<-EOF
 cat #{config_file} |
@@ -24,5 +24,6 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} create-job #{
     user 'root'
     retries 5
     retry_delay 10
+    not_if "java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} list-jobs --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]} | grep -e '^#{job}$'"
   end
 end

@@ -1,6 +1,6 @@
 {
   "name": "production",
-  "default_attributes": {
+  "override_attributes": {
     "jenkins": {
       "jobs": [
         "alterf",

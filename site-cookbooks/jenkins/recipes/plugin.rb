@@ -21,6 +21,5 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} install-plugi
     EOF
     user 'root'
     retries 5
-    retry_delay 10
   end
 end

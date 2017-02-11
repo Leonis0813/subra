@@ -16,14 +16,15 @@ This cookbook deploy algieba
 
 ### algieba::default
 
-|Key                       |Type         |Description                  |
-|--------------------------|-------------|-----------------------------|
-|[:algieba][:app_name]     |String       |application name             |
-|[:algieba][:deploy_dir]   |String       |absolute path to deploy      |
-|[:algieba][:repository]   |String       |github url for clone         |
-|[:algieba][:branch]       |String       |deployed github branch       |
-|[:algieba][:symlinks]     |Hash         |created symbolic links       |
-|[:algieba][:shared_dirs]  |Array[String]|directories created in shared|
+|Key                      |Type         |Description                  |
+|-------------------------|-------------|-----------------------------|
+|[:algieba][:app_name]    |String       |application name             |
+|[:algieba][:deploy_dir]  |String       |absolute path to deploy      |
+|[:algieba][:repository]  |String       |github url for clone         |
+|[:algieba][:branch]      |String       |deployed github branch       |
+|[:algieba][:symlinks]    |Hash         |created symbolic links       |
+|[:algieba][:shared_dirs] |Array[String]|directories created in shared|
+|[:algieba][:ruby_version]|String       |ruby version for algieba     |
 
 ## Usage
 

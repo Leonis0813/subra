@@ -14,6 +14,10 @@ remote_file node[:jenkins][:rpm_path] do
   not_if { File.exists?(node[:jenkins][:rpm_path]) }
 end
 
+package 'java-1.8.0-openjdk' do
+  not_if 'rpm -q java'
+end
+
 package 'jenkins' do
   source node[:jenkins][:rpm_path]
   not_if 'rpm -q jenkins'
@@ -34,4 +38,10 @@ end
 execute 'netstat -ant | grep 8080 | grep LISTEN' do
   retries 5
   retry_delay 10
+end
+
+execute 'lokkit -p 8080:tcp'
+
+service 'network' do
+  action [:restart]
 end

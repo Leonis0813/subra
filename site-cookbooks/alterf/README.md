@@ -26,6 +26,7 @@ This cookbook deploy alterf
 |[:alterf][:shared_dirs]  |Array[String]|directories created in shared|
 |[:alterf][:cron_settings]|Array[Hash]  |settings for cron            |
 |[:alterf][:cron_paths]   |Array[String]|environment variable for PATH|
+|[:alterf][:ruby_version] |String       |ruby version for alterf      |
 
 ## Usage
 
