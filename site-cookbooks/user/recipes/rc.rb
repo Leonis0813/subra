@@ -14,8 +14,8 @@ file "#{node[:user][:home]}/.zshrc" do
   action :create
 end
 
-template "#{node[:user][:home]}/.netrc" do
-  source 'netrc.erb'
+file "#{node[:user][:home]}/.netrc" do
+  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/netrc'))
   owner node[:user][:name]
   group node[:user][:name]
   mode 0644
