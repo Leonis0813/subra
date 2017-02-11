@@ -52,6 +52,8 @@ unless File.exists?(node[:nginx][:install_dir])
     action :create
   end
 
+  execute 'lokkit -p 80:tcp'
+
   service 'nginx' do
     action :start
   end
