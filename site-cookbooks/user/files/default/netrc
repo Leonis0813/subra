@@ -1,3 +1,3 @@
 machine github.com
-login <%= node[:user][:name] %>
+login Leonis0813
 password 7QiSlC?4
