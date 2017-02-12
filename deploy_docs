@@ -1,7 +1,0 @@
-#!/bin/bash -e
-
-sudo easy_install sphinxcontrib-plantuml sphinxcontrib-httpdomain
-sudo yum -y install graphviz
-
-cd ${WORKSPACE};make clean;make html
-sudo ln -fns ${WORKSPACE}/_build/html /opt/nginx/html/docs

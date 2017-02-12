@@ -1,3 +1,0 @@
-#!/bin/bash -e
-. ${JENKINS_HOME}/scripts/util
-execute_test {controllers,views}
