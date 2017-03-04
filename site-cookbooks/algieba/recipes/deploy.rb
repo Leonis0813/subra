@@ -77,3 +77,5 @@ if node.chef_environment == 'development'
 
   execute 'dbus-uuidgen > /var/lib/dbus/machine-id'
 end
+
+execute 'lokkit -p 3000:tcp' if node.chef_environment == 'development'
