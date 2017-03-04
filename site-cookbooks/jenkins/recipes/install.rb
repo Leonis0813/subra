@@ -40,8 +40,6 @@ execute 'netstat -ant | grep 8080 | grep LISTEN' do
   retry_delay 10
 end
 
-execute 'lokkit -p 8080:tcp'
-
 service 'network' do
   action [:restart]
 end
