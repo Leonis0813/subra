@@ -3,7 +3,8 @@ subra
 
 1.0.1
 -----
-- [UPDATE] algieba and nginx
+- [UPDATE][RECIPE] algieba and nginx
+- [UPDATE][ENVIRONMENT] production
 
 1.0.0
 -----
