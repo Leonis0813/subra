@@ -23,13 +23,7 @@ package 'jenkins' do
   not_if 'rpm -q jenkins'
 end
 
-file '/etc/sudoers.d/jenkins' do
-  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/jenkins'))
-  owner 'root'
-  group 'root'
-  mode 0440
-  action :create
-end
+create_sudoer 'jenkins'
 
 service 'jenkins' do
   action [:enable, :start]
