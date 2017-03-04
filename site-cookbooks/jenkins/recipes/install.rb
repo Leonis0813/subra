@@ -25,6 +25,13 @@ end
 
 create_sudoer 'jenkins'
 
+file '/etc/sysconfig/jenkins' do
+  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/jenkins'))
+  owner 'root'
+  group 'root'
+  mode 0600
+end
+
 service 'jenkins' do
   action [:enable, :start]
 end
