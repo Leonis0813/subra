@@ -53,6 +53,6 @@ unless File.exists?(node[:nginx][:install_dir])
   end
 
   service 'nginx' do
-    action :start
+    action [:start, :enable]
   end
 end

@@ -23,12 +23,13 @@ package 'jenkins' do
   not_if 'rpm -q jenkins'
 end
 
-file '/etc/sudoers.d/jenkins' do
+create_sudoer 'jenkins'
+
+file '/etc/sysconfig/jenkins' do
   content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/jenkins'))
   owner 'root'
   group 'root'
-  mode 0440
-  action :create
+  mode 0600
 end
 
 service 'jenkins' do
@@ -39,8 +40,6 @@ execute 'netstat -ant | grep 8080 | grep LISTEN' do
   retries 5
   retry_delay 10
 end
-
-execute 'lokkit -p 8080:tcp'
 
 service 'network' do
   action [:restart]

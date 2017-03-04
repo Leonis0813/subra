@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 0.1.2
+- Add jenkins path to 80 port
+
 ## 0.1.1
 - Don't open port during install
 

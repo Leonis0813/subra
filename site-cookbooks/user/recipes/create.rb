@@ -19,3 +19,5 @@ group 'rvm' do
   members [node[:user][:name]]
   action :modify
 end
+
+create_sudoer node[:user][:name]
