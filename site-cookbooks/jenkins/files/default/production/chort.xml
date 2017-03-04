@@ -36,7 +36,7 @@
     <hudson.tasks.Shell>
       <command>make clean
 make html
-sudo cp -r ${WORKSPACE}/_build/html /opt/nginx/html/docs</command>
+sudo ln -snf ${WORKSPACE}/_build/html /opt/nginx/html/docs</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
