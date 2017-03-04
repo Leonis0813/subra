@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the algieba cookbook.
 
+## 0.1.1
+- Open tcp ports after deploy
+
 ## 0.1.0
 - Initial release of algieba
 

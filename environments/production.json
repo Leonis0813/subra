@@ -1,6 +1,9 @@
 {
   "name": "production",
   "override_attributes": {
+    "algieba": {
+      "open_ports": ["80:tcp"]
+    },
     "jenkins": {
       "jobs": [
         "alterf",

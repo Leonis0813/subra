@@ -77,3 +77,7 @@ if node.chef_environment == 'development'
 
   execute 'dbus-uuidgen > /var/lib/dbus/machine-id'
 end
+
+node[:algieba][:open_ports].each do |port|
+  execute "lokkit -p #{port}"
+end
