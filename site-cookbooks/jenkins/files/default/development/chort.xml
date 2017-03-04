@@ -33,8 +33,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>make html
-sudo cp -r ${WORKSPACE}/_build/html /opt/nginx/html/docs</command>
+      <command>make clean
+make html
+sudo ln -snf ${WORKSPACE}/_build/html /opt/nginx/html/docs</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

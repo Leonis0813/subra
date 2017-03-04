@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 0.1.2
+- Add "make clean" to chort.xml
+- Use symlink
+
 ## 0.1.1
 - Create config by chef
 
