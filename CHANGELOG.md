@@ -1,6 +1,10 @@
 subra
 =====
 
+1.1.0
+-----
+- [UPDATE][RECIPE] alterf to 1.1.0
+
 1.0.3
 -----
 - [UPDATE][RECIPE] jenkins to 0.1.2
