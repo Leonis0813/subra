@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the algieba cookbook.
 
+## 0.1.2
+- Move mysql users to attribute and environments
+
 ## 0.1.1
 - Open tcp ports after deploy
 

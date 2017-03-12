@@ -26,6 +26,7 @@ This cookbook deploy algieba
 |[:algieba][:shared_dirs] |Array[String]|directories created in shared|
 |[:algieba][:ruby_version]|String       |ruby version for algieba     |
 |[:algieba][:open_ports]  |Array[String]|tcp ports used by algieba    |
+|[:algieba][:mysql_users] |Array[String]|mysql user names             |
 
 ## Usage
 

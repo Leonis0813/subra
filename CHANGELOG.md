@@ -1,6 +1,11 @@
 subra
 =====
 
+1.1.1
+-----
+- [UPDATE][RECIPE] algieba to 0.1.2
+- [UPDATE][ENVIRONMENT] production
+
 1.1.0
 -----
 - [UPDATE][RECIPE] alterf to 1.1.0
