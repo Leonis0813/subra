@@ -39,8 +39,9 @@ deploy node[:algieba][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
     end
 
-    execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO '#{node.chef_environment}'@'localhost';'"
-    execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO 'test'@'localhost';'" if node.chef_environment == 'development'
+    node[:algieba][:mysql_users].each do |user|
+      execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';'"
+    end
 
     execute 'rvm 2.2.0 do bundle exec rake db:create' do
       cwd release_path

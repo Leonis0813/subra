@@ -6,3 +6,4 @@ default[:algieba][:symlinks] = {'log' => 'log', 'tmp' => 'tmp'}
 default[:algieba][:shared_dirs] = %w[ log tmp bundle ]
 default[:algieba][:ruby_version] = '2.2.0'
 default[:algieba][:open_ports] = %w[ 80:tcp 3000:tcp ]
+default[:algieba][:mysql_users] = %w[ development test ]
