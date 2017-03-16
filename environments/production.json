@@ -24,7 +24,7 @@
           "minute": "0"
         },
         {
-          "name": "delete",
+          "name": "aggregate/delete",
           "minute": "0"
         }
       ]
