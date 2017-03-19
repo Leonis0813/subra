@@ -1,0 +1,13 @@
+{
+  "name": "centos7-ana",
+  "environment": "production",
+  "run_list": [
+    "recipe[rvm::install]",
+    "recipe[alterf::rc.local]",
+    "recipe[alterf::nfs]",
+    "recipe[alterf::ruby]",
+    "recipe[alterf::deploy]",
+    "recipe[regulus::ruby]",
+    "recipe[regulus::deploy]"
+  ]
+}
