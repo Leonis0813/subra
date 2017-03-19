@@ -1,13 +1,12 @@
 {
   "name": "centos7-ana",
-  "environment": "production",
+  "environment": "compute",
   "run_list": [
-    "recipe[rvm::install]",
+    "recipe[nfs::install]",
+    "recipe[nfs::mount]",
+    "recipe[R::install]",
     "recipe[alterf::rc.local]",
-    "recipe[alterf::nfs]",
-    "recipe[alterf::ruby]",
     "recipe[alterf::deploy]",
-    "recipe[regulus::ruby]",
     "recipe[regulus::deploy]"
   ]
 }
