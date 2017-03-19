@@ -1,6 +1,11 @@
 subra
 =====
 
+1.2.0
+-----
+- [UPDATE][RECIPE] regulus to 0.2.0
+- [CREATE][NODE] centos7-ana
+
 1.1.1
 -----
 - [UPDATE][RECIPE] algieba to 0.1.2
@@ -28,4 +33,4 @@ subra
 
 1.0.0
 -----
-- [NEW] create chef
+- [CREATE][CHEF]
