@@ -14,3 +14,5 @@ template "/etc/exports.d/#{node[:alterf][:app_name]}" do
   mode 0644
   variables(:exports => node[:alterf][:exports])
 end
+
+execute 'exportfs -a'
