@@ -3,7 +3,7 @@
   "environment": "compute",
   "run_list": [
     "recipe[nfs::install]",
-    "recipe[nfs::mount]",
+    "recipe[alterf::nfs]",
     "recipe[R::install]",
     "recipe[alterf::deploy]",
     "recipe[alterf::rc.local]",

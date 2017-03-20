@@ -10,7 +10,7 @@
     "recipe[sphinx::install]",
     "recipe[nfs::install]",
     "recipe[nfs::iptables]",
-    "recipe[alterf::nfs]",
+    "recipe[nfs::export]",
     "role[algieba]",
     "role[alterf]",
     "role[regulus]"
