@@ -6,8 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-%w[ epel-release R ].each do |name|
-  package name do
+node[:regulus][:requirements].each do |package_name|
+  package package_name do
     action :install
   end
 end
@@ -31,10 +31,6 @@ deploy node[:regulus][:deploy_dir] do
       end
     end
 
-    package 'mysql-devel' do
-      action :install
-    end
-
     link File.join(release_path, 'vendor/bundle') do
       to File.join(release_path, '../../shared/bundle')
       link_type :symbolic
@@ -43,6 +39,7 @@ deploy node[:regulus][:deploy_dir] do
     execute 'rvm 2.2.0 do bundle install --path=vendor/bundle' do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
+      not_if { node.chef_environment == 'compute' }
     end
   end
 end

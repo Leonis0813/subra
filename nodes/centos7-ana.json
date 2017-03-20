@@ -8,7 +8,19 @@
     "recipe[alterf::rc.local]",
     "recipe[regulus::deploy]"
   ],
+  "alterf": {
+    "requirements": [
+      "epel-release",
+      "R"
+    ]
+  },
   "nfs": {
     "actions": []
+  },
+  "regulus": {
+    "requirements": [
+      "epel-release",
+      "R"
+    ]
   }
 }

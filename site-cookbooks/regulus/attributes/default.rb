@@ -4,6 +4,7 @@ default[:regulus][:repository] = "https://github.com/Leonis0813/#{default[:regul
 default[:regulus][:branch] = 'develop'
 default[:regulus][:symlinks] = {'tmp' => 'tmp', 'log' => 'log', 'backup' => 'backup'}
 default[:regulus][:shared_dirs] = %w[ tmp backup log bundle ]
+default[:regulus][:requirements] = %w[ mysql-devel ]
 default[:regulus][:username] = 'analyzer'
 default[:regulus][:password] = '7QiSlC?4'
 default[:regulus][:smb] = {
