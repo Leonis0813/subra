@@ -6,13 +6,15 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-template "/etc/exports.d/#{node[:alterf][:app_name]}" do
-  cookbook 'nfs'
-  source 'exports.erb'
-  owner 'root'
+directory '/mnt/sakura' do
+  user 'root'
   group 'root'
-  mode 0644
-  variables(:exports => node[:alterf][:exports])
+  mode 0755
+  not_if { File.exists?('/mnt/sakura') }
 end
 
-execute 'exportfs -a'
+mount '/mnt/sakura' do
+  fstype 'nfs'
+  device '160.16.66.112:/opt/alterf/shared/backup'
+  action [:mount, :enable]
+end
