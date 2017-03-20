@@ -7,7 +7,6 @@
     "recipe[R::install]",
     "recipe[alterf::deploy]",
     "recipe[alterf::rc.local]",
-    "recipe[alterf::nfs]",
     "recipe[regulus::deploy]"
   ]
 }
