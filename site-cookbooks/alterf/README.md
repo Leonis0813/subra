@@ -16,17 +16,20 @@ This cookbook deploy alterf
 
 ### alterf::default
 
-|Key                      |Type         |Description                  |
-|-------------------------|-------------|-----------------------------|
-|[:alterf][:app_name]     |String       |application name             |
-|[:alterf][:deploy_dir]   |String       |absolute path to deploy      |
-|[:alterf][:repository]   |String       |github url for clone         |
-|[:alterf][:branch]       |String       |deployed github branch       |
-|[:alterf][:symlinks]     |Hash         |created symbolic links       |
-|[:alterf][:shared_dirs]  |Array[String]|directories created in shared|
-|[:alterf][:cron_settings]|Array[Hash]  |settings for cron            |
-|[:alterf][:cron_paths]   |Array[String]|environment variable for PATH|
-|[:alterf][:ruby_version] |String       |ruby version for alterf      |
+|Key                       |Type         |Description                  |
+|--------------------------|-------------|-----------------------------|
+|[:alterf][:app_name]      |String       |application name             |
+|[:alterf][:deploy_dir]    |String       |absolute path to deploy      |
+|[:alterf][:repository]    |String       |github url for clone         |
+|[:alterf][:branch]        |String       |deployed github branch       |
+|[:alterf][:symlinks]      |Hash         |created symbolic links       |
+|[:alterf][:shared_dirs]   |Array[String]|directories created in shared|
+|[:alterf][:cron_settings] |Array[Hash]  |settings for cron            |
+|[:alterf][:cron_paths]    |Array[String]|environment variable for PATH|
+|[:alterf][:ruby_version]  |String       |ruby version for alterf      |
+|[:alterf][:mount_settings]|Array[Hash]  |mount settings for backup    |
+|[:alterf][:export_dir]    |String       |directory path to export     |
+|[:alterf][:exports]       |Array[Hash]  |export settings fot nfs      |
 
 ## Usage
 

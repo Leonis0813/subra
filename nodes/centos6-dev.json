@@ -1,6 +1,6 @@
 {
   "name": "centos6-dev",
-  "environment": "development",
+  "chef_environment": "development",
   "run_list": [
     "recipe[emacs::install]",
     "recipe[git::install]",

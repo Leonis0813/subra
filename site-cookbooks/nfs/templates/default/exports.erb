@@ -1,0 +1,3 @@
+<% @exports.each do |export| %>
+<%= export[:path] %> <%= export[:ips] %>(<%= export[:options].join(',') %>)
+<% end %>

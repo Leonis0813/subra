@@ -1,0 +1,17 @@
+{
+  "name": "compute",
+  "override_attributes": {
+    "alterf": {
+      "requirements": [
+        "epel-release",
+        "R"
+      ]
+    },
+    "regulus": {
+      "requirements": [
+        "epel-release",
+        "R"
+      ]
+    }
+  }
+}

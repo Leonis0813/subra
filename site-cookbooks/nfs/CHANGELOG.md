@@ -1,15 +1,9 @@
-# regulus CHANGELOG
+# nfs CHANGELOG
 
-This file is used to list changes made in each version of the regulus cookbook.
-
-## 0.2.1
-- Not execute bundle install for compute environment
-
-## 0.2.0
-- Remove cron for deleting rate
+This file is used to list changes made in each version of the nfs cookbook.
 
 ## 0.1.0
-- Initial release of regulus
+- Initial release of nfs
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

@@ -1,6 +1,6 @@
 {
   "name": "sakura",
-  "environment": "production",
+  "chef_environment": "production",
   "run_list": [
     "recipe[git::install]",
     "recipe[jenkins::install]",
@@ -8,6 +8,8 @@
     "recipe[jenkins::plugin]",
     "recipe[jenkins::job]",
     "recipe[sphinx::install]",
+    "recipe[nfs::install]",
+    "recipe[nfs::iptables]",
     "role[algieba]",
     "role[alterf]",
     "role[regulus]"

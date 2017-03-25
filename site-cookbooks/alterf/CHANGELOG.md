@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 1.0.0
+- Create recipe for nfs mount
+
 ## 0.2.0
 - Create recipe for backup after init
 

@@ -1,10 +1,9 @@
 {
   "name": "centos7-ana",
-  "environment": "compute",
+  "chef_environment": "compute",
   "run_list": [
     "recipe[nfs::install]",
-    "recipe[nfs::mount]",
-    "recipe[R::install]",
+    "recipe[alterf::mount]",
     "recipe[alterf::rc.local]",
     "recipe[alterf::deploy]",
     "recipe[regulus::deploy]"
