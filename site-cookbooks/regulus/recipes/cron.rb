@@ -12,6 +12,7 @@ node[:regulus][:cron_settings].each do |cron_setting|
       'cd /opt/regulus/current &&',
       "bundle exec ruby #{cron_setting[:name]}.rb",
     ].join(' ')
+    weekday cron_setting[:weekday]
     hour cron_setting[:hour]
     minute cron_setting[:minute]
     path node[:regulus][:cron_paths].join(':')
