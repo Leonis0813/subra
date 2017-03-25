@@ -2,19 +2,24 @@
 # Cookbook Name:: alterf
 # Recipe:: nfs
 #
-# Copyright 2016, Leonis0813
+# Copyright 2017, Leonis0813
 #
 # All rights reserved - Do Not Redistribute
 #
-directory '/mnt/sakura' do
+directory '/etc/exports.d' do
   user 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?('/mnt/sakura') }
+  not_if { File.exists?('/etc/exports.d') }
 end
 
-mount '/mnt/sakura' do
-  fstype 'nfs'
-  device '160.16.66.112:/opt/alterf/shared/backup'
-  action [:mount, :enable]
+template "/etc/exports.d/#{node[:alterf][:app_name]}" do
+  cookbook 'nfs'
+  source 'exports.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+  variables(:exports => node[:alterf][:exports])
 end
+
+execute 'exportfs -a'
