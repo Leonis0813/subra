@@ -6,15 +6,15 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-directory '/mnt/sakura' do
+directory node[:alterf][:mount_path] do
   user 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?('/mnt/sakura') }
+  not_if { File.exists?(node[:alterf][:mount_path]) }
 end
 
-mount '/mnt/sakura' do
+mount node[:alterf][:mount_path] do
   fstype 'nfs'
-  device '160.16.66.112:/opt/alterf/shared/backup'
+  device "160.16.66.112:#{node[:alterf][:deploy_dir]}/shared/backup"
   action [:mount, :enable]
 end

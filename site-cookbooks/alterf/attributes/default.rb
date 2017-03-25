@@ -16,6 +16,8 @@ default[:alterf][:cron_paths] = [
   '/bin',
 ]
 default[:alterf][:ruby_version] = '2.2.0'
+default[:alterf][:mount_path] = '/mnt/sakura'
+default[:alterf][:export_dir] = '/etc/exports.d'
 default[:alterf][:exports] = [
   {:path => "#{default[:alterf][:deploy_dir]}/backup", :ips => '*', :options => %w[ rw no_root_squash ]}
 ]

@@ -1,4 +1,5 @@
 default[:nfs][:services] = %w[ rpcbind nfs nfslock ]
+default[:nfs][:iptables_path] = '/etc/sysconfig/iptables'
 default[:nfs][:iptable_settings] = [
   {:append => 'INPUT', :proto => 'tcp', :dport => '111', :jump => 'ACCEPT'},
   {:append => 'INPUT', :proto => 'udp', :dport => '111', :jump => 'ACCEPT'},

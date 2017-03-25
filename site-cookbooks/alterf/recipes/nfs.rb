@@ -6,14 +6,14 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-directory '/etc/exports.d' do
+directory node[:alterf][:export_dir] do
   user 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?('/etc/exports.d') }
+  not_if { File.exists?(node[:alterf][:export_dir]) }
 end
 
-template "/etc/exports.d/#{node[:alterf][:app_name]}" do
+template "#{node[:alterf][:export_dir]}/#{node[:alterf][:app_name]}" do
   cookbook 'nfs'
   source 'exports.erb'
   owner 'root'

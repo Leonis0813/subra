@@ -19,6 +19,7 @@ This cookbook install nfs
 |Key                      |Type         |Description                    |
 |-------------------------|-------------|-------------------------------|
 |[:nfs][:services]        |Array[String]|required packages for nfs mount|
+|[:nfs][:iptables_path]   |String       |path to iptables               |
 |[:nfs][:iptable_settings]|Array[Hash]  |open ports for nfs             |
 
 ## Usage
