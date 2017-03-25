@@ -6,6 +6,7 @@
     "recipe[alterf::ruby]",
     "recipe[alterf::deploy]",
     "recipe[alterf::mysql]",
-    "recipe[alterf::cron]"
+    "recipe[alterf::cron]",
+    "recipe[alterf::nfs]"
   ]
 }

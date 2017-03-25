@@ -3,7 +3,7 @@
   "chef_environment": "compute",
   "run_list": [
     "recipe[nfs::install]",
-    "recipe[alterf::nfs]",
+    "recipe[alterf::mount]",
     "recipe[alterf::rc.local]"
   ]
 }
