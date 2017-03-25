@@ -13,8 +13,10 @@ directory node[:alterf][:mount_path] do
   not_if { File.exists?(node[:alterf][:mount_path]) }
 end
 
-mount node[:alterf][:mount_path] do
-  fstype 'nfs'
-  device "160.16.66.112:#{node[:alterf][:deploy_dir]}/shared/backup"
-  action [:mount, :enable]
+node[:alterf][:mount_settings].each do |setting|
+  mount setting[:path] do
+    fstype setting[:fstype]
+    device setting[:device]
+    action [:mount, :enable]
+  end
 end

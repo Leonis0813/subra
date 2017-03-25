@@ -16,6 +16,18 @@ default[:alterf][:cron_paths] = [
   '/bin',
 ]
 default[:alterf][:ruby_version] = '2.2.0'
+default[:alterf][:mount_settings] = [
+  {
+    :path => '/mnt/sakura',
+    :fstype => 'nfs',
+    :device => "160.16.66.112:#{default[:alterf][:deploy_dir]}/shared/backup",
+  },
+  {
+    :path => '/mnt/backup',
+    :fstype => 'ext4',
+    :device => 'UUID=a64322c0-3fcc-4407-a423-51e21e05be28',
+  },
+]
 default[:alterf][:mount_path] = '/mnt/sakura'
 default[:alterf][:export_dir] = '/etc/exports.d'
 default[:alterf][:exports] = [
