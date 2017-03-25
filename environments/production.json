@@ -26,6 +26,12 @@
         {
           "name": "aggregate/delete",
           "minute": "0"
+        },
+        {
+          "name": "lib/compress",
+          "day": "3",
+          "hour": "0",
+          "minute": "0"
         }
       ]
     }
