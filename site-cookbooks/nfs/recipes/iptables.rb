@@ -6,6 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+execute 'touch /etc/sysconfig/iptables' do
+  not_if { File.exists?('/etc/sysconfig/iptables') }
+end
+
 node[:nfs][:iptable_settings].each do |setting|
   options = setting.map {|key, value| "--#{key} #{value}" }.join(' ')
   execute "iptables #{options}"

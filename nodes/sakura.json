@@ -1,6 +1,6 @@
 {
   "name": "sakura",
-  "environment": "production",
+  "chef_environment": "production",
   "run_list": [
     "recipe[git::install]",
     "recipe[jenkins::install]",
