@@ -30,7 +30,6 @@ default[:alterf][:mount_settings] = [
     :device => 'a64322c0-3fcc-4407-a423-51e21e05be28',
   },
 ]
-default[:alterf][:mount_path] = '/mnt/sakura'
 default[:alterf][:export_dir] = '/etc/exports.d'
 default[:alterf][:exports] = [
   {:path => "#{default[:alterf][:deploy_dir]}/backup", :ips => '*', :options => %w[ rw no_root_squash ]}
