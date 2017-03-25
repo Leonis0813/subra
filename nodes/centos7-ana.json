@@ -4,6 +4,8 @@
   "run_list": [
     "recipe[nfs::install]",
     "recipe[alterf::mount]",
-    "recipe[alterf::rc.local]"
+    "recipe[alterf::rc.local]",
+    "recipe[alterf::deploy]",
+    "recipe[regulus::deploy]"
   ]
 }
