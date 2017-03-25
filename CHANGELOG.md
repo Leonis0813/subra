@@ -1,6 +1,11 @@
 subra
 =====
 
+2.1.0
+-----
+- [UPDATE][RECIPE] regulus to 0.3.0
+- [UPDATE][ENVIRONMENT] production
+
 2.0.0
 -----
 - [CREATE][RECIPE] nfs

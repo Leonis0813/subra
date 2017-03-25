@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 0.3.0
+- Add weekday setting to cron
+
 ## 0.2.1
 - Not execute bundle install for compute environment
 
