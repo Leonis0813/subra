@@ -27,7 +27,7 @@ default[:alterf][:mount_settings] = [
     :path => '/mnt/backup',
     :fstype => 'ext4',
     :device_type => :uuid,
-    :device => 'UUID=a64322c0-3fcc-4407-a423-51e21e05be28',
+    :device => 'a64322c0-3fcc-4407-a423-51e21e05be28',
   },
 ]
 default[:alterf][:mount_path] = '/mnt/sakura'
