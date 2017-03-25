@@ -16,8 +16,10 @@ This cookbook install nfs
 
 #### nfs::default
 
-|Key                       |Type         |Description                         |
-|--------------------------|-------------|------------------------------------|
+|Key                      |Type         |Description                    |
+|-------------------------|-------------|-------------------------------|
+|[:nfs][:services]        |Array[String]|required packages for nfs mount|
+|[:nfs][:iptable_settings]|Array[Hash]  |open ports for nfs             |
 
 ## Usage
 

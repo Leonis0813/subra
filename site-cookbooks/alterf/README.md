@@ -27,6 +27,7 @@ This cookbook deploy alterf
 |[:alterf][:cron_settings]|Array[Hash]  |settings for cron            |
 |[:alterf][:cron_paths]   |Array[String]|environment variable for PATH|
 |[:alterf][:ruby_version] |String       |ruby version for alterf      |
+|[:alterf][:exports]      |Array[Hash]  |export settings fot nfs      |
 
 ## Usage
 
