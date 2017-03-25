@@ -16,6 +16,7 @@ node[:alterf][:mount_settings].each do |setting|
 
   mount setting[:path] do
     fstype setting[:fstype]
+    device_type setting[:device_type]
     device setting[:device]
     action [:mount, :enable]
   end
