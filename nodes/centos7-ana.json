@@ -1,26 +1,9 @@
 {
   "name": "centos7-ana",
-  "environment": "compute",
+  "chef_environment": "compute",
   "run_list": [
     "recipe[nfs::install]",
     "recipe[alterf::nfs]",
-    "recipe[alterf::deploy]",
-    "recipe[alterf::rc.local]",
-    "recipe[regulus::deploy]"
-  ],
-  "alterf": {
-    "requirements": [
-      "epel-release",
-      "R"
-    ]
-  },
-  "nfs": {
-    "actions": []
-  },
-  "regulus": {
-    "requirements": [
-      "epel-release",
-      "R"
-    ]
-  }
+    "recipe[alterf::rc.local]"
+  ]
 }

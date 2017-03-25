@@ -10,6 +10,6 @@ package 'nfs-utils'
 
 node[:nfs][:services].each do |service_name|
   service service_name do
-    action node[:nfs][:actions]
+    action [:start, :enable]
   end
 end

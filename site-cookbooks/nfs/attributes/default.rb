@@ -1,5 +1,4 @@
-default[:nfs][:services] = %w[ nfs rpcbind nfslock ]
-default[:nfs][:actions] = [:start, :enable]
+default[:nfs][:services] = %w[ rpcbind nfs nfslock ]
 default[:nfs][:iptable_settings] = [
   {:append => 'INPUT', :proto => 'tcp', :dport => '111', :jump => 'ACCEPT'},
   {:append => 'INPUT', :proto => 'udp', :dport => '111', :jump => 'ACCEPT'},
