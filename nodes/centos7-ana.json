@@ -6,6 +6,7 @@
     "recipe[alterf::mount]",
     "recipe[alterf::rc.local]",
     "recipe[alterf::deploy]",
+    "recipe[regulus::mount]",
     "recipe[regulus::deploy]"
   ]
 }

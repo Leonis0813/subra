@@ -8,6 +8,7 @@
     "recipe[regulus::mysql]",
     "recipe[regulus::user]",
     "recipe[regulus::samba]",
-    "recipe[regulus::cron]"
+    "recipe[regulus::cron]",
+    "recipe[regulus::nfs]"
   ]
 }
