@@ -23,6 +23,20 @@ default[:regulus][:cron_paths] = [
   '/bin',
 ]
 default[:regulus][:ruby_version] = '2.2.0'
+default[:regulus][:mount_settings] = [
+  {
+    :path => '/mnt/sakura',
+    :fstype => 'nfs',
+    :device_type => :device,
+    :device => "160.16.66.112:#{default[:regulus][:deploy_dir]}/shared/backup",
+  },
+  {
+    :path => '/mnt/backup',
+    :fstype => 'ext4',
+    :device_type => :uuid,
+    :device => 'a64322c0-3fcc-4407-a423-51e21e05be28',
+  },
+]
 default[:regulus][:export_dir] = '/etc/exports.d'
 default[:regulus][:exports] = [
   {:path => "#{default[:regulus][:deploy_dir]}/backup", :ips => '*', :options => %w[ rw no_root_squash ]}
