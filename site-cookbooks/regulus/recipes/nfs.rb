@@ -6,11 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-directory node[:alterf][:export_dir] do
+directory node[:regulus][:export_dir] do
   user 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?(node[:alterf][:export_dir]) }
+  not_if { File.exists?(node[:regulus][:export_dir]) }
 end
 
 template "#{node[:regulus][:export_dir]}/#{node[:regulus][:app_name]}" do
