@@ -23,3 +23,7 @@ default[:regulus][:cron_paths] = [
   '/bin',
 ]
 default[:regulus][:ruby_version] = '2.2.0'
+default[:regulus][:export_dir] = '/etc/exports.d'
+default[:regulus][:exports] = [
+  {:path => "#{default[:regulus][:deploy_dir]}/backup", :ips => '*', :options => %w[ rw no_root_squash ]}
+]
