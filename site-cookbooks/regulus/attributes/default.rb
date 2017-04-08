@@ -25,7 +25,7 @@ default[:regulus][:cron_paths] = [
 default[:regulus][:ruby_version] = '2.2.0'
 default[:regulus][:mount_settings] = [
   {
-    :path => '/mnt/sakura',
+    :path => "/mnt/sakura/#{default[:regulus][:app_name]}",
     :fstype => 'nfs',
     :device_type => :device,
     :device => "160.16.66.112:#{default[:regulus][:deploy_dir]}/shared/backup",

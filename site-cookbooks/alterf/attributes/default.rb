@@ -18,7 +18,7 @@ default[:alterf][:cron_paths] = [
 default[:alterf][:ruby_version] = '2.2.0'
 default[:alterf][:mount_settings] = [
   {
-    :path => '/mnt/sakura',
+    :path => "/mnt/sakura/#{default[:alterf][:app_name]}",
     :fstype => 'nfs',
     :device_type => :device,
     :device => "160.16.66.112:#{default[:alterf][:deploy_dir]}/shared/backup",
