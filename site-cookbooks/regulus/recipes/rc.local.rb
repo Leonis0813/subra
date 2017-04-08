@@ -11,5 +11,17 @@ file '/etc/rc.d/rc.local' do
   owner 'root'
   group 'root'
   mode 0755
-  action :create
+end
+
+directory '/etc/rc.d/rc.local.d' do
+  user 'root'
+  group 'root'
+  mode 0755
+end
+
+template "/etc/rc.d/rc.local.d/#{node[:regulus][:app_name]}" do
+  source 'rc.local.erb'
+  owner 'root'
+  group 'root'
+  mode 0755
 end

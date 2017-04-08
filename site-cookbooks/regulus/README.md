@@ -24,6 +24,7 @@ This cookbook deploy regulus
 |[:regulus][:branch]               |String       |deployed github branch        |
 |[:regulus][:symlinks]             |Hash         |created symbolic links        |
 |[:regulus][:shared_dirs]          |Array[String]|directories created in shared |
+|[:regulus][:requirements]         |Array[String]|required packages for regulus |
 |[:regulus][:username]             |String       |regulus manager name          |
 |[:regulus][:password]             |String       |user password                 |
 |[:regulus][:smb][:packages]       |Array[String]|samba packages                |
@@ -33,6 +34,9 @@ This cookbook deploy regulus
 |[:regulus][:cron_settings]        |Array[Hash]  |settings for cron             |
 |[:regulus][:cron_paths]           |Array[String]|environment variable for PATH |
 |[:regulus][:ruby_version]         |String       |ruby version for regulus      |
+|[:regulus][:mount_settings]       |Array[Hash]  |mount settings for backup     |
+|[:regulus][:export_dir]           |String       |directory path to export      |
+|[:regulus][:exports]              |Array[Hash]  |export settings fot nfs       |
 
 ## Usage
 

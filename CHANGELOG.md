@@ -1,6 +1,13 @@
 subra
 =====
 
+3.0.0
+-----
+- [UPDATE][RECIPE] alterf to 1.1.0
+- [UPDATE][RECIPE] regulus to 1.0.0
+- [UPDATE][NODE] centos7-ana
+- [UPDATE][ROLE] regulus
+
 2.1.0
 -----
 - [UPDATE][RECIPE] regulus to 0.3.0
@@ -8,7 +15,7 @@ subra
 
 2.0.0
 -----
-- [CREATE][RECIPE] nfs
+- [CREATE][COOKBOOK] nfs
 - [CREATE][ENVIRONMENT] compute
 - [UPDATE][RECIPE] alterf to 1.0.0
 - [UPDATE][RECIPE] regulus to 0.2.1
