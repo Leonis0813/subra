@@ -1,0 +1,15 @@
+{
+  "id": "samba",
+  "password": {
+    "encrypted_data": "RmvCSBFWKmJ1CAxe9yFN/2cV1l8MmYC4VM0Zup1EJUc=\n",
+    "iv": "qdMV0/DlZQ1r4zUtl0whow==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "ip_address": {
+    "encrypted_data": "UVW99hQOXfVsLuO3ifxMqO9Tc/xV0AKfikZ1BnDFKDeMYKGzLK+YYEK5ykuf\ny28G\n",
+    "iv": "743yaWMOV1JvSA4EmEh9Og==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}
