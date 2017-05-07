@@ -6,7 +6,6 @@ default[:regulus][:symlinks] = {'tmp' => 'tmp', 'log' => 'log', 'backup' => 'bac
 default[:regulus][:shared_dirs] = %w[ tmp backup log bundle ]
 default[:regulus][:requirements] = %w[ mysql-devel ]
 default[:regulus][:username] = 'analyzer'
-default[:regulus][:password] = '7QiSlC?4'
 default[:regulus][:smb] = {
   :packages => %w[ samba-client cifs-utils ],
   :share_name => '//27.134.255.192/share',
