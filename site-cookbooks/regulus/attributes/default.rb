@@ -27,7 +27,7 @@ default[:regulus][:mount_settings] = [
     :path => "/mnt/sakura/#{default[:regulus][:app_name]}",
     :fstype => 'nfs',
     :device_type => :device,
-    :device => "160.16.66.112:#{default[:regulus][:deploy_dir]}/shared/backup",
+    :device => "#{Chef::EncryptedDataBagItem.load('regulus', 'sakura')['ip_address']}:#{default[:regulus][:deploy_dir]}/shared/backup",
   },
   {
     :path => '/mnt/backup',
