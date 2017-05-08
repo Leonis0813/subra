@@ -21,7 +21,7 @@ default[:alterf][:mount_settings] = [
     :path => "/mnt/sakura/#{default[:alterf][:app_name]}",
     :fstype => 'nfs',
     :device_type => :device,
-    :device => "160.16.66.112:#{default[:alterf][:deploy_dir]}/shared/backup",
+    :device => "#{Chef::EncryptedDataBagItem.load('alterf', 'sakura')['ip_address']}:#{default[:alterf][:deploy_dir]}/shared/backup",
   },
   {
     :path => '/mnt/backup',
