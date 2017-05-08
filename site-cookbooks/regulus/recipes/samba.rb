@@ -23,9 +23,11 @@ directory node[:regulus][:smb][:mount_dir] do
   not_if { File.exists?(node[:regulus][:smb][:mount_dir]) }
 end
 
+win_server = Chef::EncryptedDataBagItem.load('regulus', 'samba')['ip_address']
+
 mount node[:regulus][:smb][:mount_dir] do
   fstype 'cifs'
-  device node[:regulus][:smb][:share_name]
+  device "//#{win_server}/#{node[:regulus][:smb][:share_name]}"
   options "credentials=#{node[:regulus][:smb][:credential_file]}"
   action [:mount, :enable]
 end
