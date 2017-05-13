@@ -1,6 +1,12 @@
 subra
 =====
 
+3.0.2
+-----
+- [CREATE][DATA_BAG] alterf mysql
+- [CREATE][DATA_BAG] alterf sakura
+- [UPDATE][COOKBOOK] alterf to 1.1.1
+
 3.0.1
 -----
 - [CREATE][DATA_BAG] regulus samba
