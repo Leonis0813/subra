@@ -1,0 +1,9 @@
+{
+  "id": "sakura",
+  "ip_address": {
+    "encrypted_data": "WkE41V+WyDN4aKvir9a7zF1t0WZ5Bb7yEENT6YyfxVOn1BPHttyOh3Q5+CT5\n+bT9\n",
+    "iv": "1W1Lqo36glXyUi+sORt1Bw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

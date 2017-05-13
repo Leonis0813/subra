@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 1.0.1
+- Encrypt credentials and IP addresses
+
 ## 1.0.0
 - Create recipe for nfs mount
 

@@ -26,9 +26,8 @@ This cookbook deploy regulus
 |[:regulus][:shared_dirs]          |Array[String]|directories created in shared |
 |[:regulus][:requirements]         |Array[String]|required packages for regulus |
 |[:regulus][:username]             |String       |regulus manager name          |
-|[:regulus][:password]             |String       |user password                 |
 |[:regulus][:smb][:packages]       |Array[String]|samba packages                |
-|[:regulus][:smb][:share_name]     |String       |shared directory path         |
+|[:regulus][:smb][:share_name]     |String       |share name for samba          |
 |[:regulus][:smb][:mount_dir]      |String       |mount directory path          |
 |[:regulus][:smb][:credential_file]|String       |credential file path for mount|
 |[:regulus][:cron_settings]        |Array[Hash]  |settings for cron             |

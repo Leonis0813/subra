@@ -1,2 +1,2 @@
 username=<%= node[:regulus][:username] %>
-password=<%= node[:regulus][:password] %>
+password=<%= Chef::EncryptedDataBagItem.load('regulus', 'samba')['password'] %>
