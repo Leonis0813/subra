@@ -3,12 +3,14 @@
   "override_attributes": {
     "alterf": {
       "requirements": [
+        "mysql-devel",
         "epel-release",
         "R"
       ]
     },
     "regulus": {
       "requirements": [
+        "mysql-devel",
         "epel-release",
         "R"
       ]

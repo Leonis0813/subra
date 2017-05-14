@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 1.2.0
+- Create settings.yml
+- Install mysql-devel to get training data
+
 ## 1.1.1
 - Encrypt password and IP address
 
