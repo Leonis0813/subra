@@ -1,6 +1,11 @@
 subra
 =====
 
+3.1.0
+-----
+- [UPDATE][COOKBOOK] alterf to 1.1.1
+- [UPDATE][ENVIRONMENT] compute
+
 3.0.2
 -----
 - [CREATE][DATA_BAG] alterf mysql
