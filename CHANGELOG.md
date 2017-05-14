@@ -1,6 +1,10 @@
 subra
 =====
 
+3.2.0
+-----
+- [UPDATE][COOKBOOK] algieba to 0.2.0
+
 3.1.0
 -----
 - [UPDATE][COOKBOOK] alterf to 1.1.1
