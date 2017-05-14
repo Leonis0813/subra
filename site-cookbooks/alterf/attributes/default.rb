@@ -2,8 +2,8 @@ default[:alterf][:app_name] = 'alterf'
 default[:alterf][:deploy_dir] = "/opt/#{default[:alterf][:app_name]}"
 default[:alterf][:repository] = "https://github.com/Leonis0813/#{default[:alterf][:app_name]}.git"
 default[:alterf][:branch] = 'develop'
-default[:alterf][:symlinks] = {'log' => 'log', 'backup' => 'backup'}
-default[:alterf][:shared_dirs] = %w[ backup/race_list backup/races backup/horses log bundle ]
+default[:alterf][:symlinks] = {'log' => 'log', 'backup' => 'backup', 'results' => 'results'}
+default[:alterf][:shared_dirs] = %w[ backup/race_list backup/races backup/horses log bundle results ]
 default[:alterf][:requirements] = %w[ mysql-devel ]
 default[:alterf][:cron_settings] = [
   {:name => 'import', :hour => '0', :minute => '0'},
