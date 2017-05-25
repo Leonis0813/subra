@@ -16,6 +16,7 @@ default[:jenkins][:jobs] = %w[
   regulus
   regulus-deploy
   regulus-aggregate
+  regulus-compress
   algieba
   algieba-module_test
   algieba-function_test
