@@ -15,7 +15,8 @@
   <builders>
     <hudson.tasks.Shell>
       <command>PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-rvm 2.2.0 do bundle exec rspec spec/requests</command>
+rvm 2.2.0 do env REMOTE_HOST=http://localhost bundle exec rspec spec/requests
+      </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
