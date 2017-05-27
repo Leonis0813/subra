@@ -13,6 +13,7 @@
         "regulus-deploy",
         "regulus-aggregate",
         "regulus-compress",
+        "regulus-delete",
         "algieba",
         "algieba-deploy",
         "chort"
