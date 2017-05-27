@@ -1,6 +1,12 @@
 subra
 =====
 
+3.3.0
+-----
+- [UPDATE][COOKBOOK] jenkins to 0.1.3
+- [UPDATE][COOKBOOK] regulus to 1.1.0
+- [UPDATE][ENVIRONMENT] production
+
 3.2.0
 -----
 - [UPDATE][COOKBOOK] algieba to 0.2.0
