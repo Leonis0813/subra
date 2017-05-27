@@ -30,8 +30,6 @@ This cookbook deploy regulus
 |[:regulus][:smb][:share_name]     |String       |share name for samba          |
 |[:regulus][:smb][:mount_dir]      |String       |mount directory path          |
 |[:regulus][:smb][:credential_file]|String       |credential file path for mount|
-|[:regulus][:cron_settings]        |Array[Hash]  |settings for cron             |
-|[:regulus][:cron_paths]           |Array[String]|environment variable for PATH |
 |[:regulus][:ruby_version]         |String       |ruby version for regulus      |
 |[:regulus][:mount_settings]       |Array[Hash]  |mount settings for backup     |
 |[:regulus][:export_dir]           |String       |directory path to export      |
