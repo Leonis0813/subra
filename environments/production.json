@@ -11,6 +11,7 @@
         "alterf-deploy",
         "regulus",
         "regulus-deploy",
+        "regulus-aggregate",
         "algieba",
         "algieba-deploy",
         "chort"
