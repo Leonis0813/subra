@@ -18,25 +18,6 @@
         "algieba-deploy",
         "chort"
       ]
-    },
-    "regulus": {
-      "cron_settings": [
-        {
-          "name": "aggregate",
-          "hour": "0",
-          "minute": "0"
-        },
-        {
-          "name": "aggregate/delete",
-          "minute": "0"
-        },
-        {
-          "name": "lib/compress",
-          "weekday": "1",
-          "hour": "0",
-          "minute": "0"
-        }
-      ]
     }
   }
 }

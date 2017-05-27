@@ -12,15 +12,6 @@ default[:regulus][:smb] = {
   :mount_dir => '/mnt/smb',
   :credential_file => '/etc/smb.cred',
 }
-default[:regulus][:cron_settings] = [
-  {:name => 'aggregate', :hour => '0', :minute => '0'},
-]
-default[:regulus][:cron_paths] = [
-  '/usr/local/rvm/gems/ruby-2.2.0@global/bin',
-  '/usr/local/rvm/rubies/ruby-2.2.0/bin',
-  '/usr/bin',
-  '/bin',
-]
 default[:regulus][:ruby_version] = '2.2.0'
 default[:regulus][:mount_settings] = [
   {
