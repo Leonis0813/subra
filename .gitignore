@@ -4,5 +4,4 @@
 # Ignore Chef key files and secrets
 ###
 .chef/*.pem
-.chef/data_bag_key
 .chef/local-mode-cache
