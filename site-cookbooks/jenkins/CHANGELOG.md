@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 0.1.4
+- Modify algieba-system_test.xml to add env option
+
 ## 0.1.3
 - Add jenkins config files for regulus
 - Modify jenkins path
