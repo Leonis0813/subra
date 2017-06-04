@@ -6,7 +6,7 @@
   <properties/>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
@@ -15,7 +15,8 @@
     <hudson.tasks.Shell>
       <command>PATH=/usr/local/rvm/bin:/usr/bin:$PATH
 cd /opt/alterf/current
-rvmsudo rvm 2.2.0 do bundle exec ruby aggregate.rb</command>
+rvmsudo rvm 2.2.0 do bundle exec ruby aggregate.rb
+      </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
