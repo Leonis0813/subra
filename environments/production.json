@@ -9,6 +9,7 @@
       "jobs": [
         "alterf",
         "alterf-deploy",
+        "alterf-import",
         "regulus",
         "regulus-deploy",
         "regulus-aggregate",

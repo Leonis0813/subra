@@ -13,6 +13,7 @@ default[:jenkins][:plugins] = %w[ git parameterized-trigger ansicolor ]
 default[:jenkins][:jobs] = %w[
   alterf
   alterf-deploy
+  alterf-import
   regulus
   regulus-deploy
   regulus-aggregate
