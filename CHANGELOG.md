@@ -1,6 +1,11 @@
 subra
 =====
 
+3.3.2
+-----
+- [UPDATE][COOKBOOK] jenkins to 0.1.5
+- [UPDATE][ENVIRONMENT] production
+
 3.3.1
 -----
 - [UPDATE][COOKBOOK] jenkins to 0.1.4
