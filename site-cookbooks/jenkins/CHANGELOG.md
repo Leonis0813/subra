@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 0.1.5
+- Add jenkins config files for alterf
+
 ## 0.1.4
 - Modify algieba-system_test.xml to add env option
 
