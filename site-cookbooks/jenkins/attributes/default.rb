@@ -14,6 +14,7 @@ default[:jenkins][:jobs] = %w[
   alterf
   alterf-deploy
   alterf-import
+  alterf-aggregate
   regulus
   regulus-deploy
   regulus-aggregate
