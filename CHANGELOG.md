@@ -1,6 +1,10 @@
 subra
 =====
 
+3.4.0
+-----
+- [UPDATE][COOKBOOK] alterf to 1.3.0
+
 3.3.2
 -----
 - [UPDATE][COOKBOOK] jenkins to 0.1.5

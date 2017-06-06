@@ -5,16 +5,6 @@ default[:alterf][:branch] = 'develop'
 default[:alterf][:symlinks] = {'log' => 'log', 'backup' => 'backup', 'results' => 'results'}
 default[:alterf][:shared_dirs] = %w[ backup/race_list backup/races backup/horses log bundle results ]
 default[:alterf][:requirements] = %w[ mysql-devel ]
-default[:alterf][:cron_settings] = [
-  {:name => 'import', :hour => '0', :minute => '0'},
-  {:name => 'aggregate', :hour => '0', :minute => '5'},
-]
-default[:alterf][:cron_paths] = [
-  '/usr/local/rvm/gems/ruby-2.2.0@global/bin',
-  '/usr/local/rvm/rubies/ruby-2.2.0/bin',
-  '/usr/bin',
-  '/bin',
-]
 default[:alterf][:ruby_version] = '2.2.0'
 default[:alterf][:mount_settings] = [
   {
