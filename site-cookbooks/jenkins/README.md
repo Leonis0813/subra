@@ -29,6 +29,7 @@ This cookbook install jenkins
 |[:jenkins][:accounts]              |Array[Hash]  |created accounts                   |
 |[:jenkins][:plugins]               |Array[String]|installed plugin list              |
 |[:jenkins][:jobs]                  |Array[String]|created job list                   |
+|[:jenkins][:views]                 |Array[String]|created view list                  |
 
 ### jenkins::default
 
