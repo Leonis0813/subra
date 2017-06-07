@@ -26,3 +26,4 @@ default[:jenkins][:jobs] = %w[
   algieba-system_test
   chort
 ]
+default[:jenkins][:views] = %w[ alterf regulus ]
