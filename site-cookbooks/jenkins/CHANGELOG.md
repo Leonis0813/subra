@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.0.0
+- Create recipe to create view
+
 ## 0.1.5
 - Add jenkins config files for alterf
 
