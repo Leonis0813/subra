@@ -18,6 +18,7 @@
         "regulus-delete",
         "algieba",
         "algieba-deploy",
+        "algieba-dump",
         "chort"
       ]
     }
