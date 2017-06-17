@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.0.2
+- Remove cron from alterf-deploy for development
+
 ## 1.0.1
 - Add jenkins config file for algieba
 
