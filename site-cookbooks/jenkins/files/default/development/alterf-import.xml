@@ -20,7 +20,7 @@
     <hudson.tasks.Shell>
       <command>PATH=/usr/local/rvm/bin:/usr/bin:$PATH
 cd /opt/alterf/current
-rvmsudo rvm 2.2.0 do bundle exec ruby import.rb
+rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby import.rb
       </command>
     </hudson.tasks.Shell>
   </builders>

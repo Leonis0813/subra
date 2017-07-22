@@ -1,3 +1,6 @@
+# 3.5.3 (2017/07/22)
+- [UPDATE][COOKBOOK] jenkins to 1.0.3
+
 # 3.5.2 (2017/06/17)
 - [UPDATE][COOKBOOK] jenkins to 1.0.2
 

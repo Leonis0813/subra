@@ -20,7 +20,7 @@ H H 1 * *</spec>
     <hudson.tasks.Shell>
       <command>PATH=/usr/local/rvm/bin:/usr/bin:$PATH
 cd /opt/regulus/current
-rvmsudo rvm 2.2.0 do bundle exec ruby lib/compress.rb</command>
+rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby lib/compress.rb</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
