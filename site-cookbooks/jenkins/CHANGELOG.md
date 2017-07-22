@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.0.4
+- Add view for algieba
+
 ## 1.0.3
 - Output log to console
 
