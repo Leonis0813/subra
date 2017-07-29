@@ -15,7 +15,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-rvm 2.2.0 do bundle exec rspec spec/models</command>
+rvm 2.2.0 do bundle exec rake spec:models</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

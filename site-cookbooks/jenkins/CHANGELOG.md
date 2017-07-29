@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.0.5
+- Modify jenkins configs to use rake task for rspec
+
 ## 1.0.4
 - Add view for algieba
 
