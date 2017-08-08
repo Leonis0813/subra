@@ -29,9 +29,11 @@ deploy node[:algieba][:deploy_dir] do
       action :install
     end
 
-    link File.join(release_path, 'vendor/bundle') do
-      to File.join(release_path, '../../shared/bundle')
-      link_type :symbolic
+    [['log', 'log'], ['vendor/bundle', 'bundle']].each do |from, to|
+      link File.join(release_path, from) do
+        to File.join(release_path, "../../shared/#{to}")
+        link_type :symbolic
+      end
     end
 
     execute 'rvm 2.2.0 do bundle install --path=vendor/bundle' do
