@@ -29,9 +29,11 @@ deploy node[:algieba][:deploy_dir] do
       action :install
     end
 
-    link File.join(release_path, 'vendor/bundle') do
-      to File.join(release_path, '../../shared/bundle')
-      link_type :symbolic
+    [['log', 'log'], ['vendor/bundle', 'bundle']].each do |from, to|
+      link File.join(release_path, from) do
+        to File.join(release_path, "../../shared/#{to}")
+        link_type :symbolic
+      end
     end
 
     execute 'rvm 2.2.0 do bundle install --path=vendor/bundle' do
@@ -72,7 +74,7 @@ deploy node[:algieba][:deploy_dir] do
     execute 'rvm 2.2.0 do bundle exec rake unicorn:stop' do
       cwd release_path
       environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
-      only_if { File.exists?("#{node[:algieba][:deploy_dir]}/shared/tmp/pids/unicorn.pid") }
+      only_if "pgrep -lf 'unicorn_rails.*#{node[:algieba][:app_name]}*'"
     end
 
     execute 'rvm 2.2.0 do bundle exec rake unicorn:start' do

@@ -1,3 +1,6 @@
+# 3.5.6 (2017/08/08)
+- [UPDATE][COOKBOOK] algieba to 0.2.1
+
 # 3.5.5 (2017/07/29)
 - [UPDATE][COOKBOOK] jenkins to 1.0.5
 
