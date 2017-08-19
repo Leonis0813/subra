@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the algieba cookbook.
 
+## 0.2.2
+- Add rake command to export i18n.js
+
 ## 0.2.1
 - Create symlink for dump.sql and log
 - Fix bug for restart

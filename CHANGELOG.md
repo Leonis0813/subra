@@ -1,3 +1,6 @@
+# 3.5.7 (2017/08/19)
+- [UPDATE][COOKBOOK] algieba to 0.2.2
+
 # 3.5.6 (2017/08/08)
 - [UPDATE][COOKBOOK] algieba to 0.2.1
 
