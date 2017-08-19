@@ -41,6 +41,11 @@ deploy node[:algieba][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
     end
 
+    execute 'rvm 2.2.0 do bundle exec rake i18n:js:export' do
+      cwd release_path
+      environment 'PATH' => node[:rvm][:path]
+    end
+
     node[:algieba][:mysql_users].each do |user|
       execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';'"
     end
