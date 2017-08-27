@@ -1,3 +1,6 @@
+# 3.6.0 (2017/08/27)
+- [UPDATE][COOKBOOK] regulus to 1.2.0
+
 # 3.5.7 (2017/08/19)
 - [UPDATE][COOKBOOK] algieba to 0.2.2
 

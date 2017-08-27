@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 1.2.0
+- Create settings.yml
+- Create shared directory for learning results
+
 ## 1.1.0
 - Remove recipe for cron
 
