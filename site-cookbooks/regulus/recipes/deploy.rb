@@ -41,5 +41,13 @@ deploy node[:regulus][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
       not_if { node.chef_environment == 'compute' }
     end
+
+    template File.join(release_path, 'analyze/settings.yml') do
+      source 'settings.yml.erb'
+      owner 'root'
+      group 'root'
+      mode 0644
+      only_if { node.chef_environment == 'compute' }
+    end
   end
 end
