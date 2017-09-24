@@ -1,3 +1,6 @@
+# 3.6.1 (2017/09/24)
+- [UPDATE][COOKBOOK] jenkins to 1.0.6
+
 # 3.6.0 (2017/08/27)
 - [UPDATE][COOKBOOK] regulus to 1.2.0
 
