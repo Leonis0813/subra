@@ -37,8 +37,8 @@
 make clean
 make html
 sudo mkdir -p /opt/nginx/html/docs
-sudo ln -snf ${WORKSPACE}/payment_manager/_build/html /opt/nginx/html/docs/algieba
-sudo ln -snf ${WORKSPACE}/horse-race_estimator/_build/html /opt/nginx/html/docs/alterf
+sudo ln -snf ${WORKSPACE}/payment_manager/_build/html /opt/nginx/html/docs/payment_manager
+sudo ln -snf ${WORKSPACE}/horse-race_estimator/_build/html /opt/nginx/html/docs/horse-race_estimator
       </command>
     </hudson.tasks.Shell>
   </builders>
