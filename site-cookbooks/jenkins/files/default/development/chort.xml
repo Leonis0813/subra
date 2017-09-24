@@ -33,9 +33,13 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>make clean
+      <command>
+make clean
 make html
-sudo ln -snf ${WORKSPACE}/_build/html /opt/nginx/html/docs</command>
+sudo mkdir -p /opt/nginx/html/docs
+sudo ln -snf ${WORKSPACE}/payment_manager/_build/html /opt/nginx/html/docs/algieba
+sudo ln -snf ${WORKSPACE}/horse-race_estimator/_build/html /opt/nginx/html/docs/alterf
+      </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
