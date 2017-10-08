@@ -1,4 +1,5 @@
 # 3.6.2 (2017/10/08)
+- [UPDATE][COOKBOOK] jenkins to 1.0.7
 - [UPDATE][COOKBOOK] nginx to 0.1.3
 
 # 3.6.1 (2017/09/24)
