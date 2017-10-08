@@ -14,8 +14,9 @@
   <customWorkspace>workspace/algieba</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-      rvm 2.2.0 do env REMOTE_HOST=http://localhost bundle exec rake spec:requests
+      <command>
+        PATH=/usr/local/rvm/bin:/usr/bin:$PATH
+        rvm 2.2.0 do env REMOTE_HOST=http://localhost/algieba bundle exec rake spec:requests
       </command>
     </hudson.tasks.Shell>
   </builders>
