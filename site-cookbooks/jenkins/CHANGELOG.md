@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.0.7
+- Modify REMOTE_HOST for system test
+
 ## 1.0.6
 - Add new path for alterf spec to chort.xml
 
