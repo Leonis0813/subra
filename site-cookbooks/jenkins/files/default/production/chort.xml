@@ -40,6 +40,7 @@ make html
 sudo mkdir -p /opt/nginx/html/docs
 sudo ln -snf ${WORKSPACE}/payment_manager/_build/html /opt/nginx/html/docs/payment_manager
 sudo ln -snf ${WORKSPACE}/horse-race_estimator/_build/html /opt/nginx/html/docs/horse-race_estimator
+sudo ln -snf ${WORKSPACE}/fx-rate_estimator/_build/html /opt/nginx/html/docs/fx-rate_estimator
       </command>
     </hudson.tasks.Shell>
   </builders>
