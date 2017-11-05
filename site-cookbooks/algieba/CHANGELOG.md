@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the algieba cookbook.
 
+## 0.2.3
+- Add an environment variable for precompile
+
 ## 0.2.2
 - Add rake command to export i18n.js
 
