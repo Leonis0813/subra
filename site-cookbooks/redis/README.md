@@ -12,14 +12,6 @@ This cookbook install latest redis
 
 - Chef 12.0 or later
 
-## Attributes
-
-### redis::default
-
-|Key                     |Type  |Description            |
-|------------------------|------|-----------------------|
-|[:mysql][:root_password]|String|root password for mysql|
-
 ## Usage
 
 ### redis::install
