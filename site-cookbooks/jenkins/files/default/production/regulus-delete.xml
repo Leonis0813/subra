@@ -13,9 +13,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-      cd /opt/regulus/current
-      rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby aggregate/delete.rb
+      <command>
+        PATH=/usr/local/rvm/bin:/usr/bin:$PATH
+        cd /opt/nginx/apps/regulus/current/scripts
+        rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby aggregate/delete.rb
       </command>
     </hudson.tasks.Shell>
   </builders>

@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 1.3.0
+- Update recipe for deploy to create web server
+
 ## 1.2.0
 - Create settings.yml
 - Create shared directory for learning results
