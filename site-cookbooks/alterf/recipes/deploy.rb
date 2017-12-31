@@ -41,6 +41,10 @@ deploy node[:alterf][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
       not_if { node.chef_environment == 'compute' }
     end
+
+    node[:alterf][:mysql_users].each do |user|
+      execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';'"
+    end
   end
 
   before_restart do
@@ -82,13 +86,13 @@ deploy node[:alterf][:deploy_dir] do
   restart_command do
     execute 'rvm 2.2.0 do bundle exec rake unicorn:stop' do
       cwd release_path
-      environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment == 'compute' ? 'production' : node.chef_environment, 'PATH' => node[:rvm][:path]
       only_if "pgrep -lf 'unicorn_rails.*#{node[:alterf][:app_name]}*'"
     end
 
     execute 'rvm 2.2.0 do bundle exec rake unicorn:start' do
       cwd release_path
-      environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment == 'compute' ? 'production' : node.chef_environment, 'PATH' => node[:rvm][:path]
       only_if { %w[ compute development ].include?(node.chef_environment) }
     end
   end

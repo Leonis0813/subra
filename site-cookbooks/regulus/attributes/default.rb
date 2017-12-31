@@ -1,5 +1,5 @@
 default[:regulus][:app_name] = 'regulus'
-default[:regulus][:deploy_dir] = "/opt/#{default[:regulus][:app_name]}"
+default[:regulus][:deploy_dir] = "/opt/nginx/apps/#{default[:regulus][:app_name]}"
 default[:regulus][:repository] = "https://github.com/Leonis0813/#{default[:regulus][:app_name]}.git"
 default[:regulus][:branch] = 'develop'
 default[:regulus][:symlinks] = {'tmp' => 'tmp', 'log' => 'log', 'backup' => 'backup', 'results' => 'results'}
@@ -31,3 +31,4 @@ default[:regulus][:export_dir] = '/etc/exports.d'
 default[:regulus][:exports] = [
   {:path => "#{default[:regulus][:deploy_dir]}/backup", :ips => '*', :options => %w[ rw no_root_squash ]}
 ]
+default[:regulus][:mysql_users] = %w[ development test ]

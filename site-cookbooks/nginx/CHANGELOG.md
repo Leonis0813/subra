@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 0.1.4
+- Update nginx.conf
+
 ## 0.1.3
 - Update algieba and redmine root path
 
