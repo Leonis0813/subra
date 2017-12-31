@@ -3,6 +3,7 @@
 - [UPDATE][COOKBOOK] alterf to 1.4.0
 - [UPDATE][COOKBOOK] regulus to 1.3.0
 - [UPDATE][COOKBOOK] jenkins to 1.0.9
+- [UPDATE][COOKBOOK] nginx to 0.1.4
 
 # 3.6.3 (2017/11/05)
 - [UPDATE][COOKBOOK] algieba to 0.2.3
