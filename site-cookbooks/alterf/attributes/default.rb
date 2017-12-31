@@ -1,5 +1,5 @@
 default[:alterf][:app_name] = 'alterf'
-default[:alterf][:deploy_dir] = "/opt/#{default[:alterf][:app_name]}"
+default[:alterf][:deploy_dir] = "/opt/nginx/apps/#{default[:alterf][:app_name]}"
 default[:alterf][:repository] = "https://github.com/Leonis0813/#{default[:alterf][:app_name]}.git"
 default[:alterf][:branch] = 'develop'
 default[:alterf][:symlinks] = {'log' => 'log', 'backup' => 'backup', 'results' => 'results'}
