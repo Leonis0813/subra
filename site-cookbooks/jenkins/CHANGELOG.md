@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.0.9
+- Modify jenkins config of alterf and regulus
+
 ## 1.0.8
 - Add new path for regulus spec to chort.xml
 

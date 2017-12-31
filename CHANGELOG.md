@@ -1,3 +1,9 @@
+# 4.0.0 (2017/12/31)
+- [CREATE][COOKBOOK] redis
+- [UPDATE][COOKBOOK] alterf to 1.4.0
+- [UPDATE][COOKBOOK] regulus to 1.3.0
+- [UPDATE][COOKBOOK] jenkins to 1.0.9
+
 # 3.6.3 (2017/11/05)
 - [UPDATE][COOKBOOK] algieba to 0.2.3
 - [UPDATE][COOKBOOK] jenkins to 1.0.8
