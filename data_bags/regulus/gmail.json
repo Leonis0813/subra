@@ -1,0 +1,15 @@
+{
+  "id": "gmail",
+  "user_name": {
+    "encrypted_data": "AwDK6Uun7EsLfXwvaAYyKrbMVk+U1aSUSbgDRhBKulNTZbY5iJeCmTiTdVUA\nAOXP\n",
+    "iv": "4Qk5y2BzSamlSIsze5oSvQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "password": {
+    "encrypted_data": "TcaFjumQ/gPfF8BXDXIgSNAHAV5kDacdZp2byQr/u6A=\n",
+    "iv": "Q/+PaAy/En+LLYNkiDcr1g==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}
