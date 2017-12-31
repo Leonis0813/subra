@@ -40,7 +40,14 @@
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
-  <builders/>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>
+        PATH=/usr/local/rvm/bin:/usr/bin:$PATH
+        rvm 2.2.0 do bundle install --path=vendor/bundle
+      </command>
+    </hudson.tasks.Shell>
+  </builders>
   <publishers>
     <hudson.tasks.BuildTrigger>
       <childProjects>regulus-module_test</childProjects>
