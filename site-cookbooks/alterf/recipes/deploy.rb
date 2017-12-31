@@ -49,20 +49,20 @@ deploy node[:alterf][:deploy_dir] do
       owner 'root'
       group 'root'
       mode 0644
-      only_if { %w[ compute development ].inlude?(node.chef_environment) }
+      only_if { %w[ compute development ].include?(node.chef_environment) }
     end
 
     execute 'rvm 2.2.0 do bundle exec rake resque:worker:restart' do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
-      only_if { %w[ compute development ].inlude?(node.chef_environment) }
+      only_if { %w[ compute development ].include?(node.chef_environment) }
     end
 
     gmail = Chef::EncryptedDataBagItem.load('alterf', 'gmail')
     %w[ user_name password ].each do |user_info|
       execute "sed -i -e s/GMAIL_#{user_info.upcase}/#{gmail[user_info]}/g config/initializers/action_mailer.rb" do
         cwd release_path
-        only_if { %w[ compute development ].inlude?(node.chef_environment) }
+        only_if { %w[ compute development ].include?(node.chef_environment) }
       end
     end
 
@@ -89,7 +89,7 @@ deploy node[:alterf][:deploy_dir] do
     execute 'rvm 2.2.0 do bundle exec rake unicorn:start' do
       cwd release_path
       environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path]
-      only_if { %w[ compute development ].inlude?(node.chef_environment) }
+      only_if { %w[ compute development ].include?(node.chef_environment) }
     end
   end
 end
