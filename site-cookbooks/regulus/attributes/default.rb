@@ -31,3 +31,4 @@ default[:regulus][:export_dir] = '/etc/exports.d'
 default[:regulus][:exports] = [
   {:path => "#{default[:regulus][:deploy_dir]}/backup", :ips => '*', :options => %w[ rw no_root_squash ]}
 ]
+default[:regulus][:mysql_users] = %w[ development test ]

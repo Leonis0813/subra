@@ -41,6 +41,10 @@ deploy node[:regulus][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
       not_if { node.chef_environment == 'compute' }
     end
+
+    node[:regulus][:mysql_users].each do |user|
+      execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';'"
+    end
   end
 
   before_restart do

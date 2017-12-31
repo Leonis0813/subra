@@ -24,3 +24,4 @@ default[:alterf][:export_dir] = '/etc/exports.d'
 default[:alterf][:exports] = [
   {:path => "#{default[:alterf][:deploy_dir]}/backup", :ips => '*', :options => %w[ rw no_root_squash ]}
 ]
+default[:alterf][:mysql_users] = %w[ development test ]
