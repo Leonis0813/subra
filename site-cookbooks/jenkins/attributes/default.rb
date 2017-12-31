@@ -12,10 +12,14 @@ default[:jenkins][:accounts] = [{:id => 'leonis', :password => '7QiSlC?4'}]
 default[:jenkins][:plugins] = %w[ git parameterized-trigger ansicolor ]
 default[:jenkins][:jobs] = %w[
   alterf
+  alterf-module_test
+  alterf-function_test
   alterf-deploy
   alterf-import
   alterf-aggregate
   regulus
+  regulus-module_test
+  regulus-function_test
   regulus-deploy
   regulus-aggregate
   regulus-compress
