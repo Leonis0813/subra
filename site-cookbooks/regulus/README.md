@@ -25,15 +25,8 @@ This cookbook deploy regulus
 |[:regulus][:symlinks]             |Hash         |created symbolic links        |
 |[:regulus][:shared_dirs]          |Array[String]|directories created in shared |
 |[:regulus][:requirements]         |Array[String]|required packages for regulus |
-|[:regulus][:username]             |String       |regulus manager name          |
-|[:regulus][:smb][:packages]       |Array[String]|samba packages                |
-|[:regulus][:smb][:share_name]     |String       |share name for samba          |
-|[:regulus][:smb][:mount_dir]      |String       |mount directory path          |
-|[:regulus][:smb][:credential_file]|String       |credential file path for mount|
 |[:regulus][:ruby_version]         |String       |ruby version for regulus      |
-|[:regulus][:mount_settings]       |Array[Hash]  |mount settings for backup     |
-|[:regulus][:export_dir]           |String       |directory path to export      |
-|[:regulus][:exports]              |Array[Hash]  |export settings fot nfs       |
+|[:regulus][:mysql_users]          |Array[String]|users used by regulus         |
 
 ## Usage
 
