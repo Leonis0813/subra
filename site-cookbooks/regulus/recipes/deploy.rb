@@ -14,7 +14,7 @@ deploy node[:regulus][:deploy_dir] do
   create_dirs_before_symlink.clear
   purge_before_symlink.clear
   symlinks node[:regulus][:symlinks]
-  migration_command "rvm node[:regulus][:ruby_version] do bundle exec rake db:migrate"
+  migration_command "rvm #{node[:regulus][:ruby_version]} do bundle exec rake db:migrate"
   environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
 
   before_migrate do
