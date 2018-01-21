@@ -6,10 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-node[:alterf][:requirements].each do |package_name|
-  package package_name
-end
-
 deploy node[:alterf][:deploy_dir] do
   repo node[:alterf][:repository]
   branch ENV['ALTERF_VERSION'] || node[:alterf][:branch]
@@ -34,6 +30,10 @@ deploy node[:alterf][:deploy_dir] do
       to File.join(node[:alterf][:deploy_dir], 'shared/bundle')
     end
 
+    node[:alterf][:requirements].each do |package_name|
+      package package_name
+    end
+
     execute 'rvm 2.2.0 do bundle install --path=vendor/bundle' do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
@@ -45,7 +45,7 @@ deploy node[:alterf][:deploy_dir] do
   end
 
   before_restart do
-    template File.join(release_path, 'scripts/analyze/settings.yml') do
+    template File.join(release_path, 'scripts/settings.yml') do
       source 'settings.yml.erb'
       owner 'root'
       group 'root'
