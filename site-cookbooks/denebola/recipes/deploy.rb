@@ -13,7 +13,6 @@ end
 deploy node[:denebola][:deploy_dir] do
   repo node[:denebola][:repository]
   branch ENV['DENEBOLA_VERSION'] || node[:denebola][:branch]
-  migrate true
   create_dirs_before_symlink.clear
   purge_before_symlink.clear
   symlink_before_migrate.clear
