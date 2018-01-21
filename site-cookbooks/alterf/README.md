@@ -25,9 +25,7 @@ This cookbook deploy alterf
 |[:alterf][:symlinks]      |Hash         |created symbolic links       |
 |[:alterf][:shared_dirs]   |Array[String]|directories created in shared|
 |[:alterf][:ruby_version]  |String       |ruby version for alterf      |
-|[:alterf][:mount_settings]|Array[Hash]  |mount settings for backup    |
-|[:alterf][:export_dir]    |String       |directory path to export     |
-|[:alterf][:exports]       |Array[Hash]  |export settings fot nfs      |
+|[:alterf][:mysql_users]   |Array[String]|users used by alterf         |
 
 ## Usage
 
