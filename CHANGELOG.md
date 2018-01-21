@@ -1,5 +1,6 @@
 # 2018/01/21
 - [CREATE][COOKBOOK] denebola
+- [UPDATE][COOKBOOK] alterf to 1.5.0
 
 # 2017/12/31
 - [CREATE][COOKBOOK] redis

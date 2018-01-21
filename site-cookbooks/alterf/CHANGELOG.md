@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 1.5.0
+- Remove recipes created in denebola
+
 ## 1.4.0
 - Update recipe for deploy to create web server
 
