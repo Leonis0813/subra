@@ -24,8 +24,8 @@ This cookbook deploy denebola
 |[:denebola][:branch]        |String       |deployed github branch       |
 |[:denebola][:symlinks]      |Hash         |created symbolic links       |
 |[:denebola][:shared_dirs]   |Array[String]|directories created in shared|
-|[:denebola][:ruby_version]  |String       |ruby version for denebola      |
-|[:denebola][:mount_settings]|Array[Hash]  |mount settings for backup    |
+|[:denebola][:requirements]  |Array[String]|packages before deploying    |
+|[:denebola][:ruby_version]  |String       |ruby version for denebola    |
 |[:denebola][:export_dir]    |String       |directory path to export     |
 |[:denebola][:exports]       |Array[Hash]  |export settings fot nfs      |
 
