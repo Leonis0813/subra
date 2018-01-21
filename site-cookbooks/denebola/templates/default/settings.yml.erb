@@ -1,0 +1,5 @@
+mysql:
+  host: <%= Chef::EncryptedDataBagItem.load('denebola', 'sakura')['ip_address'] %>
+  port: 3306
+  user: root
+  password: <%= Chef::EncryptedDataBagItem.load('denebola', 'mysql')['password'] %>
