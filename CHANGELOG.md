@@ -1,3 +1,9 @@
+# 2018/02/04
+- [UPDATE][ROLE] alterf and regulus
+- [CREATE][ROLE] denebola and zosma
+- [UPDATE][DATA_BAG] regulus
+- [CREATE][DATA_BAG] zosma
+
 # 2018/01/21
 - [CREATE][COOKBOOK] denebola
 - [UPDATE][COOKBOOK] alterf to 1.5.0
@@ -10,6 +16,7 @@
 - [UPDATE][COOKBOOK] regulus to 1.3.0
 - [UPDATE][COOKBOOK] jenkins to 1.0.9
 - [UPDATE][COOKBOOK] nginx to 0.1.4
+- [UPDATE][DATA_BAG] alterf and regulus
 
 # 2017/11/05
 - [UPDATE][COOKBOOK] algieba to 0.2.3
@@ -73,13 +80,11 @@
 - [UPDATE][ENVIRONMENT] compute
 
 # 2017/05/13
-- [CREATE][DATA_BAG] alterf mysql
-- [CREATE][DATA_BAG] alterf sakura
+- [CREATE][DATA_BAG] alterf
 - [UPDATE][COOKBOOK] alterf to 1.1.1
 
 # 2017/05/13
-- [CREATE][DATA_BAG] regulus samba
-- [CREATE][DATA_BAG] regulus sakura
+- [CREATE][DATA_BAG] regulus
 - [UPDATE][COOKBOOK] regulus to 1.0.1
 
 # 2017/04/08
