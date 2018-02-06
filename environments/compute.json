@@ -2,6 +2,12 @@
   "name": "compute",
   "override_attributes": {
     "alterf": {
+      "mysql_users": [
+        "production"
+      ],
+      "open_ports": [
+        "80:tcp"
+      ],
       "requirements": [
         "mysql-devel",
         "epel-release",
@@ -9,10 +15,24 @@
       ]
     },
     "regulus": {
+      "mysql_users": [
+        "production"
+      ],
+      "open_ports": [
+        "80:tcp"
+      ],
       "requirements": [
         "mysql-devel",
         "epel-release",
         "R"
+      ]
+    },
+    "jenkins": {
+      "jobs": [
+        "alterf",
+        "alterf-deploy",
+        "regulus",
+        "regulus-deploy"
       ]
     }
   }

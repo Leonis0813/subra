@@ -2,24 +2,29 @@
   "name": "production",
   "override_attributes": {
     "algieba": {
-      "open_ports": ["80:tcp"],
-      "mysql_users": ["production"]
+      "open_ports": [
+        "80:tcp"
+      ],
+      "mysql_users": [
+        "production"
+      ]
     },
     "jenkins": {
       "jobs": [
-        "alterf",
-        "alterf-deploy",
-        "alterf-import",
-        "alterf-aggregate",
-        "regulus",
-        "regulus-deploy",
-        "regulus-aggregate",
-        "regulus-compress",
-        "regulus-delete",
         "algieba",
         "algieba-deploy",
         "algieba-dump",
-        "chort"
+        "chort",
+        "denebola",
+        "denebola-deploy",
+        "denebola-collect",
+        "denebola-aggregate",
+        "zosma",
+        "zosma-deploy",
+        "zosma-collect",
+        "zosma-aggregate",
+        "zosma-compress",
+        "zosma-delete"
       ]
     }
   }
