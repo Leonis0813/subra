@@ -2,10 +2,7 @@
   "name": "sakura",
   "chef_environment": "production",
   "run_list": [
-    "recipe[jenkins::install]",
-    "recipe[jenkins::user]",
-    "recipe[jenkins::plugin]",
-    "recipe[jenkins::job]",
+    "role[ci]",
     "recipe[sphinx::install]",
     "role[algieba]",
     "role[denebola]",
