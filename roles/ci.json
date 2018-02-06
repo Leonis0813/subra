@@ -1,0 +1,9 @@
+{
+  "name": "ci",
+  "run_list": [
+    "recipe[jenkins::install]",
+    "recipe[jenkins::user]",
+    "recipe[jenkins::plugin]",
+    "recipe[jenkins::job]"
+  ]
+}

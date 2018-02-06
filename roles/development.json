@@ -1,0 +1,12 @@
+{
+  "name": "development",
+  "run_list": [
+    "recipe[emacs::install]",
+    "recipe[git::install]",
+    "recipe[zsh::install]",
+    "recipe[user::create]",
+    "recipe[user::ssh]",
+    "recipe[user::zsh]",
+    "recipe[user::emacs]"
+  ]
+}

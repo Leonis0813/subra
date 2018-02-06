@@ -1,3 +1,74 @@
 {
-  "name": "development"
+  "name": "development",
+  "override_attributes": {
+    "algieba": {
+      "mysql_users": [
+        "development",
+        "test"
+      ],
+      "open_ports": [
+        "80:tcp",
+        "3000:tcp"
+      ]
+    },
+    "alterf": {
+      "mysql_users": [
+        "development",
+        "test"
+      ],
+      "open_ports": [
+        "80:tcp",
+        "3000:tcp"
+      ],
+      "requirements": [
+        "mysql-devel",
+        "epel-release",
+        "R"
+      ]
+    },
+    "regulus": {
+      "mysql_users": [
+        "development",
+        "test"
+      ],
+      "open_ports": [
+        "80:tcp",
+        "3000:tcp"
+      ],
+      "requirements": [
+        "mysql-devel",
+        "epel-release",
+        "R"
+      ]
+    },
+    "jenkins": {
+      "jobs": [
+        "algieba",
+        "algieba-module_test",
+        "algieba-function_test",
+        "algieba-deploy",
+        "algieba-system_test",
+        "alterf",
+        "alterf-module_test",
+        "alterf-function_test",
+        "alterf-deploy",
+        "alterf-system_test",
+        "chort",
+        "denebola",
+        "denebola-deploy",
+        "denebola-collect",
+        "denebola-aggregate",
+        "regulus",
+        "regulus-module_test",
+        "regulus-function_test",
+        "regulus-deploy",
+        "regulus-system_test",
+        "zosma",
+        "zosma-deploy",
+        "zosma-collect",
+        "zosma-aggregate",
+        "zosma-compress"
+      ]
+    }
+  }
 }

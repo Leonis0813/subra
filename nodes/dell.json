@@ -1,0 +1,9 @@
+{
+  "name": "dell",
+  "chef_environment": "compute",
+  "run_list": [
+    "role[ci]",
+    "role[alterf]",
+    "role[regulus]"
+  ]
+}

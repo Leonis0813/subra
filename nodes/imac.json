@@ -1,11 +1,14 @@
 {
-  "name": "sakura",
-  "chef_environment": "production",
+  "name": "imac",
+  "chef_environment": "development",
   "run_list": [
+    "role[development]",
     "role[ci]",
     "recipe[sphinx::install]",
     "role[algieba]",
+    "role[alterf]",
     "role[denebola]",
+    "role[regulus]",
     "role[zosma]"
   ]
 }

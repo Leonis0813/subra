@@ -1,3 +1,10 @@
+# 2018/02/06
+- [CREATE][ROLE] ci and development
+- [UPDATE][ENVIRONMENT] development, production and compute
+- [REMOVE][NODE] centos6-dev and centos7-ana
+- [CREATE][NODE] imac, macbook and dell
+- [UPDATE][NODE] sakura
+
 # 2018/02/04
 - [UPDATE][ROLE] alterf and regulus
 - [CREATE][ROLE] denebola and zosma
