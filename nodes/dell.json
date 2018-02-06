@@ -1,0 +1,12 @@
+{
+  "name": "dell",
+  "chef_environment": "compute",
+  "run_list": [
+    "recipe[jenkins::install]",
+    "recipe[jenkins::user]",
+    "recipe[jenkins::plugin]",
+    "recipe[jenkins::job]",
+    "role[alterf]",
+    "role[regulus]"
+  ]
+}

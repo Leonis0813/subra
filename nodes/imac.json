@@ -1,0 +1,23 @@
+{
+  "name": "imac",
+  "chef_environment": "development",
+  "run_list": [
+    "recipe[emacs::install]",
+    "recipe[git::install]",
+    "recipe[zsh::install]",
+    "recipe[user::create]",
+    "recipe[user::ssh]",
+    "recipe[user::zsh]",
+    "recipe[user::emacs]",
+    "recipe[jenkins::install]",
+    "recipe[jenkins::user]",
+    "recipe[jenkins::plugin]",
+    "recipe[jenkins::job]",
+    "recipe[sphinx::install]",
+    "role[algieba]",
+    "role[alterf]",
+    "role[denebola]",
+    "role[regulus]",
+    "role[zosma]"
+  ]
+}

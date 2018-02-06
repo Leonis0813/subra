@@ -1,11 +1,10 @@
 {
-  "name": "centos6-dev",
+  "name": "macbook",
   "chef_environment": "development",
   "run_list": [
     "recipe[emacs::install]",
     "recipe[git::install]",
     "recipe[zsh::install]",
-    "recipe[rvm::install]",
     "recipe[user::create]",
     "recipe[user::ssh]",
     "recipe[user::zsh]",
@@ -17,6 +16,8 @@
     "recipe[sphinx::install]",
     "role[algieba]",
     "role[alterf]",
-    "role[regulus]"
+    "role[denebola]",
+    "role[regulus]",
+    "role[zosma]"
   ]
 }
