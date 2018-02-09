@@ -2,6 +2,7 @@
 - [REMOVE][COOKBOOK] nfs
 - [UPDATE][COOKBOOK] nginx to 1.0.0
 - [UPDATE][ENVIRONMENT] development, production and compute
+- [UPDATE][ROLE] algieba, alterf and regulus
 
 # 2018/02/06
 - [CREATE][ROLE] ci and development
