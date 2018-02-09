@@ -7,3 +7,4 @@ default[:nginx][:download] = {
   :file => "nginx-#{default[:nginx][:version]}.tar.gz",
 }
 default[:nginx][:install_dir] = '/opt/nginx'
+default[:nginx][:conf_files] = []
