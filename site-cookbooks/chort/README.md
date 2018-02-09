@@ -16,16 +16,16 @@ This cookbook deploy chort
 
 ### chort::default
 
-|Key                      |Type         |Description                  |
-|-------------------------|-------------|-----------------------------|
-|[:chort][:app_name]      |String       |application name             |
-|[:chort][:deploy_dir]    |String       |absolute path to deploy      |
-|[:chort][:repository]    |String       |github url for clone         |
-|[:chort][:branch]        |String       |deployed github branch       |
+|Key                  |Type  |Description            |
+|---------------------|------|-----------------------|
+|[:chort][:app_name]  |String|application name       |
+|[:chort][:deploy_dir]|String|absolute path to deploy|
+|[:chort][:repository]|String|github url for clone   |
+|[:chort][:branch]    |String|deployed github branch |
 
 ## Usage
 
-### chort::deploy
+### chort::default
 
 Just include `rvm` in your node's `run_list`:
 
@@ -33,7 +33,7 @@ Just include `rvm` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[chort::deploy]"
+    "recipe[chort]"
   ]
 }
 ```
