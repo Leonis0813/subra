@@ -25,10 +25,12 @@ This cookbook install nginx
 |[:nginx][:download][:dir] |String       |directory downloaded nginx package  |
 |[:nginx][:download][:file]|String       |file name downloaded nginx package  |
 |[:nginx][:install_dir]    |String       |install directory                   |
+|[:nginx][:apps]           |Array[String]|web app names                       |
+|[:nginx][:conf_files]     |Array[String]|config files placed on conf.d       |
 
 ## Usage
 
-### nginx::install
+### nginx::default
 
 Just include `nginx` in your node's `run_list`:
 
@@ -36,7 +38,7 @@ Just include `nginx` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[nginx::install]"
+    "recipe[nginx]"
   ]
 }
 ```

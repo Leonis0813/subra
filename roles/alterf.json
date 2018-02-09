@@ -3,8 +3,8 @@
   "run_list": [
     "recipe[mysql::install]",
     "recipe[rvm::install]",
-    "recipe[nginx::user]",
-    "recipe[nginx::install]",
+    "recipe[nginx]",
+    "recipe[nginx::conf]",
     "recipe[alterf::ruby]",
     "recipe[alterf::deploy]"
   ]

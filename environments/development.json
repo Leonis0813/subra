@@ -26,21 +26,6 @@
         "R"
       ]
     },
-    "regulus": {
-      "mysql_users": [
-        "development",
-        "test"
-      ],
-      "open_ports": [
-        "80:tcp",
-        "3000:tcp"
-      ],
-      "requirements": [
-        "mysql-devel",
-        "epel-release",
-        "R"
-      ]
-    },
     "jenkins": {
       "jobs": [
         "algieba",
@@ -68,6 +53,32 @@
         "zosma-collect",
         "zosma-aggregate",
         "zosma-compress"
+      ]
+    },
+    "nginx": {
+      "apps": [
+        "algieba",
+        "alterf",
+        "regulus"
+      ],
+      "conf_files": [
+        "doc",
+        "jenkins"
+      ]
+    },
+    "regulus": {
+      "mysql_users": [
+        "development",
+        "test"
+      ],
+      "open_ports": [
+        "80:tcp",
+        "3000:tcp"
+      ],
+      "requirements": [
+        "mysql-devel",
+        "epel-release",
+        "R"
       ]
     }
   }

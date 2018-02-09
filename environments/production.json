@@ -26,6 +26,16 @@
         "zosma-compress",
         "zosma-delete"
       ]
+    },
+    "nginx": {
+      "apps": [
+        "algieba",
+        "redmine"
+      ],
+      "conf_files": [
+        "doc",
+        "jenkins"
+      ]
     }
   }
 }

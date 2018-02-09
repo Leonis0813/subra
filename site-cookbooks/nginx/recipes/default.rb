@@ -10,9 +10,13 @@ unless File.exists?(node[:nginx][:install_dir])
   download_path = File.join(node[:nginx][:download][:dir], node[:nginx][:download][:file])
   extracted_dir = download_path.sub('.tar.gz', '')
 
-  package node[:nginx][:requirements] do
-    action :install
+  user node[:nginx][:user] do
+    manage_home false
+    shell '/sbin/nologin'
+    system true
   end
+
+  package node[:nginx][:requirements]
 
   remote_file download_path do
     source node[:nginx][:download][:url]
