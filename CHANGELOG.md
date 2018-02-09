@@ -1,3 +1,8 @@
+# 2018/02/09
+- [REMOVE][COOKBOOK] nfs
+- [UPDATE][COOKBOOK] nginx to 1.0.0
+- [UPDATE][ENVIRONMENT] development, production and compute
+
 # 2018/02/06
 - [CREATE][ROLE] ci and development
 - [UPDATE][ENVIRONMENT] development, production and compute
