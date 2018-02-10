@@ -1,5 +1,6 @@
 # 2018/02/10
 - [CREATE][COOKBOOK] chort
+- [CREATE][ROLE] doc
 
 # 2018/02/09
 - [REMOVE][COOKBOOK] nfs
