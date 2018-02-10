@@ -33,14 +33,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>
-make clean
-make html
-sudo mkdir -p /opt/nginx/html/docs
-sudo ln -snf ${WORKSPACE}/payment_manager/_build/html /opt/nginx/html/docs/payment_manager
-sudo ln -snf ${WORKSPACE}/horse-race_estimator/_build/html /opt/nginx/html/docs/horse-race_estimator
-sudo ln -snf ${WORKSPACE}/fx-rate_estimator/_build/html /opt/nginx/html/docs/fx-rate_estimator
-      </command>
+      <command>sudo chef-client -z -r chort -E development</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
