@@ -53,6 +53,11 @@
         "zosma-collect",
         "zosma-aggregate",
         "zosma-compress"
+      ],
+      "views": [
+        "payment_manager",
+        "fx-rate_estimator",
+        "horse-race_estimator"
       ]
     },
     "nginx": {

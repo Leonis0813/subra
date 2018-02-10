@@ -25,6 +25,11 @@
         "zosma-aggregate",
         "zosma-compress",
         "zosma-delete"
+      ],
+      "views": [
+        "payment_manager",
+        "fx-rate_estimator",
+        "horse-race_estimator"
       ]
     },
     "nginx": {

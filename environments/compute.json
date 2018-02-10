@@ -42,6 +42,10 @@
         "alterf-deploy",
         "regulus",
         "regulus-deploy"
+      ],
+      "views": [
+        "fx-rate_estimator",
+        "horse-race_estimator"
       ]
     }
   }
