@@ -8,13 +8,12 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <refspec>+refs/tags/*:refs/remotes/origin/tags/*</refspec>
         <url>https://github.com/Leonis0813/chort.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>*/tags/*</name>
+        <name>develop</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -34,14 +33,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>
-make clean
-make html
-sudo mkdir -p /opt/nginx/html/docs
-sudo ln -snf ${WORKSPACE}/payment_manager/_build/html /opt/nginx/html/docs/payment_manager
-sudo ln -snf ${WORKSPACE}/horse-race_estimator/_build/html /opt/nginx/html/docs/horse-race_estimator
-sudo ln -snf ${WORKSPACE}/fx-rate_estimator/_build/html /opt/nginx/html/docs/fx-rate_estimator
-      </command>
+      <command>sudo chef-client -z -r chort -E production</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
