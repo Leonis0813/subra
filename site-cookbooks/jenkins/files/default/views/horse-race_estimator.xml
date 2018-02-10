@@ -1,6 +1,6 @@
 <listView>
   <owner class="hudson" reference="../../.."/>
-  <name>alterf</name>
+  <name>horse-race_estimator</name>
   <filterExecutors>false</filterExecutors>
   <filterQueue>false</filterQueue>
   <properties class="hudson.model.View$PropertyList"/>
@@ -17,6 +17,6 @@
     <hudson.views.LastDurationColumn/>
     <hudson.views.BuildButtonColumn/>
   </columns>
-  <includeRegex>^alterf.*</includeRegex>
+  <includeRegex>^(alterf|denebola).*</includeRegex>
   <recurse>false</recurse>
 </listView>

@@ -1,6 +1,6 @@
 <listView>
   <owner class="hudson" reference="../../.."/>
-  <name>alterf</name>
+  <name>payment_manager</name>
   <filterExecutors>false</filterExecutors>
   <filterQueue>false</filterQueue>
   <properties class="hudson.model.View$PropertyList"/>
