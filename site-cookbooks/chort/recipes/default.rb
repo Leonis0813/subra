@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: chort
-# Recipe:: deploy
+# Recipe:: default
 #
 # Copyright 2016, Leonis0813
 #
