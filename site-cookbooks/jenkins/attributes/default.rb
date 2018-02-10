@@ -10,24 +10,5 @@ default[:jenkins][:admin][:username] = 'admin'
 default[:jenkins][:admin][:password_file] = '/var/lib/jenkins/secrets/initialAdminPassword'
 default[:jenkins][:accounts] = [{:id => 'leonis', :password => '7QiSlC?4'}]
 default[:jenkins][:plugins] = %w[ git parameterized-trigger ansicolor ]
-default[:jenkins][:jobs] = %w[
-  alterf
-  alterf-module_test
-  alterf-function_test
-  alterf-deploy
-  alterf-import
-  alterf-aggregate
-  regulus
-  regulus-module_test
-  regulus-function_test
-  regulus-deploy
-  regulus-aggregate
-  regulus-compress
-  algieba
-  algieba-module_test
-  algieba-function_test
-  algieba-deploy
-  algieba-system_test
-  chort
-]
-default[:jenkins][:views] = %w[ algieba alterf regulus ]
+default[:jenkins][:jobs] = []
+default[:jenkins][:views] = []

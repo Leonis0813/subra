@@ -1,6 +1,6 @@
 <listView>
   <owner class="hudson" reference="../../.."/>
-  <name>regulus</name>
+  <name>fx-rate_estimator</name>
   <filterExecutors>false</filterExecutors>
   <filterQueue>false</filterQueue>
   <properties class="hudson.model.View$PropertyList"/>
@@ -17,6 +17,6 @@
     <hudson.views.LastDurationColumn/>
     <hudson.views.BuildButtonColumn/>
   </columns>
-  <includeRegex>^regulus.*</includeRegex>
+  <includeRegex>^(regulus|zosma).*</includeRegex>
   <recurse>false</recurse>
 </listView>

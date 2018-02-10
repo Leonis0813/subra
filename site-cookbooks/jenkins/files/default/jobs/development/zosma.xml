@@ -3,12 +3,21 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.4">
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>10</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/Leonis0813/chort.git</url>
+        <url>https://github.com/Leonis0813/zosma.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -34,19 +43,21 @@
   <builders>
     <hudson.tasks.Shell>
       <command>
-make clean
-make html
-sudo mkdir -p /opt/nginx/html/docs
-sudo ln -snf ${WORKSPACE}/payment_manager/_build/html /opt/nginx/html/docs/payment_manager
-sudo ln -snf ${WORKSPACE}/horse-race_estimator/_build/html /opt/nginx/html/docs/horse-race_estimator
-sudo ln -snf ${WORKSPACE}/fx-rate_estimator/_build/html /opt/nginx/html/docs/fx-rate_estimator
+        PATH=/usr/local/rvm/bin:/usr/bin:$PATH
+        rvm 2.2.0 do bundle install --path=vendor/bundle
       </command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
-  <buildWrappers>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.3">
-      <colorMapName>xterm</colorMapName>
-    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-  </buildWrappers>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>zosma-deploy</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+  </publishers>
+  <buildWrappers/>
 </project>

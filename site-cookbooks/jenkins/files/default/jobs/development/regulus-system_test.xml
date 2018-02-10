@@ -9,37 +9,20 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers>
-    <hudson.triggers.TimerTrigger>
-      <spec>
-        TZ=UTC
-        0 0 * * *
-      </spec>
-    </hudson.triggers.TimerTrigger>
-  </triggers>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>workspace/regulus</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-        cd /opt/nginx/apps/alterf/current/scripts
-        rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby import.rb
+        rvm 2.2.0 do env REMOTE_HOST=http://localhost/regulus bundle exec rake spec:requests
       </command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.BuildTrigger>
-      <childProjects>alterf-aggregate</childProjects>
-      <threshold>
-        <name>SUCCESS</name>
-        <ordinal>0</ordinal>
-        <color>BLUE</color>
-        <completeBuild>true</completeBuild>
-      </threshold>
-    </hudson.tasks.BuildTrigger>
-  </publishers>
+  <publishers/>
   <buildWrappers>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.0">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.3">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
   </buildWrappers>

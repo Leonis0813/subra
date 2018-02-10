@@ -13,7 +13,7 @@
     <hudson.triggers.TimerTrigger>
       <spec>
         TZ=UTC
-        H H 1 * *
+        0 0 * * *
       </spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
@@ -22,12 +22,22 @@
     <hudson.tasks.Shell>
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-        cd /opt/nginx/apps/regulus/current/scripts
-        rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby lib/compress.rb
+        cd /opt/zosma/current
+        rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby aggregate.rb
       </command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>zosma-delete</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+  </publishers>
   <buildWrappers>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.3">
       <colorMapName>xterm</colorMapName>

@@ -35,7 +35,7 @@ This cookbook install jenkins
 
 ## Usage
 
-### jenkins::install
+### jenkins::default
 
 Just include `jenkins` in your node's `run_list`:
 
@@ -43,7 +43,7 @@ Just include `jenkins` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[jenkins::install]"
+    "recipe[jenkins]"
   ]
 }
 ```

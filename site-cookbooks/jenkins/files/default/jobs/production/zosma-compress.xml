@@ -9,14 +9,21 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers/>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>
+        TZ=UTC
+        H H 1 * *
+      </spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-        cd /opt/nginx/apps/regulus/current/scripts
-        rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby aggregate/delete.rb
+        cd /opt/zosma/current
+        rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby tools/compress.rb
       </command>
     </hudson.tasks.Shell>
   </builders>
