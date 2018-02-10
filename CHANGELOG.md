@@ -1,3 +1,7 @@
+# 2018/02/10
+- [CREATE][COOKBOOK] chort
+- [CREATE][ROLE] doc
+
 # 2018/02/09
 - [REMOVE][COOKBOOK] nfs
 - [UPDATE][COOKBOOK] nginx to 1.0.0

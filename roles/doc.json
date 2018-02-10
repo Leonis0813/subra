@@ -1,0 +1,15 @@
+{
+  "name": "doc",
+  "run_list": [
+    "recipe[sphinx::install]",
+    "recipe[nginx::conf]",
+    "recipe[chort]"
+  ],
+  "override_attributes": {
+    "nginx": {
+      "conf_files": [
+        "doc"
+      ]
+    }
+  }
+}
