@@ -1,6 +1,9 @@
 # 2018/02/10
 - [CREATE][COOKBOOK] chort
 - [CREATE][ROLE] doc
+- [UPDATE][COOKBOOK] jenkins to 1.1.0
+- [UPDATE][ENVIRONMENT] development, production and compute
+- [UPDATE][ROLE] ci
 
 # 2018/02/09
 - [REMOVE][COOKBOOK] nfs

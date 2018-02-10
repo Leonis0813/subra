@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.1.0
+- Create default recipe to install
+- Create jenkins config files
+
 ## 1.0.9
 - Modify jenkins config of alterf and regulus
 
