@@ -39,6 +39,7 @@
         "alterf-deploy",
         "alterf-system_test",
         "chort",
+        "chort-deploy",
         "denebola",
         "denebola-deploy",
         "denebola-collect",

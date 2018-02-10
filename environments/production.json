@@ -15,6 +15,7 @@
         "algieba-deploy",
         "algieba-dump",
         "chort",
+        "chort-deploy",
         "denebola",
         "denebola-deploy",
         "denebola-collect",
