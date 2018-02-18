@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the zosma cookbook.
 
+## 0.2.0
+- Add migrate command to deploy recipe
+- Remove mysql recipe
+
 ## 0.1.0
 - Initial release of zosma
 
