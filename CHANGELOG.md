@@ -1,3 +1,6 @@
+# 2018/02/18
+- [UPDATE][COOKBOOK] zosma to 0.2.0
+
 # 2018/02/10
 - [CREATE][COOKBOOK] chort
 - [CREATE][ROLE] doc

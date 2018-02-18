@@ -13,6 +13,9 @@ deploy node[:zosma][:deploy_dir] do
   create_dirs_before_symlink.clear
   purge_before_symlink.clear
   symlinks node[:zosma][:symlinks]
+  migrate true
+  migration_command "cd #{node[:zosma][:deploy_dir]}/current; rvm 2.2.0 do bundle exec ruby db/initialize.rb"
+  environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
 
   before_migrate do
     directory File.join(release_path, 'vendor')
