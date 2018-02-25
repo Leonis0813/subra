@@ -46,7 +46,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo ALTERF_VERSION=${version#origin/tags/} chef-client -z -r alterf::deploy -E compute</command>
+      <command>sudo ALTERF_VERSION=${version#origin/tags/} chef-client -z -r alterf -E compute</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

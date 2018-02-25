@@ -46,7 +46,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo ALGIEBA_VERSION=${version#origin/tags/} chef-client -z -r algieba::deploy -E production</command>
+      <command>sudo ALGIEBA_VERSION=${version#origin/tags/} chef-client -z -r algieba -E production</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
