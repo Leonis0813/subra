@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 1.0.1
+- Update recipe to include conf
+
 ## 1.0.0
 - create default recipe
 - create recipe to update conf
