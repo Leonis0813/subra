@@ -1,3 +1,6 @@
+# 2018/02/25
+- [UPDATE][COOKBOOK] nginx to 1.0.1
+
 # 2018/02/18
 - [UPDATE][COOKBOOK] zosma to 0.2.0
 - [UPDATE][COOKBOOK] jenkins to 1.1.1
