@@ -4,8 +4,7 @@
     "recipe[mysql::install]",
     "recipe[rvm::install]",
     "recipe[nginx]",
-    "recipe[nginx::conf]",
     "recipe[regulus::ruby]",
-    "recipe[regulus::deploy]"
+    "recipe[regulus]"
   ]
 }
