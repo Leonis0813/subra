@@ -1,5 +1,8 @@
 # 2018/02/25
+- [UPDATE][COOKBOOK] algieba to 1.0.0
+- [UPDATE][COOKBOOK] nginx to 1.1.2
 - [UPDATE][COOKBOOK] nginx to 1.0.1
+- [UPDATE][ROLE] algieba, alterf and regulus
 
 # 2018/02/18
 - [UPDATE][COOKBOOK] zosma to 0.2.0
