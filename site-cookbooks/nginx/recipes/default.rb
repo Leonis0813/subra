@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: nginx
-# Recipe:: install
+# Recipe:: default
 #
 # Copyright 2016, Leonis0813
 #
@@ -40,13 +40,7 @@ unless File.exists?(node[:nginx][:install_dir])
     end
   end
 
-  file "#{node[:nginx][:install_dir]}/conf/nginx.conf" do
-    content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/nginx.conf'))
-    owner node[:nginx][:user]
-    group node[:nginx][:user]
-    mode 0644
-    action :create
-  end
+  include_recipe 'nginx::conf'
 
   file '/etc/init.d/nginx' do
     content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/nginx'))
