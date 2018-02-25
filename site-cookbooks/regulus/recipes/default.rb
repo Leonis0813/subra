@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: regulus
-# Recipe:: deploy
+# Recipe:: default
 #
 # Copyright 2017, Leonis0813
 #

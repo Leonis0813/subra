@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: alterf
-# Recipe:: deploy
+# Recipe:: default
 #
 # Copyright 2016, Leonis0813
 #
