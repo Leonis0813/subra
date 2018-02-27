@@ -90,3 +90,17 @@ deploy node[:alterf][:deploy_dir] do
     end
   end
 end
+
+if node.chef_environment == 'development'
+  execute 'yum -y groupupdate "X Window System"' do
+    not_if 'rpm -q xorg-x11-server-Xvfb'
+  end
+
+  package %w[ xorg-x11-server-Xvfb firefox ]
+
+  execute 'dbus-uuidgen > /var/lib/dbus/machine-id'
+end
+
+node[:alterf][:open_ports].each do |port|
+  execute "lokkit -p #{port}"
+end
