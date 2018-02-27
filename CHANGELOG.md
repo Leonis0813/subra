@@ -1,7 +1,10 @@
 # 2018/02/25
 - [UPDATE][COOKBOOK] algieba to 1.0.0
-- [UPDATE][COOKBOOK] nginx to 1.1.2
+- [UPDATE][COOKBOOK] alterf to 1.6.0
+- [UPDATE][COOKBOOK] jenkins to 1.1.2
 - [UPDATE][COOKBOOK] nginx to 1.0.1
+- [UPDATE][COOKBOOK] redis to 1.0.0
+- [UPDATE][COOKBOOK] regulus to 1.5.0
 - [UPDATE][ROLE] algieba, alterf and regulus
 
 # 2018/02/18
