@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: redis
-# Recipe:: install
+# Recipe:: default
 #
 # Copyright 2016, Leonis0813
 #

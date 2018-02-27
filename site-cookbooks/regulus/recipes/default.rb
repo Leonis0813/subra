@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: regulus
-# Recipe:: deploy
+# Recipe:: default
 #
 # Copyright 2017, Leonis0813
 #
@@ -89,4 +89,18 @@ deploy node[:regulus][:deploy_dir] do
       environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
     end
   end
+end
+
+if node.chef_environment == 'development'
+  execute 'yum -y groupupdate "X Window System"' do
+    not_if 'rpm -q xorg-x11-server-Xvfb'
+  end
+
+  package %w[ xorg-x11-server-Xvfb firefox ]
+
+  execute 'dbus-uuidgen > /var/lib/dbus/machine-id'
+end
+
+node[:regulus][:open_ports].each do |port|
+  execute "lokkit -p #{port}"
 end

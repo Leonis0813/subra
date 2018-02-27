@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.1.2
+- Remove ::deploy from jenkins config
+
 ## 1.1.1
 - Fix path setting of aggregation
 - Fix cron setting
