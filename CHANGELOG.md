@@ -1,3 +1,6 @@
+# 2018/03/03
+- [UPDATE][COOKBOOK] jenkins to 1.2.0
+
 # 2018/02/25
 - [UPDATE][COOKBOOK] algieba to 1.0.0
 - [UPDATE][COOKBOOK] alterf to 1.6.0

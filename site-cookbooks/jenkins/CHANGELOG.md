@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.2.0
+- Update recipe to update job
+- Add resource to create jobs to default
+
 ## 1.1.2
 - Remove ::deploy from jenkins config
 
