@@ -15,7 +15,7 @@ remote_file node[:jenkins][:rpm_path] do
   owner 'root'
   group 'root'
   mode 0755
-  not_if 'rpm -q jenkins'
+  not_if { File.exists?(node[:jenkins][:rpm_path]) }
 end
 
 package 'jenkins' do
@@ -64,7 +64,7 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} groovy = --us
     retry_delay 10
   end
 end
-
+=begin
 node[:jenkins][:plugins].each do |plugin|
   execute "install plugin - #{plugin}" do
     command <<-"EOF"
@@ -74,13 +74,23 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} install-plugi
     retries 5
   end
 end
-
+=end
 node[:jenkins][:jobs].each do |job|
   ruby_block "create job - #{job}" do
     block do
       xml = config(node.chef_environment, job)
       content_type = {'Content-Type' => 'text/xml'}
       client.post("/createItem?name=#{job}", IO.read(xml), basic_auth.merge(crumb).merge(content_type))
+    end
+  end
+end
+
+node[:jenkins][:views].each do |view|
+  ruby_block "create view - #{view}" do
+    block do
+      xml = File.absolute_path(File.dirname(__FILE__) + "/../files/default/views/#{view}.xml")
+      content_type = {'Content-Type' => 'text/xml'}
+      client.post("/createView?name=#{view}", IO.read(xml), basic_auth.merge(crumb).merge(content_type))
     end
   end
 end

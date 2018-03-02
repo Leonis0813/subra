@@ -6,24 +6,16 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-remote_file node[:jenkins][:cli_path] do
-  source node[:jenkins][:cli_url]
-  owner 'root'
-  group 'root'
-  mode 0755
-  not_if { File.exists?(node[:jenkins][:cli_path]) }
-end
-
-node[:jenkins][:views].each do |view|
-  config_file = File.absolute_path(File.dirname(__FILE__) + "/../files/default/views/#{view}.xml")
-  execute "create view - #{view}" do
-    command <<-EOF
-cat #{config_file} |
-java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} create-view #{view} --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]}
-    EOF
-    user 'root'
-    retries 5
-    retry_delay 10
-    not_if "java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} get-view #{view} --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]}"
+knode[:jenkins][:views].each do |view|
+  ruby_block "update view - #{view}" do
+    block do
+      xml = File.absolute_path(File.dirname(__FILE__) + "/../files/default/views/#{view}.xml")
+      begin
+        content_type = {'Content-Type' => 'text/xml'}
+        client.post("/view/#{view}/config.xml", IO.read(xml), basic_auth.merge(crumb))
+      rescue Net::HTTPServerException => e
+        raise e unless  e.message == '404 "Not Found"'
+      end
+    end
   end
 end
