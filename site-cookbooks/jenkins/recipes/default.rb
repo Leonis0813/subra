@@ -74,3 +74,19 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} install-plugi
     retries 5
   end
 end
+
+node[:jenkins][:jobs].each do |job|
+  ruby_block "create job - #{job}" do
+    block do
+      client = Chef::HTTP.new(node[:jenkins][:host])
+      path = '/crumbIssuer/api/json'
+      account = node[:jenkins][:accounts].first
+      credential = Base64.strict_encode64("#{account[:id]}:#{account[:password]}")
+      header = {'Authorization' => "Basic #{credential}"}
+      response = client.get(path, header)
+      crumb = {'Jenkins-Crumb' => JSON.parse(response)['crumb']}
+      config_file = File.absolute_path(File.dirname(__FILE__) + "/../files/default/jobs/#{node.chef_environment}/#{job}.xml")
+      client.post("/createItem?name=#{job}", IO.read(config_file), header.merge(crumb).merge('Content-Type' => 'text/xml'))
+    end
+  end
+end
