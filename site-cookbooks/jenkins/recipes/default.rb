@@ -64,7 +64,7 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} groovy = --us
     retry_delay 10
   end
 end
-=begin
+
 node[:jenkins][:plugins].each do |plugin|
   execute "install plugin - #{plugin}" do
     command <<-"EOF"
@@ -74,7 +74,7 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} install-plugi
     retries 5
   end
 end
-=end
+
 node[:jenkins][:jobs].each do |job|
   ruby_block "create job - #{job}" do
     block do
