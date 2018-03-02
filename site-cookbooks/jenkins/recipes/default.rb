@@ -6,16 +6,16 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+package 'java-1.8.0-openjdk' do
+  not_if 'rpm -q java'
+end
+
 remote_file node[:jenkins][:rpm_path] do
   source node[:jenkins][:rpm_url]
   owner 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?(node[:jenkins][:rpm_path]) }
-end
-
-package 'java-1.8.0-openjdk' do
-  not_if 'rpm -q java'
+  not_if 'rpm -q jenkins'
 end
 
 package 'jenkins' do
