@@ -4,6 +4,6 @@
     "recipe[mysql::install]",
     "recipe[rvm::install]",
     "recipe[denebola::ruby]",
-    "recipe[denebola::deploy]"
+    "recipe[denebola]"
   ]
 }

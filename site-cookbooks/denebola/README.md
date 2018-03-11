@@ -31,7 +31,7 @@ This cookbook deploy denebola
 
 ## Usage
 
-### denebola::deploy
+### denebola
 
 Just include `rvm` in your node's `run_list`:
 
@@ -39,7 +39,7 @@ Just include `rvm` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[denebola::deploy]"
+    "recipe[denebola]"
   ]
 }
 ```
