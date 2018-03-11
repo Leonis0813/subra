@@ -1,5 +1,5 @@
 # 2018/03/11
-- [UPDATE][COOKBOOK] denebola to 1.0.0
+- [UPDATE][COOKBOOK] denebola to 1.0.1
 - [UPDATE][COOKBOOK] jenkins to 1.2.1
 - [UPDATE][ROLE] denebola
 
