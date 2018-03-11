@@ -26,8 +26,10 @@ deploy node[:denebola][:deploy_dir] do
       end
     end
 
-    link File.join(release_path, 'vendor/bundle') do
-      to File.join(node[:denebola][:deploy_dir], 'shared/bundle')
+    {'log' => 'log', 'vendor/bundle' => 'bundle'}.each do |from, to|
+      link File.join(release_path, from) do
+        to File.join(node[:denebola][:deploy_dir], "shared/#{to}")
+      end
     end
 
     node[:denebola][:requirements].each do |package_name|

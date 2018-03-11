@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the denebola cookbook.
 
+## 1.0.1
+- Fix bug for deploy recipe
+- Remove recipe 'mysql'
+
 ## 1.0.0
 - Create default recipe
 
