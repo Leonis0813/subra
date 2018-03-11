@@ -1,3 +1,7 @@
+# 2018/03/11
+- [UPDATE][COOKBOOK] denebola to 1.0.0
+- [UPDATE][COOKBOOK] jenkins to 1.2.1
+
 # 2018/03/03
 - [UPDATE][COOKBOOK] jenkins to 1.2.0
 
