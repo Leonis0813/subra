@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.2.1
+- Update jenkins conf for denebola-deploy
+
 ## 1.2.0
 - Update recipe to update jobs and views
 - Add resource to create jobs and views to default

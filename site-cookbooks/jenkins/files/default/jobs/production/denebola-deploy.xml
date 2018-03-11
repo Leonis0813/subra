@@ -46,7 +46,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo DENEBOLA_VERSION=${version#origin/tags/} chef-client -z -r denebola::deploy -E production</command>
+      <command>sudo DENEBOLA_VERSION=${version#origin/tags/} chef-client -z -r denebola -E production</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
