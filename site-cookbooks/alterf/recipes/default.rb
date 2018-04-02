@@ -52,11 +52,6 @@ deploy node[:alterf][:deploy_dir] do
       mode 0644
     end
 
-    execute 'rvm 2.2.0 do bundle exec rake resque:worker:restart' do
-      cwd release_path
-      environment 'PATH' => node[:rvm][:path]
-    end
-
     gmail = Chef::EncryptedDataBagItem.load('alterf', 'gmail')
     template File.join(release_path, 'config/initializers/action_mailer.rb') do
       source 'action_mailer.rb.erb'
@@ -64,6 +59,11 @@ deploy node[:alterf][:deploy_dir] do
       group 'root'
       mode 0644
       variables(:user_name => gmail['user_name'], :password => gmail['password'])
+    end
+
+    execute 'rvm 2.2.0 do bundle exec rake resque:worker:restart' do
+      cwd release_path
+      environment 'PATH' => node[:rvm][:path]
     end
 
     execute 'rvm 2.2.0 do bundle exec rake assets:precompile' do
