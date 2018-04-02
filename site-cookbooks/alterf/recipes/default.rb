@@ -57,11 +57,14 @@ deploy node[:alterf][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
     end
 
+    host = Chef::EncryptedDataBagItem.load('alterf', 'sakura')['ip_address']
     gmail = Chef::EncryptedDataBagItem.load('alterf', 'gmail')
-    %w[ user_name password ].each do |user_info|
-      execute "sed -i -e s/GMAIL_#{user_info.upcase}/#{gmail[user_info]}/g config/initializers/action_mailer.rb" do
-        cwd release_path
-      end
+    template File.join(release_path, 'config/initializers/action_mailer.rb') do
+      source 'action_mailer.rb.erb'
+      owner 'root'
+      group 'root'
+      mode 0644
+      variables(:host => host, :user_name => gmail['user_name'], :password => gmail['password'])
     end
 
     execute 'rvm 2.2.0 do bundle exec rake assets:precompile' do
