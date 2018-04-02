@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 1.7.0
+- Create template for action mailer
+
 ## 1.6.0
 - Add package install for development to default recipe
 - Open ports for tcp
