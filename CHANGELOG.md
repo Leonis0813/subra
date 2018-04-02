@@ -1,5 +1,6 @@
 # 2018/04/02
 - [UPDATE][COOKBOOK] alterf to 1.7.0
+- [UPDATE][DATA_BAG] alterf
 
 # 2018/03/11
 - [UPDATE][COOKBOOK] denebola to 1.0.1
