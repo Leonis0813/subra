@@ -1,4 +1,4 @@
-default[:nginx][:requirements] = %w[ pcre pcre-devel ]
+default[:nginx][:requirements] = %w[ pcre pcre-devel lua-sql-mysql ]
 default[:nginx][:version] = '1.10.2'
 default[:nginx][:user] = 'nginx'
 default[:nginx][:download] = {
