@@ -33,6 +33,6 @@ default[:nginx][:lua_nginx_module][:download] = {
 default[:nginx][:lua_resty_mysql][:version] = '0.21'
 default[:nginx][:lua_resty_mysql][:src] = "v#{default[:nginx][:lua_resty_mysql][:version]}.tar.gz"
 default[:nginx][:lua_resty_mysql][:download] = {
-  :url => "https://github.com/openresty/lua-resty-mysql/archive/#{default[:nginx][:lua_nginx_module][:src]}",
+  :url => "https://github.com/openresty/lua-resty-mysql/archive/#{default[:nginx][:lua_resty_mysql][:src]}",
   :dir => '/usr/local/src',
 }

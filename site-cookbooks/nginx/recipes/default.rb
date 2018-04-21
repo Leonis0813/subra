@@ -123,6 +123,7 @@ unless File.exists?(node[:nginx][:install_dir])
 
   include_recipe 'nginx::conf'
   include_recipe 'nginx::lua'
+  include_recipe 'nginx::html'
 
   service 'nginx' do
     action [:start, :enable]
