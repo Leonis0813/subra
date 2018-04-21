@@ -1,0 +1,37 @@
+ngx.req.read_body()
+args = ngx.req.get_post_args()
+if(args["user_id"] and args["password"]) then
+  local user_id = args["user_id"]
+  local password = args["password"]
+  local mysql = require "resty.mysql"
+  db, err = mysql:new()
+  db:connect{
+    host = "127.0.0.1",
+    port = 3306,
+    database = "algieba",
+    user = "root",
+    password = "<%= node[:mysql][:root_password] %>"
+  }
+
+  result, err, errno, sqlstate =
+  db:query("SELECT COUNT(*) AS count FROM users WHERE user_id = '" .. user_id .. "' AND password = '" .. password .. "'")
+  db:close()
+
+  if(tonumber(result[1]["count"]) > 0) then
+    ngx.header['Set-Cookie'] = 'algieba=' .. ngx.encode_base64(user_id .. ":" .. password) .. '; path=/'
+
+    if(args["redirect_uri"] ~= "") then
+      return ngx.redirect(args["redirect_uri"])
+    else
+      return ngx.redirect("/portal.html")
+    end
+  else
+    if(args["redirect_uri"] ~= "") then
+      return ngx.redirect("/login.html?redirect_uri=" .. ngx.escape_uri(args["redirect_uri"]))
+    else
+      return ngx.redirect("/login.html")
+    end
+  end
+else
+  return ngx.exit(404)
+end

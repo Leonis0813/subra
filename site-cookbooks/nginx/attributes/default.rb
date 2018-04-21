@@ -9,6 +9,8 @@ default[:nginx][:download] = {
 default[:nginx][:install_dir] = '/opt/nginx'
 default[:nginx][:apps] = []
 default[:nginx][:conf_files] = []
+default[:nginx][:html_files] = %w[login portal]
+default[:nginx][:lua_files] = %w[login authenticate]
 default[:nginx][:luajit][:version] = '2.0.5'
 default[:nginx][:luajit][:src] = "LuaJIT-#{default[:nginx][:luajit][:version]}.tar.gz"
 default[:nginx][:luajit][:download] = {
@@ -26,5 +28,11 @@ default[:nginx][:lua_nginx_module][:version] = '0.10.11'
 default[:nginx][:lua_nginx_module][:src] = "v#{default[:nginx][:lua_nginx_module][:version]}.tar.gz"
 default[:nginx][:lua_nginx_module][:download] = {
   :url => "https://github.com/openresty/lua-nginx-module/archive/#{default[:nginx][:lua_nginx_module][:src]}",
+  :dir => '/usr/local/src',
+}
+default[:nginx][:lua_resty_mysql][:version] = '0.21'
+default[:nginx][:lua_resty_mysql][:src] = "v#{default[:nginx][:lua_resty_mysql][:version]}.tar.gz"
+default[:nginx][:lua_resty_mysql][:download] = {
+  :url => "https://github.com/openresty/lua-resty-mysql/archive/#{default[:nginx][:lua_nginx_module][:src]}",
   :dir => '/usr/local/src',
 }

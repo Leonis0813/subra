@@ -78,6 +78,17 @@ unless File.exists?(node[:nginx][:install_dir])
     not_if { File.exists?(download_lua_nginx_module_path.sub('.tar.gz', '')) }
   end
 
+  download_lua_resty_mysql_path = File.join(node[:nginx][:lua_resty_mysql][:download][:dir], node[:nginx][:lua_resty_mysql][:src])
+  remote_file download_lua_resty_mysql_path do
+    source node[:nginx][:lua_resty_mysql][:download][:url]
+    not_if { File.exists?(download_lua_resty_mysql_path) }
+  end
+
+  execute "tar zxf #{node[:nginx][:lua_resty_mysql][:src]}" do
+    cwd node[:nginx][:lua_resty_mysql][:download][:dir]
+    not_if { File.exists?(download_lua_resty_mysql_path.sub('.tar.gz', '')) }
+  end
+
   options = [
     ['prefix', node[:nginx][:install_dir]],
     ['add-module', "#{node[:nginx][:nginx_devel_kit][:download][:dir]}/ngx_devel_kit-#{node[:nginx][:nginx_devel_kit][:version]}"],
@@ -111,6 +122,7 @@ unless File.exists?(node[:nginx][:install_dir])
   end
 
   include_recipe 'nginx::conf'
+  include_recipe 'nginx::lua'
 
   service 'nginx' do
     action [:start, :enable]
