@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function setRedirectUri() {
+        document.getElementById("redirect_uri").value = decodeURIComponent(location.search.substring(14));
+      }
+    </script>
+  </head>
+  <body>
+    <form method="post" action="/authenticate" onSubmit="return setRedirectUri()">
+      <input type="hidden" name="redirect_uri" value="" id="redirect_uri">
+      <input type="text" name="user_id">
+      <input type="password" name="password">
+      <input type="submit">
+    </form>
+  </body>
+</html>

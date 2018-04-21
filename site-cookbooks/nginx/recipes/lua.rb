@@ -17,7 +17,6 @@ node[:nginx][:lua_files].each do |lua_file|
     owner 'nginx'
     group 'nginx'
     mode 0644
-    variables(:nginx_apps => node[:nginx][:apps])
   end
 end
 
