@@ -1,7 +1,8 @@
 {
   "name": "alterf",
   "run_list": [
-    "recipe[mysql::install]",
+    "recipe[mysql]",
+    "recipe[mysql::initial_data]",
     "recipe[rvm::install]",
     "recipe[nginx]",
     "recipe[redis]",
