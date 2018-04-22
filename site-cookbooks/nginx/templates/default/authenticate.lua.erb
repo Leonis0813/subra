@@ -8,7 +8,7 @@ if(args["user_id"] and args["password"]) then
   db:connect{
     host = "127.0.0.1",
     port = 3306,
-    database = "algieba",
+    database = "account",
     user = "root",
     password = "<%= node[:mysql][:root_password] %>"
   }
