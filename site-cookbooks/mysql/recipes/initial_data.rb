@@ -47,7 +47,7 @@ clients = Chef::EncryptedDataBagItem.load('mysql', 'initial_data')['client'][nod
 clients.each do |client|
   execute 'create initial clients' do
     query = <<EOF
-INSERT IGNORE INTO users VALUES (NULL, "#{client['application_id']}", "#{client['application_key']}")
+INSERT IGNORE INTO clients VALUES (NULL, "#{client['application_id']}", "#{client['application_key']}")
 EOF
     command "mysql -u root -p#{node[:mysql][:root_password]} account -e '#{query}'"
   end
