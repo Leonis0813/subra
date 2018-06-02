@@ -21,6 +21,8 @@ package 'rstudio' do
   not_if 'rpm -q rstudio'
 end
 
-execute 'rstudio-server start'
+execute 'rstudio-server stop' do
+  ignore_failure true
+end
 
-execute 'chkconfig rstudio-server on'
+execute 'rstudio-server start'
