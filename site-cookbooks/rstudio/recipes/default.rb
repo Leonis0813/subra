@@ -8,16 +8,16 @@
 #
 package %w[epel-release R]
 
-remote_file '/tmp/rstudio-server-rhel-1.1.453-x86_64.rpm' do
-  source 'https://download2.rstudio.org/rstudio-server-rhel-1.1.453-x86_64.rpm'
+remote_file "/tmp/#{node[:rstudio][:rpm_file]}" do
+  source "https://download2.rstudio.org/#{node[:rstudio][:rpm_file]}"
   owner 'root'
   group 'root'
   mode 0755
-  not_if { File.exists?('/tmp/rstudio-server-rhel-1.1.453-x86_64.rpm') }
+  not_if { File.exists?("/tmp/#{node[:rstudio][:rpm_file]}") }
 end
 
 package 'rstudio' do
-  source '/tmp/rstudio-server-rhel-1.1.453-x86_64.rpm'
+  source "/tmp/#{node[:rstudio][:rpm_file]}"
   not_if 'rpm -q rstudio'
 end
 
