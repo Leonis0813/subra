@@ -12,9 +12,18 @@ This cookbook install latest rstudio
 
 - Chef 12.0 or later
 
+## Attributes
+
+### algieba::default
+
+|Key                        |Type         |Description                   |
+|---------------------------|-------------|------------------------------|
+|[:rstudio][:rpm_file]      |String       |rpm file name                 |
+|[:rstudio][:devtools_file] |String       |devtools repository file name |
+
 ## Usage
 
-### rstudio::install
+### rstudio::default
 
 Just include `rstudio` in your node's `run_list`:
 
