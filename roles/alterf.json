@@ -5,7 +5,6 @@
     "recipe[rvm::install]",
     "recipe[nginx]",
     "recipe[redis]",
-    "recipe[r]",
     "recipe[rstudio]",
     "recipe[alterf::ruby]",
     "recipe[alterf]"

@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package %w[epel-release R]
+include_recipe 'r'
 
 remote_file "/tmp/#{node[:rstudio][:rpm_file]}" do
   source "https://download2.rstudio.org/#{node[:rstudio][:rpm_file]}"
