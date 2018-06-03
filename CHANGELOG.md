@@ -1,3 +1,9 @@
+# 2018/06/03
+- [CREATE][COOKBOOK] r
+- [CREATE][COOKBOOK] rstudio
+- [UPDATE][ROLE] alterf
+- [UPDATE][ROLE] regulus
+
 # 2018/04/02
 - [UPDATE][COOKBOOK] alterf to 1.7.0
 - [UPDATE][DATA_BAG] alterf
