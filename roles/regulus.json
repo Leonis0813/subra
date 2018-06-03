@@ -5,6 +5,8 @@
     "recipe[rvm::install]",
     "recipe[nginx]",
     "recipe[redis]",
+    "recipe[r]",
+    "recipe[rstudio]",
     "recipe[regulus::ruby]",
     "recipe[regulus]"
   ]
