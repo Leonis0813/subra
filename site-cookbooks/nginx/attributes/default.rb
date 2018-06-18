@@ -36,3 +36,8 @@ default[:nginx][:lua_resty_mysql][:download] = {
   :url => "https://github.com/openresty/lua-resty-mysql/archive/#{default[:nginx][:lua_resty_mysql][:src]}",
   :dir => '/usr/local/src',
 }
+default[:nginx][:bootstrap][:download] = {
+  :url => 'https://github.com/twbs/bootstrap/releases/download/v4.1.1/bootstrap-4.1.1-dist.zip',
+  :dir => '/tmp',
+  :file => 'bootstrap.zip',
+}

@@ -1,17 +1,32 @@
 <html>
   <head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script type="text/javascript">
       function setRedirectUri() {
         document.getElementById("redirect_uri").value = decodeURIComponent(location.search.substring(14));
       }
     </script>
+    <style>
+      .login-form {
+        width: 30%;
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
   </head>
   <body>
-    <form method="post" action="/authenticate" onSubmit="return setRedirectUri()">
+    <form method="post" action="/authenticate" onSubmit="return setRedirectUri()" class="login-form">
       <input type="hidden" name="redirect_uri" value="" id="redirect_uri">
-      <input type="text" name="user_id">
-      <input type="password" name="password">
-      <input type="submit">
+      <div class="form-group">
+        <label for="user_id">User ID</label>
+        <input type="text" class="form-control" id="user_id" placeholder="User ID">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
     </form>
   </body>
 </html>
