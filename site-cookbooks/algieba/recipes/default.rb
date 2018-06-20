@@ -25,9 +25,7 @@ deploy node[:algieba][:deploy_dir] do
       directory File.join(release_path, "../../shared/#{dir}")
     end
 
-    package 'mysql-devel' do
-      action :install
-    end
+    package 'mysql-devel'
 
     [['log', 'log'], ['vendor/bundle', 'bundle']].each do |from, to|
       link File.join(release_path, from) do
@@ -60,6 +58,7 @@ deploy node[:algieba][:deploy_dir] do
     execute 'rvm 2.2.0 do bundle exec rake db:seed' do
       cwd release_path
       environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+      only_if { node.chef_environment == 'development' }
     end
 
     execute 'rvm 2.2.0 do bundle exec rake assets:precompile' do

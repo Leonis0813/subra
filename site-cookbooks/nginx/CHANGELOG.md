@@ -2,12 +2,16 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 2.0.0
+- Create recipe to deploy lua and html files
+- Update default recipe to install lua and create login page
+
 ## 1.0.1
 - Update recipe to include conf
 
 ## 1.0.0
-- create default recipe
-- create recipe to update conf
+- Create default recipe
+- Create recipe to update conf
 
 ## 0.1.4
 - Update nginx.conf

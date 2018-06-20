@@ -1,3 +1,10 @@
+# 2018/06/20
+- [UPDATE][COOKBOOK] algieba to 1.0.1
+- [UPDATE][COOKBOOK] mysql to 1.0.0
+- [UPDATE][COOKBOOK] nginx to 2.0.0
+- [UPDATE][ROLE] algieba, alterf, regulus and zosma
+- [CREATE][DATA_BAG] mysql and nginx
+
 # 2018/06/03
 - [CREATE][COOKBOOK] r
 - [CREATE][COOKBOOK] rstudio

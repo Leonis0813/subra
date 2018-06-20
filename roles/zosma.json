@@ -1,7 +1,7 @@
 {
   "name": "zosma",
   "run_list": [
-    "recipe[mysql::install]",
+    "recipe[mysql]",
     "recipe[rvm::install]",
     "recipe[zosma::user]",
     "recipe[zosma::samba]",
