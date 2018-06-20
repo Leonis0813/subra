@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the algieba cookbook.
 
+## 1.0.1
+- Create initial data only if development
+
 ## 1.0.0
 - Create default recipe
 
