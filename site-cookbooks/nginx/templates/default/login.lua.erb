@@ -1,19 +1,19 @@
+local mysql = require "resty.mysql"
+db, err = mysql:new()
+db:connect{
+  host = "127.0.0.1",
+  port = 3306,
+  database = "account",
+  user = "root",
+  password = "<%= node[:mysql][:root_password] %>"
+}
+
 if (ngx.var.cookie_algieba) then
   cookie = ngx.decode_base64(ngx.var.cookie_algieba)
   md, err = ngx.re.match(cookie, "^(.*):(.*)$")
 
-  local mysql = require "resty.mysql"
-  db, err = mysql:new()
-  db:connect{
-    host = "127.0.0.1",
-    port = 3306,
-    database = "account",
-    user = "root",
-    password = "<%= node[:mysql][:root_password] %>"
-  }
-
   result, err, errno, sqlstate =
-  db:query("SELECT COUNT(*) AS count FROM users WHERE user_id = '" .. md[1] .. "' AND password = '" .. md[2] .. "'")
+    db:query("SELECT COUNT(*) AS count FROM users WHERE user_id = '" .. md[1] .. "' AND password = '" .. md[2] .. "'")
   db:close()
 
   if(tonumber(result[1]["count"]) > 0) then
@@ -21,6 +21,24 @@ if (ngx.var.cookie_algieba) then
   else
     return ngx.redirect("/login.html?redirect_uri=" .. ngx.escape_uri(ngx.var.redirect_uri))
   end
+elseif (ngx.var.http_authorization) then
+  local authorization = ngx.var.http_authorization
+  local credential = string.sub(authorization, 7)
+  md, err = ngx.re.match(ngx.decode_base64(credential), "^(.*):(.*)$")
+
+  result, err, errno, sqlstate =
+    db:query("SELECT COUNT(*) AS count FROM clients WHERE application_id = '" .. md[1] .. "' AND application_key = '" .. md[2] .. "'")
+  db:close()
+
+  if(tonumber(result[1]["count"]) == 0) then
+    ngx.status = ngx.HTTP_UNAUTHORIZED
+    ngx.say("")
+  end
 else
-  return ngx.redirect("/login.html?redirect_uri=" .. ngx.escape_uri(ngx.var.redirect_uri))
+  if (string.match(ngx.var.uri, "/api/")) then
+    ngx.status = ngx.HTTP_UNAUTHORIZED
+    ngx.say("")
+  else
+    return ngx.redirect("/login.html?redirect_uri=" .. ngx.escape_uri(ngx.var.redirect_uri))
+  end
 end
