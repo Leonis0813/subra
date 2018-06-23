@@ -32,6 +32,8 @@ This cookbook install nginx
 |[:nginx][:lua_nginx_module] |Object        |settings to install lua_nginx_module|
 |[:nginx][:lua_resty_mysql]  |Object        |settings to install lua_resty_mysql |
 |[:nginx][:bootstrap]        |Object        |settings to download bootstrap      |
+|[:nginx][:ip_address]       |String        |ip address of production            |
+|[:nginx][:portal]           |Object        |portal link info                    |
 
 ## Usage
 
