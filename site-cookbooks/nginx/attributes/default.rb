@@ -1,3 +1,4 @@
+# coding: utf-8
 default[:nginx][:requirements] = %w[ pcre pcre-devel lua-sql-mysql ]
 default[:nginx][:version] = '1.10.2'
 default[:nginx][:user] = 'nginx'
@@ -41,3 +42,11 @@ default[:nginx][:bootstrap][:download] = {
   :dir => '/tmp',
   :file => 'bootstrap.zip',
 }
+default[:nginx][:ip_address] = Chef::EncryptedDataBagItem.load('nginx', 'sakura')['ip_address']
+default[:nginx][:portal][:links] = [
+  {:name => 'Github', :href => 'https://github.com/Leonis0813'},
+  {:name => 'Redmine', :href => "http://#{default[:nginx][:ip_address]}/redmine"},
+  {:name => 'Jenkins', :href => "http://#{default[:nginx][:ip_address]}/jenkins"},
+  {:name => '仕様書', :href => "http://#{default[:nginx][:ip_address]}/docs"},
+  {:name => '家計簿', :href => "http://#{default[:nginx][:ip_address]}/algieba/payments"},
+]
