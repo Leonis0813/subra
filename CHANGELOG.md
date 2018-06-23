@@ -1,3 +1,6 @@
+# 2018/06/23
+- [UPDATE][COOKBOOK] nginx to 2.0.1
+
 # 2018/06/20
 - [UPDATE][COOKBOOK] algieba to 1.0.1
 - [UPDATE][COOKBOOK] mysql to 1.0.0
