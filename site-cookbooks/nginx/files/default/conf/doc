@@ -1,3 +1,6 @@
 location /docs {
+  set $redirect_uri $uri$is_args$args;
+  rewrite_by_lua_file "lua/login.lua";
+  default_type text/html;
   root /opt/nginx/html;
 }
