@@ -1,3 +1,6 @@
+# 2018/06/24
+- [UPDATE][COOKBOOK] nginx to 2.0.2
+
 # 2018/06/23
 - [UPDATE][COOKBOOK] nginx to 2.0.1
 
