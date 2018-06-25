@@ -7,3 +7,15 @@ default[:alterf][:shared_dirs] = %w[ log bundle tmp/files ]
 default[:alterf][:requirements] = %w[ mysql-devel ]
 default[:alterf][:ruby_version] = '2.2.0'
 default[:alterf][:mysql_users] = %w[ development test ]
+default[:alterf][:features] = %w[
+  age
+  burden_weight
+  direction
+  distance
+  number
+  place
+  round
+  track
+  weather
+  weight
+]

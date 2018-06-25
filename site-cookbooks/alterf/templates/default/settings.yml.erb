@@ -3,3 +3,7 @@ mysql:
   port: 3306
   user: root
   password: <%= Chef::EncryptedDataBagItem.load('alterf', 'mysql')['password'] %>
+features:
+<% node[:alterf][:features].each do |feature| %>
+  - <%= feature %>
+<% end %>
