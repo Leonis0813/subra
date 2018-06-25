@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the alterf cookbook.
 
 ## 1.7.1
 - Update attributes to change shared dirs
+- Add attribute used by template for R setting
 
 ## 1.7.0
 - Create template for action mailer
