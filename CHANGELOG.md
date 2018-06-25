@@ -1,3 +1,6 @@
+# 2018/06/25
+- [UPDATE][COOKBOOK] alterf to 1.7.1
+
 # 2018/06/24
 - [UPDATE][COOKBOOK] nginx to 2.0.2
 
