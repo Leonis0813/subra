@@ -1,3 +1,7 @@
+# 2018/07/07
+- [UPDATE][COOKBOOK] jenkins to 1.2.2
+- [UPDATE][ROLE] denebola
+
 # 2018/06/25
 - [UPDATE][COOKBOOK] alterf to 1.7.1
 
