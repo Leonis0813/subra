@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-knode[:jenkins][:views].each do |view|
+node[:jenkins][:views].each do |view|
   ruby_block "update view - #{view}" do
     block do
       xml = File.absolute_path(File.dirname(__FILE__) + "/../files/default/views/#{view}.xml")

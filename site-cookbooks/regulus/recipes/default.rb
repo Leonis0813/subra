@@ -42,6 +42,11 @@ deploy node[:regulus][:deploy_dir] do
     node[:regulus][:mysql_users].each do |user|
       execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';'"
     end
+
+    execute 'rvm 2.2.0 do bundle exec rake db:create' do
+      cwd release_path
+      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+    end
   end
 
   before_restart do

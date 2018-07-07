@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 1.5.1
+- Modify recipe to create db
+
 ## 1.5.0
 - Add package install for development to default recipe
 - Open ports for tcp
