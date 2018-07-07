@@ -1,7 +1,7 @@
 {
   "name": "denebola",
   "run_list": [
-    "recipe[mysql::install]",
+    "recipe[mysql]",
     "recipe[rvm::install]",
     "recipe[denebola::ruby]",
     "recipe[denebola]"
