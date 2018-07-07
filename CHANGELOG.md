@@ -2,6 +2,7 @@
 - [UPDATE][COOKBOOK] alterf to 1.7.2
 - [UPDATE][COOKBOOK] denebola to 1.0.2
 - [UPDATE][COOKBOOK] jenkins to 1.2.2
+- [UPDATE][COOKBOOK] nginx to 2.0.3
 - [UPDATE][COOKBOOK] regulus to 1.5.1
 - [UPDATE][ROLE] denebola
 
