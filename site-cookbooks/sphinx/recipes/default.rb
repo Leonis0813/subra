@@ -13,22 +13,19 @@ python = node[:sphinx][:python]
 git pyenv[:root] do
   repository pyenv[:repository]
   revision pyenv[:revision]
+  not_if { File.exists?(pyenv[:root]) }
 end
 
-execute "install python #{python[:version]}" do
-  command <<"EOF"
-pyenv init -
-pyenv install #{python[:version]}
-pyenv global #{python[:version]}
-pyenv rehash
-EOF
-  environment 'PYENV_ROOT' => pyenv[:root],
-              'PATH' => '$PYENV_ROOT/bin:$PATH'
+unless File.exists?("#{pyenv[:root]}/versions/#{python[:version]}")
+  ['init -', "install #{python[:version]}", "global #{python[:version]}", 'rehash'].each do |command|
+    execute "pyenv #{command}" do
+      environment 'PYENV_ROOT' => pyenv[:root],
+                  'PATH' => "#{pyenv[:root]}/bin:/usr/bin:/bin"
+    end
+  end
 end
 
-package node[:sphinx][:requirements] do
-  action :install
-end
+package node[:sphinx][:requirements]
 
 node[:sphinx][:packages].each do |package|
   execute "pip install #{package}"
