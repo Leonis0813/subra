@@ -1,7 +1,7 @@
 {
   "name": "doc",
   "run_list": [
-    "recipe[sphinx::install]",
+    "recipe[sphinx]",
     "recipe[nginx::conf]",
     "recipe[chort]"
   ],

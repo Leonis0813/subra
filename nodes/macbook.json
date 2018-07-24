@@ -4,7 +4,7 @@
   "run_list": [
     "role[development]",
     "role[ci]",
-    "recipe[sphinx::install]",
+    "recipe[sphinx]",
     "role[algieba]",
     "role[alterf]",
     "role[denebola]",
