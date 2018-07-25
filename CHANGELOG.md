@@ -1,3 +1,11 @@
+# 2018/07/25
+- [UPDATE][COOKBOOK] chort to 1.0.0
+- [UPDATE][COOKBOOK] sphinx to 1.0.0
+- [UPDATE][NODE] imac
+- [UPDATE][NODE] macbook
+- [UPDATE][NODE] sakura
+- [UPDATE][ROLE] doc
+
 # 2018/07/07
 - [UPDATE][COOKBOOK] alterf to 1.7.2
 - [UPDATE][COOKBOOK] denebola to 1.0.2

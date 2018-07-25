@@ -20,10 +20,12 @@ This cookbook install sphinx
 |------------------------|-------------|-------------------------------------|
 |[:sphinx][:requirements]|Array[String]|prerequirements for installing sphinx|
 |[:sphinx][:packages]    |Array[String]|pip packages for sphinx              |
+|[:sphinx][:pyenv]       |Hash         |pyenv settings                       |
+|[:sphinx][:python]      |Hash         |python settings                      |
 
 ## Usage
 
-### sphinx::install
+### sphinx
 
 Just include `sphinx` in your node's `run_list`:
 
@@ -31,7 +33,7 @@ Just include `sphinx` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[sphinx::install]"
+    "recipe[sphinx]"
   ]
 }
 ```
