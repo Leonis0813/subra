@@ -17,7 +17,7 @@ git pyenv[:root] do
 end
 
 unless File.exists?("#{pyenv[:root]}/versions/#{python[:version]}")
-  ['init -', "install #{python[:version]}", "global #{python[:version]}", 'rehash'].each do |command|
+  ['init -', "install #{python[:version]}"].each do |command|
     execute "pyenv #{command}" do
       environment 'PYENV_ROOT' => pyenv[:root],
                   'PATH' => "#{pyenv[:root]}/bin:/usr/bin:/bin"
@@ -28,5 +28,8 @@ end
 package node[:sphinx][:requirements]
 
 node[:sphinx][:packages].each do |package|
-  execute "pip install #{package}"
+  execute "pyenv global #{python[:version]} && pip install #{package}" do
+    environment 'PYENV_ROOT' => pyenv[:root],
+                'PATH' => "#{pyenv[:root]}/versions/#{python[:version]}/bin:#{pyenv[:root]}/bin:/usr/bin:/bin"
+  end
 end

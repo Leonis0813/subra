@@ -15,8 +15,13 @@ deploy node[:chort][:deploy_dir] do
   symlinks.clear
 end
 
-execute 'make html' do
+pyenv_root = node[:sphinx][:pyenv][:root]
+python_version = node[:sphinx][:python][:version]
+
+execute "pyenv global #{python_version} && pyenv rehash && make html" do
   cwd "#{node[:chort][:deploy_dir]}/current"
+  environment 'PYENV_ROOT' => pyenv_root,
+              'PATH' => "#{pyenv_root}/versions/#{python_version}/bin:#{pyenv_root}/bin:/usr/bin:/bin"
 end
 
 directory "#{node[:nginx][:install_dir]}/html/docs" do
