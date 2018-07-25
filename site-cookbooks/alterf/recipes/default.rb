@@ -111,3 +111,7 @@ end
 node[:alterf][:open_ports].each do |port|
   execute "lokkit -p #{port}"
 end
+
+install_packages 'install r packages' do
+  package :DBI => '0.8', :RMySQL => '0.10', :randomForest => '4.6-12', :yaml => '2.1.18'
+end
