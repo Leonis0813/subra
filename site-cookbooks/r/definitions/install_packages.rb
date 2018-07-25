@@ -11,7 +11,7 @@ define :install_packages, :package => {} do
     options '--enablerepo=testing-1.1-devtools-6'
   end
 
-  package.each do |package_name, version|
+  params[:package].each do |package_name, version|
     remote_file "/tmp/#{package_name}.tar.gz" do
       source "https://cran.r-project.org/src/contrib/Archive/#{package_name}/#{package_name}_#{version}.tar.gz"
       owner 'root'
