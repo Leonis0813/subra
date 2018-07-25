@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 1.8.0
+- Add resource to install r packges
+
 ## 1.7.2
 - Modify recipe to create db
 

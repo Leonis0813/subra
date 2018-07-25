@@ -1,5 +1,7 @@
 # 2018/07/25
+- [UPDATE][COOKBOOK] alterf to 1.8.0
 - [UPDATE][COOKBOOK] chort to 1.0.0
+- [UPDATE][COOKBOOK] r to 1.0.1
 - [UPDATE][COOKBOOK] sphinx to 1.0.0
 - [UPDATE][NODE] imac
 - [UPDATE][NODE] macbook

@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the r cookbook.
 
+## 1.0.1
+- Fix bug for package info
+
 ## 1.0.0
 - Create default recipe
 
