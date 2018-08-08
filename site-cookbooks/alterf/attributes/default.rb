@@ -12,10 +12,12 @@ default[:alterf][:features] = %w[
   burden_weight
   direction
   distance
+  grade
   number
   place
   round
   track
   weather
   weight
+  weight_diff
 ]

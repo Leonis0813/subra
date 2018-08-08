@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 1.8.1
+- Add value to features attribute
+
 ## 1.8.0
 - Add resource to install r packges
 
