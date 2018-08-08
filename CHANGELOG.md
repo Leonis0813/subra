@@ -1,3 +1,6 @@
+# 2018/08/08
+- [UPDATE][COOKBOOK] alterf to 1.8.1
+
 # 2018/07/25
 - [UPDATE][COOKBOOK] alterf to 1.8.0
 - [UPDATE][COOKBOOK] chort to 1.0.0
