@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.2.3
+- Modify jenkins config of denebola
+
 ## 1.2.2
 - Modify typo
 - Update jenkins version
