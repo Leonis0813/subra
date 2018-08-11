@@ -3,7 +3,7 @@
   "chef_environment": "production",
   "run_list": [
     "role[ci]",
-    "recipe[sphinx]",
+    "role[doc]",
     "role[algieba]",
     "role[denebola]",
     "role[zosma]"
