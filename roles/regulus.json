@@ -3,11 +3,10 @@
   "run_list": [
     "recipe[mysql]",
     "recipe[mysql::initial_data]",
-    "recipe[rvm::install]",
+    "recipe[rvm]",
     "recipe[nginx]",
     "recipe[redis]",
     "recipe[rstudio]",
-    "recipe[regulus::ruby]",
     "recipe[regulus]"
   ]
 }
