@@ -6,7 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-
 pyenv = node[:sphinx][:pyenv]
 python = node[:sphinx][:python]
 

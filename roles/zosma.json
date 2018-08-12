@@ -3,9 +3,6 @@
   "run_list": [
     "recipe[mysql]",
     "recipe[rvm]",
-    "recipe[zosma::user]",
-    "recipe[zosma::samba]",
-    "recipe[zosma::ruby]",
-    "recipe[zosma::deploy]"
+    "recipe[zosma]"
   ]
 }
