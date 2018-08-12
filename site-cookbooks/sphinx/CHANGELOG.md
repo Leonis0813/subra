@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the sphinx cookbook.
 
+## 1.0.1
+- Refactor default recipe
+
 ## 1.0.0
 - Create default recipe
 - Add resource to install python

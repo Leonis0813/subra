@@ -1,8 +1,7 @@
 {
   "name": "ci",
   "run_list": [
-    "recipe[jenkins]",
-    "recipe[jenkins::job]",
-    "recipe[jenkins::view]"
+    "recipe[nginx]",
+    "recipe[jenkins]"
   ]
 }

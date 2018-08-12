@@ -1,11 +1,14 @@
 #
 # Cookbook Name:: zosma
-# Recipe:: deploy
+# Recipe:: app
 #
 # Copyright 2017, Leonis0813
 #
 # All rights reserved - Do Not Redistribute
 #
+ruby_version = node[:zosma][:ruby_version]
+rvm_do = "rvm #{ruby_version} do"
+
 deploy node[:zosma][:deploy_dir] do
   repo node[:zosma][:repository]
   branch ENV['ZOSMA_VERSION'] || node[:zosma][:branch]
@@ -27,7 +30,7 @@ deploy node[:zosma][:deploy_dir] do
       to File.join(node[:zosma][:deploy_dir], 'shared/bundle')
     end
 
-    execute 'rvm 2.2.0 do bundle install --path=vendor/bundle' do
+    execute "#{rvm_do} bundle install --path=vendor/bundle" do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
     end
@@ -38,7 +41,7 @@ deploy node[:zosma][:deploy_dir] do
   end
 
   before_restart do
-    execute 'rvm 2.2.0 do bundle exec ruby db/initialize.rb' do
+    execute "#{rvm_do} bundle exec ruby db/initialize.rb" do
       cwd release_path
       environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
     end

@@ -1,8 +1,8 @@
 {
   "name": "doc",
-  "run_list": [
+    "run_list": [
+    "recipe[nginx]",
     "recipe[sphinx]",
-    "recipe[nginx::conf]",
     "recipe[chort]"
   ],
   "override_attributes": {

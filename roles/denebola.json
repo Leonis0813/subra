@@ -2,8 +2,7 @@
   "name": "denebola",
   "run_list": [
     "recipe[mysql]",
-    "recipe[rvm::install]",
-    "recipe[denebola::ruby]",
+    "recipe[rvm]",
     "recipe[denebola]"
   ]
 }

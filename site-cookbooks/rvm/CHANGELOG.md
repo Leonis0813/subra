@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the rvm cookbook.
 
+## 1.0.0
+- Create default recipe
+- Create definition to install ruby or gem
+
 ## 0.1.0
 - Initial release of rvm
 
