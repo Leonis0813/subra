@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the zosma cookbook.
 
+## 1.0.0
+- Create default recipe
+- Create recipe to deploy app
+- Remove user, samba recipe (merge into default)
+
 ## 0.2.0
 - Add migrate command to deploy recipe
 - Remove mysql recipe

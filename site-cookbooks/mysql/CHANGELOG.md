@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the mysql cookbook.
 
+## 1.1.0
+- Create definition to execute query
+- Refactor recipes
+
 ## 1.0.0
 - Create default recipe
 - Create recipe to generate initial data

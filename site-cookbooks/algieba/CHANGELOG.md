@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the algieba cookbook.
 
+## 2.0.0
+- Create recipe to deploy app
+- Refactor default recipe
+
 ## 1.0.1
 - Create initial data only if development
 

@@ -1,3 +1,16 @@
+# 2018/08/12
+- [UPDATE][COOKBOOK] algieba to 2.0.0
+- [UPDATE][COOKBOOK] alterf to 2.0.0
+- [UPDATE][COOKBOOK] denebola to 2.0.0
+- [UPDATE][COOKBOOK] jenkins to 1.2.4
+- [UPDATE][COOKBOOK] mysql to 1.1.0
+- [UPDATE][COOKBOOK] regulus to 2.0.0
+- [UPDATE][COOKBOOK] rvm to 1.0.0
+- [UPDATE][COOKBOOK] sphinx to 1.0.1
+- [UPDATE][COOKBOOK] zosma to 1.0.0
+- [UPDATE][NODE] imac, macbook and sakura
+- [UPDATE][ROLE] algieba, alterf, ci, denebola, doc, regulus and zosma
+
 # 2018/08/11
 - [UPDATE][COOKBOOK] jenkins to 1.2.3
 
@@ -9,9 +22,7 @@
 - [UPDATE][COOKBOOK] chort to 1.0.0
 - [UPDATE][COOKBOOK] r to 1.0.1
 - [UPDATE][COOKBOOK] sphinx to 1.0.0
-- [UPDATE][NODE] imac
-- [UPDATE][NODE] macbook
-- [UPDATE][NODE] sakura
+- [UPDATE][NODE] imac, macbook and sakura
 - [UPDATE][ROLE] doc
 
 # 2018/07/07
@@ -41,8 +52,7 @@
 # 2018/06/03
 - [CREATE][COOKBOOK] r
 - [CREATE][COOKBOOK] rstudio
-- [UPDATE][ROLE] alterf
-- [UPDATE][ROLE] regulus
+- [UPDATE][ROLE] alterf and regulus
 
 # 2018/04/02
 - [UPDATE][COOKBOOK] alterf to 1.7.0
