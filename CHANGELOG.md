@@ -1,3 +1,8 @@
+# 2018/08/13
+- [UPDATE][COOKBOOK] algieba to 2.0.1
+- [UPDATE][COOKBOOK] alterf to 2.0.1
+- [UPDATE][COOKBOOK] regulus to 2.0.1
+
 # 2018/08/12
 - [UPDATE][COOKBOOK] algieba to 2.0.0
 - [UPDATE][COOKBOOK] alterf to 2.0.0
