@@ -1,25 +1,41 @@
 #
 # Cookbook Name:: zosma
-# Recipe:: samba
+# Recipe:: default
 #
 # Copyright 2017, Leonis0813
 #
 # All rights reserved - Do Not Redistribute
 #
-package node[:zosma][:smb][:packages] do
-  action :install
+ruby_version = node[:zosma][:ruby_version]
+
+rvm_ruby ruby_version
+
+rvm_gem 'bundler' do
+  ruby_version ruby_version
+  gemset 'global'
 end
+
+include_recipe 'zosma::app'
+
+user node[:zosma][:username] do
+  manage_home false
+  shell '/sbin/nologin'
+  system true
+  action :create
+end
+
+package node[:zosma][:smb][:packages]
 
 template node[:zosma][:smb][:credential_file] do
   user node[:zosma][:username]
   group node[:zosma][:username]
-  mode 0600
+  mode '0600'
 end
 
 directory node[:zosma][:smb][:mount_dir] do
   user node[:zosma][:username]
   group node[:zosma][:username]
-  mode 0755
+  mode '0755'
   not_if { File.exists?(node[:zosma][:smb][:mount_dir]) }
 end
 

@@ -31,7 +31,7 @@ This cookbook deploy zosma
 
 ## Usage
 
-### zosma::deploy
+### zosma
 
 Just include `zosma` in your node's `run_list`:
 
@@ -39,7 +39,7 @@ Just include `zosma` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[zosma::deploy]"
+    "recipe[zosma]"
   ]
 }
 ```
