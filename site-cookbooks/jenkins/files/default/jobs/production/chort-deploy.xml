@@ -28,7 +28,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo chef-client -z -r chort -E production</command>
+      <command>sudo chef-client -z -r sphinx,chort -E production</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
