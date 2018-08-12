@@ -43,7 +43,10 @@ deploy node[:regulus][:deploy_dir] do
     end
 
     node[:regulus][:mysql_users].each do |user|
-      execute "mysql -u root -p#{node[:mysql][:root_password]} -e 'GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';'"
+      mysql_query 'create grant' do
+        query "GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';'"
+        query_type 'string'
+      end
     end
 
     execute "#{rvm_do} bundle exec rake db:create" do
