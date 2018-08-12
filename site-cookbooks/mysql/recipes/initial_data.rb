@@ -12,12 +12,12 @@ end
 
 mysql_query 'create users table' do
   query 'create_table_users.sql'
-  table 'accounts'
+  table 'account'
 end
 
 mysql_query 'create clients table' do
   query 'create_table_clients.sql'
-  table 'accounts'
+  table 'account'
 end
 
 initial_data = Chef::EncryptedDataBagItem.load('mysql', 'initial_data')
@@ -26,7 +26,7 @@ initial_data = Chef::EncryptedDataBagItem.load('mysql', 'initial_data')
   mysql_query 'create initial users' do
     query "INSERT IGNORE INTO users VALUES (NULL, \"#{user['user_id']}\", \"#{user['password']}\")"
     query_type 'string'
-    table 'accounts'
+    table 'account'
   end
 end
 
@@ -34,6 +34,6 @@ end
   mysql_query 'create initial clients' do
     query "INSERT IGNORE INTO clients VALUES (NULL, \"#{client['application_id']}\", \"#{client['application_key']}\")"
     query_type 'string'
-    table 'accounts'
+    table 'account'
   end
 end

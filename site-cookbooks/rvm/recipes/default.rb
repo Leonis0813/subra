@@ -8,6 +8,7 @@
 #
 
 node[:rvm][:install_commands].each do |command|
-  execute command
-  not_if { File.exists?(node[:rvm][:install_dir]) }
+  execute command do
+    not_if { File.exists?(node[:rvm][:install_dir]) }
+  end
 end

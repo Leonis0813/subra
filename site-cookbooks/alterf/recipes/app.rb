@@ -44,8 +44,8 @@ deploy node[:alterf][:deploy_dir] do
 
     node[:alterf][:mysql_users].each do |user|
       mysql_query 'create grant' do
-        query "GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';'"
-        qeury_type 'string'
+        query "GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';"
+        query_type 'string'
       end
     end
 

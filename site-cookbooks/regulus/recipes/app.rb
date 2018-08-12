@@ -44,7 +44,7 @@ deploy node[:regulus][:deploy_dir] do
 
     node[:regulus][:mysql_users].each do |user|
       mysql_query 'create grant' do
-        query "GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';'"
+        query "GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost';"
         query_type 'string'
       end
     end
