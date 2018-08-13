@@ -43,10 +43,5 @@ deploy node[:denebola][:deploy_dir] do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
     end
-
-    execute "#{rvm_do} bundle exec rake db:reset" do
-      cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
-    end
   end
 end
