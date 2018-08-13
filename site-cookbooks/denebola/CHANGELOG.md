@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the denebola cookbook.
 
+## 2.0.1
+- Remove execute resource not to drop database
+
 ## 2.0.0
 - Create recipe to deploy app
 - Refactor default recipe
