@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.2.5
+- Update default recipe to install plugins by remote access API
+
 ## 1.2.4
 - Modify jenkins config of chort-deploy to install packages
 
