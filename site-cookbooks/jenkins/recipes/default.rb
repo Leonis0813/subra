@@ -56,8 +56,9 @@ end
 node[:jenkins][:accounts].each do |account|
   execute "create account - #{account[:id]}" do
     command <<-"EOF"
+pass=`sudo cat #{node[:jenkins][:admin][:password_file]}`
 echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("#{account[:id]}", "#{account[:password]}")' |
-java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} groovy = --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]}
+java -jar #{node[:jenkins][:cli_path]} -auth admin:${pass} -noKeyAuth -s #{node[:jenkins][:host]}/ groovy =
     EOF
     user 'root'
     retries 5
@@ -66,12 +67,17 @@ java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} groovy = --us
 end
 
 node[:jenkins][:plugins].each do |plugin|
-  execute "install plugin - #{plugin}" do
-    command <<-"EOF"
-java -jar #{node[:jenkins][:cli_path]} -s #{node[:jenkins][:host]} install-plugin #{plugin} --username=#{node[:jenkins][:admin][:username]} --password-file=#{node[:jenkins][:admin][:password_file]}
-    EOF
-    user 'root'
-    retries 5
+  ruby_block "install plugin - #{plugin}" do
+    block do
+      xml = "<jenkins><install plugin=\"#{plugin}@latest\" /></jenkins>"
+      content_type = {'Content-Type' => 'text/xml'}
+      begin
+        client.post('/pluginManager/installNecessaryPlugins', xml, basic_auth.merge(crumb).merge(content_type))
+      rescue Exceptions::InvalidRedirect => e
+        response = client.post('/updateCenter/', xml, basic_auth.merge(crumb).merge(content_type))
+      end
+    end
+    retries 3
   end
 end
 
@@ -93,4 +99,28 @@ node[:jenkins][:views].each do |view|
       client.post("/createView?name=#{view}", IO.read(xml), basic_auth.merge(crumb).merge(content_type))
     end
   end
+end
+
+ruby_block "wait plugins installed" do
+  block do
+    def get_plugins
+      response = client.get('/pluginManager/api/json?depth=1', basic_auth)
+      JSON.parse(response)['plugins'].map {|plugin| plugin['shortName'] }
+    end
+
+    10.times do
+      plugins = get_plugins
+      puts "installed plugins: #{plugins}"
+      break if (node[:jenkins][:plugins] - plugins).empty?
+      sleep 3
+    end
+
+    plugins = get_plugins
+    raise Exception unless (node[:jenkins][:plugins] - plugins).empty?
+  end
+  retries 3
+end
+
+service 'jenkins' do
+  action :restart
 end
