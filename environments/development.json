@@ -51,8 +51,7 @@
         "regulus-system_test",
         "zosma",
         "zosma-deploy",
-        "zosma-collect",
-        "zosma-aggregate",
+        "zosma-import",
         "zosma-compress"
       ],
       "views": [

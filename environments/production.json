@@ -22,8 +22,7 @@
         "denebola-aggregate",
         "zosma",
         "zosma-deploy",
-        "zosma-collect",
-        "zosma-aggregate",
+        "zosma-import",
         "zosma-compress",
         "zosma-delete"
       ],
