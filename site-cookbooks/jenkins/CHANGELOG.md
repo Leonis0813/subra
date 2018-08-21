@@ -2,8 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
-## 1.2.6
+## 1.3.0
 - Update jenkins config of zosma
+- Update recipe to create job if not exist
 
 ## 1.2.5
 - Update default recipe to install plugins by remote access API
