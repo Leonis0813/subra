@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
   <description></description>
@@ -21,13 +21,13 @@
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
         cd /opt/zosma/current
-        rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby aggregate.rb
+        rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby import.rb
       </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
   <buildWrappers>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.3">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
   </buildWrappers>
