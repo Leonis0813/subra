@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the zosma cookbook.
 
+## 1.1.0
+- Add migrate command to app recipe
+
 ## 1.0.0
 - Create default recipe
 - Create recipe to deploy app

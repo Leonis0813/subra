@@ -1,3 +1,8 @@
+# 2018/08/21
+- [UPDATE][COOKBOOK] jenkins to 1.2.6
+- [UPDATE][COOKBOOK] zosma to 1.1.0
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2018/08/13
 - [UPDATE][COOKBOOK] algieba to 2.0.1
 - [UPDATE][COOKBOOK] alterf to 2.0.1
