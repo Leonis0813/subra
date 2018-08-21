@@ -6,8 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-ruby_version = node[:zosma][:ruby_version]
-rvm_do = "rvm #{ruby_version} do"
+rvm_do = "rvm #{node[:zosma][:ruby_version]} do"
 
 deploy node[:zosma][:deploy_dir] do
   repo node[:zosma][:repository]
@@ -16,6 +15,8 @@ deploy node[:zosma][:deploy_dir] do
   create_dirs_before_symlink.clear
   purge_before_symlink.clear
   symlinks node[:zosma][:symlinks]
+  migration_command "#{rvm_do} bundle exec rake db:migrate"
+  environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
 
   before_migrate do
     directory File.join(release_path, 'vendor')
@@ -37,13 +38,6 @@ deploy node[:zosma][:deploy_dir] do
 
     node[:zosma][:requirements].each do |package_name|
       package package_name
-    end
-  end
-
-  before_restart do
-    execute "#{rvm_do} bundle exec ruby db/initialize.rb" do
-      cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
     end
   end
 end
