@@ -24,7 +24,7 @@
         "zosma-deploy",
         "zosma-import",
         "zosma-compress",
-        "zosma-delete"
+        "zosma-remove"
       ],
       "views": [
         "payment_manager",
