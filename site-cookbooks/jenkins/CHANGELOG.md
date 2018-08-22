@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.3.1
+- Update jenkins config for production
+- Rename jenkins job and script name
+
 ## 1.3.0
 - Update jenkins config of zosma
 - Update recipe to create job if not exist
