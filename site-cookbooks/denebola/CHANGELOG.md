@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the denebola cookbook.
 
+## 2.0.2
+- Remove recipe to install ruby
+- Remove template for settings.yml
+
 ## 2.0.1
 - Remove execute resource not to drop database
 
