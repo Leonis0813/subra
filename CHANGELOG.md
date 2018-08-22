@@ -1,3 +1,8 @@
+# 2018/08/22
+- [UPDATE][COOKBOOK] denebola to 2.0.2
+- [UPDATE][COOKBOOK] zosma to 1.1.1
+- [UPDATE][ENVIRONMENT] production
+
 # 2018/08/21
 - [UPDATE][COOKBOOK] jenkins to 1.3.0
 - [UPDATE][COOKBOOK] zosma to 1.1.0
