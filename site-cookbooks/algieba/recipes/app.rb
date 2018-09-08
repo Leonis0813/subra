@@ -72,12 +72,6 @@ deploy node[:algieba][:deploy_dir] do
       environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path], 'RAILS_RELATIVE_URL_ROOT' => "/#{node[:algieba][:app_name]}"
       only_if { node.chef_environment == 'production' }
     end
-
-    execute "sed -i -e 's/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/`rvm #{ruby_version} do bundle exec rake secret`/g' config/secrets.yml" do
-      cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
-      only_if { node.chef_environment == 'production' }
-    end
   end
 
   restart_command do
@@ -89,7 +83,7 @@ deploy node[:algieba][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake unicorn:start" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path], 'SECRET_KEY_BASE' => `#{rvm_do} bundle exec rake secret`
     end
   end
 end

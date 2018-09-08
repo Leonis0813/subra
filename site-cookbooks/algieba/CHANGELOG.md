@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the algieba cookbook.
 
+## 2.0.2
+- Fix bug to replace secret_key_base
+
 ## 2.0.1
 - Update default recipe to specify firefox version
 
