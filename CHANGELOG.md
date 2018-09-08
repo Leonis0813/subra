@@ -1,3 +1,6 @@
+# 2018/09/08
+- [UPDATE][COOKBOOK] algieba to 2.0.2
+
 # 2018/08/22
 - [UPDATE][COOKBOOK] denebola to 2.0.2
 - [UPDATE][COOKBOOK] jenkins to 1.3.1
