@@ -26,10 +26,9 @@ end
 
 directory "#{node[:nginx][:install_dir]}/html/docs" do
   recursive true
+  action :delete
 end
 
-node[:chort][:doc_names].each do |doc_name|
-  link "#{node[:nginx][:install_dir]}/html/docs/#{doc_name}" do
-    to File.join(node[:chort][:deploy_dir], "current/#{doc_name}/_build/html")
-  end
+link "#{node[:nginx][:install_dir]}/html/docs" do
+  to File.join(node[:chort][:deploy_dir], 'current/_build/html')
 end
