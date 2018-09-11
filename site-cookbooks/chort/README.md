@@ -22,7 +22,6 @@ This cookbook deploy chort
 |[:chort][:deploy_dir]|String       |absolute path to deploy|
 |[:chort][:repository]|String       |github url for clone   |
 |[:chort][:branch]    |String       |deployed github branch |
-|[:chort][:doc_names] |Array[String]|document name list     |
 
 ## Usage
 
