@@ -1,3 +1,6 @@
+# 2018/09/11
+- [UPDATE][COOKBOOK] chort to 1.0.1
+
 # 2018/09/08
 - [UPDATE][COOKBOOK] algieba to 2.0.2
 
