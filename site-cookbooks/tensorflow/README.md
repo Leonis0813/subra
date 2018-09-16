@@ -16,9 +16,12 @@ This cookbook install tensorflow
 
 ### tensorflow::default
 
-|Key                     |Type         |Description                          |
-|------------------------|-------------|-------------------------------------|
-|[:tensorflow][:requirements]|Array[String]|prerequirements for installing tensorflow|
+|Key                         |Type  |Description                              |
+|----------------------------|------|-----------------------------------------|
+|[:tensorflow][:url]         |String|download url                             |
+|[:tensorflow][:requirements]|Hash  |prerequirements for installing tensorflow|
+|[:tensorflow][:pyenv]       |Hash  |pyenv settings                           |
+|[:tensorflow][:python]      |String|python settings                          |
 
 ## Usage
 
