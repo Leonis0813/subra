@@ -6,7 +6,7 @@
     "recipe[rvm]",
     "recipe[nginx]",
     "recipe[redis]",
-    "recipe[rstudio]",
+    "recipe[tensorflow]",
     "recipe[regulus]"
   ]
 }
