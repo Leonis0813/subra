@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.1.0
+- Remove recipe to install ruby
+- Update default recipe to install python packages
+- Create template for action mailer
+
 ## 2.0.1
 - Update default recipe to specify firefox version
 

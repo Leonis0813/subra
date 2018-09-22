@@ -1,5 +1,6 @@
 # 2018/09/22
 - [CREATE][COOKBOOK] tensorflow
+- [UPDATE][COOKBOOK] regulus to 2.1.0
 
 # 2018/09/11
 - [UPDATE][COOKBOOK] chort to 1.0.1
