@@ -38,8 +38,8 @@ node[:tensorflow][:requirements][:packages].each do |package|
     mode '0755'
     not_if { File.exists?(file_path) }
   end
+end
 
-  package package do
-    source file_path
-  end
+execute "rpm -Uvh #{node[:tensorflow][:requirements][:packages].join(' ')}" do
+  cwd '/tmp'
 end
