@@ -69,10 +69,12 @@ deploy node[:regulus][:deploy_dir] do
     end
 
     gmail = Chef::EncryptedDataBagItem.load('regulus', 'gmail')
-    %w[ user_name password ].each do |user_info|
-      execute "sed -i -e s/GMAIL_#{user_info.upcase}/#{gmail[user_info]}/g config/initializers/action_mailer.rb" do
-        cwd release_path
-      end
+    template File.join(release_path, 'config/initializers/action_mailer.rb') do
+      source 'action_mailer.rb.erb'
+      owner 'root'
+      group 'root'
+      mode 0644
+      variables(:user_name => gmail['user_name'], :password => gmail['password'])
     end
 
     execute "#{rvm_do} bundle exec rake assets:precompile" do

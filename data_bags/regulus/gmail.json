@@ -1,14 +1,14 @@
 {
   "id": "gmail",
   "user_name": {
-    "encrypted_data": "AwDK6Uun7EsLfXwvaAYyKrbMVk+U1aSUSbgDRhBKulNTZbY5iJeCmTiTdVUA\nAOXP\n",
-    "iv": "4Qk5y2BzSamlSIsze5oSvQ==\n",
+    "encrypted_data": "LjWoZsouO/qCd1QLVS+Iso9vaSByR/mhcUzdUFIofKxLmkqdOShkMoFlESzL\npgaf\n",
+    "iv": "EEMha6T40CNB1zPwkl2C6g==\n",
     "version": 1,
     "cipher": "aes-256-cbc"
   },
   "password": {
-    "encrypted_data": "TcaFjumQ/gPfF8BXDXIgSNAHAV5kDacdZp2byQr/u6A=\n",
-    "iv": "Q/+PaAy/En+LLYNkiDcr1g==\n",
+    "encrypted_data": "Luv0XHw40G7SyQBtcoRmUiL9zwAiHiwcVclfXDoZZGnmnqJTw89jaP2y/osi\nlxJA\n",
+    "iv": "aFNYLq1aKaOGwKqqmNhx3Q==\n",
     "version": 1,
     "cipher": "aes-256-cbc"
   }
