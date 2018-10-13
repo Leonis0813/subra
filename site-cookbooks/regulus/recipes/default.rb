@@ -17,18 +17,18 @@ end
 
 include_recipe 'regulus::app'
 
-node[:regulus][:open_ports].each do |port|
-  execute "lokkit -p #{port}"
+execute 'docker pull tensorflow/tensorflow' do
+  not_if "docker ps | grep #{node[:regulus][:app_name]}"
 end
 
-pyenv = node[:tensorflow][:pyenv]
-python = node[:tensorflow][:python]
+execute "docker run -itd --name #{node[:regulus][:app_name]} tensorflow/tensorflow /bin/bash" do
+  not_if "docker ps | grep #{node[:regulus][:app_name]}"
+end
 
-node[:regulus][:python_packages].each do |package|
-  execute "pyenv global #{python[:version]} && pip install #{package}" do
-    environment 'PYENV_ROOT' => pyenv[:root],
-                'PATH' => "#{pyenv[:root]}/versions/#{python[:version]}/bin:#{pyenv[:root]}/bin:/usr/bin:/bin"
-  end
+execute "docker exec -t #{node[:regulus][:app_name]} pip install #{node[:regulus][:python_packages].join(' ')}"
+
+node[:regulus][:open_ports].each do |port|
+  execute "lokkit -p #{port}"
 end
 
 execute 'yum -y groupupdate "X Window System"' do
