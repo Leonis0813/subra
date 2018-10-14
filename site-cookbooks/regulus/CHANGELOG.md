@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.1.1
+- Update settings.yml.erb to add database
+
 ## 2.1.0
 - Remove recipe to install ruby
 - Update recipes to create environment for tensorflow
