@@ -4,7 +4,7 @@ This file is used to list changes made in each version of the regulus cookbook.
 
 ## 2.1.0
 - Remove recipe to install ruby
-- Update default recipe to install python packages
+- Update recipes to create environment for tensorflow
 - Create template for action mailer
 
 ## 2.0.1
