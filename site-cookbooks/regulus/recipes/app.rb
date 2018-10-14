@@ -102,4 +102,19 @@ deploy node[:regulus][:deploy_dir] do
       environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
     end
   end
+
+  after_restart do
+    execute "docker stop #{node[:regulus][:app_name]}" do
+      only_if "docker ps | grep #{node[:regulus][:app_name]}"
+    end
+
+    execute "docker rm #{node[:regulus][:app_name]}" do
+      only_if "docker ps -a | grep #{node[:regulus][:app_name]}"
+    end
+
+    script_path = File.join(release_path, 'scripts')
+    execute "docker run -itd --name #{node[:regulus][:app_name]} -v #{script_path}:/opt/scripts tensorflow/tensorflow /bin/bash"
+
+    execute "docker exec #{node[:regulus][:app_name]} pip install #{node[:regulus][:python_packages].join(' ')}"
+  end
 end

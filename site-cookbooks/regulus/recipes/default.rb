@@ -15,17 +15,11 @@ rvm_gem 'bundler' do
   gemset 'global'
 end
 
-include_recipe 'regulus::app'
-
 execute 'docker pull tensorflow/tensorflow' do
   not_if "docker ps | grep #{node[:regulus][:app_name]}"
 end
 
-execute "docker run -itd --name #{node[:regulus][:app_name]} tensorflow/tensorflow /bin/bash" do
-  not_if "docker ps | grep #{node[:regulus][:app_name]}"
-end
-
-execute "docker exec -t #{node[:regulus][:app_name]} pip install #{node[:regulus][:python_packages].join(' ')}"
+include_recipe 'regulus::app'
 
 node[:regulus][:open_ports].each do |port|
   execute "lokkit -p #{port}"
