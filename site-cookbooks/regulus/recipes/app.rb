@@ -63,16 +63,18 @@ deploy node[:regulus][:deploy_dir] do
       mode 0644
     end
 
+    gmail = Chef::EncryptedDataBagItem.load('regulus', 'gmail')
+    template File.join(release_path, 'config/initializers/action_mailer.rb') do
+      source 'action_mailer.rb.erb'
+      owner 'root'
+      group 'root'
+      mode 0644
+      variables(:user_name => gmail['user_name'], :password => gmail['password'])
+    end
+
     execute "#{rvm_do} bundle exec rake resque:worker:restart" do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
-    end
-
-    gmail = Chef::EncryptedDataBagItem.load('regulus', 'gmail')
-    %w[ user_name password ].each do |user_info|
-      execute "sed -i -e s/GMAIL_#{user_info.upcase}/#{gmail[user_info]}/g config/initializers/action_mailer.rb" do
-        cwd release_path
-      end
     end
 
     execute "#{rvm_do} bundle exec rake assets:precompile" do
@@ -99,5 +101,20 @@ deploy node[:regulus][:deploy_dir] do
       cwd release_path
       environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
     end
+  end
+
+  after_restart do
+    execute "docker stop #{node[:regulus][:app_name]}" do
+      only_if "docker ps | grep #{node[:regulus][:app_name]}"
+    end
+
+    execute "docker rm #{node[:regulus][:app_name]}" do
+      only_if "docker ps -a | grep #{node[:regulus][:app_name]}"
+    end
+
+    script_path = File.join(release_path, 'scripts')
+    execute "docker run -itd --name #{node[:regulus][:app_name]} -v #{script_path}:/opt/scripts tensorflow/tensorflow /bin/bash"
+
+    execute "docker exec #{node[:regulus][:app_name]} pip install #{node[:regulus][:python_packages].join(' ')}"
   end
 end

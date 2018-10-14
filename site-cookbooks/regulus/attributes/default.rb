@@ -7,3 +7,4 @@ default[:regulus][:shared_dirs] = %w[ tmp log bundle results ]
 default[:regulus][:requirements] = %w[ mysql-devel ]
 default[:regulus][:ruby_version] = '2.2.0'
 default[:regulus][:mysql_users] = %w[ development test ]
+default[:regulus][:python_packages] = %w[ mysql-connector-python-rf ]

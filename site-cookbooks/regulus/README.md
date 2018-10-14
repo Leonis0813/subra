@@ -27,10 +27,11 @@ This cookbook deploy regulus
 |[:regulus][:requirements]         |Array[String]|required packages for regulus |
 |[:regulus][:ruby_version]         |String       |ruby version for regulus      |
 |[:regulus][:mysql_users]          |Array[String]|users used by regulus         |
+|[:regulus][:python_packages]      |Array[String]|required packages for scripts |
 
 ## Usage
 
-### regulus::deploy
+### regulus::default
 
 Just include `regulus` in your node's `run_list`:
 
@@ -38,7 +39,7 @@ Just include `regulus` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[regulus::deploy]"
+    "recipe[regulus]"
   ]
 }
 ```

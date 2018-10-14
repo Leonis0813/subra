@@ -1,3 +1,8 @@
+# 2018/10/14
+- [CREATE][COOKBOOK] docker
+- [UPDATE][COOKBOOK] regulus to 2.1.0
+- [UPDATE][ROLE] regulus
+
 # 2018/09/11
 - [UPDATE][COOKBOOK] chort to 1.0.1
 
