@@ -3,3 +3,4 @@ mysql:
   port: 3306
   user: root
   password: <%= Chef::EncryptedDataBagItem.load('regulus', 'mysql')['password'] %>
+  database: <%= node[:zosma][:app_name] %>
