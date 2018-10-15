@@ -1,3 +1,6 @@
+# 2018/10/15
+- [UPDATE][COOKBOOK] regulus to 2.1.1
+
 # 2018/10/14
 - [CREATE][COOKBOOK] docker
 - [UPDATE][COOKBOOK] regulus to 2.1.0
