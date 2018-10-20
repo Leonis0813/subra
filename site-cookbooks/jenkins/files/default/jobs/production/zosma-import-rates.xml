@@ -27,7 +27,7 @@
   </builders>
   <publishers>
     <hudson.tasks.BuildTrigger>
-      <childProjects>zosma-remove</childProjects>
+      <childProjects>zosma-import-candle_sticks</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
