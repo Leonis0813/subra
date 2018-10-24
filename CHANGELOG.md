@@ -1,3 +1,7 @@
+# 2018/10/20
+- [UPDATE][COOKBOOK] jenkins to 1.3.2
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2018/10/15
 - [UPDATE][COOKBOOK] regulus to 2.1.1
 

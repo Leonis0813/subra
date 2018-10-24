@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.3.2
+- Add jenkins config file to import candle stick
+- Modify jenkins config of zosma
+
 ## 1.3.1
 - Update jenkins config for production
 - Rename jenkins job and script name

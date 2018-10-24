@@ -51,7 +51,8 @@
         "regulus-system_test",
         "zosma",
         "zosma-deploy",
-        "zosma-import",
+        "zosma-import-rates",
+        "zosma-import-candle_sticks",
         "zosma-compress"
       ],
       "views": [
