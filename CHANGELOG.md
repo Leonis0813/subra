@@ -1,3 +1,6 @@
+# 2018/10/29
+- [UPDATE][COOKBOOK] jenkins to 1.3.3
+
 # 2018/10/28
 - [UPDATE][COOKBOOK] zosma to 1.1.1
 

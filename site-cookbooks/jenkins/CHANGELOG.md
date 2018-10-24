@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.3.3
+- Update import job of zosma to specify period
+
 ## 1.3.2
 - Add jenkins config file to import candle stick
 - Modify jenkins config of zosma
