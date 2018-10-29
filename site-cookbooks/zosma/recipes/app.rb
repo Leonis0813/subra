@@ -17,7 +17,7 @@ deploy node[:zosma][:deploy_dir] do
   symlinks node[:zosma][:symlinks]
   migrate true
   migration_command "#{rvm_do} bundle exec rake db:migrate"
-  environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
+  environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
 
   before_migrate do
     directory File.join(release_path, 'vendor')
@@ -28,8 +28,10 @@ deploy node[:zosma][:deploy_dir] do
       end
     end
 
-    link File.join(release_path, 'vendor/bundle') do
-      to File.join(node[:zosma][:deploy_dir], 'shared/bundle')
+    [['log', 'log'], ['vendor/bundle', 'bundle']].each do |from, to|
+      link File.join(release_path, from) do
+        to File.join(release_path, "../../shared/#{to}")
+      end
     end
 
     execute "#{rvm_do} bundle install --path=vendor/bundle" do
