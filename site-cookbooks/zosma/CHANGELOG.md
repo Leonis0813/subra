@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the zosma cookbook.
 
+## 1.1.2
+- Add symbolic link to log directory
+
 ## 1.1.1
 - Add migrate option to app recipe
 
