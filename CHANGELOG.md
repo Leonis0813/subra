@@ -1,3 +1,6 @@
+# 2018/11/24
+- [UPDATE][COOKBOOK] regulus to 2.1.2
+
 # 2018/10/29
 - [UPDATE][COOKBOOK] jenkins to 1.3.3
 - [UPDATE][COOKBOOK] zosma to 1.1.2
