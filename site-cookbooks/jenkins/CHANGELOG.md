@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.3.4
+- Update jenkins config for deploying to development environment to specify branch
+
 ## 1.3.3
 - Update import job of zosma to specify period
 

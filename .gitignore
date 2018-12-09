@@ -5,3 +5,4 @@
 ###
 .chef/*.pem
 .chef/local-mode-cache
+nodes/localhost.json
