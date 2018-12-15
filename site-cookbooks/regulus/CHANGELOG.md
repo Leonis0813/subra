@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.1.3
+- Add shared directory to output zip file
+- Remove unuse shared directory
+
 ## 2.1.2
 - Add shared directory for saving models to tmp
 

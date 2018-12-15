@@ -1,5 +1,6 @@
 # 2018/12/15
 - [UPDATE][COOKBOOK] jenkins to 1.4.0
+- [UPDATE][COOKBOOK] regulus to 2.1.3
 - [CREATE][DATA_BAG] github
 - [UPDATE][ENVIRONMENT] development
 
