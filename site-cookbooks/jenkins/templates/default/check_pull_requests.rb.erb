@@ -1,0 +1,27 @@
+require 'json'
+require 'net/https'
+
+REPOSITORY = ARGV[0]
+OWNER = '<%= Chef::EncryptedDataBagItem.load('github', 'account')['username'] %>'
+GITHUB_URL = "https://api.github.com/repos/#{OWNER}/#{REPOSITORY}/pulls"
+ACCESS_TOKEN = '<%= Chef::EncryptedDataBagItem.load('github', 'token')['public_repo'] %>'
+UPDATE_GEM_TITLE = '<%= node[:jenkins][:github][:update_gem_title] %>'
+
+parsed_url = URI.parse(GITHUB_URL)
+
+begin
+  pull_requests = Net::HTTP.start(parsed_url.host, parsed_url.port, :use_ssl => true) do |https|
+    request = Net::HTTP::Get.new(parsed_url)
+    request['Authorization'] = "token #{ACCESS_TOKEN}"
+    response = https.request request
+    JSON.parse(response.body)
+  end
+rescue Exception => e
+  exit 1
+end
+
+if pull_requests.find {|pull_request| pull_request['title'] == UPDATE_GEM_TITLE }
+  exit 2
+else
+  exit 0
+end
