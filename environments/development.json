@@ -33,6 +33,7 @@
         "algieba-function_test",
         "algieba-deploy",
         "algieba-system_test",
+        "algieba-update-gems",
         "alterf",
         "alterf-module_test",
         "alterf-function_test",
