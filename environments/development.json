@@ -38,6 +38,7 @@
         "alterf-function_test",
         "alterf-deploy",
         "alterf-system_test",
+        "alterf-update-gems",
         "chort",
         "chort-deploy",
         "denebola",
