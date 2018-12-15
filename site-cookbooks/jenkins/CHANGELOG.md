@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.4.0
+- Create directory to put scripts
+- Create config file for access to github
+- Add jenkins config file to update gems
+
 ## 1.3.4
 - Update jenkins config for deploying to development environment to specify branch
 

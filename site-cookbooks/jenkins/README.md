@@ -24,12 +24,15 @@ This cookbook install jenkins
 |[:jenkins][:cli_file]              |String       |download cli file name             |
 |[:jenkins][:cli_path]              |String       |download cli file path             |
 |[:jenkins][:cli_url]               |String       |download cli url                   |
+|[:jenkins][:home]                  |String       |path to home directory of jenkins  |
 |[:jenkins][:admin]][:username]     |String       |initial admin username             |
 |[:jenkins][:admin]][:password_file]|String       |path to initial admin password file|
+|[:jenkins][:tools_dir]             |String       |path to directory to put scripts   |
 |[:jenkins][:accounts]              |Array[Hash]  |created accounts                   |
 |[:jenkins][:plugins]               |Array[String]|installed plugin list              |
 |[:jenkins][:jobs]                  |Array[String]|created job list                   |
 |[:jenkins][:views]                 |Array[String]|created view list                  |
+|[:jenkins][:github]                |Hash         |config for github operations       |
 
 ### jenkins::default
 

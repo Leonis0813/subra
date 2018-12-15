@@ -1,0 +1,3 @@
+machine github.com
+  login <%= Chef::EncryptedDataBagItem.load('github', 'account')['username'] %>
+  password <%= Chef::EncryptedDataBagItem.load('github', 'account')['password'] %>
