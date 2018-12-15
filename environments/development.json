@@ -44,6 +44,7 @@
         "denebola-deploy",
         "denebola-collect",
         "denebola-aggregate",
+        "denebola-update-gems",
         "regulus",
         "regulus-module_test",
         "regulus-function_test",
