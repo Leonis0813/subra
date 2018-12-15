@@ -5,4 +5,5 @@
 ###
 .chef/*.pem
 .chef/local-mode-cache
+.chef/data_bag_key
 nodes/localhost.json
