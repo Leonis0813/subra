@@ -6,9 +6,16 @@ default[:jenkins][:host] = 'http://localhost:8080/jenkins'
 default[:jenkins][:cli_file] = 'jenkins-cli.jar'
 default[:jenkins][:cli_path] = "/tmp/#{default[:jenkins][:cli_file]}"
 default[:jenkins][:cli_url] = "#{default[:jenkins][:host]}/jnlpJars/#{default[:jenkins][:cli_file]}"
+default[:jenkins][:home] = '/var/lib/jenkins'
 default[:jenkins][:admin][:username] = 'admin'
-default[:jenkins][:admin][:password_file] = '/var/lib/jenkins/secrets/initialAdminPassword'
+default[:jenkins][:admin][:password_file] = "#{default[:jenkins][:home]}/secrets/initialAdminPassword"
+default[:jenkins][:tools_dir] = "#{default[:jenkins][:home]}/tools"
 default[:jenkins][:accounts] = [{:id => 'leonis', :password => '7QiSlC?4'}]
 default[:jenkins][:plugins] = %w[ git parameterized-trigger ansicolor ]
 default[:jenkins][:jobs] = []
 default[:jenkins][:views] = []
+default[:jenkins][:github] = {
+  :scripts => %w[ check_pull_requests.rb create_pull_request.rb ],
+  :update_gem_title => 'Update gems',
+  :update_gem_branch => 'update-gem',
+}
