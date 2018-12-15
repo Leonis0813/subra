@@ -1,3 +1,8 @@
+# 2018/12/15
+- [UPDATE][COOKBOOK] jenkins to 1.4.0
+- [CREATE][DATA_BAG] github
+- [UPDATE][ENVIRONMENT] development
+
 # 2018/12/09
 - [UPDATE][COOKBOOK] jenkins to 1.3.4
 
