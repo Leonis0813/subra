@@ -54,7 +54,8 @@
         "zosma-deploy",
         "zosma-import-rates",
         "zosma-import-candle_sticks",
-        "zosma-compress"
+        "zosma-compress",
+        "zosma-update-gems"
       ],
       "views": [
         "payment_manager",
