@@ -25,3 +25,20 @@ node[:jenkins][:jobs].each do |job|
     end
   end
 end
+
+directory node[:jenkins][:tools_dir]
+
+node[:jenkins][:github][:scripts].each do |script|
+  template File.join(node[:jenkins][:tools_dir], script) do
+    source "#{script}.erb"
+    owner 'root'
+    group 'root'
+    mode '0755'
+  end
+end
+
+template File.join(node[:jenkins][:home], '.netrc') do
+  source 'netrc.erb'
+  owner 'jenkins'
+  mode '0644'
+end
