@@ -15,6 +15,7 @@ default[:alterf][:features] = %w[
   grade
   number
   place
+  race_id
   round
   track
   weather
