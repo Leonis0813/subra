@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.0.2
+- Update attribute to add new feature
+
 ## 2.0.1
 - Update default recipe to specify firefox version
 
