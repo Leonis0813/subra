@@ -57,6 +57,8 @@
         fi
 
         cd ${WORKSPACE}
+        git checkout develop
+        git branch -D update-gem
         git checkout -b update-gem
         rvmsudo rvm 2.2.0 do bundle update
         git status -s | grep &apos;Gemfile.lock&apos;
