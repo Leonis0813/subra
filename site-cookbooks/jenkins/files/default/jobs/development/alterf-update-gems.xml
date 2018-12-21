@@ -69,6 +69,11 @@
         rvmsudo rvm 2.2.0 do bundle exec rake spec:models spec:controllers spec:views
         git add Gemfile.lock
         git commit -m &apos;update Gemfile.lock&apos;
+        cd ${JENKINS_HOME}/tools
+        rvmsudo rvm 2.2.0 do ruby update_changelog.rb ${WORKSPACE}/CHANGELOG.md
+        cd ${WORKSPACE}
+        git add CHANGELOG.md
+        git commit -m &apos;update CHANGELOG.md&apos;
         git push origin update-gem
         cd ${JENKINS_HOME}/tools
         rvmsudo rvm 2.2.0 do ruby create_pull_request.rb alterf develop
