@@ -36,7 +36,7 @@
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>TZ=UTC
-0 0 * * *</spec>
+H 0 * * *</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
