@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.5.0
+- Create script to add new version to changelog
+- Update jenkins config to update changelog
+
 ## 1.4.1
 - Update jenkins config to remove branch to update gems
 

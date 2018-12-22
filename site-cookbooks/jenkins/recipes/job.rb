@@ -42,3 +42,10 @@ template File.join(node[:jenkins][:home], '.netrc') do
   owner 'jenkins'
   mode '0644'
 end
+
+file File.join(node[:jenkins][:tools_dir], 'update_changelog.rb') do
+  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/update_changelog.rb'))
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
