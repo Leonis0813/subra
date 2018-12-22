@@ -63,8 +63,8 @@ H 0 * * *</spec>
         git pull origin develop
         git branch -D update-gem || true
         git checkout -b update-gem
-        rvmsudo rvm 2.2.0 do bundle install --path=vendor/bundle
-        rvmsudo rvm 2.2.0 do bundle update
+        rvm 2.2.0 do bundle install --path=vendor/bundle
+        rvm 2.2.0 do bundle update
         git status -s | grep &apos;Gemfile.lock&apos;
         if [ $? -eq 1 ] ; then
           echo &apos;No gems to update&apos;
