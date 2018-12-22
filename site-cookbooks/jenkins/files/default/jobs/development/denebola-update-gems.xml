@@ -58,7 +58,10 @@
 
         cd ${WORKSPACE}
         git checkout develop
-        git branch -D update-gem
+        git reset HEAD .
+        git checkout .
+        git pull origin develop
+        git branch -D update-gem || true
         git checkout -b update-gem
         rvmsudo rvm 2.2.0 do bundle install --path=vendor/bundle
         rvmsudo rvm 2.2.0 do bundle update
@@ -74,6 +77,7 @@
         cd ${WORKSPACE}
         git add CHANGELOG.md
         git commit -m &apos;update CHANGELOG.md&apos;
+        git push origin :update-gem || true
         git push origin update-gem
         cd ${JENKINS_HOME}/tools
         rvmsudo rvm 2.2.0 do ruby create_pull_request.rb denebola develop
