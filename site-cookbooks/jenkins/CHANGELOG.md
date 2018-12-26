@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.5.2
+- Update jenkins config to remove old gems
+
 ## 1.5.1
 - Update jenkins config not to exit script
 
