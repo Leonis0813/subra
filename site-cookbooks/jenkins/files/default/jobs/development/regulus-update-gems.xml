@@ -87,6 +87,7 @@ H 0 * * *</spec>
         git push origin :update-gem
         set -e
         git push origin update-gem
+        rvm 2.2.0 do bundle clean
         cd ${JENKINS_HOME}/tools
         rvmsudo rvm 2.2.0 do ruby create_pull_request.rb regulus develop
       </command>
