@@ -81,25 +81,8 @@ node[:jenkins][:plugins].each do |plugin|
   end
 end
 
-node[:jenkins][:jobs].each do |job|
-  ruby_block "create job - #{job}" do
-    block do
-      xml = config(node.chef_environment, job)
-      content_type = {'Content-Type' => 'text/xml'}
-      client.post("/createItem?name=#{job}", IO.read(xml), basic_auth.merge(crumb).merge(content_type))
-    end
-  end
-end
-
-node[:jenkins][:views].each do |view|
-  ruby_block "create view - #{view}" do
-    block do
-      xml = File.absolute_path(File.dirname(__FILE__) + "/../files/default/views/#{view}.xml")
-      content_type = {'Content-Type' => 'text/xml'}
-      client.post("/createView?name=#{view}", IO.read(xml), basic_auth.merge(crumb).merge(content_type))
-    end
-  end
-end
+include_recipe 'jenkins::job'
+include_recipe 'jenkins::view'
 
 ruby_block "wait plugins installed" do
   block do
