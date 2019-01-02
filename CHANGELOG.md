@@ -1,3 +1,6 @@
+# 2019/01/02
+- [UPDATE][COOKBOOK] jenkins to 1.5.3
+
 # 2018/12/26
 - [UPDATE][COOKBOOK] jenkins to 1.5.2
 
