@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.5.3
+- Add jenkins plugin to rebuild a job
+
 ## 1.5.2
 - Update jenkins config to remove old gems
 
