@@ -11,7 +11,7 @@ default[:jenkins][:admin][:username] = 'admin'
 default[:jenkins][:admin][:password_file] = "#{default[:jenkins][:home]}/secrets/initialAdminPassword"
 default[:jenkins][:tools_dir] = "#{default[:jenkins][:home]}/tools"
 default[:jenkins][:accounts] = [{:id => 'leonis', :password => '7QiSlC?4'}]
-default[:jenkins][:plugins] = %w[ git parameterized-trigger ansicolor rebuilder ]
+default[:jenkins][:plugins] = %w[ git parameterized-trigger ansicolor rebuild ]
 default[:jenkins][:jobs] = []
 default[:jenkins][:views] = []
 default[:jenkins][:github] = {
