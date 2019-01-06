@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.5.4
+- Update jenkins config to add fail-fast option to updating gem jobs
+
 ## 1.5.3
 - Add jenkins plugin to rebuild a job
 

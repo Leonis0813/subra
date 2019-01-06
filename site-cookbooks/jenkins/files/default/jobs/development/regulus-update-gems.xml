@@ -75,7 +75,7 @@ H 0 * * *</spec>
           echo &apos;No gems to update&apos;
           exit 0
         fi
-        rvm 2.2.0 do bundle exec rake spec:models spec:controllers spec:views
+        rvm 2.2.0 do bundle exec rspec --fail-fast spec/{models,controllers,views}
         git add Gemfile.lock
         git commit -m &apos;update Gemfile.lock&apos;
         cd ${JENKINS_HOME}/tools
