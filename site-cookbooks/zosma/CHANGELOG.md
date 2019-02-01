@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the zosma cookbook.
 
+## 1.1.3
+- Update ruby version
+
 ## 1.1.2
 - Add symbolic link to log directory
 
