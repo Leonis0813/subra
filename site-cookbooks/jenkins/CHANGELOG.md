@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.5.5
+- Update jenkins config to update ruby version for zosma
+
 ## 1.5.4
 - Update jenkins config to add fail-fast option to updating gem jobs
 
