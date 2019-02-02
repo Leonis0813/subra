@@ -5,7 +5,7 @@ default[:alterf][:branch] = 'develop'
 default[:alterf][:symlinks] = {'log' => 'log', 'tmp' => 'tmp'}
 default[:alterf][:shared_dirs] = %w[ log bundle tmp/files ]
 default[:alterf][:requirements] = %w[ mysql-devel ]
-default[:alterf][:ruby_version] = '2.2.0'
+default[:alterf][:ruby_version] = '2.3.7'
 default[:alterf][:mysql_users] = %w[ development test ]
 default[:alterf][:features] = %w[
   age
