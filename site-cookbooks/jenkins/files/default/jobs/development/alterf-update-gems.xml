@@ -46,7 +46,7 @@ H 0 * * *</spec>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
         cd ${JENKINS_HOME}/tools
         set +e
-        rvmsudo rvm 2.2.0 do ruby check_pull_requests.rb alterf
+        rvmsudo rvm 2.3.7 do ruby check_pull_requests.rb alterf
         ret=$?
         set -e
         if [ $ret -eq 1 ] ; then
@@ -65,8 +65,8 @@ H 0 * * *</spec>
         git branch -D update-gem
         set -e
         git checkout -b update-gem
-        rvm 2.2.0 do bundle install --path=vendor/bundle
-        rvm 2.2.0 do bundle update
+        rvm 2.3.7 do bundle install --path=vendor/bundle
+        rvm 2.3.7 do bundle update
         set +e
         git status -s | grep &apos;Gemfile.lock&apos;
         ret=$?
@@ -75,11 +75,11 @@ H 0 * * *</spec>
           echo &apos;No gems to update&apos;
           exit 0
         fi
-        rvm 2.2.0 do bundle exec rspec --fail-fast spec/{models,controllers,views}
+        rvm 2.3.7 do bundle exec rspec --fail-fast spec/{models,controllers,views}
         git add Gemfile.lock
         git commit -m &apos;update Gemfile.lock&apos;
         cd ${JENKINS_HOME}/tools
-        rvmsudo rvm 2.2.0 do ruby update_changelog.rb ${WORKSPACE}/CHANGELOG.md
+        rvmsudo rvm 2.3.7 do ruby update_changelog.rb ${WORKSPACE}/CHANGELOG.md
         cd ${WORKSPACE}
         git add CHANGELOG.md
         git commit -m &apos;update CHANGELOG.md&apos;
@@ -87,9 +87,9 @@ H 0 * * *</spec>
         git push origin :update-gem
         set -e
         git push origin update-gem
-        rvm 2.2.0 do bundle clean
+        rvm 2.3.7 do bundle clean
         cd ${JENKINS_HOME}/tools
-        rvmsudo rvm 2.2.0 do ruby create_pull_request.rb alterf develop
+        rvmsudo rvm 2.3.7 do ruby create_pull_request.rb alterf develop
       </command>
     </hudson.tasks.Shell>
   </builders>
