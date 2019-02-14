@@ -1,3 +1,7 @@
+# 2019/02/14
+- [UPDATE][COOKBOOK] jenkins to 1.6.0
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2019/02/02
 - [UPDATE][COOKBOOK] alterf to 2.0.3
 - [UPDATE][COOKBOOK] jenkins to 1.5.5

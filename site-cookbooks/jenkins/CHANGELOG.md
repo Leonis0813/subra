@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.6.0
+- Create jenkins config to import moving averages
+
 ## 1.5.5
 - Update jenkins config to update ruby version for alterf and zosma
 
