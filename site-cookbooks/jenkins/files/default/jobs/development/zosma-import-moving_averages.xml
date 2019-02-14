@@ -39,21 +39,11 @@
         if [[ &quot;${TO}&quot; != &quot;&quot; ]] ; then
                 TO=&quot;--to=${TO}&quot;
         fi
-        rvmsudo rvm 2.3.7 do env STDOUT=on bundle exec ruby import/candle_sticks.rb ${FROM} ${TO}
+        rvmsudo rvm 2.3.7 do env STDOUT=on bundle exec ruby import/moving_averages.rb ${FROM} ${TO}
       </command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.BuildTrigger>
-      <childProjects>zosma-import-moving_averages</childProjects>
-      <threshold>
-        <name>SUCCESS</name>
-        <ordinal>0</ordinal>
-        <color>BLUE</color>
-        <completeBuild>true</completeBuild>
-      </threshold>
-    </hudson.tasks.BuildTrigger>
-  </publishers>
+  <publishers/>
   <buildWrappers>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
