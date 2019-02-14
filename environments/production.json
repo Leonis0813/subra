@@ -24,6 +24,7 @@
         "zosma-deploy",
         "zosma-import-rates",
         "zosma-import-candle_sticks",
+        "zosma-import-moving_averages",
         "zosma-compress",
         "zosma-remove"
       ],
