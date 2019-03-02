@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the jenkins cookbook.
 
 ## 1.6.1
 - Add parameter for deploy scope
+- Update ruby version in jenkins config files
 
 ## 1.6.0
 - Create jenkins config to import moving averages
