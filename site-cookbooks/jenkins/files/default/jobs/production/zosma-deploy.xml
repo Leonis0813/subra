@@ -46,7 +46,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sudo ZOSMA_VERSION=${version#origin/tags/} chef-client -z -r zosma::app -E production</command>
+      <command>sudo ZOSMA_VERSION=${version#origin/tags/} chef-client -z -r zosma -E production</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
