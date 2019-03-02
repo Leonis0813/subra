@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.0.4
+- Clean old gems when installing gems
+
 ## 2.0.3
 - Update ruby version
 
