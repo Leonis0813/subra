@@ -16,7 +16,7 @@
     <hudson.tasks.Shell>
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-        rvm 2.2.0 do bundle exec rake spec:controllers spec:views
+        rvm 2.3.7 do bundle exec rake spec:controllers spec:views
       </command>
     </hudson.tasks.Shell>
   </builders>
