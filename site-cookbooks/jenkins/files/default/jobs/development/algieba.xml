@@ -44,7 +44,7 @@
     <hudson.tasks.Shell>
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-        rvm 2.2.0 do bundle install --path=vendor/bundle
+        rvm 2.3.7 do bundle install --path=vendor/bundle
       </command>
     </hudson.tasks.Shell>
   </builders>

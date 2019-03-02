@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the denebola cookbook.
 
 ## 2.0.3
 - Clean old gems when installing gems
+- Update ruby version
 
 ## 2.0.2
 - Remove recipe to install ruby

@@ -16,7 +16,7 @@
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
         cd /opt/denebola/current
-        rvmsudo rvm 2.2.0 do env STDOUT=on bundle exec ruby aggregate.rb
+        rvmsudo rvm 2.3.7 do env STDOUT=on bundle exec ruby aggregate.rb
       </command>
     </hudson.tasks.Shell>
   </builders>
