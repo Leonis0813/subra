@@ -37,7 +37,7 @@ deploy node[:regulus][:deploy_dir] do
       package package_name
     end
 
-    execute "#{rvm_do} bundle install --path=vendor/bundle" do
+    execute "#{rvm_do} bundle install --path=vendor/bundle  --clean" do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
     end

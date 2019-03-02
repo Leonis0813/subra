@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.6.1
+- Add parameter for deploy scope
+
 ## 1.6.0
 - Create jenkins config to import moving averages
 

@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.1.4
+- Clean old gems when installing gems
+
 ## 2.1.3
 - Add shared directory to output zip file
 - Remove unuse shared directory

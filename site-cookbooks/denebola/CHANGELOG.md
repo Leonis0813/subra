@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the denebola cookbook.
 
+## 2.0.3
+- Clean old gems when installing gems
+
 ## 2.0.2
 - Remove recipe to install ruby
 - Remove template for settings.yml

@@ -37,7 +37,7 @@ deploy node[:algieba][:deploy_dir] do
       end
     end
 
-    execute "#{rvm_do} bundle install --path=vendor/bundle" do
+    execute "#{rvm_do} bundle install --path=vendor/bundle --clean" do
       cwd release_path
      environment 'PATH' => node[:rvm][:path]
     end

@@ -1,3 +1,11 @@
+# 2019/03/02
+- [UPDATE][COOKBOOK] algieba to 2.0.3
+- [UPDATE][COOKBOOK] alterf to 2.0.4
+- [UPDATE][COOKBOOK] denebola to 2.0.3
+- [UPDATE][COOKBOOK] jenkins to 1.6.1
+- [UPDATE][COOKBOOK] regulus to 2.1.4
+- [UPDATE][COOKBOOK] zosma to 1.1.4
+
 # 2019/02/14
 - [UPDATE][COOKBOOK] jenkins to 1.6.0
 - [UPDATE][ENVIRONMENT] development and production
