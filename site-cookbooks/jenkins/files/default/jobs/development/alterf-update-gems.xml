@@ -48,11 +48,14 @@ H 0 * * *</spec>
         git checkout develop
         git reset HEAD .
         git checkout .
-        git pull origin develop
         set +e
         git branch -D update-gem
         set -e
-        git checkout -b update-gem
+        git pull
+        set +e
+        git branch update-gem
+        set -e
+        git checkout update-gem
         rvm 2.3.7 do bundle install --path=vendor/bundle
         rvm 2.3.7 do bundle update
         rvm 2.3.7 do bundle clean
