@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.6.2
+- Modify jenkins config to update gem if exists
+
 ## 1.6.1
 - Add parameter for deploy scope
 - Update ruby version in jenkins config files
