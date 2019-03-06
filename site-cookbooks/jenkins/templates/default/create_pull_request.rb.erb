@@ -2,7 +2,7 @@ require 'json'
 require 'net/https'
 
 REPOSITORY = ARGV[0]
-BASE_BRANCH = develop
+BASE_BRANCH = 'develop'
 OWNER = '<%= Chef::EncryptedDataBagItem.load('github', 'account')['username'] %>'
 GITHUB_URL = "https://api.github.com/repos/#{OWNER}/#{REPOSITORY}/pulls"
 PARSED_URL = URI.parse(GITHUB_URL)
