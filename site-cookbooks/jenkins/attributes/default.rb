@@ -15,7 +15,7 @@ default[:jenkins][:plugins] = %w[ git parameterized-trigger ansicolor rebuild ]
 default[:jenkins][:jobs] = []
 default[:jenkins][:views] = []
 default[:jenkins][:github] = {
-  :scripts => %w[ check_pull_requests.rb create_pull_request.rb ],
+  :scripts => %w[ create_pull_request.rb ],
   :update_gem_title => 'Update gems',
   :update_gem_branch => 'update-gem',
 }
