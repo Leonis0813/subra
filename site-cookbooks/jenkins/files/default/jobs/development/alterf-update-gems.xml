@@ -44,29 +44,22 @@ H 0 * * *</spec>
     <hudson.tasks.Shell>
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-        cd ${JENKINS_HOME}/tools
-        set +e
-        rvmsudo rvm 2.3.7 do ruby check_pull_requests.rb alterf
-        ret=$?
-        set -e
-        if [ $ret -eq 1 ] ; then
-          exit 1
-        elif [ $ret -eq 2 ] ; then
-          echo &apos;Pull request already created&apos;
-          exit 0
-        fi
-
         cd ${WORKSPACE}
         git checkout develop
         git reset HEAD .
         git checkout .
-        git pull origin develop
         set +e
         git branch -D update-gem
         set -e
-        git checkout -b update-gem
+        git pull --prune
+        set +e
+        git checkout update-gem
+        git branch update-gem
+        git checkout update-gem
+        set -e
         rvm 2.3.7 do bundle install --path=vendor/bundle
         rvm 2.3.7 do bundle update
+        rvm 2.3.7 do bundle clean
         set +e
         git status -s | grep &apos;Gemfile.lock&apos;
         ret=$?
@@ -83,13 +76,9 @@ H 0 * * *</spec>
         cd ${WORKSPACE}
         git add CHANGELOG.md
         git commit -m &apos;update CHANGELOG.md&apos;
-        set +e
-        git push origin :update-gem
-        set -e
-        git push origin update-gem
-        rvm 2.3.7 do bundle clean
+        git push -f origin update-gem
         cd ${JENKINS_HOME}/tools
-        rvmsudo rvm 2.3.7 do ruby create_pull_request.rb alterf develop
+        rvmsudo rvm 2.3.7 do ruby create_pull_request.rb alterf
       </command>
     </hudson.tasks.Shell>
   </builders>
