@@ -2,31 +2,49 @@ require 'json'
 require 'net/https'
 
 REPOSITORY = ARGV[0]
-BASE_BRANCH = ARGV[1]
+BASE_BRANCH = develop
 OWNER = '<%= Chef::EncryptedDataBagItem.load('github', 'account')['username'] %>'
 GITHUB_URL = "https://api.github.com/repos/#{OWNER}/#{REPOSITORY}/pulls"
+PARSED_URL = URI.parse(GITHUB_URL)
 ACCESS_TOKEN = '<%= Chef::EncryptedDataBagItem.load('github', 'token')['public_repo'] %>'
 UPDATE_GEM_TITLE = '<%= node[:jenkins][:github][:update_gem_title] %>'
 UPDATE_GEM_BRANCH = '<%= node[:jenkins][:github][:update_gem_branch] %>'
 
-parsed_url = URI.parse(GITHUB_URL)
-
-begin
-  response = Net::HTTP.start(parsed_url.host, parsed_url.port, :use_ssl => true) do |https|
-    request = Net::HTTP::Post.new(parsed_url)
-    request['Content-Type'] = 'application/json'
-    request['Authorization'] = "token #{ACCESS_TOKEN}"
-    body = {:title => UPDATE_GEM_TITLE, :base => BASE_BRANCH, :head => UPDATE_GEM_BRANCH}
-    request.body = body.to_json
-    https.request request
+def exists_pull_request?
+  begin
+    pull_requests = Net::HTTP.start(PARSED_URL.host, PARSED_URL.port, :use_ssl => true) do |https|
+      request = Net::HTTP::Get.new(PARSED_URL)
+      request['Authorization'] = "token #{ACCESS_TOKEN}"
+      response = https.request request
+      JSON.parse(response.body)
+    end
+  rescue Exception => e
+    exit 1
   end
-rescue Exception => e
-  exit 1
+
+  pull_requests.any? {|pull_request| pull_request['title'] == UPDATE_GEM_TITLE }
 end
 
-if response.code == '201'
-  exit 0
-else
-  p response.body
-  exit 1
+def create_pull_request
+  begin
+    response = Net::HTTP.start(PARSED_URL.host, PARSED_URL.port, :use_ssl => true) do |https|
+      request = Net::HTTP::Post.new(PARSED_URL)
+      request['Content-Type'] = 'application/json'
+      request['Authorization'] = "token #{ACCESS_TOKEN}"
+      body = {:title => UPDATE_GEM_TITLE, :base => BASE_BRANCH, :head => UPDATE_GEM_BRANCH}
+      request.body = body.to_json
+      https.request request
+    end
+  rescue Exception => e
+    exit 1
+  end
+
+  if response.code == '201'
+    exit 0
+  else
+    p response.body
+    exit 1
+  end
 end
+
+create_pull_request if exists_pull_request?
