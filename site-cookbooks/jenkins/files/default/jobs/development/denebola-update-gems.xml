@@ -51,11 +51,12 @@ H 0 * * *</spec>
         set +e
         git branch -D update-gem
         set +e
-        git pull
-        set +e
-        git branch update-gem
+        git pull --prune
         set +e
         git checkout update-gem
+        git branch update-gem
+        git checkout update-gem
+        set -e
         rvm 2.3.7 do bundle install --path=vendor/bundle
         rvm 2.3.7 do bundle update
         rvm 2.3.7 do bundle clean
