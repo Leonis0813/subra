@@ -74,7 +74,7 @@ H 0 * * *</spec>
         git commit -m &apos;update CHANGELOG.md&apos;
         git push -f origin update-gem
         cd ${JENKINS_HOME}/tools
-        rvmsudo rvm 2.3.7 do ruby create_pull_request.rb alterf develop
+        rvmsudo rvm 2.3.7 do ruby create_pull_request.rb alterf
       </command>
     </hudson.tasks.Shell>
   </builders>
