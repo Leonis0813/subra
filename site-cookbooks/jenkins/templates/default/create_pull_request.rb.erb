@@ -47,4 +47,4 @@ def create_pull_request
   end
 end
 
-create_pull_request if exists_pull_request?
+create_pull_request unless exists_pull_request?
