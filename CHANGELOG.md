@@ -1,3 +1,6 @@
+# 2019/03/13
+- [UPDATE][COOKBOOK] chort to 1.0.2
+
 # 2019/03/06
 - [UPDATE][COOKBOOK] jenkins to 1.6.2
 
