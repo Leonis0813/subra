@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the chort cookbook.
 
+## 1.0.2
+- Modify recipe to build before creating symlinks
+
 ## 1.0.1
 - Update symlink to access top page
 
