@@ -19,6 +19,7 @@
         "denebola",
         "denebola-deploy",
         "denebola-collect",
+        "denebola-extract",
         "denebola-aggregate",
         "zosma",
         "zosma-deploy",

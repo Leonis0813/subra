@@ -50,7 +50,7 @@
   </builders>
   <publishers>
     <hudson.tasks.BuildTrigger>
-      <childProjects>denebola-aggregate</childProjects>
+      <childProjects>denebola-extract</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>

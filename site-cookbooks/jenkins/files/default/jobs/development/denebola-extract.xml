@@ -4,6 +4,10 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.29">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
@@ -26,12 +30,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers>
-    <hudson.triggers.TimerTrigger>
-      <spec>TZ=UTC
-0 0 * * *</spec>
-    </hudson.triggers.TimerTrigger>
-  </triggers>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
@@ -44,13 +43,13 @@
         if [[ &quot;${TO}&quot; != &quot;&quot; ]] ; then
                 TO=&quot;--to=${TO}&quot;
         fi
-        rvmsudo rvm 2.3.7 do env STDOUT=on bundle exec ruby collect.rb ${FROM} ${TO}
+        rvmsudo rvm 2.3.7 do env STDOUT=on bundle exec ruby extract.rb ${FROM} ${TO}
       </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.BuildTrigger>
-      <childProjects>denebola-extract</childProjects>
+      <childProjects>denebola-aggregate</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
