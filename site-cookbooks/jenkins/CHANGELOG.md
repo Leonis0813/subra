@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.7.0
+- Add jenkins config file to extract race info
+
 ## 1.6.2
 - Modify jenkins config to update gem if exists
 
