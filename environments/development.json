@@ -54,7 +54,6 @@
         "regulus-deploy",
         "regulus-system_test",
         "regulus-update-gems",
-        "zosma",
         "zosma-deploy",
         "zosma-import-rates",
         "zosma-import-candle_sticks",
