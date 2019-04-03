@@ -48,7 +48,6 @@
         "denebola-extract",
         "denebola-aggregate",
         "denebola-update-gems",
-        "regulus",
         "regulus-module_test",
         "regulus-function_test",
         "regulus-deploy",

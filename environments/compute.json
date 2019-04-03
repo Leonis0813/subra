@@ -40,7 +40,6 @@
       "jobs": [
         "alterf",
         "alterf-deploy",
-        "regulus",
         "regulus-deploy"
       ],
       "views": [
