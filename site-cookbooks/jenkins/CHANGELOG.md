@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.7.1
+- Update jenkins config to use Jenkinsfile
+
 ## 1.7.0
 - Add jenkins config file to extract race info
 
