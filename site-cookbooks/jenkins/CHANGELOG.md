@@ -3,6 +3,7 @@
 This file is used to list changes made in each version of the jenkins cookbook.
 
 ## 1.7.1
+- Add plugins to enable pipeline
 - Update jenkins config to use Jenkinsfile
 
 ## 1.7.0
