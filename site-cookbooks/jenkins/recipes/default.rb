@@ -93,7 +93,7 @@ ruby_block "wait plugins installed" do
 
     10.times do
       plugins = get_plugins
-      puts "installed plugins: #{plugins}"
+      puts "installed plugins: #{node[:jenkins][:plugins] & plugins}"
       break if (node[:jenkins][:plugins] - plugins).empty?
       sleep 3
     end
