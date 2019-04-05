@@ -21,6 +21,7 @@
         "denebola-collect",
         "denebola-extract",
         "denebola-aggregate",
+        "zosma",
         "zosma-deploy",
         "zosma-import-rates",
         "zosma-import-candle_sticks",
