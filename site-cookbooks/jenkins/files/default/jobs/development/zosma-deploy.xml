@@ -16,20 +16,12 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
-      <triggers>
-        <hudson.triggers.SCMTrigger>
-          <spec>H/3 * * * *</spec>
-          <ignorePostCommitHooks>false</ignorePostCommitHooks>
-        </hudson.triggers.SCMTrigger>
-      </triggers>
-    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name>ZOSMA_VERSION</name>
           <description>デプロイするバージョン</description>
-          <defaultValue></defaultValue>
+          <defaultValue>develop</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -70,7 +62,7 @@
       </userRemoteConfigs>
       <branches>
         <hudson.plugins.git.BranchSpec>
-          <name>develop</name>
+          <name>${ZOSMA_VERSION}</name>
         </hudson.plugins.git.BranchSpec>
       </branches>
       <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -78,7 +70,7 @@
       <extensions/>
     </scm>
     <scriptPath>Jenkinsfile</scriptPath>
-    <lightweight>true</lightweight>
+    <lightweight>false</lightweight>
   </definition>
   <triggers/>
   <disabled>false</disabled>
