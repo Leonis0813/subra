@@ -8,7 +8,7 @@
       <parameters>
         <string>SUBRA_BRANCH</string>
         <string>SCOPE</string>
-        <string>REGULUS_VERSION</string>
+        <string>ALTERF_VERSION</string>
       </parameters>
       <options/>
     </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
