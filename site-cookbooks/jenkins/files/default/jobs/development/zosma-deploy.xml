@@ -21,7 +21,7 @@
         <hudson.model.StringParameterDefinition>
           <name>ZOSMA_VERSION</name>
           <description>デプロイするバージョン</description>
-          <defaultValue>develop</defaultValue>
+          <defaultValue></defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
