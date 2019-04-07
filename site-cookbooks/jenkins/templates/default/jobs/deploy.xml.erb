@@ -25,19 +25,19 @@
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name><%= @app_info[:app_name].upcase %>_VERSION</name>
-          <description>デプロイするバージョン</description>
+          <description></description>
           <defaultValue></defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>SUBRA_BRANCH</name>
-          <description>Chefのブランチ</description>
+          <description></description>
           <defaultValue>master</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>SCOPE</name>
-          <description>デプロイ範囲</description>
+          <description></description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
               <string>app</string>

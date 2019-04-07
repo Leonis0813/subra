@@ -7,23 +7,38 @@
 # All rights reserved - Do Not Redistribute
 #
 
+node[:jenkins][:polling_jobs].each do |polling_job|
+  template 'tmp/config.xml' do
+    source 'jobs/polling.xml.erb'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    variables :app_info => node[polling_job]
+  end
+
+  upsert_job do
+    job_name polling_job
+    file_name 'tmp/config.xml'
+  end
+end
+
 node[:jenkins][:deploy_jobs].each do |deploy_job|
   template 'tmp/config.xml' do
     source 'jobs/deploy.xml.erb'
     owner 'root'
     group 'root'
     mode '0755'
-    variables :app_info => node[:zosma]
+    variables :app_info => node[deploy_job.split('-').first]
   end
 
-  update_job do
+  upsert_job do
     job_name deploy_job
     file_name 'tmp/config.xml'
   end
 end
 
 node[:jenkins][:jobs].each do |job|
-  update_job do
+  upsert_job do
     job_name job
     file_name config(node.chef_environment, job)
   end
