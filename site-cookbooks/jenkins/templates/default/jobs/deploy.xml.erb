@@ -7,7 +7,7 @@
       <triggers/>
       <parameters>
         <string>SUBRA_BRANCH</string>
-        <string><%= app_info[:app_name].upcase %>_VERSION</string>
+        <string><%= @app_info[:app_name].upcase %>_VERSION</string>
         <string>SCOPE</string>
       </parameters>
       <options/>
@@ -24,7 +24,7 @@
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name><%= app_info[:app_name].upcase %>_VERSION</name>
+          <name><%= @app_info[:app_name].upcase %>_VERSION</name>
           <description>デプロイするバージョン</description>
           <defaultValue></defaultValue>
           <trim>false</trim>
@@ -58,12 +58,12 @@
       <configVersion>2</configVersion>
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
-          <url><%= app_info[:repository] %></url>
+          <url><%= @app_info[:repository] %></url>
         </hudson.plugins.git.UserRemoteConfig>
       </userRemoteConfigs>
       <branches>
         <hudson.plugins.git.BranchSpec>
-          <name>${<%= app_info[:app_name].upcase %>_VERSION}</name>
+          <name>${<%= @app_info[:app_name].upcase %>_VERSION}</name>
         </hudson.plugins.git.BranchSpec>
       </branches>
       <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
