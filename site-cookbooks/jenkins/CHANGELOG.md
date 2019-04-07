@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.7.3
+- Create definition to upsert job
+- Create templates for polling and deploying jobs
+
 ## 1.7.2
 - Update jenkins config for production and compute to use Jenkinsfile
 

@@ -7,7 +7,7 @@
       <triggers/>
       <parameters>
         <string>SUBRA_BRANCH</string>
-        <string>DENEBOLA_VERSION</string>
+        <string><%= @app_info[:app_name].upcase %>_VERSION</string>
         <string>SCOPE</string>
       </parameters>
       <options/>
@@ -16,23 +16,28 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.29">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>DENEBOLA_VERSION</name>
-          <description>デプロイするバージョン</description>
+          <name><%= @app_info[:app_name].upcase %>_VERSION</name>
+          <description></description>
           <defaultValue></defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>SUBRA_BRANCH</name>
-          <description>Chefのブランチ</description>
+          <description></description>
           <defaultValue>master</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>SCOPE</name>
-          <description>デプロイ範囲</description>
+          <description></description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
               <string>app</string>
@@ -43,27 +48,22 @@
         <com.wangyin.parameter.WHideParameterDefinition plugin="hidden-parameter@0.0.4">
           <name>ENVIRONMENT</name>
           <description></description>
-          <defaultValue>production</defaultValue>
+          <defaultValue><%= node.chef_environment %></defaultValue>
         </com.wangyin.parameter.WHideParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.29">
-      <autoRebuild>false</autoRebuild>
-      <rebuildDisabled>false</rebuildDisabled>
-    </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.64">
     <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.1">
       <configVersion>2</configVersion>
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
-          <url>https://github.com/Leonis0813/denebola.git</url>
+          <url><%= @app_info[:repository] %></url>
         </hudson.plugins.git.UserRemoteConfig>
       </userRemoteConfigs>
       <branches>
         <hudson.plugins.git.BranchSpec>
-          <name>${DENEBOLA_VERSION}</name>
+          <name>${<%= @app_info[:app_name].upcase %>_VERSION}</name>
         </hudson.plugins.git.BranchSpec>
       </branches>
       <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>

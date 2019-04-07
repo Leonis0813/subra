@@ -37,11 +37,13 @@
       ]
     },
     "jenkins": {
-      "jobs": [
-        "alterf",
+      "deploy_jobs": [
         "alterf-deploy",
-        "regulus",
         "regulus-deploy"
+      ],
+      "polling_jobs": [
+        "alterf",
+        "regulus"
       ],
       "views": [
         "fx-rate_estimator",

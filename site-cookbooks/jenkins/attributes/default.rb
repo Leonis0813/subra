@@ -19,7 +19,9 @@ default[:jenkins][:plugins] = %w[
   workflow-aggregator
   hidden-parameter
 ]
-default[:jenkins][:jobs] = []
+default[:jenkins][:deploy_jobs] = []
+default[:jenkins][:other_jobs] = []
+default[:jenkins][:polling_jobs] = []
 default[:jenkins][:views] = []
 default[:jenkins][:github] = {
   :scripts => %w[ create_pull_request.rb ],
