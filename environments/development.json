@@ -27,40 +27,44 @@
       ]
     },
     "jenkins": {
-      "jobs": [
-        "algieba",
+      "deploy_jobs": [
+        "algieba-deploy",
+        "alterf-deploy",
+        "denebola-deploy",
+        "regulus-deploy",
+        "zosma-deploy"
+      ],
+      "other_jobs": [
         "algieba-module_test",
         "algieba-function_test",
-        "algieba-deploy",
         "algieba-system_test",
         "algieba-update-gems",
-        "alterf",
         "alterf-module_test",
         "alterf-function_test",
-        "alterf-deploy",
         "alterf-system_test",
         "alterf-update-gems",
         "chort",
         "chort-deploy",
-        "denebola",
-        "denebola-deploy",
         "denebola-collect",
         "denebola-extract",
         "denebola-aggregate",
         "denebola-update-gems",
-        "regulus",
         "regulus-module_test",
         "regulus-function_test",
-        "regulus-deploy",
         "regulus-system_test",
         "regulus-update-gems",
-        "zosma",
-        "zosma-deploy",
         "zosma-import-rates",
         "zosma-import-candle_sticks",
         "zosma-import-moving_averages",
         "zosma-compress",
         "zosma-update-gems"
+      ],
+      "polling_jobs": [
+        "algieba",
+        "alterf",
+        "denebola",
+        "regulus",
+        "zosma"
       ],
       "views": [
         "payment_manager",
