@@ -43,7 +43,7 @@
       ],
       "polling_jobs": [
         "alterf",
-        "regulus",
+        "regulus"
       ],
       "views": [
         "fx-rate_estimator",
