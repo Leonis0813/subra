@@ -7,22 +7,25 @@
 # All rights reserved - Do Not Redistribute
 #
 
+node[:jenkins][:deploy_jobs].each do |deploy_job|
+  template 'tmp/config.xml' do
+    source 'jobs/deploy.xml.erb'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    variables :app_info => node[:zosma]
+  end
+
+  update_job do
+    job_name deploy_job
+    file_name 'tmp/config.xml'
+  end
+end
+
 node[:jenkins][:jobs].each do |job|
-  ruby_block "update job - #{job}" do
-    block do
-      xml = config(node.chef_environment, job)
-      begin
-        client.post("/job/#{job}/config.xml", IO.read(xml), basic_auth.merge(crumb))
-      rescue Net::HTTPServerException => e
-        if e.message == '404 "Not Found"'
-          body = IO.read(config(node.chef_environment, job))
-          header = {'Content-Type' => 'text/xml'}.merge(basic_auth).merge(crumb)
-          client.post("/createItem?name=#{job}", body, header)
-        else
-          raise e
-        end
-      end
-    end
+  update_job do
+    job_name job
+    file_name config(node.chef_environment, job)
   end
 end
 
