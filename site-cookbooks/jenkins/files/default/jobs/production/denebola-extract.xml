@@ -12,13 +12,13 @@
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name>FROM</name>
-          <description>yyyy-mm-dd の形式で指定</description>
+          <description>format: yyyy-mm-dd</description>
           <defaultValue></defaultValue>
           <trim>true</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>TO</name>
-          <description>yyyy-mm-dd の形式で指定</description>
+          <description>format: yyyy-mm-dd</description>
           <defaultValue></defaultValue>
           <trim>true</trim>
         </hudson.model.StringParameterDefinition>
