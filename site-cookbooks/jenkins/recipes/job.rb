@@ -9,7 +9,7 @@
 
 node[:jenkins][:polling_jobs].each do |job_name|
   template 'tmp/config.xml' do
-    source "jobs/#{node.chef_environment}/polling.xml.erb"
+    source "jobs/#{node.chef_environment.sub('compute', 'production')}/polling.xml.erb"
     owner 'root'
     group 'root'
     mode '0755'
