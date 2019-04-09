@@ -12,13 +12,13 @@
     "jenkins": {
       "deploy_jobs": [
         "algieba-deploy",
+        "chort-deploy",
         "denebola-deploy",
         "zosma-deploy"
       ],
       "other_jobs": [
         "algieba-dump",
         "chort",
-        "chort-deploy",
         "denebola-collect",
         "denebola-extract",
         "denebola-aggregate",
