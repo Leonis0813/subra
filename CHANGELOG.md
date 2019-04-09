@@ -1,3 +1,7 @@
+# 2019/04/09
+- [UPDATE][COOKBOOK] jenkins to 1.7.4
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2019/04/07
 - [UPDATE][COOKBOOK] jenkins to 1.7.3
 - [UPDATE][ENVIRONMENT] compute, development and production
