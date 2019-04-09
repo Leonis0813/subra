@@ -21,7 +21,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-      <% if node.chef_environment == 'production' %>
+      <% unless node.chef_environment == 'development' %>
         <%= '<refspec>+refs/tags/*:refs/remotes/origin/tags/*</refspec>' %>
       <% end %>
         <url><%= @app_info[:repository] %></url>
@@ -29,10 +29,10 @@
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-      <% if node.chef_environment == 'production' and not @app_info[:app_name] == 'chort' %>
-        <%= '<name>*/tags/*</name>' %>
-      <% else %>
+      <% if node.chef_environment == 'development' or @app_info[:app_name] == 'chort' %>
         <%= "<name>#{@app_info[:branch]}</name>" %>
+      <% else %>
+        <%= '<name>*/tags/*</name>' %>
       <% end %>
       </hudson.plugins.git.BranchSpec>
     </branches>
