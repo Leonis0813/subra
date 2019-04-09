@@ -41,6 +41,14 @@
         "alterf-deploy",
         "regulus-deploy"
       ],
+      "plugins": [
+        "git",
+        "parameterized-trigger",
+        "ansicolor",
+        "rebuild",
+        "workflow-aggregator",
+        "hidden-parameter"
+      ],
       "polling_jobs": [
         "alterf",
         "regulus"

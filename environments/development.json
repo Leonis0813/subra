@@ -36,27 +36,27 @@
         "zosma-deploy"
       ],
       "other_jobs": [
-        "algieba-module_test",
-        "algieba-function_test",
-        "algieba-system_test",
         "algieba-update-gems",
-        "alterf-module_test",
-        "alterf-function_test",
-        "alterf-system_test",
         "alterf-update-gems",
         "denebola-collect",
         "denebola-extract",
         "denebola-aggregate",
         "denebola-update-gems",
-        "regulus-module_test",
-        "regulus-function_test",
-        "regulus-system_test",
         "regulus-update-gems",
         "zosma-import-rates",
         "zosma-import-candle_sticks",
         "zosma-import-moving_averages",
         "zosma-compress",
         "zosma-update-gems"
+      ],
+      "plugins": [
+        "git",
+        "parameterized-trigger",
+        "ansicolor",
+        "rebuild",
+        "workflow-aggregator",
+        "hidden-parameter",
+        "extended-choice-parameter"
       ],
       "polling_jobs": [
         "algieba",
