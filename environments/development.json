@@ -30,6 +30,7 @@
       "deploy_jobs": [
         "algieba-deploy",
         "alterf-deploy",
+        "chort-deploy",
         "denebola-deploy",
         "regulus-deploy",
         "zosma-deploy"
@@ -43,8 +44,6 @@
         "alterf-function_test",
         "alterf-system_test",
         "alterf-update-gems",
-        "chort",
-        "chort-deploy",
         "denebola-collect",
         "denebola-extract",
         "denebola-aggregate",
@@ -62,6 +61,7 @@
       "polling_jobs": [
         "algieba",
         "alterf",
+        "chort",
         "denebola",
         "regulus",
         "zosma"

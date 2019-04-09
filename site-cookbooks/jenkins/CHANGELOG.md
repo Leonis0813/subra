@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.7.4
+- Apply template for chort jobs
+
 ## 1.7.3
 - Create definition to upsert job
 - Create templates for polling and deploying jobs
