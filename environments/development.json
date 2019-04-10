@@ -49,15 +49,6 @@
         "zosma-compress",
         "zosma-update-gems"
       ],
-      "plugins": [
-        "git",
-        "parameterized-trigger",
-        "ansicolor",
-        "rebuild",
-        "workflow-aggregator",
-        "hidden-parameter",
-        "extended-choice-parameter"
-      ],
       "polling_jobs": [
         "algieba",
         "alterf",
