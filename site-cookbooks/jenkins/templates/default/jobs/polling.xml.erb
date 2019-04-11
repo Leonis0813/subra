@@ -58,7 +58,11 @@
         <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
           <configs>
             <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
-              <properties><%= @app_info[:app_name].upcase %>_VERSION=<%= @app_info[:branch] %></properties>
+            <% if node.chef_environment == 'development' or @app_info[:app_name] == 'chort' %>
+              <%= "<properties>#{@app_info[:app_name].upcase}_VERSION=#{@app_info[:branch]}</properties>" %>
+            <% else %>
+              <%= "<properties>#{@app_info[:app_name].upcase}_VERSION=${GIT_BRANCH}</properties>" %>
+            <% end %>
               <textParamValueOnNewLine>false</textParamValueOnNewLine>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
