@@ -15,6 +15,12 @@
           <description></description>
           <defaultValue><%= node.chef_environment %></defaultValue>
         </com.wangyin.parameter.WHideParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name><%= @app_info[:app_name].upcase %>_VERSION</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
