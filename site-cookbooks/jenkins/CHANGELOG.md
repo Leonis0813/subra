@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.7.5
+- Remove test jobs for algieba, alterf and regulus
+
 ## 1.7.4
 - Apply template for chort jobs
 
