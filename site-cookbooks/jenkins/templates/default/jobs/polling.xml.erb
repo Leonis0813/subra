@@ -32,7 +32,7 @@
       <% if node.chef_environment == 'development' or @app_info[:app_name] == 'chort' %>
         <%= "<name>#{@app_info[:branch]}</name>" %>
       <% else %>
-        <%= '<name>*/tags/*</name>' %>
+        <%= '<name>refs/tags/*</name>' %>
       <% end %>
       </hudson.plugins.git.BranchSpec>
     </branches>
