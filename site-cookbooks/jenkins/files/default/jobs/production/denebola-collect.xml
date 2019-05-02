@@ -44,7 +44,7 @@
         if [[ &quot;${TO}&quot; != &quot;&quot; ]] ; then
                 TO=&quot;--to=${TO}&quot;
         fi
-        rvmsudo rvm 2.3.7 do env STDOUT=on bundle exec ruby collect.rb ${FROM} ${TO}
+        rvmsudo rvm 2.4.4 do env STDOUT=on bundle exec ruby collect.rb ${FROM} ${TO}
       </command>
     </hudson.tasks.Shell>
   </builders>
