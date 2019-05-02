@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.1.5
+- Update ruby version
+
 ## 2.1.4
 - Clean old gems when installing gems
 - Update ruby version
