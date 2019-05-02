@@ -12,4 +12,4 @@ default[:zosma][:smb] = {
   :mount_dir => '/mnt/smb',
   :credential_file => '/etc/smb.cred',
 }
-default[:zosma][:ruby_version] = '2.3.7'
+default[:zosma][:ruby_version] = '2.4.4'
