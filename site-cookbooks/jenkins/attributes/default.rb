@@ -15,6 +15,7 @@ default[:jenkins][:plugins] = %w[
   ansicolor
   git
   hidden-parameter
+  htmlpublisher
   parameterized-trigger
   rebuild
   rubyMetrics
