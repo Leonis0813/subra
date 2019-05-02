@@ -5,6 +5,7 @@ This file is used to list changes made in each version of the jenkins cookbook.
 ## 1.7.6
 - Update ruby version in config files
 - Add plugins to report coverage
+- Update jenkins server config
 
 ## 1.7.5
 - Remove test jobs for algieba, alterf and regulus
