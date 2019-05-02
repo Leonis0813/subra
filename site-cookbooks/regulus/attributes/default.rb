@@ -5,6 +5,6 @@ default[:regulus][:branch] = 'develop'
 default[:regulus][:symlinks] = {'tmp' => 'tmp', 'log' => 'log'}
 default[:regulus][:shared_dirs] = %w[ tmp log bundle tmp/files tmp/models ]
 default[:regulus][:requirements] = %w[ mysql-devel ]
-default[:regulus][:ruby_version] = '2.3.7'
+default[:regulus][:ruby_version] = '2.4.4'
 default[:regulus][:mysql_users] = %w[ development test ]
 default[:regulus][:python_packages] = %w[ mysql-connector-python-rf ]
