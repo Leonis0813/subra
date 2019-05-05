@@ -10,6 +10,6 @@ define :mysql_query, query: nil, query_type: 'file', user: 'root', password: nil
           end
 
   execute params[:name] do
-    command "mysql -u #{params[:user]} -p#{password} #{params[:table].to_s} -e '#{query}'"
+    command "mysql -u #{params[:user]} -p#{password} #{params[:table]} -e '#{query}'"
   end
 end
