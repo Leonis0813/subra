@@ -12,7 +12,7 @@ node[:jenkins][:views].each do |view|
       xml = File.absolute_path(File.dirname(__FILE__) + "/../files/default/views/#{view}.xml")
       begin
         content_type = {'Content-Type' => 'text/xml'}
-        client.post("/view/#{view}/config.xml", IO.read(xml), basic_auth.merge(crumb))
+        client.post("/view/#{view}/config.xml", IO.read(xml), content_type.merge(basic_auth.merge(crumb)))
       rescue Net::HTTPServerException => e
         raise e unless  e.message == '404 "Not Found"'
       end

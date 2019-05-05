@@ -73,8 +73,8 @@ node[:jenkins][:plugins].each do |plugin|
       content_type = {'Content-Type' => 'text/xml'}
       begin
         client.post('/pluginManager/installNecessaryPlugins', xml, basic_auth.merge(crumb).merge(content_type))
-      rescue Exceptions::InvalidRedirect => e
-        response = client.post('/updateCenter/', xml, basic_auth.merge(crumb).merge(content_type))
+      rescue Exceptions::InvalidRedirect
+        client.post('/updateCenter/', xml, basic_auth.merge(crumb).merge(content_type))
       end
     end
     retries 3
