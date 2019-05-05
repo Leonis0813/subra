@@ -1,3 +1,6 @@
+# 2019/05/05
+- [UPDATE][COOKBOOK] denebola to 2.0.5
+
 # 2019/05/02
 - [UPDATE][COOKBOOK] algieba to 2.0.4
 - [UPDATE][COOKBOOK] alterf to 2.0.5
