@@ -17,14 +17,14 @@ node[:nginx][:conf_files].each do |conf_file|
     content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/conf/' + conf_file))
     owner 'root'
     group 'root'
-    mode 0755
+    mode '0755'
   end
 end
 
 template "#{node[:nginx][:install_dir]}/conf/nginx.conf" do
   owner 'nginx'
   group 'nginx'
-  mode 0644
+  mode '0644'
   variables(nginx_apps: node[:nginx][:apps])
 end
 

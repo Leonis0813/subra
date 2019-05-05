@@ -117,7 +117,7 @@ unless File.exists?(node[:nginx][:install_dir])
     content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/nginx'))
     owner 'root'
     group 'root'
-    mode 0755
+    mode '0755'
     action :create
   end
 

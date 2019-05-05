@@ -60,7 +60,7 @@ deploy node[:regulus][:deploy_dir] do
       source 'settings.yml.erb'
       owner 'root'
       group 'root'
-      mode 0644
+      mode '0644'
     end
 
     gmail = Chef::EncryptedDataBagItem.load('regulus', 'gmail')
@@ -68,7 +68,7 @@ deploy node[:regulus][:deploy_dir] do
       source 'action_mailer.rb.erb'
       owner 'root'
       group 'root'
-      mode 0644
+      mode '0644'
       variables(user_name: gmail['user_name'], password: gmail['password'])
     end
 

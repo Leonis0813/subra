@@ -23,7 +23,7 @@ node[:nginx][:html_files].each do |html_file|
   template "#{node[:nginx][:install_dir]}/html/#{html_file}.html" do
     owner 'nginx'
     group 'nginx'
-    mode 0644
+    mode '0644'
     variables(links: node[:nginx][:portal][:links])
   end
 end

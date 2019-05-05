@@ -4,7 +4,7 @@ define :create_sudoer do
     source 'sudoers.erb'
     owner 'root'
     group 'root'
-    mode 0440
+    mode '0440'
     variables(user_name: params[:name])
   end
 end

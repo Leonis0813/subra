@@ -14,7 +14,7 @@ remote_file node[:jenkins][:rpm_path] do
   source node[:jenkins][:rpm_url]
   owner 'root'
   group 'root'
-  mode 0755
+  mode '0755'
   not_if { File.exists?(node[:jenkins][:rpm_path]) }
 end
 
@@ -29,7 +29,7 @@ file '/etc/sysconfig/jenkins' do
   content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/jenkins'))
   owner 'root'
   group 'root'
-  mode 0600
+  mode '0600'
 end
 
 service 'jenkins' do
@@ -49,7 +49,7 @@ remote_file node[:jenkins][:cli_path] do
   source node[:jenkins][:cli_url]
   owner 'root'
   group 'root'
-  mode 0755
+  mode '0755'
   not_if { File.exists?(node[:jenkins][:cli_path]) }
 end
 

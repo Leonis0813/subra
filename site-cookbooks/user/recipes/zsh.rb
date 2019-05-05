@@ -10,6 +10,6 @@ file "#{node[:user][:home]}/.zshrc" do
   content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../../zsh/files/default/zshrc'))
   owner node[:user][:name]
   group node[:user][:name]
-  mode 0644
+  mode '0644'
   action :create
 end

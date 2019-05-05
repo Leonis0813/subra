@@ -16,7 +16,7 @@ node[:nginx][:lua_files].each do |lua_file|
   template "#{node[:nginx][:install_dir]}/lua/#{lua_file}.lua" do
     owner 'nginx'
     group 'nginx'
-    mode 0644
+    mode '0644'
   end
 end
 

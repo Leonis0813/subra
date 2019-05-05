@@ -3,7 +3,7 @@ define :install_packages, package: {} do
     source "http://people.centos.org/tru/devtools-1.1/#{node[:rstudio][:devtools_file]}"
     owner 'root'
     group 'root'
-    mode 0755
+    mode '0755'
     not_if { File.exists?("/etc/yum.repos.d/#{node[:rstudio][:devtools_file]}") }
   end
 
@@ -16,7 +16,7 @@ define :install_packages, package: {} do
       source "https://cran.r-project.org/src/contrib/Archive/#{package_name}/#{package_name}_#{version}.tar.gz"
       owner 'root'
       group 'root'
-      mode 0755
+      mode '0755'
       not_if { File.exists?("/tmp/#{package_name}.tar.gz") }
     end
 

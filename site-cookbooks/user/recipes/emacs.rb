@@ -10,6 +10,6 @@ file "#{node[:user][:home]}/.emacs.el" do
   content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../../emacs/files/default/emacs.el'))
   owner node[:user][:name]
   group node[:user][:name]
-  mode 0644
+  mode '0644'
   action :create
 end
