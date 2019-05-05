@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the git cookbook.
 
+## 0.1.1
+- Fix coding style
+
 ## 0.1.0
 - Initial release of git
 

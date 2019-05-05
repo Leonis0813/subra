@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the denebola cookbook.
 
+## 2.0.6
+- Fix coding style
+
 ## 2.0.5
 - Update deploy recipe to create database
 

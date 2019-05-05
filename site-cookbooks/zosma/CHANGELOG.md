@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the zosma cookbook.
 
+## 1.1.7
+- Fix coding style
+
 ## 1.1.6
 - Update deploy recipe to create database
 

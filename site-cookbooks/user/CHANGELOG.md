@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the user cookbook.
 
+## 0.1.2
+- Fix coding style
+
 ## 0.1.1
 - Create definition to create sudoer
 

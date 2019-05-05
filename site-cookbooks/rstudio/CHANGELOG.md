@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the rstudio cookbook.
 
+## 1.0.1
+- Fix coding style
+
 ## 1.0.0
 - Create default recipe
 
