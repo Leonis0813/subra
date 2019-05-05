@@ -42,5 +42,10 @@ deploy node[:zosma][:deploy_dir] do
     node[:zosma][:requirements].each do |package_name|
       package package_name
     end
+
+    execute "#{rvm_do} bundle exec rake db:create" do
+      cwd release_path
+      environment 'PATH' => node[:rvm][:path]
+    end
   end
 end

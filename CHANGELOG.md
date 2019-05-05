@@ -1,5 +1,6 @@
 # 2019/05/05
 - [UPDATE][COOKBOOK] denebola to 2.0.5
+- [UPDATE][COOKBOOK] zosma to 1.1.6
 
 # 2019/05/02
 - [UPDATE][COOKBOOK] algieba to 2.0.4
