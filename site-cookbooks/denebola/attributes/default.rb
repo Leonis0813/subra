@@ -8,5 +8,5 @@ default[:denebola][:requirements] = %w[ mysql-devel ]
 default[:denebola][:ruby_version] = '2.4.4'
 default[:denebola][:export_dir] = '/etc/exports.d'
 default[:denebola][:exports] = [
-  {path: "#{default[:denebola][:deploy_dir]}/backup", ips: '*', options: %w[ rw no_root_squash ]}
+  {path: "#{default[:denebola][:deploy_dir]}/backup", ips: '*', options: %w[ rw no_root_squash ]},
 ]
