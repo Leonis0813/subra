@@ -11,5 +11,5 @@ package 'redis' do
 end
 
 service 'redis' do
-  action [:enable, :start]
+  action %i[enable start]
 end

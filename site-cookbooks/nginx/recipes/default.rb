@@ -126,6 +126,6 @@ unless File.exists?(node[:nginx][:install_dir])
   include_recipe 'nginx::html'
 
   service 'nginx' do
-    action [:start, :enable]
+    action %i[start enable]
   end
 end

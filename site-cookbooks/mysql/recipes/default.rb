@@ -9,7 +9,7 @@
 package %w[ mysql mysql-server ]
 
 service 'mysqld' do
-  action [:enable, :start]
+  action %i[enable start]
 end
 
 execute "mysqladmin -u root password #{node[:mysql][:root_password]}" do

@@ -33,7 +33,7 @@ file '/etc/sysconfig/jenkins' do
 end
 
 service 'jenkins' do
-  action [:enable, :start]
+  action %i[enable start]
 end
 
 execute 'netstat -ant | grep 8080 | grep LISTEN' do

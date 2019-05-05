@@ -45,5 +45,5 @@ mount node[:zosma][:smb][:mount_dir] do
   fstype 'cifs'
   device "//#{win_server}/#{node[:zosma][:smb][:share_name]}"
   options "credentials=#{node[:zosma][:smb][:credential_file]}"
-  action [:mount, :enable]
+  action %i[mount enable]
 end
