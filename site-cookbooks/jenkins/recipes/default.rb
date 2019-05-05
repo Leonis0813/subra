@@ -95,6 +95,7 @@ ruby_block 'wait plugins installed' do
       plugins = get_plugins
       puts "installed plugins: #{node[:jenkins][:plugins] & plugins}"
       break if (node[:jenkins][:plugins] - plugins).empty?
+
       sleep 3
     end
 
