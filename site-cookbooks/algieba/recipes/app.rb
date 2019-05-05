@@ -39,7 +39,7 @@ deploy node[:algieba][:deploy_dir] do
 
     execute "#{rvm_do} bundle install --path=vendor/bundle --clean" do
       cwd release_path
-     environment 'PATH' => node[:rvm][:path]
+      environment 'PATH' => node[:rvm][:path]
     end
 
     execute "#{rvm_do} bundle exec rake i18n:js:export" do
