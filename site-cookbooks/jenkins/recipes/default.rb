@@ -86,20 +86,20 @@ include_recipe 'jenkins::view'
 
 ruby_block 'wait plugins installed' do
   block do
-    def get_plugins
+    def http_get_plugins
       response = client.get('/pluginManager/api/json?depth=1', basic_auth)
       JSON.parse(response)['plugins'].map {|plugin| plugin['shortName'] }
     end
 
     10.times do
-      plugins = get_plugins
+      plugins = http_get_plugins
       puts "installed plugins: #{node[:jenkins][:plugins] & plugins}"
       break if (node[:jenkins][:plugins] - plugins).empty?
 
       sleep 3
     end
 
-    plugins = get_plugins
+    plugins = http_get_plugins
     raise Exception unless (node[:jenkins][:plugins] - plugins).empty?
   end
   retries 3
