@@ -26,7 +26,7 @@ default[:jenkins][:other_jobs] = []
 default[:jenkins][:polling_jobs] = []
 default[:jenkins][:views] = []
 default[:jenkins][:github] = {
-  scripts: => %w[ create_pull_request.rb ],
-  update_gem_title: => 'Update gems',
-  update_gem_branch: => 'update-gem',
+  scripts: %w[create_pull_request.rb],
+  update_gem_title: 'Update gems',
+  update_gem_branch: 'update-gem',
 }
