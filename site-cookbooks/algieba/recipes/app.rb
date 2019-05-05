@@ -69,7 +69,9 @@ deploy node[:algieba][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake assets:precompile" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path], 'RAILS_RELATIVE_URL_ROOT' => "/#{node[:algieba][:app_name]}"
+      environment 'RAILS_ENV' => node.chef_environment,
+                  'PATH' => node[:rvm][:path],
+                  'RAILS_RELATIVE_URL_ROOT' => "/#{node[:algieba][:app_name]}"
       only_if { node.chef_environment == 'production' }
     end
   end
@@ -83,7 +85,9 @@ deploy node[:algieba][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake unicorn:start" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path], 'SECRET_KEY_BASE' => SecureRandom.uuid
+      environment 'RAILS_ENV' => node.chef_environment,
+                  'PATH' => node[:rvm][:path],
+                  'SECRET_KEY_BASE' => SecureRandom.uuid
     end
   end
 end

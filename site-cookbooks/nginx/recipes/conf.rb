@@ -13,8 +13,12 @@ directory "#{node[:nginx][:install_dir]}/conf.d" do
 end
 
 node[:nginx][:conf_files].each do |conf_file|
+  conf_file_path = File.absolute_path(
+    File.dirname(__FILE__) + '/../files/default/conf/' + conf_file,
+  )
+
   file "#{node[:nginx][:install_dir]}/conf.d/#{conf_file}.conf" do
-    content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/conf/' + conf_file))
+    content IO.read(conf_file_path)
     owner 'root'
     group 'root'
     mode '0755'

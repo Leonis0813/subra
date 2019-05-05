@@ -13,7 +13,8 @@ define :install_packages, package: {} do
 
   params[:package].each do |package_name, version|
     remote_file "/tmp/#{package_name}.tar.gz" do
-      source "https://cran.r-project.org/src/contrib/Archive/#{package_name}/#{package_name}_#{version}.tar.gz"
+      source "https://cran.r-project.org/src/contrib/Archive/#{package_name}" \
+             "/#{package_name}_#{version}.tar.gz"
       owner 'root'
       group 'root'
       mode '0755'

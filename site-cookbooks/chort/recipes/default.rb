@@ -21,7 +21,12 @@ deploy node[:chort][:deploy_dir] do
     execute "pyenv global #{python_version} && pyenv rehash && make html" do
       cwd release_path
       environment 'PYENV_ROOT' => pyenv_root,
-                  'PATH' => "#{pyenv_root}/versions/#{python_version}/bin:#{pyenv_root}/bin:/usr/bin:/bin"
+                  'PATH' => [
+                    "#{pyenv_root}/versions/#{python_version}/bin",
+                    "#{pyenv_root}/bin",
+                    '/usr/bin',
+                    '/bin',
+                  ].join(':')
     end
   end
 

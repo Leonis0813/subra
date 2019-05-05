@@ -18,7 +18,8 @@ deploy node[:alterf][:deploy_dir] do
   symlink_before_migrate.clear
   symlinks node[:alterf][:symlinks]
   migration_command "#{rvm_do} bundle exec rake db:migrate"
-  environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
+  environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+              'PATH' => node[:rvm][:path]
 
   before_migrate do
     directory File.join(release_path, 'vendor')
@@ -79,11 +80,16 @@ deploy node[:alterf][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake assets:precompile" do
       cwd release_path
-      environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path], 'RAILS_RELATIVE_URL_ROOT' => "/#{node[:alterf][:app_name]}"
+      environment 'RAILS_ENV' => 'production',
+                  'PATH' => node[:rvm][:path],
+                  'RAILS_RELATIVE_URL_ROOT' => "/#{node[:alterf][:app_name]}"
       only_if { node.chef_environment == 'compute' }
     end
 
-    execute "sed -i -e 's/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/`#{rvm_do} bundle exec rake secret`/g' config/secrets.yml" do
+    rake_command = "#{rvm_do} bundle exec rake secret"
+    command = "sed -i -e 's/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/`#{rake_command}`/g' " \
+              'config/secrets.yml'
+    execute command do
       cwd release_path
       environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path]
       only_if { node.chef_environment == 'compute' }
@@ -93,13 +99,15 @@ deploy node[:alterf][:deploy_dir] do
   restart_command do
     execute "#{rvm_do} bundle exec rake unicorn:stop" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+                  'PATH' => node[:rvm][:path]
       only_if "pgrep -lf 'unicorn_rails.*#{node[:alterf][:app_name]}*'"
     end
 
     execute "#{rvm_do} bundle exec rake unicorn:start" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+                  'PATH' => node[:rvm][:path]
     end
   end
 end

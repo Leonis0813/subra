@@ -6,8 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+config_file = File.absolute_path(
+  File.dirname(__FILE__) + '/../../emacs/files/default/emacs.el',
+)
 file "#{node[:user][:home]}/.emacs.el" do
-  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../../emacs/files/default/emacs.el'))
+  content IO.read(config_file)
   owner node[:user][:name]
   group node[:user][:name]
   mode '0644'

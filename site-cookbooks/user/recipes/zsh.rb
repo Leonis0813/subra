@@ -6,8 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+rc_file = File.absolute_path(
+  File.dirname(__FILE__) + '/../../zsh/files/default/zshrc',
+)
 file "#{node[:user][:home]}/.zshrc" do
-  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../../zsh/files/default/zshrc'))
+  content IO.read(rc_file)
   owner node[:user][:name]
   group node[:user][:name]
   mode '0644'

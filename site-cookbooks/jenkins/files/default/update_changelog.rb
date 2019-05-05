@@ -3,7 +3,11 @@ require 'date'
 CHANGELOG = ARGV[0]
 lines = File.read(CHANGELOG).lines
 versions = lines.first.match(/\A#\s(\d+)\.(\d+)\.(\d+)/)[1..3]
-changed = system("cd #{File.dirname(CHANGELOG)} && git diff develop --name-only | grep 'CHANGELOG'")
+commands = [
+  "cd #{File.dirname(CHANGELOG)} && git diff develop --name-only",
+  'grep "CHANGELOG"',
+]
+changed = system(commands.join(' | '))
 
 File.open(CHANGELOG, 'w') do |file|
   today = Date.today.strftime('%Y/%m/%d')

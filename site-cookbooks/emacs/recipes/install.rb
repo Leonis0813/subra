@@ -7,7 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 unless emacs_installed?
-  download_path = File.join(node[:emacs][:download][:dir], node[:emacs][:download][:file])
+  download_path =
+    File.join(node[:emacs][:download][:dir], node[:emacs][:download][:file])
   extracted_dir = download_path.sub('.tar.gz', '')
 
   package node[:emacs][:requirements] do

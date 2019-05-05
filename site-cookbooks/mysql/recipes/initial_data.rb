@@ -24,7 +24,8 @@ initial_data = Chef::EncryptedDataBagItem.load('mysql', 'initial_data')
 
 (initial_data['user'][node.chef_environment] || []).each do |user|
   mysql_query 'create initial users' do
-    query "INSERT IGNORE INTO users VALUES (NULL, \"#{user['user_id']}\", \"#{user['password']}\")"
+    query "INSERT IGNORE INTO users VALUES (NULL, \"#{user['user_id']}\", " \
+          "\"#{user['password']}\")"
     query_type 'string'
     table 'account'
   end
@@ -32,7 +33,8 @@ end
 
 (initial_data['client'][node.chef_environment] || []).each do |client|
   mysql_query 'create initial clients' do
-    query "INSERT IGNORE INTO clients VALUES (NULL, \"#{client['application_id']}\", \"#{client['application_key']}\")"
+    query "INSERT IGNORE INTO clients VALUES (NULL, \"#{client['application_id']}\", " \
+          "\"#{client['application_key']}\")"
     query_type 'string'
     table 'account'
   end

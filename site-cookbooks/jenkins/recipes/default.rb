@@ -25,8 +25,9 @@ end
 
 create_sudoer 'jenkins'
 
+config_file = File.absolute_path(File.dirname(__FILE__) + '/../files/default/jenkins')
 file '/etc/sysconfig/jenkins' do
-  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/jenkins'))
+  content IO.read(config_file)
   owner 'root'
   group 'root'
   mode '0600'
@@ -72,9 +73,10 @@ node[:jenkins][:plugins].each do |plugin|
       xml = "<jenkins><install plugin=\"#{plugin}@latest\" /></jenkins>"
       content_type = {'Content-Type' => 'text/xml'}
       begin
-        client.post('/pluginManager/installNecessaryPlugins', xml, basic_auth.merge(crumb).merge(content_type))
+        header = basic_auth.merge(crumb).merge(content_type)
+        client.post('/pluginManager/installNecessaryPlugins', xml, header)
       rescue Exceptions::InvalidRedirect
-        client.post('/updateCenter/', xml, basic_auth.merge(crumb).merge(content_type))
+        client.post('/updateCenter/', xml, header)
       end
     end
     retries 3
