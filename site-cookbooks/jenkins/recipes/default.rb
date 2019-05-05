@@ -84,7 +84,7 @@ end
 include_recipe 'jenkins::job'
 include_recipe 'jenkins::view'
 
-ruby_block "wait plugins installed" do
+ruby_block 'wait plugins installed' do
   block do
     def get_plugins
       response = client.get('/pluginManager/api/json?depth=1', basic_auth)
