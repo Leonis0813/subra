@@ -55,11 +55,11 @@ end
 
 node[:jenkins][:accounts].each do |account|
   execute "create account - #{account[:id]}" do
-    command <<~"EOF"
+    command <<~"COMMAND"
       pass=`sudo cat #{node[:jenkins][:admin][:password_file]}`
       echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("#{account[:id]}", "#{account[:password]}")' |
       java -jar #{node[:jenkins][:cli_path]} -auth admin:${pass} -noKeyAuth -s #{node[:jenkins][:host]}/ groovy =
-    EOF
+    COMMAND
     user 'root'
     retries 5
     retry_delay 10

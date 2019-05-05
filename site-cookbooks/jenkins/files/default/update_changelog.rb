@@ -11,11 +11,11 @@ File.open(CHANGELOG, 'w') do |file|
   if changed
     lines[0].sub!(%r{\d{4}/\d{2}/\d{2}}, today)
   else
-    file.puts <<~"EOF"
+    file.puts <<~"CHANGELOG"
       # #{versions[0]}.#{versions[1]}.#{versions[2].to_i + 1} (#{today})
       - [UPDATE] gems
 
-    EOF
+    CHANGELOG
   end
   lines.each {|line| file.puts(line) }
 end
