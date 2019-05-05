@@ -24,15 +24,15 @@ define :install_packages, package: {} do
       cwd File.absolute_path(File.dirname(__FILE__) + '/../files/default')
       user 'root'
       group 'root'
-      code <<"EOF"
-sudo chmod 755 package.sh
-./package.sh #{package_name}.tar.gz
-if [ -e /usr/lib64/R/library/#{package_name}/R/#{package_name} ]; then
-  exit 0
-else
-  exit 1
-fi
-EOF
+      code <<~"EOF"
+        sudo chmod 755 package.sh
+        ./package.sh #{package_name}.tar.gz
+        if [ -e /usr/lib64/R/library/#{package_name}/R/#{package_name} ]; then
+          exit 0
+        else
+          exit 1
+        fi
+      EOF
       environment 'CC' => '/opt/centos/devtoolset-1.1/root/usr/bin/gcc',
                   'CXX' => '/opt/centos/devtoolset-1.1/root/usr/bin/g++',
                   'PATH' => '/opt/centos/devtoolset-1.1/root/usr/bin:/usr/bin:/bin'
