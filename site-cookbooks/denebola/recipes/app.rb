@@ -44,6 +44,9 @@ deploy node[:denebola][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
     end
 
-    execute "#{rvm_do} bundle exec rake db:create"
+    execute "#{rvm_do} bundle exec rake db:create" do
+      cwd release_path
+      environment 'PATH' => node[:rvm][:path]
+    end
   end
 end
