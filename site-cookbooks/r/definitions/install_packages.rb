@@ -4,7 +4,7 @@ define :install_packages, package: {} do
     owner 'root'
     group 'root'
     mode '0755'
-    not_if { File.exists?("/etc/yum.repos.d/#{node[:rstudio][:devtools_file]}") }
+    not_if { File.exist?("/etc/yum.repos.d/#{node[:rstudio][:devtools_file]}") }
   end
 
   package %w[devtoolset-1.1-gcc devtoolset-1.1-gcc-c++ devtoolset-1.1-gcc-gfortran] do
@@ -17,7 +17,7 @@ define :install_packages, package: {} do
       owner 'root'
       group 'root'
       mode '0755'
-      not_if { File.exists?("/tmp/#{package_name}.tar.gz") }
+      not_if { File.exist?("/tmp/#{package_name}.tar.gz") }
     end
 
     bash "install #{package_name} #{version}" do
@@ -36,7 +36,7 @@ define :install_packages, package: {} do
       environment 'CC' => '/opt/centos/devtoolset-1.1/root/usr/bin/gcc',
                   'CXX' => '/opt/centos/devtoolset-1.1/root/usr/bin/g++',
                   'PATH' => '/opt/centos/devtoolset-1.1/root/usr/bin:/usr/bin:/bin'
-      not_if { File.exists?("/usr/lib64/R/library/#{package_name}/R/#{package_name}") }
+      not_if { File.exist?("/usr/lib64/R/library/#{package_name}/R/#{package_name}") }
     end
   end
 end

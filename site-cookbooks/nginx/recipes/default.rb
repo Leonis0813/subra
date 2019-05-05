@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-unless File.exists?(node[:nginx][:install_dir])
+unless File.exist?(node[:nginx][:install_dir])
   download_path = File.join(node[:nginx][:download][:dir], node[:nginx][:download][:file])
   extracted_dir = download_path.sub('.tar.gz', '')
 
@@ -20,24 +20,24 @@ unless File.exists?(node[:nginx][:install_dir])
 
   remote_file download_path do
     source node[:nginx][:download][:url]
-    not_if { File.exists?(download_path) }
+    not_if { File.exist?(download_path) }
   end
 
   execute "tar zxf #{node[:nginx][:download][:file]}" do
     cwd node[:nginx][:download][:dir]
-    not_if { File.exists?(extracted_dir) }
+    not_if { File.exist?(extracted_dir) }
   end
 
   download_luajit_path = File.join(node[:nginx][:luajit][:download][:dir], node[:nginx][:luajit][:src])
   extracted_luajit_dir = download_luajit_path.sub('.tar.gz', '')
   remote_file download_luajit_path do
     source node[:nginx][:luajit][:download][:url]
-    not_if { File.exists?(download_luajit_path) }
+    not_if { File.exist?(download_luajit_path) }
   end
 
   execute "tar zxf #{node[:nginx][:luajit][:src]}" do
     cwd node[:nginx][:luajit][:download][:dir]
-    not_if { File.exists?(extracted_luajit_dir) }
+    not_if { File.exist?(extracted_luajit_dir) }
   end
 
   [
@@ -47,7 +47,7 @@ unless File.exists?(node[:nginx][:install_dir])
     execute resource[:name] do
       command resource[:command]
       cwd extracted_luajit_dir
-      only_if { File.exists?(extracted_luajit_dir) }
+      only_if { File.exist?(extracted_luajit_dir) }
     end
   end
 
@@ -59,34 +59,34 @@ unless File.exists?(node[:nginx][:install_dir])
   download_nginx_devel_kit_path = File.join(node[:nginx][:nginx_devel_kit][:download][:dir], node[:nginx][:nginx_devel_kit][:src])
   remote_file download_nginx_devel_kit_path do
     source node[:nginx][:nginx_devel_kit][:download][:url]
-    not_if { File.exists?(download_nginx_devel_kit_path) }
+    not_if { File.exist?(download_nginx_devel_kit_path) }
   end
 
   execute "tar zxf #{node[:nginx][:nginx_devel_kit][:src]}" do
     cwd node[:nginx][:nginx_devel_kit][:download][:dir]
-    not_if { File.exists?(download_nginx_devel_kit_path.sub('.tar.gz', '')) }
+    not_if { File.exist?(download_nginx_devel_kit_path.sub('.tar.gz', '')) }
   end
 
   download_lua_nginx_module_path = File.join(node[:nginx][:lua_nginx_module][:download][:dir], node[:nginx][:lua_nginx_module][:src])
   remote_file download_lua_nginx_module_path do
     source node[:nginx][:lua_nginx_module][:download][:url]
-    not_if { File.exists?(download_lua_nginx_module_path) }
+    not_if { File.exist?(download_lua_nginx_module_path) }
   end
 
   execute "tar zxf #{node[:nginx][:lua_nginx_module][:src]}" do
     cwd node[:nginx][:lua_nginx_module][:download][:dir]
-    not_if { File.exists?(download_lua_nginx_module_path.sub('.tar.gz', '')) }
+    not_if { File.exist?(download_lua_nginx_module_path.sub('.tar.gz', '')) }
   end
 
   download_lua_resty_mysql_path = File.join(node[:nginx][:lua_resty_mysql][:download][:dir], node[:nginx][:lua_resty_mysql][:src])
   remote_file download_lua_resty_mysql_path do
     source node[:nginx][:lua_resty_mysql][:download][:url]
-    not_if { File.exists?(download_lua_resty_mysql_path) }
+    not_if { File.exist?(download_lua_resty_mysql_path) }
   end
 
   execute "tar zxf #{node[:nginx][:lua_resty_mysql][:src]}" do
     cwd node[:nginx][:lua_resty_mysql][:download][:dir]
-    not_if { File.exists?(download_lua_resty_mysql_path.sub('.tar.gz', '')) }
+    not_if { File.exist?(download_lua_resty_mysql_path.sub('.tar.gz', '')) }
   end
 
   options = [
@@ -109,7 +109,7 @@ unless File.exists?(node[:nginx][:install_dir])
     execute resource[:name] do
       command resource[:command]
       cwd extracted_dir
-      only_if { File.exists?(extracted_dir) }
+      only_if { File.exist?(extracted_dir) }
     end
   end
 

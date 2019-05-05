@@ -12,7 +12,7 @@ download_path = File.join(bootstrap_download[:dir], bootstrap_download[:file])
 
 remote_file download_path do
   source bootstrap_download[:url]
-  not_if { File.exists?(download_path) }
+  not_if { File.exist?(download_path) }
 end
 
 package 'unzip'

@@ -15,7 +15,7 @@ remote_file node[:jenkins][:rpm_path] do
   owner 'root'
   group 'root'
   mode '0755'
-  not_if { File.exists?(node[:jenkins][:rpm_path]) }
+  not_if { File.exist?(node[:jenkins][:rpm_path]) }
 end
 
 package 'jenkins' do
@@ -50,7 +50,7 @@ remote_file node[:jenkins][:cli_path] do
   owner 'root'
   group 'root'
   mode '0755'
-  not_if { File.exists?(node[:jenkins][:cli_path]) }
+  not_if { File.exist?(node[:jenkins][:cli_path]) }
 end
 
 node[:jenkins][:accounts].each do |account|

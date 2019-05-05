@@ -13,7 +13,7 @@ remote_file "/tmp/#{node[:rstudio][:rpm_file]}" do
   owner 'root'
   group 'root'
   mode '0755'
-  not_if { File.exists?("/tmp/#{node[:rstudio][:rpm_file]}") }
+  not_if { File.exist?("/tmp/#{node[:rstudio][:rpm_file]}") }
 end
 
 package 'rstudio' do
