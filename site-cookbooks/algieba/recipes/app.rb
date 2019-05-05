@@ -30,7 +30,7 @@ deploy node[:algieba][:deploy_dir] do
 
     package 'mysql-devel'
 
-    [['log', 'log'], ['vendor/bundle', 'bundle']].each do |from, to|
+    [%w[log log], %w[vendor/bundle bundle]].each do |from, to|
       link File.join(release_path, from) do
         to File.join(release_path, "../../shared/#{to}")
         link_type :symbolic
