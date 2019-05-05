@@ -25,7 +25,7 @@ template "#{node[:nginx][:install_dir]}/conf/nginx.conf" do
   owner 'nginx'
   group 'nginx'
   mode 0644
-  variables(:nginx_apps => node[:nginx][:apps])
+  variables(nginx_apps: node[:nginx][:apps])
 end
 
 service 'nginx' do

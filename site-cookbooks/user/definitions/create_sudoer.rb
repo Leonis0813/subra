@@ -5,6 +5,6 @@ define :create_sudoer do
     owner 'root'
     group 'root'
     mode 0440
-    variables(:user_name => params[:name])
+    variables(user_name: params[:name])
   end
 end

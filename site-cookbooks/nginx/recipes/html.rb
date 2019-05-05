@@ -24,7 +24,7 @@ node[:nginx][:html_files].each do |html_file|
     owner 'nginx'
     group 'nginx'
     mode 0644
-    variables(:links => node[:nginx][:portal][:links])
+    variables(links: node[:nginx][:portal][:links])
   end
 end
 

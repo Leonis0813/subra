@@ -13,7 +13,7 @@ node[:jenkins][:polling_jobs].each do |job_name|
     owner 'root'
     group 'root'
     mode '0755'
-    variables :app_info => node[job_name]
+    variables app_info: node[job_name]
   end
 
   upsert_job do
@@ -28,7 +28,7 @@ node[:jenkins][:deploy_jobs].each do |job_name|
     owner 'root'
     group 'root'
     mode '0755'
-    variables :app_info => node[job_name.split('-').first]
+    variables app_info: node[job_name.split('-').first]
   end
 
   upsert_job do

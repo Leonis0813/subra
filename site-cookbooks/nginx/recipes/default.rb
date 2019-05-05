@@ -41,8 +41,8 @@ unless File.exists?(node[:nginx][:install_dir])
   end
 
   [
-    {:name => 'make LuaJIT', :command => "make PREFIX=#{node[:nginx][:luajit][:install_dir]}"},
-    {:name => 'install LuaJIT', :command => "sudo make install PREFIX=#{node[:nginx][:luajit][:install_dir]}"},
+    {name: 'make LuaJIT', command: "make PREFIX=#{node[:nginx][:luajit][:install_dir]}"},
+    {name: 'install LuaJIT', command: "sudo make install PREFIX=#{node[:nginx][:luajit][:install_dir]}"},
   ].each do |resource|
     execute resource[:name] do
       command resource[:command]
@@ -103,8 +103,8 @@ unless File.exists?(node[:nginx][:install_dir])
   end
 
   [
-    {:name => 'make nginx', :command => 'make'},
-    {:name => 'install nginx', :command => 'sudo make install'},
+    {name: 'make nginx', command: 'make'},
+    {name: 'install nginx', command: 'sudo make install'},
   ].each do |resource|
     execute resource[:name] do
       command resource[:command]

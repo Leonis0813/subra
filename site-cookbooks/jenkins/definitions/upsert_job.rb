@@ -1,4 +1,4 @@
-define :upsert_job, :job_name => nil do
+define :upsert_job, job_name: nil do
   ruby_block "update #{params[:job_name]}" do
     block do
       body = IO.read(params[:file_name])

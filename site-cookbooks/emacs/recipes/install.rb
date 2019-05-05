@@ -25,9 +25,9 @@ unless emacs_installed?
   end
 
   [
-    {:name => 'emacs configuration', :command => './configure --without-x'},
-    {:name => 'make emacs', :command => 'make'},
-    {:name => 'install emacs', :command => 'sudo make install'},
+    {name: 'emacs configuration', command: './configure --without-x'},
+    {name: 'make emacs', command: 'make'},
+    {name: 'install emacs', command: 'sudo make install'},
   ].each do |resource|
     execute resource[:name] do
       command resource[:command]

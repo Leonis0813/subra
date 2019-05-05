@@ -69,7 +69,7 @@ deploy node[:regulus][:deploy_dir] do
       owner 'root'
       group 'root'
       mode 0644
-      variables(:user_name => gmail['user_name'], :password => gmail['password'])
+      variables(user_name: gmail['user_name'], password: gmail['password'])
     end
 
     execute "#{rvm_do} bundle exec rake resque:worker:restart" do

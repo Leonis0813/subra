@@ -1,4 +1,4 @@
-define :mysql_query, :query => nil, :query_type => 'file', :user => 'root', :password => nil, :table => nil do
+define :mysql_query, query: nil, query_type: 'file', user: 'root', password: nil, table: nil do
   password = params[:password] || node[:mysql][:root_password]
 
   query = case params[:query_type]

@@ -1,4 +1,4 @@
-define :install_packages, :package => {} do
+define :install_packages, package: {} do
   remote_file "/etc/yum.repos.d/#{node[:rstudio][:devtools_file]}" do
     source "http://people.centos.org/tru/devtools-1.1/#{node[:rstudio][:devtools_file]}"
     owner 'root'
