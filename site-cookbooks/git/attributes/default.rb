@@ -1,4 +1,4 @@
-default[:git][:requirements] = %w[ curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-ExtUtils-MakeMaker ]
+default[:git][:requirements] = %w[curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-ExtUtils-MakeMaker]
 default[:git][:version] = '2.11.0'
 default[:git][:download] = {
   url: "https://www.kernel.org/pub/software/scm/git/git-#{default[:git][:version]}.tar.gz",

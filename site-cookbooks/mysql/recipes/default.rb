@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package %w[ mysql mysql-server ]
+package %w[mysql mysql-server]
 
 service 'mysqld' do
   action %i[enable start]

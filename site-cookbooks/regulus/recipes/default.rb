@@ -30,7 +30,7 @@ execute 'yum -y groupupdate "X Window System"' do
   only_if { node.chef_environment == 'development' }
 end
 
-package %w[ xorg-x11-server-Xvfb ] do
+package %w[xorg-x11-server-Xvfb] do
   only_if { node.chef_environment == 'development' }
 end
 
