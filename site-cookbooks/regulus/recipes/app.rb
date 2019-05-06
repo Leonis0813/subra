@@ -18,7 +18,8 @@ deploy node[:regulus][:deploy_dir] do
   purge_before_symlink.clear
   symlinks node[:regulus][:symlinks]
   migration_command "#{rvm_do} bundle exec rake db:migrate"
-  environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
+  environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+              'PATH' => node[:rvm][:path]
 
   before_migrate do
     directory File.join(release_path, 'vendor')
@@ -60,7 +61,7 @@ deploy node[:regulus][:deploy_dir] do
       source 'settings.yml.erb'
       owner 'root'
       group 'root'
-      mode 0644
+      mode '0644'
     end
 
     gmail = Chef::EncryptedDataBagItem.load('regulus', 'gmail')
@@ -68,8 +69,8 @@ deploy node[:regulus][:deploy_dir] do
       source 'action_mailer.rb.erb'
       owner 'root'
       group 'root'
-      mode 0644
-      variables(:user_name => gmail['user_name'], :password => gmail['password'])
+      mode '0644'
+      variables(user_name: gmail['user_name'], password: gmail['password'])
     end
 
     execute "#{rvm_do} bundle exec rake resque:worker:restart" do
@@ -79,11 +80,16 @@ deploy node[:regulus][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake assets:precompile" do
       cwd release_path
-      environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path], 'RAILS_RELATIVE_URL_ROOT' => "/#{node[:regulus][:app_name]}"
+      environment 'RAILS_ENV' => 'production',
+                  'PATH' => node[:rvm][:path],
+                  'RAILS_RELATIVE_URL_ROOT' => "/#{node[:regulus][:app_name]}"
       only_if { node.chef_environment == 'compute' }
     end
 
-    execute "sed -i -e 's/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/`#{rvm_do} bundle exec rake secret`/g' config/secrets.yml" do
+    rake_command = "#{rvm_do} bundle exec rake secret"
+    command = "sed -i -e 's/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/`#{rake_command}`/g' " \
+              'config/secrets.yml'
+    execute command do
       cwd release_path
       environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path]
       only_if { node.chef_environment == 'compute' }
@@ -93,13 +99,15 @@ deploy node[:regulus][:deploy_dir] do
   restart_command do
     execute "#{rvm_do} bundle exec rake unicorn:stop" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+                  'PATH' => node[:rvm][:path]
       only_if "pgrep -lf 'unicorn_rails.*#{node[:regulus][:app_name]}*'"
     end
 
     execute "#{rvm_do} bundle exec rake unicorn:start" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+                  'PATH' => node[:rvm][:path]
     end
   end
 
@@ -113,8 +121,12 @@ deploy node[:regulus][:deploy_dir] do
     end
 
     script_path = File.join(release_path, 'scripts')
-    execute "docker run -itd --name #{node[:regulus][:app_name]} -v #{script_path}:/opt/scripts tensorflow/tensorflow /bin/bash"
+    command = "docker run -itd --name #{node[:regulus][:app_name]} " \
+              "-v #{script_path}:/opt/scripts tensorflow/tensorflow /bin/bash"
+    execute command
 
-    execute "docker exec #{node[:regulus][:app_name]} pip install #{node[:regulus][:python_packages].join(' ')}"
+    command = "docker exec #{node[:regulus][:app_name]} pip install " \
+              "#{node[:regulus][:python_packages].join(' ')}"
+    execute command
   end
 end

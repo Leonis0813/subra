@@ -28,7 +28,7 @@ deploy node[:zosma][:deploy_dir] do
       end
     end
 
-    [['log', 'log'], ['vendor/bundle', 'bundle']].each do |from, to|
+    [%w[log log], %w[vendor/bundle bundle]].each do |from, to|
       link File.join(release_path, from) do
         to File.join(release_path, "../../shared/#{to}")
       end

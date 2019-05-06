@@ -18,7 +18,8 @@ deploy node[:denebola][:deploy_dir] do
   symlink_before_migrate.clear
   symlinks node[:denebola][:symlinks]
   migration_command "#{rvm_do} bundle exec rake db:migrate"
-  environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'), 'PATH' => node[:rvm][:path]
+  environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+              'PATH' => node[:rvm][:path]
 
   before_migrate do
     directory File.join(release_path, 'vendor')

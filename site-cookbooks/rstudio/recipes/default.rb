@@ -12,8 +12,8 @@ remote_file "/tmp/#{node[:rstudio][:rpm_file]}" do
   source "https://download2.rstudio.org/#{node[:rstudio][:rpm_file]}"
   owner 'root'
   group 'root'
-  mode 0755
-  not_if { File.exists?("/tmp/#{node[:rstudio][:rpm_file]}") }
+  mode '0755'
+  not_if { File.exist?("/tmp/#{node[:rstudio][:rpm_file]}") }
 end
 
 package 'rstudio' do

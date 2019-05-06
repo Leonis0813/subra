@@ -1,3 +1,23 @@
+# 2019/05/06
+- [UPDATE][COOKBOOK] algieba to 2.0.5
+- [UPDATE][COOKBOOK] alterf to 2.0.6
+- [UPDATE][COOKBOOK] chort to 1.0.3
+- [UPDATE][COOKBOOK] denebola to 2.0.6
+- [UPDATE][COOKBOOK] docker to 1.0.1
+- [UPDATE][COOKBOOK] emacs to 0.1.1
+- [UPDATE][COOKBOOK] git to 0.1.1
+- [UPDATE][COOKBOOK] jenkins to 1.7.7
+- [UPDATE][COOKBOOK] mysql to 1.1.1
+- [UPDATE][COOKBOOK] nginx to 2.0.4
+- [UPDATE][COOKBOOK] r to 1.0.2
+- [UPDATE][COOKBOOK] redis to 1.0.1
+- [UPDATE][COOKBOOK] regulus to 2.1.6
+- [UPDATE][COOKBOOK] rstudio to 1.0.1
+- [UPDATE][COOKBOOK] rvm to 1.0.1
+- [UPDATE][COOKBOOK] sphinx to 1.0.2
+- [UPDATE][COOKBOOK] user to 0.1.2
+- [UPDATE][COOKBOOK] zosma to 1.1.7
+
 # 2019/05/05
 - [UPDATE][COOKBOOK] denebola to 2.0.5
 - [UPDATE][COOKBOOK] zosma to 1.1.6

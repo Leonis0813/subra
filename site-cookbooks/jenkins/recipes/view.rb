@@ -9,10 +9,13 @@
 node[:jenkins][:views].each do |view|
   ruby_block "update view - #{view}" do
     block do
-      xml = File.absolute_path(File.dirname(__FILE__) + "/../files/default/views/#{view}.xml")
+      xml_file = File.absolute_path(
+        File.dirname(__FILE__) + "/../files/default/views/#{view}.xml",
+      )
       begin
         content_type = {'Content-Type' => 'text/xml'}
-        client.post("/view/#{view}/config.xml", IO.read(xml), basic_auth.merge(crumb))
+        header = content_type.merge(basic_auth.merge(crumb))
+        client.post("/view/#{view}/config.xml", IO.read(xml_file), header)
       rescue Net::HTTPServerException => e
         raise e unless  e.message == '404 "Not Found"'
       end

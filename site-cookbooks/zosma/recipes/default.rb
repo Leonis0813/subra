@@ -36,7 +36,7 @@ directory node[:zosma][:smb][:mount_dir] do
   user node[:zosma][:username]
   group node[:zosma][:username]
   mode '0755'
-  not_if { File.exists?(node[:zosma][:smb][:mount_dir]) }
+  not_if { File.exist?(node[:zosma][:smb][:mount_dir]) }
 end
 
 win_server = Chef::EncryptedDataBagItem.load('zosma', 'samba')['ip_address']
@@ -45,5 +45,5 @@ mount node[:zosma][:smb][:mount_dir] do
   fstype 'cifs'
   device "//#{win_server}/#{node[:zosma][:smb][:share_name]}"
   options "credentials=#{node[:zosma][:smb][:credential_file]}"
-  action [:mount, :enable]
+  action %i[mount enable]
 end

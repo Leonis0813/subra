@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 2.0.4
+- Fix coding style
+
 ## 2.0.3
 - Update recipe to install unzip
 

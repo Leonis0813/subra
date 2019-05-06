@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.0.6
+- Fix coding style
+
 ## 2.0.5
 - Update ruby version
 

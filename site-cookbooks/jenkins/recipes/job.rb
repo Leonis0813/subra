@@ -13,7 +13,7 @@ node[:jenkins][:polling_jobs].each do |job_name|
     owner 'root'
     group 'root'
     mode '0755'
-    variables :app_info => node[job_name]
+    variables app_info: node[job_name]
   end
 
   upsert_job do
@@ -28,7 +28,7 @@ node[:jenkins][:deploy_jobs].each do |job_name|
     owner 'root'
     group 'root'
     mode '0755'
-    variables :app_info => node[job_name.split('-').first]
+    variables app_info: node[job_name.split('-').first]
   end
 
   upsert_job do
@@ -61,8 +61,11 @@ template File.join(node[:jenkins][:home], '.netrc') do
   mode '0644'
 end
 
+script_file = File.absolute_path(
+  File.dirname(__FILE__) + '/../files/default/update_changelog.rb',
+)
 file File.join(node[:jenkins][:tools_dir], 'update_changelog.rb') do
-  content IO.read(File.absolute_path(File.dirname(__FILE__) + '/../files/default/update_changelog.rb'))
+  content IO.read(script_file)
   owner 'root'
   group 'root'
   mode '0755'

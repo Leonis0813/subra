@@ -16,18 +16,18 @@ unless git_installed?
 
   remote_file download_path do
     source node[:git][:download][:url]
-    not_if { File.exists?(download_path) }
+    not_if { File.exist?(download_path) }
   end
 
   execute "tar zxf #{node[:git][:download][:file]}" do
     cwd node[:git][:download][:dir]
-    not_if { File.exists?(extracted_dir) }
+    not_if { File.exist?(extracted_dir) }
   end
 
   node[:git][:install_commands].each do |command|
     execute command do
       cwd extracted_dir
-      only_if { File.exists?(extracted_dir) }
+      only_if { File.exist?(extracted_dir) }
     end
   end
 end

@@ -22,7 +22,7 @@ execute 'yum -y groupupdate "X Window System"' do
   only_if { node.chef_environment == 'development' }
 end
 
-package %w[ xorg-x11-server-Xvfb ] do
+package %w[xorg-x11-server-Xvfb] do
   only_if { node.chef_environment == 'development' }
 end
 
@@ -37,5 +37,5 @@ node[:alterf][:open_ports].each do |port|
 end
 
 install_packages 'install r packages' do
-  package :DBI => '0.8', :RMySQL => '0.10', :randomForest => '4.6-12', :yaml => '2.1.18'
+  package DBI: '0.8', RMySQL: '0.10', randomForest: '4.6-12', yaml: '2.1.18'
 end

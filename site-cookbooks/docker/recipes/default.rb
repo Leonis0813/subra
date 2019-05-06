@@ -9,5 +9,5 @@
 package 'docker-io'
 
 service 'docker' do
-  action [:enable, :start]
+  action %i[enable start]
 end

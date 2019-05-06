@@ -9,14 +9,17 @@
 directory "#{node[:user][:home]}/.ssh" do
   owner node[:user][:name]
   group node[:user][:name]
-  mode 0700
+  mode '0700'
   action :create
 end
 
+pub_key_file = File.absolute_path(
+  File.dirname(__FILE__) + "/../files/default/#{node[:user][:name]}/id_rsa.pub",
+)
 file "#{node[:user][:home]}/.ssh/authorized_keys" do
-  content IO.read(File.absolute_path(File.dirname(__FILE__) + "/../files/default/#{node[:user][:name]}/id_rsa.pub"))
+  content IO.read(pub_key_file)
   owner node[:user][:name]
   group node[:user][:name]
-  mode 0644
+  mode '0644'
   action :create
 end

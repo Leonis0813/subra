@@ -30,7 +30,7 @@ deploy node[:algieba][:deploy_dir] do
 
     package 'mysql-devel'
 
-    [['log', 'log'], ['vendor/bundle', 'bundle']].each do |from, to|
+    [%w[log log], %w[vendor/bundle bundle]].each do |from, to|
       link File.join(release_path, from) do
         to File.join(release_path, "../../shared/#{to}")
         link_type :symbolic
@@ -39,7 +39,7 @@ deploy node[:algieba][:deploy_dir] do
 
     execute "#{rvm_do} bundle install --path=vendor/bundle --clean" do
       cwd release_path
-     environment 'PATH' => node[:rvm][:path]
+      environment 'PATH' => node[:rvm][:path]
     end
 
     execute "#{rvm_do} bundle exec rake i18n:js:export" do
@@ -69,7 +69,9 @@ deploy node[:algieba][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake assets:precompile" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path], 'RAILS_RELATIVE_URL_ROOT' => "/#{node[:algieba][:app_name]}"
+      environment 'RAILS_ENV' => node.chef_environment,
+                  'PATH' => node[:rvm][:path],
+                  'RAILS_RELATIVE_URL_ROOT' => "/#{node[:algieba][:app_name]}"
       only_if { node.chef_environment == 'production' }
     end
   end
@@ -83,7 +85,9 @@ deploy node[:algieba][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake unicorn:start" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path], 'SECRET_KEY_BASE' => SecureRandom.uuid
+      environment 'RAILS_ENV' => node.chef_environment,
+                  'PATH' => node[:rvm][:path],
+                  'SECRET_KEY_BASE' => SecureRandom.uuid
     end
   end
 end
