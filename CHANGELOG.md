@@ -1,3 +1,7 @@
+# 2019/05/12
+- [UPDATE][COOKBOOK] mysql to 1.2.1
+- [UPDATE][COOKBOOK] nginx to 2.0.5
+
 # 2019/05/06
 - [UPDATE][COOKBOOK] algieba to 2.0.5
 - [UPDATE][COOKBOOK] alterf to 2.0.6
