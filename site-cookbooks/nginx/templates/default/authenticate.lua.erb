@@ -37,12 +37,17 @@ if(args["user_id"] and args["password"]) then
     password = "<%= node[:mysql][:root_password] %>"
   }
 
-  result, err, errno, sqlstate =
-  db:query("SELECT COUNT(*) AS count FROM users WHERE user_id = '" .. user_id .. "' AND password = '" .. password .. "'")
-  db:close()
+  users, err, errno, sqlstate =
+    db:query("SELECT * FROM users WHERE user_id = '" .. user_id .. "' AND password = '" .. password .. "' LIMIT 1")
 
-  if(tonumber(result[1]["count"]) > 0) then
-    ngx.header['Set-Cookie'] = 'LSID=' .. create_random_string(64) .. '; path=/'
+  if(#users > 0) then
+    local cookie_value = create_random_string(64)
+    ngx.header['Set-Cookie'] = 'LSID=' .. cookie_value .. '; path=/'
+    result, err, errno, sqlstate =
+      db:query("DELETE FROM cookies WHERE user_id = " .. users[1]["id"])
+    result, err, errno, sqlstate =
+      db:query("INSERT INTO cookies VALUES (NULL, '" .. cookie_value .. "', " .. users[1]["id"] .. ", now(), now())")
+    db:close()
 
     if(args["redirect_uri"] ~= "") then
       return ngx.redirect(args["redirect_uri"])
