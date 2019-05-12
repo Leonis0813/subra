@@ -20,6 +20,11 @@ mysql_query 'create clients table' do
   table 'account'
 end
 
+mysql_query 'create cookies table' do
+  query 'create_table_cookies.sql'
+  table 'account'
+end
+
 initial_data = Chef::EncryptedDataBagItem.load('mysql', 'initial_data')
 
 (initial_data['user'][node.chef_environment] || []).each do |user|
