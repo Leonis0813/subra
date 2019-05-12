@@ -8,16 +8,15 @@ db:connect{
   password = "<%= node[:mysql][:root_password] %>"
 }
 
-if (ngx.var.cookie_algieba) then
-  cookie = ngx.decode_base64(ngx.var.cookie_algieba)
-  md, err = ngx.re.match(cookie, "^(.*):(.*)$")
+if (ngx.var.cookie_LSID) then
+  cookie = ngx.var.cookie_LSID
 
   result, err, errno, sqlstate =
-    db:query("SELECT COUNT(*) AS count FROM users WHERE user_id = '" .. md[1] .. "' AND password = '" .. md[2] .. "'")
+    db:query("SELECT COUNT(*) AS count FROM cookies WHERE `value` = '" .. cookie .. "'")
   db:close()
 
   if(tonumber(result[1]["count"]) > 0) then
-    ngx.header['Set-Cookie'] = 'algieba=' .. ngx.encode_base64(md[1] .. ":" .. md[2]) .. '; path=/'
+    ngx.header['Set-Cookie'] = 'LSID=' .. cookie .. '; path=/'
   else
     return ngx.redirect("/login.html?redirect_uri=" .. ngx.escape_uri(ngx.var.redirect_uri))
   end
