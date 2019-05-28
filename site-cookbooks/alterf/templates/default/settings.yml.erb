@@ -1,9 +1,21 @@
 mysql:
-  host: <%= Chef::EncryptedDataBagItem.load('alterf', 'sakura')['ip_address'] %>
+  host: '<%= Chef::EncryptedDataBagItem.load('alterf', 'sakura')['ip_address'] %>'
   port: 3306
-  user: root
-  password: <%= Chef::EncryptedDataBagItem.load('alterf', 'mysql')['password'] %>
-features:
-<% node[:alterf][:features].each do |feature| %>
-  - <%= feature %>
-<% end %>
+  user: 'root'
+  password: '<%= Chef::EncryptedDataBagItem.load('alterf', 'mysql')['password'] %>'
+
+analysis:
+  racewise_features:
+  <% node[:alterf][:analysis][:racewise_features].each do |feature| %>
+    - '<%= feature %>'
+  <% end %>
+
+prediction:
+  race_features:
+  <% node[:alterf][:prediction][:race_features].each do |feature| %>
+    - '<%= feature %>'
+  <% end %>
+  horse_features:
+  <% node[:alterf][:prediction][:horse_features].each do |feature| %>
+    - '<%= feature %>'
+  <% end %>
