@@ -8,7 +8,7 @@ default[:alterf][:shared_dirs] = %w[log bundle tmp/files]
 default[:alterf][:requirements] = %w[mysql-devel]
 default[:alterf][:ruby_version] = '2.4.4'
 default[:alterf][:mysql_users] = %w[development test]
-kdefault[:alterf][:analysis][:racewise_features] = %w[
+default[:alterf][:analysis][:racewise_features] = %w[
   average_prize_money
   burden_weight
   rate_within_third
