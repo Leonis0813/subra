@@ -1,4 +1,8 @@
+netkeiba:
+  base_url: 'https://db.netkeiba.com'
+
 mysql:
+  database: 'denebola'
   host: '<%= Chef::EncryptedDataBagItem.load('alterf', 'sakura')['ip_address'] %>'
   port: 3306
   user: 'root'
@@ -6,16 +10,40 @@ mysql:
 
 analysis:
   racewise_features:
-  <% node[:alterf][:analysis][:racewise_features].each do |feature| %>
-    - '<%= feature %>'
-  <% end %>
+    - 'average_prize_money'
+    - 'burden_weight'
+    - 'rate_within_third'
+    - 'weight'
+    - 'weight_diff'
+    - 'weight_per'
+    - 'win_times'
 
-prediction:
-  race_features:
-  <% node[:alterf][:prediction][:race_features].each do |feature| %>
-    - '<%= feature %>'
-  <% end %>
-  horse_features:
-  <% node[:alterf][:prediction][:horse_features].each do |feature| %>
-    - '<%= feature %>'
-  <% end %>
+prediction: &prediction
+  tmp_file_name: 'test_data.yml'
+  feature:
+    races:
+      - 'distance'
+      - 'direction'
+      - 'grade'
+      - 'month'
+      - 'place'
+      - 'round'
+      - 'track'
+      - 'weather'
+    entries:
+      - 'age'
+      - 'average_prize_money'
+      - 'blank'
+      - 'burden_weight'
+      - 'distance_diff'
+      - 'entry_times'
+      - 'last_race_order'
+      - 'number'
+      - 'rate_within_third'
+      - 'running_style'
+      - 'second_last_race_order'
+      - 'sex'
+      - 'weight'
+      - 'weight_diff'
+      - 'weight_per'
+      - 'win_times'

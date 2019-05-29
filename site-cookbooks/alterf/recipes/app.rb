@@ -57,7 +57,7 @@ deploy node[:alterf][:deploy_dir] do
   end
 
   before_restart do
-    template File.join(release_path, 'scripts/settings.yml') do
+    template File.join(release_path, 'config/settings.yml') do
       source 'settings.yml.erb'
       owner 'root'
       group 'root'
