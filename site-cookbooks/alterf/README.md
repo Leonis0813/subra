@@ -26,7 +26,6 @@ This cookbook deploy alterf
 |[:alterf][:shared_dirs]   |Array[String]|directories created in shared|
 |[:alterf][:ruby_version]  |String       |ruby version for alterf      |
 |[:alterf][:mysql_users]   |Array[String]|users used by alterf         |
-|[:alterf][:features]      |Array[String]|features used by analyzer    |
 
 ## Usage
 
@@ -38,7 +37,7 @@ Just include `rvm` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[alterf::deploy]"
+    "recipe[alterf]"
   ]
 }
 ```
