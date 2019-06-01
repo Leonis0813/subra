@@ -19,6 +19,8 @@ execute 'docker pull tensorflow/tensorflow' do
   not_if "docker ps | grep #{node[:regulus][:app_name]}"
 end
 
+package node[:regulus][:requirements]
+
 include_recipe 'regulus::app'
 
 node[:regulus][:open_ports].each do |port|
