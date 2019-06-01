@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-ruby_version = node['algieba']['ruby_version']
+ruby_version = node[:algieba][:ruby_version]
 
 rvm_ruby ruby_version
 
@@ -14,6 +14,8 @@ rvm_gem 'bundler' do
   ruby_version ruby_version
   gemset 'global'
 end
+
+package node[:algieba][:requirements]
 
 include_recipe 'algieba::app'
 
