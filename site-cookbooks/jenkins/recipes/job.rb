@@ -43,7 +43,8 @@ node[:jenkins][:job][:check_pull_request].each do |job_name|
     owner 'root'
     group 'root'
     mode '0755'
-    variables app_info: node[job_name.split('-').first]
+    variables app_info: node[job_name.split('-').first],
+              token: Chef::EncryptedDataBagItem.load('github', 'token')['public_repo']
   end
 
   upsert_job do

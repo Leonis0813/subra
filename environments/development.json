@@ -28,6 +28,14 @@
     },
     "jenkins": {
       "job": {
+        "check_pull_request": [
+          "algieba-check-pull-request",
+          "alterf-check-pull-request",
+          "denebola-check-pull-request",
+          "regulus-check-pull-request",
+          "subra-check-pull-request",
+          "zosma-check-pull-request"
+        ],
         "deploy": [
           "algieba-deploy",
           "alterf-deploy",
@@ -101,6 +109,11 @@
         "epel-release",
         "R"
       ]
+    },
+    "subra": {
+      "branch": "master",
+      "repository": "https://github.com/Leonis0813/subra.git",
+      "ruby_version": "2.4.4"
     }
   }
 }

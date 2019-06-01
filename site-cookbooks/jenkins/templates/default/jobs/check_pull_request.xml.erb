@@ -8,15 +8,6 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <hudson.model.ParametersDefinitionProperty>
-      <parameterDefinitions>
-        <com.wangyin.parameter.WHideParameterDefinition plugin="hidden-parameter@0.0.4">
-          <name>TOKEN</name>
-          <description></description>
-          <defaultValue><%= Chef::EncryptedDataBagItem.load('github', 'token')['public_repo'] %></defaultValue>
-        </com.wangyin.parameter.WHideParameterDefinition>
-      </parameterDefinitions>
-    </hudson.model.ParametersDefinitionProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>-1</daysToKeep>
@@ -35,7 +26,11 @@
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
+      <% if @app_info[:branch] == 'master' %>
+        <name>:^(?!origin/master$).*</name>
+      <% else %>
         <name>:^(?!origin/master$|origin/develop$).*</name>
+      <% end %>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -58,7 +53,7 @@
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
         rvm <%= @app_info[:ruby_version] %> do bundle install --path=vendor/bundle --without production
-        rvm <%= @app_info[:ruby_version] %> do env PRONTO_GITHUB_ACCESS_TOKEN=${TOKEN} bundle exec pronto run -f github_pr -c origin/develop
+        rvm <%= @app_info[:ruby_version] %> do env PRONTO_GITHUB_ACCESS_TOKEN=<%= @token %> bundle exec pronto run -f github_pr -c origin/<%= @app_info[:branch] %>
       </command>
     </hudson.tasks.Shell>
   </builders>
