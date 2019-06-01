@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-node[:jenkins][:polling_jobs].each do |job_name|
+node[:jenkins][:job][:polling].each do |job_name|
   template 'tmp/config.xml' do
     source 'jobs/polling.xml.erb'
     owner 'root'
@@ -22,7 +22,7 @@ node[:jenkins][:polling_jobs].each do |job_name|
   end
 end
 
-node[:jenkins][:deploy_jobs].each do |job_name|
+node[:jenkins][:job][:deploy].each do |job_name|
   template 'tmp/config.xml' do
     source 'jobs/deploy.xml.erb'
     owner 'root'
@@ -37,7 +37,22 @@ node[:jenkins][:deploy_jobs].each do |job_name|
   end
 end
 
-node[:jenkins][:other_jobs].each do |job_name|
+node[:jenkins][:job][:check_pull_request].each do |job_name|
+  template 'tmp/check-pull-request.xml' do
+    source 'jobs/check-pull-request.xml.erb'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    variables app_info: node[job_name.split('-').first]
+  end
+
+  upsert_job do
+    job_name job_name
+    file_name 'tmp/check-pull-request.xml'
+  end
+end
+
+node[:jenkins][:job][:other].each do |job_name|
   upsert_job do
     job_name job_name
     file_name config(node.chef_environment, job_name)

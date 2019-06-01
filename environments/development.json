@@ -27,28 +27,46 @@
       ]
     },
     "jenkins": {
-      "deploy_jobs": [
-        "algieba-deploy",
-        "alterf-deploy",
-        "chort-deploy",
-        "denebola-deploy",
-        "regulus-deploy",
-        "zosma-deploy"
-      ],
-      "other_jobs": [
-        "algieba-update-gems",
-        "alterf-update-gems",
-        "denebola-collect",
-        "denebola-extract",
-        "denebola-aggregate",
-        "denebola-update-gems",
-        "regulus-update-gems",
-        "zosma-import-rates",
-        "zosma-import-candle_sticks",
-        "zosma-import-moving_averages",
-        "zosma-compress",
-        "zosma-update-gems"
-      ],
+      "job": {
+        "check_pull_request": [
+          "algieba-check-pull-request",
+          "alterf-check-pull-request",
+          "denebola-check-pull-request",
+          "regulus-check-pull-request",
+          "subra-check-pull-request",
+          "zosma-check-pull-request"
+        ],
+        "deploy": [
+          "algieba-deploy",
+          "alterf-deploy",
+          "chort-deploy",
+          "denebola-deploy",
+          "regulus-deploy",
+          "zosma-deploy"
+        ],
+        "other": [
+          "algieba-update-gems",
+          "alterf-update-gems",
+          "denebola-collect",
+          "denebola-extract",
+          "denebola-aggregate",
+          "denebola-update-gems",
+          "regulus-update-gems",
+          "zosma-import-rates",
+          "zosma-import-candle_sticks",
+          "zosma-import-moving_averages",
+          "zosma-compress",
+          "zosma-update-gems"
+        ],
+        "polling": [
+          "algieba",
+          "alterf",
+          "chort",
+          "denebola",
+          "regulus",
+          "zosma"
+        ]
+      },
       "plugins": [
         "ansicolor",
         "git",
@@ -59,14 +77,6 @@
         "rebuild",
         "rubyMetrics",
         "workflow-aggregator"
-      ],
-      "polling_jobs": [
-        "algieba",
-        "alterf",
-        "chort",
-        "denebola",
-        "regulus",
-        "zosma"
       ],
       "views": [
         "payment_manager",

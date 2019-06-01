@@ -14,9 +14,10 @@ default[:jenkins][:admin][:password_file] =
   "#{default[:jenkins][:home]}/secrets/initialAdminPassword"
 default[:jenkins][:tools_dir] = "#{default[:jenkins][:home]}/tools"
 default[:jenkins][:accounts] = [{id: 'leonis', password: '7QiSlC?4'}]
-default[:jenkins][:deploy_jobs] = []
-default[:jenkins][:other_jobs] = []
-default[:jenkins][:polling_jobs] = []
+default[:jenkins][:job][:check_pull_request] = []
+default[:jenkins][:job][:deploy] = []
+default[:jenkins][:job][:other] = []
+default[:jenkins][:job][:polling] = []
 default[:jenkins][:views] = []
 default[:jenkins][:github] = {
   scripts: %w[create_pull_request.rb],

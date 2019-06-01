@@ -10,23 +10,31 @@
       ]
     },
     "jenkins": {
-      "deploy_jobs": [
-        "algieba-deploy",
-        "chort-deploy",
-        "denebola-deploy",
-        "zosma-deploy"
-      ],
-      "other_jobs": [
-        "algieba-dump",
-        "denebola-collect",
-        "denebola-extract",
-        "denebola-aggregate",
-        "zosma-import-rates",
-        "zosma-import-candle_sticks",
-        "zosma-import-moving_averages",
-        "zosma-compress",
-        "zosma-remove"
-      ],
+      "job": {
+        "deploy": [
+          "algieba-deploy",
+          "chort-deploy",
+          "denebola-deploy",
+          "zosma-deploy"
+        ],
+        "other": [
+          "algieba-dump",
+          "denebola-collect",
+          "denebola-extract",
+          "denebola-aggregate",
+          "zosma-import-rates",
+          "zosma-import-candle_sticks",
+          "zosma-import-moving_averages",
+          "zosma-compress",
+          "zosma-remove"
+        ],
+        "polling": [
+          "algieba",
+          "chort",
+          "denebola",
+          "zosma"
+        ]
+      },
       "plugins": [
         "ansicolor",
         "git",
@@ -34,12 +42,6 @@
         "parameterized-trigger",
         "rebuild",
         "workflow-aggregator"
-      ],
-      "polling_jobs": [
-        "algieba",
-        "chort",
-        "denebola",
-        "zosma"
       ],
       "views": [
         "payment_manager",
