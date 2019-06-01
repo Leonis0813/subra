@@ -15,6 +15,8 @@ rvm_gem 'bundler' do
   gemset 'global'
 end
 
+package node[:zosma][:requirements]
+
 include_recipe 'zosma::app'
 
 user node[:zosma][:username] do
