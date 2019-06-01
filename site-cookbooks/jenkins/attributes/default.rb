@@ -14,16 +14,6 @@ default[:jenkins][:admin][:password_file] =
   "#{default[:jenkins][:home]}/secrets/initialAdminPassword"
 default[:jenkins][:tools_dir] = "#{default[:jenkins][:home]}/tools"
 default[:jenkins][:accounts] = [{id: 'leonis', password: '7QiSlC?4'}]
-default[:jenkins][:plugins] = %w[
-  ansicolor
-  git
-  hidden-parameter
-  htmlpublisher
-  parameterized-trigger
-  rebuild
-  rubyMetrics
-  workflow-aggregator
-]
 default[:jenkins][:deploy_jobs] = []
 default[:jenkins][:other_jobs] = []
 default[:jenkins][:polling_jobs] = []

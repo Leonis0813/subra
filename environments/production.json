@@ -27,6 +27,14 @@
         "zosma-compress",
         "zosma-remove"
       ],
+      "plugins": [
+        "ansicolor",
+        "git",
+        "hidden-parameter",
+        "parameterized-trigger",
+        "rebuild",
+        "workflow-aggregator"
+      ],
       "polling_jobs": [
         "algieba",
         "chort",
