@@ -28,14 +28,6 @@
     },
     "jenkins": {
       "job": {
-        "check_pull_request": [
-          "algieba-check-pull-request",
-          "alterf-check-pull-request",
-          "denebola-check-pull-request",
-          "regulus-check-pull-request",
-          "subra-check-pull-request",
-          "zosma-check-pull-request"
-        ],
         "deploy": [
           "algieba-deploy",
           "alterf-deploy",
