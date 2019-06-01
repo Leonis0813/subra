@@ -15,4 +15,6 @@ rvm_gem 'bundler' do
   gemset 'global'
 end
 
+package node[:denebola][:requirements]
+
 include_recipe 'denebola::app'
