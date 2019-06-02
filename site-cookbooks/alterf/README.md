@@ -26,6 +26,7 @@ This cookbook deploy alterf
 |[:alterf][:shared_dirs]   |Array[String]|directories created in shared|
 |[:alterf][:ruby_version]  |String       |ruby version for alterf      |
 |[:alterf][:mysql_users]   |Array[String]|users used by alterf         |
+|[:alterf][:requirements]  |Array[String]|packages before deploying    |
 
 ## Usage
 
