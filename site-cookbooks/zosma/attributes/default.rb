@@ -5,7 +5,7 @@ default[:zosma][:repository] =
 default[:zosma][:branch] = 'develop'
 default[:zosma][:symlinks] = {'tmp' => 'tmp', 'log' => 'log', 'backup' => 'backup'}
 default[:zosma][:shared_dirs] = %w[tmp backup log bundle]
-default[:zosma][:requirements] = %w[mysql-devel]
+default[:zosma][:requirements] = %w[cmake mysql-devel]
 default[:zosma][:username] = 'analyzer'
 default[:zosma][:smb] = {
   packages: %w[samba-client cifs-utils],

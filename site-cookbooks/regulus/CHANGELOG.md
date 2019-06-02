@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.1.7
+- Update deploy recipe to install cmake
+
 ## 2.1.6
 - Fix coding style
 

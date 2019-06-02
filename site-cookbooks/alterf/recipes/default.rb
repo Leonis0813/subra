@@ -15,6 +15,8 @@ rvm_gem 'bundler' do
   gemset 'global'
 end
 
+package node[:alterf][:requirements]
+
 include_recipe 'alterf::app'
 
 execute 'yum -y groupupdate "X Window System"' do

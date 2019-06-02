@@ -28,8 +28,6 @@ deploy node[:algieba][:deploy_dir] do
       directory File.join(release_path, "../../shared/#{dir}")
     end
 
-    package 'mysql-devel'
-
     [%w[log log], %w[vendor/bundle bundle]].each do |from, to|
       link File.join(release_path, from) do
         to File.join(release_path, "../../shared/#{to}")

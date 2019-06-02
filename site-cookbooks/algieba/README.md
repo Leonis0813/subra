@@ -27,6 +27,7 @@ This cookbook deploy algieba
 |[:algieba][:ruby_version]|String       |ruby version for algieba     |
 |[:algieba][:open_ports]  |Array[String]|tcp ports used by algieba    |
 |[:algieba][:mysql_users] |Array[String]|mysql user names             |
+|[:algieba][:requirements]|Array[String]|packages before deploying    |
 
 ## Usage
 
@@ -38,7 +39,7 @@ Just include `algieba` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[algieba::deploy]"
+    "recipe[algieba]"
   ]
 }
 ```

@@ -34,10 +34,6 @@ deploy node[:alterf][:deploy_dir] do
       to File.join(node[:alterf][:deploy_dir], 'shared/bundle')
     end
 
-    node[:alterf][:requirements].each do |package_name|
-      package package_name
-    end
-
     execute "#{rvm_do} bundle install --path=vendor/bundle --clean" do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]

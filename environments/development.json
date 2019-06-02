@@ -21,41 +21,63 @@
         "3000:tcp"
       ],
       "requirements": [
+        "cmake",
         "mysql-devel",
         "epel-release",
         "R"
       ]
     },
     "jenkins": {
-      "deploy_jobs": [
-        "algieba-deploy",
-        "alterf-deploy",
-        "chort-deploy",
-        "denebola-deploy",
-        "regulus-deploy",
-        "zosma-deploy"
-      ],
-      "other_jobs": [
-        "algieba-update-gems",
-        "alterf-update-gems",
-        "denebola-collect",
-        "denebola-extract",
-        "denebola-aggregate",
-        "denebola-update-gems",
-        "regulus-update-gems",
-        "zosma-import-rates",
-        "zosma-import-candle_sticks",
-        "zosma-import-moving_averages",
-        "zosma-compress",
-        "zosma-update-gems"
-      ],
-      "polling_jobs": [
-        "algieba",
-        "alterf",
-        "chort",
-        "denebola",
-        "regulus",
-        "zosma"
+      "job": {
+        "check_pull_request": [
+          "algieba-check-pull-request",
+          "alterf-check-pull-request",
+          "denebola-check-pull-request",
+          "regulus-check-pull-request",
+          "subra-check-pull-request",
+          "zosma-check-pull-request"
+        ],
+        "deploy": [
+          "algieba-deploy",
+          "alterf-deploy",
+          "chort-deploy",
+          "denebola-deploy",
+          "regulus-deploy",
+          "zosma-deploy"
+        ],
+        "other": [
+          "algieba-update-gems",
+          "alterf-update-gems",
+          "denebola-collect",
+          "denebola-extract",
+          "denebola-aggregate",
+          "denebola-update-gems",
+          "regulus-update-gems",
+          "zosma-import-rates",
+          "zosma-import-candle_sticks",
+          "zosma-import-moving_averages",
+          "zosma-compress",
+          "zosma-update-gems"
+        ],
+        "polling": [
+          "algieba",
+          "alterf",
+          "chort",
+          "denebola",
+          "regulus",
+          "zosma"
+        ]
+      },
+      "plugins": [
+        "ansicolor",
+        "git",
+        "hidden-parameter",
+        "htmlpublisher",
+        "multiple-scms",
+        "parameterized-trigger",
+        "rebuild",
+        "rubyMetrics",
+        "workflow-aggregator"
       ],
       "views": [
         "payment_manager",
@@ -88,6 +110,11 @@
         "epel-release",
         "R"
       ]
+    },
+    "subra": {
+      "branch": "master",
+      "repository": "https://github.com/Leonis0813/subra.git",
+      "ruby_version": "2.4.4"
     }
   }
 }

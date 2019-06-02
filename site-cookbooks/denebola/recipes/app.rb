@@ -36,10 +36,6 @@ deploy node[:denebola][:deploy_dir] do
       end
     end
 
-    node[:denebola][:requirements].each do |package_name|
-      package package_name
-    end
-
     execute "#{rvm_do} bundle install --path=vendor/bundle --clean" do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
