@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.0
+- Add jenkins config to check coding style for PRs
+
 ## 1.7.8
 - Update jenkins config to set log rotator
 

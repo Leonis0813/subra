@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the algieba cookbook.
 
+## 2.0.6
+- Update deploy recipe to install cmake
+
 ## 2.0.5
 - Fix coding style
 

@@ -30,9 +30,7 @@ This cookbook install jenkins
 |[:jenkins][:tools_dir]             |String       |path to directory to put scripts   |
 |[:jenkins][:accounts]              |Array[Hash]  |created accounts                   |
 |[:jenkins][:plugins]               |Array[String]|installed plugin list              |
-|[:jenkins][:deploy_jobs]           |Array[String]|created deploying job list         |
-|[:jenkins][:other_jobs]            |Array[String]|created extra job list             |
-|[:jenkins][:polling_jobs]          |Array[String]|created polling job list           |
+|[:jenkins][:job]                   |Object       |created job list                   |
 |[:jenkins][:views]                 |Array[String]|created view list                  |
 |[:jenkins][:github]                |Hash         |config for github operations       |
 
