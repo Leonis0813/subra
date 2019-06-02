@@ -5,6 +5,6 @@ default[:alterf][:repository] =
 default[:alterf][:branch] = 'develop'
 default[:alterf][:symlinks] = {'log' => 'log', 'tmp' => 'tmp'}
 default[:alterf][:shared_dirs] = %w[log bundle tmp/files]
-default[:alterf][:requirements] = %w[cmake mysql-devel]
+default[:alterf][:requirements] = %w[mysql-devel]
 default[:alterf][:ruby_version] = '2.4.4'
 default[:alterf][:mysql_users] = %w[development test]
