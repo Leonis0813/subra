@@ -116,6 +116,10 @@ deploy node[:regulus][:deploy_dir] do
       only_if "docker ps -a | grep #{node[:regulus][:app_name]}"
     end
 
+    service 'docker' do
+      action :restart
+    end
+
     script_path = File.join(release_path, 'scripts')
     command = "docker run -itd --name #{node[:regulus][:app_name]} " \
               "-v #{script_path}:/opt/scripts tensorflow/tensorflow /bin/bash"
