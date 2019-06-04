@@ -1,4 +1,4 @@
-default[:sphinx][:requirements] = %w[python-pip graphviz]
+default[:sphinx][:requirements] = %w[python-pip graphviz ipa-gothic-fonts]
 default[:sphinx][:packages] = %w[
   sphinx==1.4.5
   sphinxcontrib-plantuml
