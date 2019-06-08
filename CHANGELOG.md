@@ -1,3 +1,6 @@
+# 2019/06/08
+- [UPDATE][COOKBOOK] regulus to 2.1.8
+
 # 2019/06/04
 - [UPDATE][COOKBOOK] sphinx to 1.0.3
 
