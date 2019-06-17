@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the denebola cookbook.
 
+## 2.1.0
+- Update recipe to generate settings.yml from template
+
 ## 2.0.7
 - Update deploy recipe to install cmake
 
