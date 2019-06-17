@@ -27,6 +27,9 @@
         "R"
       ]
     },
+    "denebola": {
+      "log_level": "debug"
+    },
     "jenkins": {
       "job": {
         "check_pull_request": [

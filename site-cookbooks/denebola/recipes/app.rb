@@ -46,4 +46,13 @@ deploy node[:denebola][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
     end
   end
+
+  before_restart do
+    template File.join(release_path, 'config/settings.yml') do
+      source 'settings.yml.erb'
+      owner 'root'
+      group 'root'
+      mode '0644'
+    end
+  end
 end

@@ -1,3 +1,8 @@
+# 2019/06/17
+- [CREATE][DATA_BAG] denebola
+- [UPDATE][COOKBOOK] denebola to 2.1.0
+- [UPDATE][ENVIRONMENT] development
+
 # 2019/06/08
 - [UPDATE][COOKBOOK] regulus to 2.1.8
 

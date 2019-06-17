@@ -1,0 +1,27 @@
+url: 'https://db.netkeiba.com'
+
+path:
+  race_list: '/race/list'
+  race: '/race'
+  horse: '/horse'
+
+mysql:
+  adapter: 'mysql2'
+  database: 'denebola'
+  host: 'localhost'
+  username: 'root'
+  password: '<%= Chef::EncryptedDataBagItem.load('denebola', 'mysql')['password'] %>'
+
+backup_dir:
+  race_list: 'race_list'
+  race: 'races'
+  horse: 'horses'
+
+logger:
+  level: '<%= node[:denebola][:log_level] %>'
+  time_format: '%Y/%m/%d %H:%M:%S.%6N'
+  path:
+    database: 'log/database.log'
+    collect: 'log/collect.log'
+    extract: 'log/extract.log'
+    aggregate: 'log/aggregate.log'
