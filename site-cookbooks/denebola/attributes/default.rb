@@ -15,3 +15,4 @@ default[:denebola][:exports] = [
     options: %w[rw no_root_squash],
   },
 ]
+default[:denebola][:log_level] = 'info'
