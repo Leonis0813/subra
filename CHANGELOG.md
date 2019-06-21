@@ -1,3 +1,7 @@
+# 2019/06/21
+- [UPDATE][COOKBOOK] denebola to 2.1.1
+- [UPDATE][ENVIRONMENT] production
+
 # 2019/06/17
 - [CREATE][DATA_BAG] denebola
 - [UPDATE][COOKBOOK] denebola to 2.1.0

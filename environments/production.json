@@ -9,6 +9,14 @@
         "production"
       ]
     },
+    "denebola": {
+      "database": [
+        {
+          "env": "production",
+          "name": "denebola"
+        }
+      ]
+    },
     "jenkins": {
       "job": {
         "deploy": [

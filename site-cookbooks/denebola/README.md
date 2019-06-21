@@ -29,6 +29,7 @@ This cookbook deploy denebola
 |[:denebola][:export_dir]    |String       |directory path to export     |
 |[:denebola][:exports]       |Array[Hash]  |export settings fot nfs      |
 |[:denebola][:log_level]     |String       |log level for mysql inquiry  |
+|[:denebola][:database]      |Array[Object]|database settings per env    |
 
 ## Usage
 
