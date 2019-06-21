@@ -16,3 +16,6 @@ default[:denebola][:exports] = [
   },
 ]
 default[:denebola][:log_level] = 'info'
+default[:denebola][:database] = [
+  {env: 'development', name: 'denebola'},
+]
