@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.1
+- Fix jenkins config for extracting error
+
 ## 1.8.0
 - Add jenkins config to check coding style for PRs
 

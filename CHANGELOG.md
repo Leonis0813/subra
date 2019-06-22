@@ -1,3 +1,6 @@
+# 2019/06/22
+- [UPDATE][COOKBOOK] jenkins to 1.8.1
+
 # 2019/06/21
 - [UPDATE][COOKBOOK] denebola to 2.1.1
 - [UPDATE][ENVIRONMENT] production
