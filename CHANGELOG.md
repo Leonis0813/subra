@@ -1,3 +1,6 @@
+# 2019/06/23
+- [UPDATE][COOKBOOK] jenkins to 1.8.2
+
 # 2019/06/22
 - [UPDATE][COOKBOOK] jenkins to 1.8.1
 
