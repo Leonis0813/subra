@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.2
+- Update jenkins config for github status check
+
 ## 1.8.1
 - Fix jenkins config for extraction and aggregation error
 
