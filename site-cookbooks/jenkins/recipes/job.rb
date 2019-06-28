@@ -67,6 +67,21 @@ node[:jenkins][:job][:check_pull_request].each do |job_name|
   end
 end
 
+node[:jenkins][:job][:update_gems].each do |job_name|
+  template 'tmp/config.xml' do
+    source 'jobs/update_gems.xml.erb'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    variables app_info: node[job_name.split('-').first]
+  end
+
+  upsert_job do
+    job_name job_name
+    file_name 'tmp/config.xml'
+  end
+end
+
 node[:jenkins][:job][:zosma].each do |job_name|
   template 'tmp/config.xml' do
     source "jobs/#{job_name}.xml.erb"
