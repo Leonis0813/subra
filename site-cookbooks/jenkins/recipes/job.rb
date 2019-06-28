@@ -7,13 +7,14 @@
 # All rights reserved - Do Not Redistribute
 #
 
-node[:jenkins][:job][:polling].each do |job_name|
+node[:jenkins][:job][:check_pull_request].each do |job_name|
   template 'tmp/config.xml' do
-    source 'jobs/polling.xml.erb'
+    source 'jobs/check_pull_request.xml.erb'
     owner 'root'
     group 'root'
     mode '0755'
-    variables app_info: node[job_name]
+    variables app_info: node[job_name.split('-').first],
+              token: Chef::EncryptedDataBagItem.load('github', 'token')['public_repo']
   end
 
   upsert_job do
@@ -51,14 +52,13 @@ node[:jenkins][:job][:deploy].each do |job_name|
   end
 end
 
-node[:jenkins][:job][:check_pull_request].each do |job_name|
+node[:jenkins][:job][:polling].each do |job_name|
   template 'tmp/config.xml' do
-    source 'jobs/check_pull_request.xml.erb'
+    source 'jobs/polling.xml.erb'
     owner 'root'
     group 'root'
     mode '0755'
-    variables app_info: node[job_name.split('-').first],
-              token: Chef::EncryptedDataBagItem.load('github', 'token')['public_repo']
+    variables app_info: node[job_name]
   end
 
   upsert_job do
