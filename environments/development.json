@@ -53,13 +53,6 @@
           "regulus-deploy",
           "zosma-deploy"
         ],
-        "other": [
-          "algieba-update-gems",
-          "alterf-update-gems",
-          "denebola-update-gems",
-          "regulus-update-gems",
-          "zosma-update-gems"
-        ],
         "polling": [
           "algieba",
           "alterf",
@@ -67,6 +60,13 @@
           "denebola",
           "regulus",
           "zosma"
+        ],
+        "update_gems": [
+          "algieba-update-gems",
+          "alterf-update-gems",
+          "denebola-update-gems",
+          "regulus-update-gems",
+          "zosma-update-gems"
         ],
         "zosma": [
           "zosma-import-rates",
