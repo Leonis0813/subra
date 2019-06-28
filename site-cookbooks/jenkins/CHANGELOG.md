@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.3
+- Create templates for denebola, zosma and update-gems jobs
+
 ## 1.8.2
 - Update jenkins config for github status check
 

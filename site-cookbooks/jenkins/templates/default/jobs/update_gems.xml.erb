@@ -17,7 +17,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/Leonis0813/algieba.git</url>
+        <url><%= @app_info[:repository] %></url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -68,7 +68,9 @@ H 0 * * *</spec>
           echo &apos;No gems to update&apos;
           exit 0
         fi
+        <% if %w[algieba alterf regulus].include?(@app_info[:app_name]) %>
         rvm 2.4.4 do bundle exec rspec --fail-fast spec/{models,controllers,views}
+        <% end %>
         git add Gemfile.lock
         git commit -m &apos;update Gemfile.lock&apos;
         cd ${JENKINS_HOME}/tools
@@ -78,7 +80,7 @@ H 0 * * *</spec>
         git commit -m &apos;update CHANGELOG.md&apos;
         git push -f origin update-gem
         cd ${JENKINS_HOME}/tools
-        rvmsudo rvm 2.4.4 do ruby create_pull_request.rb algieba
+        rvmsudo rvm 2.4.4 do ruby create_pull_request.rb <%= @app_info[:app_name] %>
       </command>
     </hudson.tasks.Shell>
   </builders>

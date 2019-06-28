@@ -4,19 +4,23 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.29">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name>FROM</name>
           <description>format: yyyy-mm-dd</description>
           <defaultValue></defaultValue>
-          <trim>true</trim>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>TO</name>
           <description>format: yyyy-mm-dd</description>
           <defaultValue></defaultValue>
-          <trim>true</trim>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -34,31 +38,29 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers>
-    <hudson.triggers.TimerTrigger>
-      <spec>TZ=UTC
-0 0 * * *</spec>
-    </hudson.triggers.TimerTrigger>
-  </triggers>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
-        cd /opt/denebola/current
+        cd /opt/zosma/current
         if [[ &quot;${FROM}&quot; != &quot;&quot; ]] ; then
                 FROM=&quot;--from=${FROM}&quot;
         fi
         if [[ &quot;${TO}&quot; != &quot;&quot; ]] ; then
                 TO=&quot;--to=${TO}&quot;
         fi
-        rvmsudo rvm 2.4.4 do env STDOUT=on bundle exec ruby collect.rb ${FROM} ${TO}
+        rvmsudo rvm 2.4.4 do env STDOUT=on bundle exec ruby import/moving_averages.rb ${FROM} ${TO}
       </command>
     </hudson.tasks.Shell>
   </builders>
+  <% if node.chef_environment == 'development'%>
+  <publishers/>
+  <% else %>
   <publishers>
     <hudson.tasks.BuildTrigger>
-      <childProjects>denebola-extract</childProjects>
+      <childProjects>zosma-remove</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -67,6 +69,7 @@
       </threshold>
     </hudson.tasks.BuildTrigger>
   </publishers>
+  <% end %>
   <buildWrappers>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>

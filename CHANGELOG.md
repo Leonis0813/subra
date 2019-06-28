@@ -1,3 +1,7 @@
+# 2019/06/28
+- [UPDATE][COOKBOOK] jenkins to 1.8.3
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2019/06/23
 - [UPDATE][COOKBOOK] jenkins to 1.8.2
 
