@@ -40,6 +40,11 @@
           "subra-check-pull-request",
           "zosma-check-pull-request"
         ],
+        "denebola": [
+          "denebola-collect",
+          "denebola-extract",
+          "denebola-aggregate"
+        ],
         "deploy": [
           "algieba-deploy",
           "alterf-deploy",
@@ -51,15 +56,8 @@
         "other": [
           "algieba-update-gems",
           "alterf-update-gems",
-          "denebola-collect",
-          "denebola-extract",
-          "denebola-aggregate",
           "denebola-update-gems",
           "regulus-update-gems",
-          "zosma-import-rates",
-          "zosma-import-candle_sticks",
-          "zosma-import-moving_averages",
-          "zosma-compress",
           "zosma-update-gems"
         ],
         "polling": [
@@ -69,6 +67,12 @@
           "denebola",
           "regulus",
           "zosma"
+        ],
+        "zosma": [
+          "zosma-import-rates",
+          "zosma-import-candle_sticks",
+          "zosma-import-moving_averages",
+          "zosma-compress"
         ]
       },
       "plugins": [

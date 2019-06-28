@@ -19,6 +19,11 @@
     },
     "jenkins": {
       "job": {
+        "denebola": [
+          "denebola-collect",
+          "denebola-extract",
+          "denebola-aggregate"
+        ],
         "deploy": [
           "algieba-deploy",
           "chort-deploy",
@@ -27,13 +32,6 @@
         ],
         "other": [
           "algieba-dump",
-          "denebola-collect",
-          "denebola-extract",
-          "denebola-aggregate",
-          "zosma-import-rates",
-          "zosma-import-candle_sticks",
-          "zosma-import-moving_averages",
-          "zosma-compress",
           "zosma-remove"
         ],
         "polling": [
@@ -41,6 +39,12 @@
           "chort",
           "denebola",
           "zosma"
+        ],
+        "zosma": [
+          "zosma-import-rates",
+          "zosma-import-candle_sticks",
+          "zosma-import-moving_averages",
+          "zosma-compress"
         ]
       },
       "plugins": [
