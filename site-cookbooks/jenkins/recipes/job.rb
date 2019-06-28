@@ -22,6 +22,20 @@ node[:jenkins][:job][:polling].each do |job_name|
   end
 end
 
+node[:jenkins][:job][:denebola].each do |job_name|
+  template 'tmp/config.xml' do
+    source "jobs/#{job_name}.xml.erb"
+    owner 'root'
+    group 'root'
+    mode '0755'
+  end
+
+  upsert_job do
+    job_name job_name
+    file_name 'tmp/config.xml'
+  end
+end
+
 node[:jenkins][:job][:deploy].each do |job_name|
   template 'tmp/config.xml' do
     source 'jobs/deploy.xml.erb'
@@ -38,7 +52,7 @@ node[:jenkins][:job][:deploy].each do |job_name|
 end
 
 node[:jenkins][:job][:check_pull_request].each do |job_name|
-  template 'tmp/check_pull_request.xml' do
+  template 'tmp/config.xml' do
     source 'jobs/check_pull_request.xml.erb'
     owner 'root'
     group 'root'
@@ -49,7 +63,21 @@ node[:jenkins][:job][:check_pull_request].each do |job_name|
 
   upsert_job do
     job_name job_name
-    file_name 'tmp/check_pull_request.xml'
+    file_name 'tmp/config.xml'
+  end
+end
+
+node[:jenkins][:job][:zosma].each do |job_name|
+  template 'tmp/config.xml' do
+    source "jobs/#{job_name}.xml.erb"
+    owner 'root'
+    group 'root'
+    mode '0755'
+  end
+
+  upsert_job do
+    job_name job_name
+    file_name 'tmp/config.xml'
   end
 end
 
