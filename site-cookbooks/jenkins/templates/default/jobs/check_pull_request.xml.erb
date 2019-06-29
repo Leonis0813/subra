@@ -51,14 +51,15 @@
   <builders>
     <hudson.tasks.Shell>
       <command>
-        export PRONTO_GITHUB_ACCESS_TOKEN=<%= @token %>
+        export PATH=/usr/local/rvm/bin:/usr/bin:/bin
         rvm <%= @app_info[:ruby_version] %> do bundle install --path=vendor/bundle
         <% if @app_info[:app_name] == 'chort' %>
+        export DANGER_GITHUB_API_TOKEN=<%= @token %>
         export PATH=/usr/local/pyenv/versions/3.6.0/bin:/usr/local/rvm/bin:/usr/bin:/bin
         sudo PATH=/usr/local/pyenv/versions/3.6.0/bin:/usr/bin:/bin PYENV_ROOT=/usr/local/pyenv /usr/local/pyenv/bin/pyenv global 3.6.0 &amp;&amp; /usr/local/pyenv/bin/pyenv rehash &amp;&amp; make html
         JENKINS_URL=http://192.168.33.10/jenkins/ bin/danger
         <% else %>
-        PATH=/usr/local/rvm/bin:/usr/bin:$PATH
+        export PRONTO_GITHUB_ACCESS_TOKEN=<%= @token %>
         export RUBOCOP_CONFIG=.rubocop.yml
         rvm <%= @app_info[:ruby_version] %> do bundle exec pronto run -f github_status github_pr -c origin/<%= @app_info[:branch] %>
         <% end %>
