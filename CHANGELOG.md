@@ -1,3 +1,8 @@
+# 2019/06/29
+- [UPDATE][COOKBOOK] chort to 1.0.4
+- [UPDATE][COOKBOOK] jenkins to 1.8.3
+- [UPDATE][ENVIRONMENT] development
+
 # 2019/06/28
 - [UPDATE][COOKBOOK] jenkins to 1.8.3
 - [UPDATE][ENVIRONMENT] development and production
