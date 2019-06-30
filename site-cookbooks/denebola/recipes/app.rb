@@ -41,19 +41,17 @@ deploy node[:denebola][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
     end
 
-    execute "#{rvm_do} bundle exec rake db:create" do
-      cwd release_path
-      environment 'PATH' => node[:rvm][:path],
-                  'RAILS_ENV' => node.chef_environment.sub('compute', 'production')
-    end
-  end
-
-  before_restart do
     template File.join(release_path, 'config/settings.yml') do
       source 'settings.yml.erb'
       owner 'root'
       group 'root'
       mode '0644'
+    end
+
+    execute "#{rvm_do} bundle exec rake db:create" do
+      cwd release_path
+      environment 'PATH' => node[:rvm][:path],
+                  'RAILS_ENV' => node.chef_environment.sub('compute', 'production')
     end
   end
 end
