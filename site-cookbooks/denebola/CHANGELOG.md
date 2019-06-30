@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the denebola cookbook.
 
+## 2.1.2
+- Fix deploy error for production
+
 ## 2.1.1
 - Update template to change database name for each environment
 
