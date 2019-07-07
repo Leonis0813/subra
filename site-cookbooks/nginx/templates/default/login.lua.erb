@@ -12,11 +12,15 @@ if (ngx.var.cookie_LSID) then
   cookie = ngx.var.cookie_LSID
 
   result, err, errno, sqlstate =
+    db:query("DELETE FROM cookies WHERE updated_at < (NOW() - INTERVAL 1 WEEK)")
+  result, err, errno, sqlstate =
     db:query("SELECT COUNT(*) AS count FROM cookies WHERE `value` = '" .. cookie .. "'")
-  db:close()
 
   if(tonumber(result[1]["count"]) > 0) then
     ngx.header['Set-Cookie'] = 'LSID=' .. cookie .. '; path=/'
+    result, err, errno, sqlstate =
+      db:query("UPDATE cookies SET updated_at = NOW() WHERE `value` = '" .. cookie .. "'")
+    db:close()
   else
     return ngx.redirect("/login.html?redirect_uri=" .. ngx.escape_uri(ngx.var.redirect_uri))
   end

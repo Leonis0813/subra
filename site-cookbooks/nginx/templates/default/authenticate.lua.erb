@@ -44,9 +44,9 @@ if(args["user_id"] and args["password"]) then
     local cookie_value = create_random_string(64)
     ngx.header['Set-Cookie'] = 'LSID=' .. cookie_value .. '; path=/'
     result, err, errno, sqlstate =
-      db:query("DELETE FROM cookies WHERE user_id = " .. users[1]["id"])
+      db:query("DELETE FROM cookies WHERE updated_at < (NOW() - INTERVAL 1 WEEK)")
     result, err, errno, sqlstate =
-      db:query("INSERT INTO cookies VALUES (NULL, '" .. cookie_value .. "', " .. users[1]["id"] .. ", now(), now())")
+      db:query("INSERT INTO cookies (value, user_id) VALUES ('" .. cookie_value .. "', " .. users[1]["id"] .. ")")
     db:close()
 
     if(args["redirect_uri"] ~= "") then

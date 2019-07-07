@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 2.0.6
+- Update lua files to delete old cookies and enable multi browsers
+
 ## 2.0.5
 - Update lua file to set random string to cookie value and check
 
