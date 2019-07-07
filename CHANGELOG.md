@@ -1,3 +1,7 @@
+# 2019/07/07
+- [UPDATE][COOKBOOK] mysql to 1.2.1
+- [UPDATE][COOKBOOK] nginx to 2.0.6
+
 # 2019/06/30
 - [UPDATE][COOKBOOK] denebola to 2.1.2
 
@@ -47,7 +51,7 @@
 - [UPDATE][COOKBOOK] alterf to 2.1.0
 
 # 2019/05/12
-- [UPDATE][COOKBOOK] mysql to 1.2.1
+- [UPDATE][COOKBOOK] mysql to 1.2.0
 - [UPDATE][COOKBOOK] nginx to 2.0.5
 
 # 2019/05/06

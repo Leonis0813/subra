@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the mysql cookbook.
 
+## 1.2.1
+- Update cookies table schema to set default to updated_at column
+
 ## 1.2.0
 - Update initial_data recipe to create table for cookies
 - Create sql file to create cookies table
