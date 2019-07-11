@@ -1,3 +1,7 @@
+# 2019/07/11
+- [UPDATE][COOKBOOK] zosma to 1.2.0
+- [UPDATE][ENVIRONMENT] development
+
 # 2019/07/07
 - [UPDATE][COOKBOOK] mysql to 1.2.1
 - [UPDATE][COOKBOOK] nginx to 2.0.6

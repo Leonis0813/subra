@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the zosma cookbook.
 
+## 1.2.0
+- Update recipe to generate settings.yml from template
+
 ## 1.1.8
 - Update deploy recipe to install cmake
 
