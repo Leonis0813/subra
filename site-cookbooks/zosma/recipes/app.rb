@@ -39,6 +39,13 @@ deploy node[:zosma][:deploy_dir] do
       environment 'PATH' => node[:rvm][:path]
     end
 
+    template File.join(release_path, 'config/settings.yml') do
+      source 'settings.yml.erb'
+      owner 'root'
+      group 'root'
+      mode '0644'
+    end
+
     execute "#{rvm_do} bundle exec rake db:create" do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
