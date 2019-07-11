@@ -1,0 +1,28 @@
+mysql:
+  adapter: 'mysql2'
+  database: 'zosma'
+  host: 'localhost'
+  username: 'root'
+  password: '<%= Chef::EncryptedDataBagItem.load('zosma', 'mysql')['password'] %>'
+
+logger:
+  level: '<%= node[:zosma][:log_level] %>'
+  time_format: '%Y/%m/%d %H:%M:%S.%6N'
+  path:
+    database: 'log/database.log'
+    import: 'log/import.log'
+    compress: 'log/compress.log'
+    remove: 'log/remove.log'
+
+import:
+  tmp_dir: 'tmp'
+  file:
+    rate:
+      src_dir: '/mnt/smb/rates'
+      backup_dir: 'backup/rates'
+    candle_stick:
+      src_dir: '/mnt/smb/candle_sticks'
+      backup_dir: 'backup/candle_sticks'
+    moving_average:
+      src_dir: '/mnt/smb/moving_averages'
+      backup_dir: 'backup/moving_averages'
