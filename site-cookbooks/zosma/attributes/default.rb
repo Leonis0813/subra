@@ -14,3 +14,4 @@ default[:zosma][:smb] = {
   credential_file: '/etc/smb.cred',
 }
 default[:zosma][:ruby_version] = '2.4.4'
+default[:zosma][:log_level] = 'info'

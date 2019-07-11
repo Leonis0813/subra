@@ -16,18 +16,19 @@ This cookbook deploy zosma
 
 ### zosma::default
 
-|Key                             |Type         |Description                   |
-|--------------------------------|-------------|------------------------------|
-|[:zosma][:app_name]             |String       |application name              |
-|[:zosma][:deploy_dir]           |String       |absolute path to deploy       |
-|[:zosma][:repository]           |String       |github url for clone          |
-|[:zosma][:branch]               |String       |deployed github branch        |
-|[:zosma][:symlinks]             |Hash         |created symbolic links        |
-|[:zosma][:shared_dirs]          |Array[String]|directories created in shared |
-|[:zosma][:requirements]         |Array[String]|required packages for zosma   |
-|[:zosma][:username]             |String       |zosma manager name            |
-|[:zosma][:smb]                  |Hash         |samba packages                |
-|[:zosma][:ruby_version]         |String       |ruby version for zosma        |
+|Key                     |Type         |Description                   |
+|------------------------|-------------|------------------------------|
+|[:zosma][:app_name]     |String       |application name              |
+|[:zosma][:deploy_dir]   |String       |absolute path to deploy       |
+|[:zosma][:repository]   |String       |github url for clone          |
+|[:zosma][:branch]       |String       |deployed github branch        |
+|[:zosma][:symlinks]     |Hash         |created symbolic links        |
+|[:zosma][:shared_dirs]  |Array[String]|directories created in shared |
+|[:zosma][:requirements] |Array[String]|required packages for zosma   |
+|[:zosma][:username]     |String       |zosma manager name            |
+|[:zosma][:smb]          |Hash         |samba packages                |
+|[:zosma][:ruby_version] |String       |ruby version for zosma        |
+|[:zosma][:log_level]    |String       |log level for mysql inquiry   |
 
 ## Usage
 
