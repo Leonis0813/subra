@@ -122,7 +122,7 @@ deploy node[:regulus][:deploy_dir] do
 
     script_path = File.join(release_path, 'scripts')
     command = "docker run -itd --name #{node[:regulus][:app_name]} " \
-              "-v #{script_path}:/opt/scripts tensorflow/tensorflow /bin/bash"
+              "-v #{script_path}:/opt/scripts tensorflow/tensorflow:1.13.1 /bin/bash"
     execute command
 
     command = "docker exec #{node[:regulus][:app_name]} pip install " \

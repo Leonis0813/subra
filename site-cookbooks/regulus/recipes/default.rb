@@ -15,7 +15,7 @@ rvm_gem 'bundler' do
   gemset 'global'
 end
 
-execute 'docker pull tensorflow/tensorflow' do
+execute 'docker pull tensorflow/tensorflow:1.13.1' do
   not_if "docker ps | grep #{node[:regulus][:app_name]}"
 end
 
