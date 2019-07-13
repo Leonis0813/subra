@@ -1,3 +1,6 @@
+# 2019/07/13
+- [UPDATE][COOKBOOK] regulus to 2.1.9
+
 # 2019/07/11
 - [UPDATE][COOKBOOK] zosma to 1.2.0
 - [UPDATE][ENVIRONMENT] development
