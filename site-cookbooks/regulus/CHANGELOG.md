@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.2.0
+- Update recipe for crontab setting
+
 ## 2.1.9
 - Fix tensorflow version tag
 
