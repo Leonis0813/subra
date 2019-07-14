@@ -90,6 +90,11 @@ deploy node[:regulus][:deploy_dir] do
       environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path]
       only_if { node.chef_environment == 'compute' }
     end
+
+    execute "#{rvm_do} bundle exec whenever --update-crontab" do
+      cwd release_path
+      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+    end
   end
 
   restart_command do
