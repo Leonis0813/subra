@@ -50,6 +50,13 @@ deploy node[:regulus][:deploy_dir] do
       cwd release_path
       environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
     end
+
+    execute 'sudo crontab -r'
+
+    execute "#{rvm_do} bundle exec whenever --update-crontab" do
+      cwd release_path
+      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+    end
   end
 
   before_restart do
