@@ -51,9 +51,7 @@ deploy node[:regulus][:deploy_dir] do
       environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
     end
 
-    cron 'clear cron' do
-      action :delete
-    end
+    execute 'sudo crontab -r'
 
     execute "#{rvm_do} bundle exec whenever --update-crontab" do
       cwd release_path
