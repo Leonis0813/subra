@@ -90,16 +90,6 @@ deploy node[:regulus][:deploy_dir] do
       environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path]
       only_if { node.chef_environment == 'compute' }
     end
-
-    execute "#{rvm_do} bundle exec whenever --clear" do
-      cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
-    end
-
-    execute "#{rvm_do} bundle exec whenever --update-crontab" do
-      cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
-    end
   end
 
   restart_command do
@@ -138,5 +128,15 @@ deploy node[:regulus][:deploy_dir] do
     command = "docker exec #{node[:regulus][:app_name]} pip install " \
               "#{node[:regulus][:python_packages].join(' ')}"
     execute command
+
+    execute "#{rvm_do} bundle exec whenever --clear" do
+      cwd File.join(node[:regulus][:deploy_dir], 'current')
+      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+    end
+
+    execute "#{rvm_do} bundle exec whenever --update-crontab" do
+      cwd File.join(node[:regulus][:deploy_dir], 'current')
+      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+    end
   end
 end
