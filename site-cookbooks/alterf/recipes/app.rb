@@ -60,6 +60,13 @@ deploy node[:alterf][:deploy_dir] do
       mode '0644'
     end
 
+    template File.join(release_path, 'config/denebola/database.yml') do
+      source 'database.yml.erb'
+      owner 'root'
+      group 'root'
+      mode '0644'
+    end
+
     gmail = Chef::EncryptedDataBagItem.load('alterf', 'gmail')
     template File.join(release_path, 'config/initializers/action_mailer.rb') do
       source 'action_mailer.rb.erb'
