@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.2.0
+- Update deploy recipe to create settings file
+
 ## 2.1.1
 - Update deploy recipe to install cmake
 
