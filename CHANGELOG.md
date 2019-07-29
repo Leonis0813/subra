@@ -1,3 +1,6 @@
+# 2019/07/29
+- [UPDATE][COOKBOOK] jenkins to 1.8.5
+
 # 2019/07/22
 - [UPDATE][COOKBOOK] alterf to 2.2.0
 
@@ -20,7 +23,7 @@
 
 # 2019/06/29
 - [UPDATE][COOKBOOK] chort to 1.0.4
-- [UPDATE][COOKBOOK] jenkins to 1.8.3
+- [UPDATE][COOKBOOK] jenkins to 1.8.4
 - [UPDATE][ENVIRONMENT] development
 
 # 2019/06/28
