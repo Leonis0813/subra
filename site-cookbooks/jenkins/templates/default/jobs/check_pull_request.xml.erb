@@ -29,7 +29,7 @@
       <% if @app_info[:branch] == 'master' %>
         <name>:^(?!origin/master$).*</name>
       <% else %>
-        <name>:^(?!origin/master$|origin/develop$|origin/update-gem$).*</name>
+        <name>:^(?!origin/master$|origin/develop$).*</name>
       <% end %>
       </hudson.plugins.git.BranchSpec>
     </branches>
