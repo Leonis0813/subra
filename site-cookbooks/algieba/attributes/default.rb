@@ -5,7 +5,7 @@ default[:algieba][:repository] =
 default[:algieba][:branch] = 'develop'
 default[:algieba][:symlinks] = {'tmp' => 'tmp', 'dump.sql' => 'db/dump.sql'}
 default[:algieba][:shared_dirs] = %w[log tmp bundle]
-default[:algieba][:ruby_version] = '2.4.4'
+default[:algieba][:ruby_version] = '2.5.5'
 default[:algieba][:open_ports] = %w[80:tcp 3000:tcp]
 default[:algieba][:mysql_users] = %w[development test]
 default[:algieba][:requirements] = %w[cmake mysql-devel]
