@@ -30,7 +30,7 @@
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
         cd /opt/nginx/apps/algieba/current
-        rvmsudo rvm 2.4.4 do bundle exec rake db:dump
+        rvmsudo rvm 2.5.5 do bundle exec rake db:dump
       </command>
     </hudson.tasks.Shell>
   </builders>
