@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the zosma cookbook.
 
 ## 1.2.1
 - Update ruby version
+- Update recipe to install specific bundler version
 
 ## 1.2.0
 - Update recipe to generate settings.yml from template

@@ -13,6 +13,7 @@ rvm_ruby ruby_version
 rvm_gem 'bundler' do
   ruby_version ruby_version
   gemset 'global'
+  gem_version '1.17.3'
 end
 
 package node[:denebola][:requirements]
