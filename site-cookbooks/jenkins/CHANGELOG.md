@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.6
+- Update ruby version in jenkins config
+- add danger script to jenkins config
+
 ## 1.8.5
 - Update jenkins config for updating gems
 

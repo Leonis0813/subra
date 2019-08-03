@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the chort cookbook.
 
+## 1.0.5
+- Update ruby version
+
 ## 1.0.4
 - Add attribute for ruby version
 

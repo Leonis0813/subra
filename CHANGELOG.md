@@ -1,3 +1,13 @@
+# 2019/08/03
+- [UPDATE][COOKBOOK] algieba to 2.0.7
+- [UPDATE][COOKBOOK] alterf to 2.2.1
+- [UPDATE][COOKBOOK] chort to 1.0.5
+- [UPDATE][COOKBOOK] denebola to 2.1.3
+- [UPDATE][COOKBOOK] jenkins to 1.8.6
+- [UPDATE][COOKBOOK] regulus to 2.2.1
+- [UPDATE][COOKBOOK] zosma to 1.2.1
+- [UPDATE][ENVIRONMENT] development
+
 # 2019/07/29
 - [UPDATE][COOKBOOK] jenkins to 1.8.5
 
