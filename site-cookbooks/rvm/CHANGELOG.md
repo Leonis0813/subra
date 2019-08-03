@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the rvm cookbook.
 
+## 1.0.2
+- Update definition to specify gem version
+
 ## 1.0.1
 - Fix coding style
 

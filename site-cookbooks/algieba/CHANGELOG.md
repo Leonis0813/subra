@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the algieba cookbook.
 
 ## 2.0.7
 - Update ruby version
+- Update recipe to install specific bundler version
 
 ## 2.0.6
 - Update deploy recipe to install cmake

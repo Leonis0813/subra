@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the regulus cookbook.
 
 ## 2.2.1
 - Update ruby version
+- Update recipe to install specific bundler version
 
 ## 2.2.0
 - Update recipe for crontab setting
