@@ -122,7 +122,7 @@
     "subra": {
       "branch": "master",
       "repository": "https://github.com/Leonis0813/subra.git",
-      "ruby_version": "2.4.4"
+      "ruby_version": "2.5.5"
     },
     "zosma": {
       "log_level": "debug"
