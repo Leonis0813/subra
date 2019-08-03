@@ -5,7 +5,6 @@
 - [UPDATE][COOKBOOK] denebola to 2.1.3
 - [UPDATE][COOKBOOK] jenkins to 1.8.6
 - [UPDATE][COOKBOOK] regulus to 2.2.1
-- [UPDATE][COOKBOOK] rvm to 1.0.2
 - [UPDATE][COOKBOOK] zosma to 1.2.1
 - [UPDATE][ENVIRONMENT] development
 
