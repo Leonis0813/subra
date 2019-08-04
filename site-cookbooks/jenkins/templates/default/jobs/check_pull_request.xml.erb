@@ -69,6 +69,7 @@
         rvm <%= @app_info[:ruby_version] %> do env COVERAGE=on bundle exec rspec spec/{models,controllers,views}
         bin/danger
         <% end %>
+        <% end %>
       </command>
     </hudson.tasks.Shell>
   </builders>
