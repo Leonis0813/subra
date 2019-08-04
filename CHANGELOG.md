@@ -1,3 +1,6 @@
+# 2019/08/04
+- [UPDATE][COOKBOOK] jenkins to 1.8.7
+
 # 2019/08/03
 - [UPDATE][COOKBOOK] algieba to 2.0.7
 - [UPDATE][COOKBOOK] alterf to 2.2.1
