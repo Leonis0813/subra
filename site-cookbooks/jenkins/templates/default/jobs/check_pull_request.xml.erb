@@ -63,10 +63,10 @@
         export RUBOCOP_CONFIG=.rubocop.yml
         rvm <%= @app_info[:ruby_version] %> do bundle exec pronto run -f github_status github_pr -c origin/<%= @app_info[:branch] %>
         <% if %w[alterf regulus].include?(@app_info[:app_name]) %>
-        rvm <%= @app_info[:ruby_version] %> do bundle exec rspec spec/{models,controllers,views,lib}
+        rvm <%= @app_info[:ruby_version] %> do env COVERAGE=on bundle exec rspec spec/{models,controllers,views,lib}
         bin/danger
         <% elsif @app_info[:app_name] == 'algieba' %>
-        rvm <%= @app_info[:ruby_version] %> do bundle exec rspec spec/{models,controllers,views}
+        rvm <%= @app_info[:ruby_version] %> do env COVERAGE=on bundle exec rspec spec/{models,controllers,views}
         bin/danger
         <% end %>
         <% end %>
