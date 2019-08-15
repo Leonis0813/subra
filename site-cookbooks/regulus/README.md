@@ -26,6 +26,7 @@ This cookbook deploy regulus
 |[:regulus][:shared_dirs]          |Array[String]|directories created in shared |
 |[:regulus][:requirements]         |Array[String]|required packages for regulus |
 |[:regulus][:ruby_version]         |String       |ruby version for regulus      |
+|[:regulus][:open_ports]           |Array[String]|tcp ports used by regulus     |
 |[:regulus][:mysql_users]          |Array[String]|users used by regulus         |
 |[:regulus][:python_packages]      |Array[String]|required packages for scripts |
 
