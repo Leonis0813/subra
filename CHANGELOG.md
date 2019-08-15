@@ -1,4 +1,5 @@
 # 2019/08/15
+- [UPDATE][COOKBOOK] regulus to 2.2.2
 - [UPDATE][ENVIRONMENT] production
 
 # 2019/08/04
