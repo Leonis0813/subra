@@ -28,6 +28,7 @@
           "algieba-deploy",
           "chort-deploy",
           "denebola-deploy",
+          "regulus-deploy",
           "zosma-deploy"
         ],
         "other": [
@@ -38,6 +39,7 @@
           "algieba",
           "chort",
           "denebola",
+          "regulus",
           "zosma"
         ],
         "zosma": [
@@ -64,7 +66,8 @@
     "nginx": {
       "apps": [
         "algieba",
-        "redmine"
+        "redmine",
+        "regulus"
       ],
       "conf_files": [
         "doc",
