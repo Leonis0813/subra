@@ -48,14 +48,16 @@ deploy node[:regulus][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake db:create" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+                  'PATH' => node[:rvm][:path]
     end
 
     execute 'sudo crontab -r'
 
     execute "#{rvm_do} bundle exec whenever --update-crontab" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+                  'PATH' => node[:rvm][:path]
     end
   end
 
@@ -86,7 +88,7 @@ deploy node[:regulus][:deploy_dir] do
       environment 'RAILS_ENV' => 'production',
                   'PATH' => node[:rvm][:path],
                   'RAILS_RELATIVE_URL_ROOT' => "/#{node[:regulus][:app_name]}"
-      only_if { node.chef_environment == 'compute' }
+      only_if { %w[compute production].include?(node.chef_environment) }
     end
 
     rake_command = "#{rvm_do} bundle exec rake secret"
@@ -95,7 +97,7 @@ deploy node[:regulus][:deploy_dir] do
     execute command do
       cwd release_path
       environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path]
-      only_if { node.chef_environment == 'compute' }
+      only_if { %w[compute production].include?(node.chef_environment) }
     end
   end
 
