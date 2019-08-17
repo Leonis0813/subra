@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.2.2
+- Update template to add jockey features
+
 ## 2.2.1
 - Update ruby version
 - Update recipe to install specific bundler version

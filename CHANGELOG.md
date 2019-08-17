@@ -3,6 +3,7 @@
 - [UPDATE][ENVIRONMENT] production
 
 # 2019/08/04
+- [UPDATE][COOKBOOK] alterf to 2.2.2
 - [UPDATE][COOKBOOK] jenkins to 1.8.7
 
 # 2019/08/03
