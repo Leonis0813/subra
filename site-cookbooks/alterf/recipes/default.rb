@@ -16,9 +16,17 @@ rvm_gem 'bundler' do
   gem_version '1.17.3'
 end
 
+execute 'docker pull python:3.6.9' do
+  not_if "docker ps | grep #{node[:alterf][:app_name]}"
+end
+
 package node[:alterf][:requirements]
 
 include_recipe 'alterf::app'
+
+node[:alterf][:open_ports].each do |port|
+  execute "lokkit -p #{port}"
+end
 
 execute 'yum -y groupupdate "X Window System"' do
   not_if 'rpm -q xorg-x11-server-Xvfb'
@@ -29,16 +37,10 @@ package %w[xorg-x11-server-Xvfb] do
   only_if { node.chef_environment == 'development' }
 end
 
-execute 'yum -y install firefox-52.8.0-1.el6.centos.x86_64'
-
-execute 'dbus-uuidgen > /var/lib/dbus/machine-id' do
+execute 'yum -y install firefox-52.8.0-1.el6.centos.x86_64' do
   only_if { node.chef_environment == 'development' }
 end
 
-node[:alterf][:open_ports].each do |port|
-  execute "lokkit -p #{port}"
-end
-
-install_packages 'install r packages' do
-  package DBI: '0.8', RMySQL: '0.10', randomForest: '4.6-12', yaml: '2.1.18'
+execute 'dbus-uuidgen > /var/lib/dbus/machine-id' do
+  only_if { node.chef_environment == 'development' }
 end
