@@ -22,9 +22,7 @@
       ],
       "requirements": [
         "cmake",
-        "mysql-devel",
-        "epel-release",
-        "R"
+        "mysql-devel"
       ]
     },
     "denebola": {
