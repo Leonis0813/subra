@@ -9,19 +9,7 @@
 pyenv = node[:sphinx][:pyenv]
 python = node[:sphinx][:python]
 
-git pyenv[:root] do
-  repository pyenv[:repository]
-  revision pyenv[:revision]
-  not_if { File.exist?(pyenv[:root]) }
-end
-
-['init -', "install #{python[:version]}"].each do |command|
-  execute "pyenv #{command}" do
-    environment 'PYENV_ROOT' => pyenv[:root],
-                'PATH' => "#{pyenv[:root]}/bin:/usr/bin:/bin"
-    not_if { File.exist?("#{pyenv[:root]}/versions/#{python[:version]}") }
-  end
-end
+pyenv_python python[:version]
 
 package node[:sphinx][:requirements]
 
