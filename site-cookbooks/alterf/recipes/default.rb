@@ -16,10 +16,6 @@ rvm_gem 'bundler' do
   gem_version '1.17.3'
 end
 
-execute 'docker pull python:3.6.9' do
-  not_if "docker ps | grep #{node[:alterf][:app_name]}"
-end
-
 package node[:alterf][:requirements]
 
 include_recipe 'alterf::app'
