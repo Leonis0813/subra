@@ -1,4 +1,4 @@
-define :pyenv_virtualenv, env_name: nil do
+define :pyenv_virtualenv, env_name: nil, version: nil do
   env_name = params[:env_name] || params[:name]
   version = params[:version]
 
