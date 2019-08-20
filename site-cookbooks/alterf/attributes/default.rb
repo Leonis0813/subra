@@ -8,4 +8,7 @@ default[:alterf][:shared_dirs] = %w[log bundle tmp/files]
 default[:alterf][:requirements] = %w[mysql-devel]
 default[:alterf][:ruby_version] = '2.5.5'
 default[:alterf][:mysql_users] = %w[development test]
-default[:alterf][:python_version] = '3.6.6'
+default[:alterf][:python] = {
+  version: '3.6.6',
+  packages: %w[mysql-connector-python-rf pyyaml scikit-learn],
+}
