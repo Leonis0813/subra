@@ -21,6 +21,13 @@ pyenv_virtualenv node[:alterf][:app_name] do
   version node[:alterf][:python][:version]
 end
 
+node[:alterf][:python][:packages].each do |package|
+  pyenv_package package do
+    version node[:alterf][:python][:version]
+    virtualenv node[:alterf][:app_name]
+  end
+end
+
 package node[:alterf][:requirements]
 
 include_recipe 'alterf::app'
