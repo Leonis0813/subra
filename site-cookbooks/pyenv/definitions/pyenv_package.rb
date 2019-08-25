@@ -3,7 +3,7 @@ define :pyenv_package, package: nil, virtualenv: nil, version: nil do
   virtualenv = params[:virtualenv]
   version = params[:version]
 
-  activate_command =   command = [
+  activate_command = [
     'eval "$(pyenv init -)"',
     'eval "$(pyenv virtualenv-init -)"',
     "pyenv activate #{virtualenv}",
