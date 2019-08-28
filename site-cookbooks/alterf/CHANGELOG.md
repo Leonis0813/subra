@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.3.0
+- Update default recipe to install python
+- Update settings.yml.erb for prediction
+
 ## 2.2.2
 - Update template to add jockey features
 
