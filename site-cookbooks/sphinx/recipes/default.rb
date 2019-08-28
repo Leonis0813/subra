@@ -6,38 +6,18 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-pyenv = node[:sphinx][:pyenv]
 python = node[:sphinx][:python]
 
-git pyenv[:root] do
-  repository pyenv[:repository]
-  revision pyenv[:revision]
-  not_if { File.exist?(pyenv[:root]) }
-end
-
-['init -', "install #{python[:version]}"].each do |command|
-  execute "pyenv #{command}" do
-    environment 'PYENV_ROOT' => pyenv[:root],
-                'PATH' => "#{pyenv[:root]}/bin:/usr/bin:/bin"
-    not_if { File.exist?("#{pyenv[:root]}/versions/#{python[:version]}") }
-  end
+pyenv_python python[:version]
+pyenv_virtualenv python[:virtualenv] do
+  version python[:version]
 end
 
 package node[:sphinx][:requirements]
 
 node[:sphinx][:packages].each do |package|
-  execute "pyenv global #{python[:version]} && pip install #{package}" do
-    environment 'PYENV_ROOT' => pyenv[:root],
-                'PATH' => [
-                  "#{pyenv[:root]}/versions/#{python[:version]}/bin",
-                  "#{pyenv[:root]}/bin",
-                  '/usr/bin',
-                  '/bin',
-                ].join(':')
-    not_if [
-      "pyenv global #{python[:version]} && pip list",
-      'cut -d " " -f 1',
-      "grep -i #{package.split('==').first}",
-    ].join(' | ')
+  pyenv_package package do
+    version python[:version]
+    virtualenv python[:virtualenv]
   end
 end

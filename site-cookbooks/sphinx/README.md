@@ -20,7 +20,6 @@ This cookbook install sphinx
 |------------------------|-------------|-------------------------------------|
 |[:sphinx][:requirements]|Array[String]|prerequirements for installing sphinx|
 |[:sphinx][:packages]    |Array[String]|pip packages for sphinx              |
-|[:sphinx][:pyenv]       |Hash         |pyenv settings                       |
 |[:sphinx][:python]      |Hash         |python settings                      |
 
 ## Usage

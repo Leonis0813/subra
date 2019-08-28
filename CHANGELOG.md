@@ -1,3 +1,9 @@
+# 2019/08/28
+- [CREATE][COOKBOOK] pyenv
+- [UPDATE][COOKBOOK] alterf to 2.3.0
+- [UPDATE][COOKBOOK] sphinx to 1.0.4
+- [UPDATE][ENVIRONMENT] development
+
 # 2019/08/15
 - [UPDATE][COOKBOOK] regulus to 2.2.2
 - [UPDATE][ENVIRONMENT] production

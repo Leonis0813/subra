@@ -24,9 +24,10 @@ This cookbook deploy alterf
 |[:alterf][:branch]        |String       |deployed github branch       |
 |[:alterf][:symlinks]      |Hash         |created symbolic links       |
 |[:alterf][:shared_dirs]   |Array[String]|directories created in shared|
+|[:alterf][:requirements]  |Array[String]|packages before deploying    |
 |[:alterf][:ruby_version]  |String       |ruby version for alterf      |
 |[:alterf][:mysql_users]   |Array[String]|users used by alterf         |
-|[:alterf][:requirements]  |Array[String]|packages before deploying    |
+|[:alterf][:python]        |Hash         |python settings              |
 
 ## Usage
 
