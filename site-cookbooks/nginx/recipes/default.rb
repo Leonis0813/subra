@@ -144,17 +144,19 @@ end
   end
 end
 
-config_file = File.absolute_path(File.dirname(__FILE__) + '/../files/default/nginx')
-file '/etc/init.d/nginx' do
+config_file = File.absolute_path(
+  File.dirname(__FILE__) + '/../files/default/nginx.service',
+)
+file '/etc/systemd/system/nginx.service' do
   content IO.read(config_file)
   owner 'root'
   group 'root'
   mode '0755'
-  not_if { File.exist?('/etc/init.d/nginx') }
+  not_if { File.exist?('/etc/systemd/system/nginx.service') }
 end
 
 include_recipe 'nginx::conf'
 include_recipe 'nginx::lua'
 include_recipe 'nginx::html'
 
-execute '/etc/init.d/nginx start'
+execute 'systemctl start nginx.service'
