@@ -1,7 +1,7 @@
 {
   "name": "development",
   "run_list": [
-    "recipe[emacs::install]",
+    "recipe[emacs]",
     "recipe[git::install]",
     "recipe[zsh::install]",
     "recipe[user::create]",
