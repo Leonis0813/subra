@@ -2,6 +2,7 @@
   "name": "development",
   "run_list": [
     "recipe[emacs]",
+    "recipe[rvm]",
     "recipe[git::install]",
     "recipe[zsh::install]",
     "recipe[user::create]",
