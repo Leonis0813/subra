@@ -144,11 +144,7 @@ end
   end
 end
 
-config_file = File.absolute_path(
-  File.dirname(__FILE__) + '/../files/default/nginx.service',
-)
-file '/etc/systemd/system/nginx.service' do
-  content IO.read(config_file)
+template '/etc/systemd/system/nginx.service' do
   owner 'root'
   group 'root'
   mode '0755'
