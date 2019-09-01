@@ -17,6 +17,7 @@ unless File.exist?(node[:nginx][:install_dir])
     system true
   end
 
+  package 'epel-release'
   package node[:nginx][:requirements]
 
   remote_file download_path do
