@@ -32,6 +32,4 @@ template "#{node[:nginx][:install_dir]}/conf/nginx.conf" do
   variables(nginx_apps: node[:nginx][:apps])
 end
 
-service 'nginx' do
-  action :restart
-end
+execute '/etc/init.d/nginx restart'
