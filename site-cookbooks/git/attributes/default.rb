@@ -2,6 +2,7 @@ default[:git][:requirements] = %w[
   curl-devel
   expat-devel
   gettext-devel
+  make
   openssl-devel
   zlib-devel
   perl-ExtUtils-MakeMaker

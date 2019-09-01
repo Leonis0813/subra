@@ -10,9 +10,7 @@ unless git_installed?
   download_path = File.join(node[:git][:download][:dir], node[:git][:download][:file])
   extracted_dir = download_path.sub('.tar.gz', '')
 
-  package node[:git][:requirements] do
-    action :install
-  end
+  package node[:git][:requirements]
 
   remote_file download_path do
     source node[:git][:download][:url]
