@@ -16,17 +16,13 @@ This cookbook install emacs
 
 ### emacs::default
 
-|Key                       |Type         |Description                         |
-|--------------------------|-------------|------------------------------------|
-|[:emacs][:requirements]   |Array[String]|prerequirements for installing emacs|
-|[:emacs][:version]        |String       |installed emacs version             |
-|[:emacs][:download][:url] |String       |url for emacs package               |
-|[:emacs][:download][:dir] |String       |directory downloaded emacs package  |
-|[:emacs][:download][:file]|String       |file name downloaded emacs package  |
+|Key |Type|Description|
+|----|----|----|
+||||
 
 ## Usage
 
-### emacs::install
+### emacs
 
 Just include `emacs` in your node's `run_list`:
 
@@ -34,7 +30,7 @@ Just include `emacs` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[emacs::install]"
+    "recipe[emacs]"
   ]
 }
 ```
