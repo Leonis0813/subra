@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package 'sudo'
+package node[:rvm][:requirements]
 
 node[:rvm][:install_commands].each do |command|
   execute command do
