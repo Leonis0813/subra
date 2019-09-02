@@ -40,10 +40,6 @@ execute 'ss -ant | grep 8080 | grep LISTEN' do
   retry_delay 10
 end
 
-service 'network' do
-  action :restart
-end
-
 remote_file node[:jenkins][:cli_path] do
   source node[:jenkins][:cli_url]
   owner 'root'
