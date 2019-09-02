@@ -33,9 +33,18 @@ file '/etc/sysconfig/jenkins' do
   mode '0600'
 end
 
-service 'jenkins' do
-  action %i[enable start]
+template '/etc/systemd/system/jenkins.service' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  not_if { File.exist?('/etc/systemd/system/jenkins.service') }
 end
+
+service 'jenkins' do
+  action :enable
+end
+
+command 'systemctl start jenkins.service'
 
 execute 'netstat -ant | grep 8080 | grep LISTEN' do
   retries 5
