@@ -44,7 +44,7 @@ service 'jenkins' do
   action :enable
 end
 
-command 'systemctl start jenkins.service'
+execute 'systemctl start jenkins.service'
 
 execute 'netstat -ant | grep 8080 | grep LISTEN' do
   retries 5
