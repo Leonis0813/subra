@@ -1,3 +1,4 @@
+default[:jenkins][:requirements] = %w[initscripts iproutes java-1.8.0-openjdk]
 default[:jenkins][:version] = '2.130'
 default[:jenkins][:repository] = {
   host: 'https://pkg.jenkins.io/redhat-stable',

@@ -6,9 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package 'java-1.8.0-openjdk' do
-  not_if 'rpm -q java'
-end
+package node[:jenkins][:requirements]
 
 repository_path = "/etc/yum.repos.d/#{node[:jenkins][:repository][:file]}"
 remote_file repository_path do
@@ -33,13 +31,9 @@ file '/etc/sysconfig/jenkins' do
   mode '0600'
 end
 
-execute 'systemctl start jenkins.service'
-
 service 'jenkins' do
-  action :enable
+  action %i[enable start]
 end
-
-package 'iproute'
 
 execute 'ss -ant | grep 8080 | grep LISTEN' do
   retries 5
