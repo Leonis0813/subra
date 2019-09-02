@@ -8,18 +8,16 @@
 #
 package node[:jenkins][:requirements]
 
-repository_path = "/etc/yum.repos.d/#{node[:jenkins][:repository][:file]}"
-remote_file repository_path do
-  source "#{node[:jenkins][:repository][:host]}/#{node[:jenkins][:repository][:file]}"
-  owner 'root'
-  group 'root'
-  mode '0644'
-  not_if { File.exist?(repository_path) }
+remote_file node[:jenkins][:rpm_path] do
+  source node[:jenkins][:rpm_url]
+  mode '0755'
+  not_if { File.exist?(node[:jenkins][:rpm_path]) }
 end
 
-execute "rpm --import #{node[:jenkins][:repository][:host]}/jenkins.io.key"
-
-package 'jenkins'
+package 'jenkins' do
+  source node[:jenkins][:rpm_path]
+  not_if 'rpm -q jenkins'
+end
 
 create_sudoer 'jenkins'
 

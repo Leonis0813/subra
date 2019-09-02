@@ -1,9 +1,5 @@
 default[:jenkins][:requirements] = %w[initscripts iproute java-1.8.0-openjdk]
 default[:jenkins][:version] = '2.130'
-default[:jenkins][:repository] = {
-  host: 'https://pkg.jenkins.io/redhat-stable',
-  file: 'jenkins.repo',
-}
 default[:jenkins][:rpm_file] = "jenkins-#{default[:jenkins][:version]}-1.1.noarch.rpm"
 default[:jenkins][:rpm_path] = "/tmp/#{default[:jenkins][:rpm_file]}"
 default[:jenkins][:rpm_url] =
