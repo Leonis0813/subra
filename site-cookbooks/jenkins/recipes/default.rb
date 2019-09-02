@@ -40,13 +40,16 @@ template '/etc/systemd/system/jenkins.service' do
   not_if { File.exist?('/etc/systemd/system/jenkins.service') }
 end
 
+execute 'systemctl daemon-reload'
+execute 'systemctl start jenkins.service'
+
 service 'jenkins' do
   action :enable
 end
 
-execute 'systemctl start jenkins.service'
+package 'iproute'
 
-execute 'netstat -ant | grep 8080 | grep LISTEN' do
+execute 'ss -ant | grep 8080 | grep LISTEN' do
   retries 5
   retry_delay 10
 end
