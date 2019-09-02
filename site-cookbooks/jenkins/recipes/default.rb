@@ -10,18 +10,18 @@ package 'java-1.8.0-openjdk' do
   not_if 'rpm -q java'
 end
 
-remote_file node[:jenkins][:rpm_path] do
-  source node[:jenkins][:rpm_url]
+repository_path = "/etc/yum.repos.d/#{node[:jenkins][:repository][:file]}"
+remote_file repository_path do
+  source "#{node[:jenkins][:repository][:host]}/#{node[:jenkins][:repository][:file]}"
   owner 'root'
   group 'root'
-  mode '0755'
-  not_if { File.exist?(node[:jenkins][:rpm_path]) }
+  mode '0644'
+  not_if { File.exist?(repository_path) }
 end
 
-package 'jenkins' do
-  source node[:jenkins][:rpm_path]
-  not_if 'rpm -q jenkins'
-end
+execute "rpm --import #{node[:jenkins][:repository][:host]}/jenkins.io.key"
+
+package 'jenkins'
 
 create_sudoer 'jenkins'
 
@@ -33,14 +33,6 @@ file '/etc/sysconfig/jenkins' do
   mode '0600'
 end
 
-template '/etc/systemd/system/jenkins.service' do
-  owner 'root'
-  group 'root'
-  mode '0755'
-  not_if { File.exist?('/etc/systemd/system/jenkins.service') }
-end
-
-execute 'systemctl daemon-reload'
 execute 'systemctl start jenkins.service'
 
 service 'jenkins' do
