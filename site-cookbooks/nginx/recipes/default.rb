@@ -152,6 +152,8 @@ file '/etc/init.d/nginx' do
   mode '0755'
 end
 
+execute 'echo "NETWORKING=yes" > /etc/sysconfig/network'
+
 include_recipe 'nginx::conf'
 include_recipe 'nginx::lua'
 include_recipe 'nginx::html'
