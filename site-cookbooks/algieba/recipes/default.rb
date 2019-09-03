@@ -26,16 +26,10 @@ execute 'yum -y groupupdate "X Window System"' do
   only_if { node.chef_environment == 'development' }
 end
 
-package %w[xorg-x11-server-Xvfb] do
+package %w[xorg-x11-server-Xvfb firefox] do
   only_if { node.chef_environment == 'development' }
 end
-
-execute 'yum -y install firefox-52.8.0-1.el6.centos.x86_64'
 
 execute 'dbus-uuidgen > /var/lib/dbus/machine-id' do
   only_if { node.chef_environment == 'development' }
-end
-
-node[:algieba][:open_ports].each do |port|
-  execute "lokkit -p #{port}"
 end
