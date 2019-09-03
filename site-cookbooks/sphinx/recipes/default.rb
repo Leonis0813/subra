@@ -13,6 +13,7 @@ pyenv_virtualenv python[:virtualenv] do
   version python[:version]
 end
 
+package 'epel-release'
 package node[:sphinx][:requirements]
 
 node[:sphinx][:packages].each do |package|
