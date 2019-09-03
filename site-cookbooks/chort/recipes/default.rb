@@ -34,14 +34,7 @@ deploy node[:chort][:deploy_dir] do
   end
 
   after_restart do
-    symlink = "#{node[:nginx][:install_dir]}/html/docs"
-
-    directory symlink do
-      recursive true
-      not_if { File.exist?(symlink) }
-    end
-
-    link symlink do
+    link "#{node[:nginx][:install_dir]}/html/docs" do
       to File.join(node[:chort][:deploy_dir], 'current/_build/html')
     end
   end
