@@ -84,16 +84,18 @@ ruby_block 'wait plugins installed' do
       JSON.parse(response)['plugins'].map {|plugin| plugin['shortName'] }
     end
 
+    plugins = node[:jenkins][:plugins].map {|plugin| plugin[:id] }
+
     10.times do
-      plugins = http_get_plugins
-      puts "installed plugins: #{node[:jenkins][:plugins] & plugins}"
-      break if (node[:jenkins][:plugins] - plugins).empty?
+      installed_plugins = http_get_plugins
+      puts "installed plugins: #{plugins & installed_plugins}"
+      break if (plugins - installed_plugins).empty?
 
       sleep 3
     end
 
-    plugins = http_get_plugins
-    raise Exception unless (node[:jenkins][:plugins] - plugins).empty?
+    installed_plugins = http_get_plugins
+    raise Exception unless (plugins - installed_plugins).empty?
   end
   retries 3
 end
