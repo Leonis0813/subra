@@ -10,6 +10,8 @@ package node[:jenkins][:requirements]
 
 remote_file node[:jenkins][:rpm_path] do
   source node[:jenkins][:rpm_url]
+  owner 'root'
+  group 'root'
   mode '0755'
   not_if { File.exist?(node[:jenkins][:rpm_path]) }
 end
@@ -62,7 +64,7 @@ end
 node[:jenkins][:plugins].each do |plugin|
   ruby_block "install plugin - #{plugin}" do
     block do
-      xml = "<jenkins><install plugin=\"#{plugin}@latest\" /></jenkins>"
+      xml = "<jenkins><install plugin=\"#{plugin['id']}@#{plugin['version']}\" /></jenkins>"
       content_type = {'Content-Type' => 'text/xml'}
       begin
         header = basic_auth.merge(crumb).merge(content_type)
