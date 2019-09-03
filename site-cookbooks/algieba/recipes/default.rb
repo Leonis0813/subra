@@ -14,6 +14,7 @@ rvm_gem 'bundler' do
   ruby_version ruby_version
   gemset 'global'
   gem_version '1.17.3'
+  force true
 end
 
 package node[:algieba][:requirements]
