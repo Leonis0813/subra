@@ -77,9 +77,6 @@ node[:jenkins][:plugins].each do |plugin|
   end
 end
 
-include_recipe 'jenkins::job'
-include_recipe 'jenkins::view'
-
 ruby_block 'wait plugins installed' do
   block do
     def http_get_plugins
@@ -100,6 +97,9 @@ ruby_block 'wait plugins installed' do
   end
   retries 3
 end
+
+include_recipe 'jenkins::job'
+include_recipe 'jenkins::view'
 
 service 'jenkins' do
   action :restart
