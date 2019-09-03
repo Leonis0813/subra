@@ -6,9 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-pyenv_root = node[:sphinx][:pyenv][:root]
-python_version = node[:sphinx][:python][:version]
-
 deploy node[:chort][:deploy_dir] do
   repo node[:chort][:repository]
   branch ENV['CHORT_VERSION'] || node[:chort][:branch]
@@ -18,12 +15,18 @@ deploy node[:chort][:deploy_dir] do
   symlinks.clear
 
   before_symlink do
-    execute "pyenv global #{python_version} && pyenv rehash && make html" do
+    activate_command = [
+      'eval "$(pyenv init -)"',
+      'eval "$(pyenv virtualenv-init -)"',
+      "pyenv activate #{node[:sphinx][:python][:virtualenv]}",
+    ].join(' && ')
+
+    execute "#{activate_command} && make html" do
       cwd release_path
-      environment 'PYENV_ROOT' => pyenv_root,
+      environment 'PYENV_ROOT' => node[:pyenv][:root],
                   'PATH' => [
-                    "#{pyenv_root}/versions/#{python_version}/bin",
-                    "#{pyenv_root}/bin",
+                    "#{node[:pyenv][:root]}/versions/#{node[:sphinx][:python][:version]}/bin",
+                    "#{node[:pyenv][:root]}/bin",
                     '/usr/bin',
                     '/bin',
                   ].join(':')
