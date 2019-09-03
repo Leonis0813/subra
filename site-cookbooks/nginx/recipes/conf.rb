@@ -32,4 +32,6 @@ template "#{node[:nginx][:install_dir]}/conf/nginx.conf" do
   variables(nginx_apps: node[:nginx][:apps])
 end
 
-execute 'systemctl restart nginx.service'
+service 'nginx' do
+  action :restart
+end
