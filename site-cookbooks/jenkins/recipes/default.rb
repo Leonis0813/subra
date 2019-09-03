@@ -101,7 +101,6 @@ ruby_block 'wait plugins installed' do
 end
 
 include_recipe 'jenkins::job'
-include_recipe 'jenkins::view'
 
 service 'jenkins' do
   action :restart
