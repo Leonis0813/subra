@@ -4,6 +4,7 @@
     "recipe[mysql]",
     "recipe[mysql::initial_data]",
     "recipe[rvm]",
+    "recipe[pyenv]",
     "recipe[nginx]",
     "recipe[redis]",
     "recipe[alterf]"
