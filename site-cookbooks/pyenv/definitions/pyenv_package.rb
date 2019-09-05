@@ -18,11 +18,14 @@ define :pyenv_package, package: nil, virtualenv: nil, version: nil, option: nil 
                   '/usr/bin',
                   '/bin',
                 ].join(':')
-    not_if [
-      [activate_command, 'pip list'].join(' && '),
-      'cut -d " " -f 1',
-      "grep -i #{package.split('==').first}",
-      "grep #{package.split('==').last}",
-    ].join(' | ')
+
+    unless option.include?('--upgrade')
+      not_if [
+        [activate_command, 'pip list'].join(' && '),
+        'cut -d " " -f 1',
+        "grep -i #{package.split('==').first}",
+        "grep #{package.split('==').last}",
+      ].join(' | ')
+    end
   end
 end
