@@ -9,3 +9,8 @@ default[:algieba][:ruby_version] = '2.5.5'
 default[:algieba][:open_ports] = %w[80:tcp 3000:tcp]
 default[:algieba][:mysql_users] = %w[development test]
 default[:algieba][:requirements] = %w[cmake mysql-devel]
+default[:algieba][:geckodriver] = {
+  base_url: 'https://github.com/mozilla/geckodriver/releases/download',
+  version: 'v0.24.0',
+  download_path: '/tmp/geckodriver.tar.gz',
+}
