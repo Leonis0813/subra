@@ -21,6 +21,12 @@ pyenv_virtualenv node[:alterf][:app_name] do
   version node[:alterf][:python][:version]
 end
 
+pyenv_package 'pip==19.2.3' do
+  version node[:alterf][:python][:version]
+  virtualenv node[:alterf][:app_name]
+  option '--upgrade'
+end
+
 node[:alterf][:python][:packages].each do |package|
   pyenv_package package do
     version node[:alterf][:python][:version]

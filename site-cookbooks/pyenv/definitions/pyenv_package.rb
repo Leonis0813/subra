@@ -1,7 +1,8 @@
-define :pyenv_package, package: nil, virtualenv: nil, version: nil do
+define :pyenv_package, package: nil, virtualenv: nil, version: nil, option: nil do
   package = params[:package] || params[:name]
   virtualenv = params[:virtualenv]
   version = params[:version]
+  option = params[:option]
 
   activate_command = [
     'eval "$(pyenv init -)"',
@@ -9,7 +10,7 @@ define :pyenv_package, package: nil, virtualenv: nil, version: nil do
     "pyenv activate #{virtualenv}",
   ].join(' && ')
 
-  execute [activate_command, "pip install #{package}"].join(' && ') do
+  execute [activate_command, "pip install #{option} #{package}"].join(' && ') do
     environment 'PYENV_ROOT' => node[:pyenv][:root],
                 'PATH' => [
                   "#{node[:pyenv][:root]}/versions/#{version}/bin",
@@ -21,6 +22,7 @@ define :pyenv_package, package: nil, virtualenv: nil, version: nil do
       [activate_command, 'pip list'].join(' && '),
       'cut -d " " -f 1',
       "grep -i #{package.split('==').first}",
+      "grep #{package.split('==').last}",
     ].join(' | ')
   end
 end
