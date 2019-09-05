@@ -21,7 +21,7 @@ pyenv_virtualenv node[:alterf][:app_name] do
   version node[:alterf][:python][:version]
 end
 
-%w[pip==19.2.3 setuptool].each do |package|
+%w[pip==19.2.3 setuptools].each do |package|
   pyenv_package package do
     version node[:alterf][:python][:version]
     virtualenv node[:alterf][:app_name]
