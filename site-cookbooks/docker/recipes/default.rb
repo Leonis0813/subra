@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package 'docker-io'
+package 'docker'
 
 service 'docker' do
   action %i[enable start]

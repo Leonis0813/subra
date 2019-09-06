@@ -10,3 +10,8 @@ default[:regulus][:ruby_version] = '2.5.5'
 default[:regulus][:open_ports] = %w[80:tcp 3000:tcp]
 default[:regulus][:mysql_users] = %w[development test]
 default[:regulus][:python_packages] = %w[mysql-connector-python-rf pyyaml]
+default[:regulus][:geckodriver] = {
+  base_url: 'https://github.com/mozilla/geckodriver/releases/download',
+  version: 'v0.24.0',
+  download_path: '/tmp/geckodriver.tar.gz',
+}
