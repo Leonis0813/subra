@@ -53,7 +53,7 @@ execute 'yum -y install firefox-60.8.0-1.el7.centos.x86_64' do
   only_if { node.chef_environment == 'development' }
 end
 
-geckodriver = node[:algieba][:geckodriver]
+geckodriver = node[:alterf][:geckodriver]
 remote_file geckodriver[:download_path] do
   source "#{geckodriver[:base_url]}/#{geckodriver[:version]}/geckodriver-#{geckodriver[:version]}-linux64.tar.gz"
   not_if { File.exists?(geckodriver[:download_path]) }

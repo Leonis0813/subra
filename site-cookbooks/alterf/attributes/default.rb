@@ -12,3 +12,8 @@ default[:alterf][:python] = {
   version: '3.6.6',
   packages: %w[wheel mysql-connector-python-rf pyyaml pandas scikit-learn],
 }
+default[:alterf][:geckodriver] = {
+  base_url: 'https://github.com/mozilla/geckodriver/releases/download',
+  version: 'v0.24.0',
+  download_path: '/tmp/geckodriver.tar.gz',
+}
