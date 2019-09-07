@@ -16,9 +16,11 @@ This cookbook install latest mysql
 
 ### mysql::default
 
-|Key                     |Type  |Description            |
-|------------------------|------|-----------------------|
-|[:mysql][:root_password]|String|root password for mysql|
+|Key                     |Type         |Description                 |
+|------------------------|-------------|----------------------------|
+|[:mysql][:requirements] |Array[String]|prerequirement package names|
+|[:mysql][:repository]   |Hash         |repository info             |
+|[:mysql][:root_password]|String       |root password for mysql     |
 
 ## Usage
 

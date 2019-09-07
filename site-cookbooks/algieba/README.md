@@ -25,9 +25,9 @@ This cookbook deploy algieba
 |[:algieba][:symlinks]    |Hash         |created symbolic links       |
 |[:algieba][:shared_dirs] |Array[String]|directories created in shared|
 |[:algieba][:ruby_version]|String       |ruby version for algieba     |
-|[:algieba][:open_ports]  |Array[String]|tcp ports used by algieba    |
 |[:algieba][:mysql_users] |Array[String]|mysql user names             |
 |[:algieba][:requirements]|Array[String]|packages before deploying    |
+|[:algieba][:geckodriver] |Hash         |geckodriver settings         |
 
 ## Usage
 

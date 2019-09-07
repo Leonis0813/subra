@@ -18,7 +18,7 @@ This cookbook install zsh
 
 ## Usage
 
-### zsh::install
+### zsh::default
 
 Just include `zsh` in your node's `run_list`:
 
@@ -26,7 +26,7 @@ Just include `zsh` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[zsh::install]"
+    "recipe[zsh]"
   ]
 }
 ```

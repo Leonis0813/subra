@@ -20,15 +20,13 @@ This cookbook install git
 |-------------------------|-------------|----------------------------------|
 |[:git][:requirements]    |Array[String]|prerequirements for installing git|
 |[:git][:version]         |String       |installed git version             |
-|[:git][:download][:url]  |String       |url for git package               |
-|[:git][:download][:dir]  |String       |directory downloaded git package  |
-|[:git][:download][:file] |String       |file name downloaded git package  |
+|[:git][:download]        |Hash         |settings for downloading          |
 |[:git][:install_dir]     |String       |install directory                 |
 |[:git][:install_commands]|Array[String]|commands for install              |
 
 ## Usage
 
-### git::install
+### git::default
 
 Just include `git` in your node's `run_list`:
 
@@ -36,7 +34,7 @@ Just include `git` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[git::install]"
+    "recipe[git]"
   ]
 }
 ```
