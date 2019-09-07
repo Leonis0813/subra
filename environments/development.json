@@ -5,24 +5,12 @@
       "mysql_users": [
         "development",
         "test"
-      ],
-      "open_ports": [
-        "80:tcp",
-        "3000:tcp"
       ]
     },
     "alterf": {
       "mysql_users": [
         "development",
         "test"
-      ],
-      "open_ports": [
-        "80:tcp",
-        "3000:tcp"
-      ],
-      "requirements": [
-        "cmake",
-        "mysql-devel"
       ]
     },
     "denebola": {
@@ -133,10 +121,6 @@
       "mysql_users": [
         "development",
         "test"
-      ],
-      "open_ports": [
-        "80:tcp",
-        "3000:tcp"
       ]
     },
     "subra": {
