@@ -139,9 +139,8 @@
         "3000:tcp"
       ],
       "requirements": [
-        "mysql-devel",
-        "epel-release",
-        "R"
+        "cmake",
+        "mysql-devel"
       ]
     },
     "subra": {
