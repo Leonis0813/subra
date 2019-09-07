@@ -10,13 +10,13 @@ default[:regulus][:ruby_version] = '2.5.5'
 default[:regulus][:open_ports] = %w[80:tcp 3000:tcp]
 default[:regulus][:mysql_users] = %w[development test]
 default[:regulus][:geckodriver] = {
-  base_url: 'https://github.com/mozilla/geckodriver/releases/download',
-  version: 'v0.24.0',
+  base_url: 'https://github.com/mozilla/geckodriver/releases/download/v0.24.0',
+  filename: 'geckodriver-v0.24.0-linux64.tar.gz',
   download_path: '/tmp/geckodriver.tar.gz',
 }
 default[:regulus][:python] = {
   version: '3.6.6',
-  packages: %w[wheel mysql-connector-python-rf pyyaml]
+  packages: %w[wheel mysql-connector-python-rf pyyaml],
 }
 default[:regulus][:tensorflow] = {
   base_url: 'https://storage.googleapis.com/tensorflow/linux/cpu',

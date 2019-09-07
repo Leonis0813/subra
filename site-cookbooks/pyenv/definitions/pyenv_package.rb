@@ -19,7 +19,7 @@ define :pyenv_package, package: nil, virtualenv: nil, version: nil, option: nil 
                   '/bin',
                 ].join(':')
 
-    unless option and option.include?('--upgrade')
+    unless option.present? and option.include?('--upgrade')
       not_if [
         [activate_command, 'pip list'].join(' && '),
         'cut -d " " -f 1',

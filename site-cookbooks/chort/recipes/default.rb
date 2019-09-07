@@ -15,17 +15,18 @@ deploy node[:chort][:deploy_dir] do
   symlinks.clear
 
   before_symlink do
+    python = node[:sphinx][:python]
     activate_command = [
       'eval "$(pyenv init -)"',
       'eval "$(pyenv virtualenv-init -)"',
-      "pyenv activate #{node[:sphinx][:python][:virtualenv]}",
+      "pyenv activate #{python[:virtualenv]}",
     ].join(' && ')
 
     execute "#{activate_command} && make html" do
       cwd release_path
       environment 'PYENV_ROOT' => node[:pyenv][:root],
                   'PATH' => [
-                    "#{node[:pyenv][:root]}/versions/#{node[:sphinx][:python][:version]}/bin",
+                    "#{node[:pyenv][:root]}/versions/#{python[:version]}/bin",
                     "#{node[:pyenv][:root]}/bin",
                     '/usr/bin',
                     '/bin',

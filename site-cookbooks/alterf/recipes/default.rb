@@ -55,14 +55,14 @@ end
 
 geckodriver = node[:alterf][:geckodriver]
 remote_file geckodriver[:download_path] do
-  source "#{geckodriver[:base_url]}/#{geckodriver[:version]}/geckodriver-#{geckodriver[:version]}-linux64.tar.gz"
-  not_if { File.exists?(geckodriver[:download_path]) }
+  source "#{geckodriver[:base_url]}/#{geckodriver[:filename]}"
+  not_if { File.exist?(geckodriver[:download_path]) }
   only_if { node.chef_environment == 'development' }
 end
 
 execute "tar zxvf #{geckodriver[:download_path]}" do
   cwd '/usr/local/bin'
-  not_if { File.exists?('/usr/local/bin/geckodriver') }
+  not_if { File.exist?('/usr/local/bin/geckodriver') }
   only_if { node.chef_environment == 'development' }
 end
 
