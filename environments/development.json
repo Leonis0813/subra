@@ -137,10 +137,6 @@
       "open_ports": [
         "80:tcp",
         "3000:tcp"
-      ],
-      "requirements": [
-        "cmake",
-        "mysql-devel"
       ]
     },
     "subra": {

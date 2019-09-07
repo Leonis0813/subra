@@ -45,6 +45,10 @@ end
 
 package node[:regulus][:requirements]
 
+package 'cronie-anacron' do
+  action :remove
+end
+
 include_recipe 'regulus::app'
 
 execute 'yum -y groupupdate "X Window System"' do
