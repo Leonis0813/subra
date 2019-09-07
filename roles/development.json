@@ -3,8 +3,8 @@
   "run_list": [
     "recipe[emacs]",
     "recipe[rvm]",
-    "recipe[git::install]",
-    "recipe[zsh::install]",
+    "recipe[git]",
+    "recipe[zsh]",
     "recipe[user::create]",
     "recipe[user::ssh]",
     "recipe[user::zsh]",
