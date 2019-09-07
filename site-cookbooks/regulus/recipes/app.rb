@@ -52,7 +52,9 @@ deploy node[:regulus][:deploy_dir] do
                   'PATH' => node[:rvm][:path]
     end
 
-    execute 'sudo crontab -r'
+    execute 'sudo crontab -r' do
+      only_if 'sudo crontab -l | grep "regulus"'
+    end
 
     execute "#{rvm_do} bundle exec whenever --update-crontab" do
       cwd release_path
