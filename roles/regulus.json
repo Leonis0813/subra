@@ -6,7 +6,6 @@
     "recipe[rvm]",
     "recipe[nginx]",
     "recipe[redis]",
-    "recipe[docker]",
     "recipe[regulus]"
   ]
 }
