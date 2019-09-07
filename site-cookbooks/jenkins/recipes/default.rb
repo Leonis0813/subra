@@ -64,11 +64,11 @@ end
 node[:jenkins][:plugins].each do |plugin|
   ruby_block "install plugin - #{plugin}" do
     block do
-      xml = <<"EOF"
+      xml = <<"XML"
 <jenkins>
   <install plugin="#{plugin['id']}@#{plugin['version']}" />
 </jenkins>
-EOF
+XML
       content_type = {'Content-Type' => 'text/xml'}
       begin
         header = basic_auth.merge(crumb).merge(content_type)

@@ -36,7 +36,7 @@ end
 
 geckodriver = node[:algieba][:geckodriver]
 remote_file geckodriver[:download_path] do
-  source "#{geckodriver[:base_url]}/#{geckodriver[:filename]}",
+  source "#{geckodriver[:base_url]}/#{geckodriver[:filename]}"
   not_if { File.exist?(geckodriver[:download_path]) }
   only_if { node.chef_environment == 'development' }
 end
