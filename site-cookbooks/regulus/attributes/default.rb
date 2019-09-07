@@ -9,9 +9,16 @@ default[:regulus][:requirements] = %w[cmake mysql-devel]
 default[:regulus][:ruby_version] = '2.5.5'
 default[:regulus][:open_ports] = %w[80:tcp 3000:tcp]
 default[:regulus][:mysql_users] = %w[development test]
-default[:regulus][:python_packages] = %w[mysql-connector-python-rf pyyaml]
 default[:regulus][:geckodriver] = {
   base_url: 'https://github.com/mozilla/geckodriver/releases/download',
   version: 'v0.24.0',
   download_path: '/tmp/geckodriver.tar.gz',
+}
+default[:regulus][:python] = {
+  version: '3.6.6',
+  packages: %w[wheel mysql-connector-python-rf pyyaml]
+}
+default[:regulus][:tensorflow] = {
+  base_url: 'https://storage.googleapis.com/tensorflow/linux/cpu',
+  filename: 'tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl',
 }

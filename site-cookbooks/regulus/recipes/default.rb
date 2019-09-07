@@ -16,8 +16,31 @@ rvm_gem 'bundler' do
   gem_version '1.17.3'
 end
 
-execute 'docker pull tensorflow/tensorflow:1.13.1' do
-  not_if "docker ps | grep #{node[:regulus][:app_name]}"
+pyenv_python node[:regulus][:python][:version]
+
+pyenv_virtualenv node[:regulus][:app_name] do
+  version node[:regulus][:python][:version]
+end
+
+%w[pip==19.2.3 setuptools].each do |package|
+  pyenv_package package do
+    version node[:regulus][:python][:version]
+    virtualenv node[:regulus][:app_name]
+    option '--upgrade'
+  end
+end
+
+node[:regulus][:python][:packages].each do |package|
+  pyenv_package package do
+    version node[:regulus][:python][:version]
+    virtualenv node[:regulus][:app_name]
+  end
+end
+
+tensorflow = node[:regulus][:tensorflow]
+pyenv_package "#{tensorflow[:base_url]}/#{tensorflow[:filename]}" do
+  version node[:regulus][:python][:version]
+  virtualenv node[:regulus][:app_name]
 end
 
 package node[:regulus][:requirements]
