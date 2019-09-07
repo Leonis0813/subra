@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the sphinx cookbook.
 
+## 1.0.5
+- Install epel repository
+
 ## 1.0.4
 - Use pyenv cookbook
 

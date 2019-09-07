@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the mysql cookbook.
 
+## 1.3.0
+- Download repository for CentOS7
+
 ## 1.2.1
 - Update cookies table schema to set default to updated_at column
 

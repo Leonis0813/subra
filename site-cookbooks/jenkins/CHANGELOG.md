@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.8
+- Fix bug for CentOS7
+
 ## 1.8.7
 - Update config file for coverage
 

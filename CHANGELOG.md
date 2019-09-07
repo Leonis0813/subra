@@ -1,3 +1,22 @@
+# 2019/09/07
+- [REMOVE][COOKBOOK] docker
+- [UPDATE][COOKBOOK] algieba to 2.1.0
+- [UPDATE][COOKBOOK] alterf to 2.4.0
+- [UPDATE][COOKBOOK] chort to 1.0.6
+- [UPDATE][COOKBOOK] emacs to 1.0.0
+- [UPDATE][COOKBOOK] git to 1.0.0
+- [UPDATE][COOKBOOK] jenkins to 1.8.8
+- [UPDATE][COOKBOOK] mysql to 1.3.0
+- [UPDATE][COOKBOOK] nginx to 2.0.7
+- [UPDATE][COOKBOOK] pyenv to 1.0.1
+- [UPDATE][COOKBOOK] regulus to 2.3.0
+- [UPDATE][COOKBOOK] rvm to 1.0.3
+- [UPDATE][COOKBOOK] sphinx to 1.0.5
+- [UPDATE][COOKBOOK] zosma to 1.3.0
+- [UPDATE][COOKBOOK] zsh to 1.0.0
+- [UPDATE][ENVIRONMENT] compute, development and production
+- [UPDATE][ROLE] alterf, development, doc and regulus
+
 # 2019/08/28
 - [CREATE][COOKBOOK] pyenv
 - [UPDATE][COOKBOOK] alterf to 2.3.0

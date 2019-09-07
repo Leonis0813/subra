@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the pyenv cookbook.
 
+## 1.0.1
+- Add option setting to pyenv_package definition
+
 ## 1.0.0
 - Create default recipe
 

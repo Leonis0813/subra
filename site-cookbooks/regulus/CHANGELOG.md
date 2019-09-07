@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.3.0
+- Update default recipe to install geckodriver and upgrade firefox
+- Remove resource for lokkit from default recipe
+- Stop installing docker for tensorflow and install to virtualenv
+
 ## 2.2.2
 - Update recipe to deploy for production
 
