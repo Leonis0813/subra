@@ -44,6 +44,13 @@ end
 
 win_server = Chef::EncryptedDataBagItem.load('zosma', 'samba')['ip_address']
 
+file '/etc/fstab' do
+  user 'root'
+  group 'root'
+  mode '0644'
+  action :touch
+end
+
 mount node[:zosma][:smb][:mount_dir] do
   fstype 'cifs'
   device "//#{win_server}/#{node[:zosma][:smb][:share_name]}"

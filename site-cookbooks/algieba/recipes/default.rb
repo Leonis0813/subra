@@ -14,6 +14,7 @@ rvm_gem 'bundler' do
   ruby_version ruby_version
   gemset 'global'
   gem_version '1.17.3'
+  force true
 end
 
 package node[:algieba][:requirements]
@@ -29,12 +30,23 @@ package %w[xorg-x11-server-Xvfb] do
   only_if { node.chef_environment == 'development' }
 end
 
-execute 'yum -y install firefox-52.8.0-1.el6.centos.x86_64'
-
-execute 'dbus-uuidgen > /var/lib/dbus/machine-id' do
+execute 'yum -y install firefox-60.8.0-1.el7.centos.x86_64' do
   only_if { node.chef_environment == 'development' }
 end
 
-node[:algieba][:open_ports].each do |port|
-  execute "lokkit -p #{port}"
+geckodriver = node[:algieba][:geckodriver]
+remote_file geckodriver[:download_path] do
+  source "#{geckodriver[:base_url]}/#{geckodriver[:filename]}"
+  not_if { File.exist?(geckodriver[:download_path]) }
+  only_if { node.chef_environment == 'development' }
+end
+
+execute "tar zxvf #{geckodriver[:download_path]}" do
+  cwd '/usr/local/bin'
+  not_if { File.exist?('/usr/local/bin/geckodriver') }
+  only_if { node.chef_environment == 'development' }
+end
+
+execute 'dbus-uuidgen > /var/lib/dbus/machine-id' do
+  only_if { node.chef_environment == 'development' }
 end

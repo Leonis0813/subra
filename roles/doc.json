@@ -1,9 +1,12 @@
 {
   "name": "doc",
-    "run_list": [
+  "run_list": [
     "recipe[nginx]",
+    "recipe[pyenv]",
     "recipe[sphinx]",
-    "recipe[chort]"
+    "recipe[chort]",
+    "recipe[mysql]",
+    "recipe[mysql::initial_data]"
   ],
   "override_attributes": {
     "nginx": {

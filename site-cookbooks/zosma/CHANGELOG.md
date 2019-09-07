@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the zosma cookbook.
 
+## 1.3.0
+- Create /etc/fstab if not exist
+
 ## 1.2.1
 - Update ruby version
 - Update recipe to install specific bundler version

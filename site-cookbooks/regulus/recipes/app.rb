@@ -52,7 +52,9 @@ deploy node[:regulus][:deploy_dir] do
                   'PATH' => node[:rvm][:path]
     end
 
-    execute 'sudo crontab -r'
+    execute 'sudo crontab -r' do
+      only_if 'sudo crontab -l | grep "regulus"'
+    end
 
     execute "#{rvm_do} bundle exec whenever --update-crontab" do
       cwd release_path
@@ -114,28 +116,5 @@ deploy node[:regulus][:deploy_dir] do
       environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
                   'PATH' => node[:rvm][:path]
     end
-  end
-
-  after_restart do
-    execute "docker stop #{node[:regulus][:app_name]}" do
-      only_if "docker ps | grep #{node[:regulus][:app_name]}"
-    end
-
-    execute "docker rm #{node[:regulus][:app_name]}" do
-      only_if "docker ps -a | grep #{node[:regulus][:app_name]}"
-    end
-
-    service 'docker' do
-      action :restart
-    end
-
-    script_path = File.join(release_path, 'scripts')
-    command = "docker run -itd --name #{node[:regulus][:app_name]} " \
-              "-v #{script_path}:/opt/scripts tensorflow/tensorflow:1.13.1 /bin/bash"
-    execute command
-
-    command = "docker exec #{node[:regulus][:app_name]} pip install " \
-              "#{node[:regulus][:python_packages].join(' ')}"
-    execute command
   end
 end

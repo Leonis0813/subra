@@ -16,18 +16,19 @@ This cookbook deploy alterf
 
 ### alterf::default
 
-|Key                       |Type         |Description                  |
-|--------------------------|-------------|-----------------------------|
-|[:alterf][:app_name]      |String       |application name             |
-|[:alterf][:deploy_dir]    |String       |absolute path to deploy      |
-|[:alterf][:repository]    |String       |github url for clone         |
-|[:alterf][:branch]        |String       |deployed github branch       |
-|[:alterf][:symlinks]      |Hash         |created symbolic links       |
-|[:alterf][:shared_dirs]   |Array[String]|directories created in shared|
-|[:alterf][:requirements]  |Array[String]|packages before deploying    |
-|[:alterf][:ruby_version]  |String       |ruby version for alterf      |
-|[:alterf][:mysql_users]   |Array[String]|users used by alterf         |
-|[:alterf][:python]        |Hash         |python settings              |
+|Key                     |Type         |Description                  |
+|------------------------|-------------|-----------------------------|
+|[:alterf][:app_name]    |String       |application name             |
+|[:alterf][:deploy_dir]  |String       |absolute path to deploy      |
+|[:alterf][:repository]  |String       |github url for clone         |
+|[:alterf][:branch]      |String       |deployed github branch       |
+|[:alterf][:symlinks]    |Hash         |created symbolic links       |
+|[:alterf][:shared_dirs] |Array[String]|directories created in shared|
+|[:alterf][:requirements]|Array[String]|packages before deploying    |
+|[:alterf][:ruby_version]|String       |ruby version for alterf      |
+|[:alterf][:mysql_users] |Array[String]|users used by alterf         |
+|[:alterf][:python]      |Hash         |python settings              |
+|[:alterf][:geckodriver] |Hash         |geckodriver settings         |
 
 ## Usage
 

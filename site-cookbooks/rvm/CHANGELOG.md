@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the rvm cookbook.
 
+## 1.0.3
+- Install required packages
+- Add force option to rvm_gem definition
+
 ## 1.0.2
 - Update definition to specify gem version
 

@@ -5,24 +5,12 @@
       "mysql_users": [
         "development",
         "test"
-      ],
-      "open_ports": [
-        "80:tcp",
-        "3000:tcp"
       ]
     },
     "alterf": {
       "mysql_users": [
         "development",
         "test"
-      ],
-      "open_ports": [
-        "80:tcp",
-        "3000:tcp"
-      ],
-      "requirements": [
-        "cmake",
-        "mysql-devel"
       ]
     },
     "denebola": {
@@ -75,15 +63,42 @@
         ]
       },
       "plugins": [
-        "ansicolor",
-        "git",
-        "hidden-parameter",
-        "htmlpublisher",
-        "multiple-scms",
-        "parameterized-trigger",
-        "rebuild",
-        "rubyMetrics",
-        "workflow-aggregator"
+        {
+          "id": "ansicolor",
+          "version": "0.5.2"
+        },
+        {
+          "id": "git",
+          "version": "3.9.1"
+        },
+        {
+          "id": "hidden-parameter",
+          "version": "0.0.4"
+        },
+        {
+          "id": "htmlpublisher",
+          "version": "1.18"
+        },
+        {
+          "id": "multiple-scms",
+          "version": "0.6"
+        },
+        {
+          "id": "parameterized-trigger",
+          "version": "2.35.2"
+        },
+        {
+          "id": "rebuild",
+          "version": "1.29"
+        },
+        {
+          "id": "rubyMetrics",
+          "version": "1.6.5"
+        },
+        {
+          "id": "workflow-aggregator",
+          "version": "2.6"
+        }
       ],
       "views": [
         "payment_manager",
@@ -106,15 +121,6 @@
       "mysql_users": [
         "development",
         "test"
-      ],
-      "open_ports": [
-        "80:tcp",
-        "3000:tcp"
-      ],
-      "requirements": [
-        "mysql-devel",
-        "epel-release",
-        "R"
       ]
     },
     "subra": {

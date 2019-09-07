@@ -6,9 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package 'java-1.8.0-openjdk' do
-  not_if 'rpm -q java'
-end
+package node[:jenkins][:requirements]
 
 remote_file node[:jenkins][:rpm_path] do
   source node[:jenkins][:rpm_url]
@@ -37,13 +35,9 @@ service 'jenkins' do
   action %i[enable start]
 end
 
-execute 'netstat -ant | grep 8080 | grep LISTEN' do
+execute 'ss -ant | grep 8080 | grep LISTEN' do
   retries 5
   retry_delay 10
-end
-
-service 'network' do
-  action :restart
 end
 
 remote_file node[:jenkins][:cli_path] do
@@ -70,7 +64,11 @@ end
 node[:jenkins][:plugins].each do |plugin|
   ruby_block "install plugin - #{plugin}" do
     block do
-      xml = "<jenkins><install plugin=\"#{plugin}@latest\" /></jenkins>"
+      xml = <<"XML"
+<jenkins>
+  <install plugin="#{plugin['id']}@#{plugin['version']}" />
+</jenkins>
+XML
       content_type = {'Content-Type' => 'text/xml'}
       begin
         header = basic_auth.merge(crumb).merge(content_type)
@@ -83,9 +81,6 @@ node[:jenkins][:plugins].each do |plugin|
   end
 end
 
-include_recipe 'jenkins::job'
-include_recipe 'jenkins::view'
-
 ruby_block 'wait plugins installed' do
   block do
     def http_get_plugins
@@ -93,19 +88,23 @@ ruby_block 'wait plugins installed' do
       JSON.parse(response)['plugins'].map {|plugin| plugin['shortName'] }
     end
 
+    plugins = node[:jenkins][:plugins].map {|plugin| plugin[:id] }
+
     10.times do
-      plugins = http_get_plugins
-      puts "installed plugins: #{node[:jenkins][:plugins] & plugins}"
-      break if (node[:jenkins][:plugins] - plugins).empty?
+      installed_plugins = http_get_plugins
+      puts "installed plugins: #{plugins & installed_plugins}"
+      break if (plugins - installed_plugins).empty?
 
       sleep 3
     end
 
-    plugins = http_get_plugins
-    raise Exception unless (node[:jenkins][:plugins] - plugins).empty?
+    installed_plugins = http_get_plugins
+    raise Exception unless (plugins - installed_plugins).empty?
   end
   retries 3
 end
+
+include_recipe 'jenkins::job'
 
 service 'jenkins' do
   action :restart

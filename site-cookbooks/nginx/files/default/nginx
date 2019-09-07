@@ -93,8 +93,8 @@ case "$1" in
   force-reload)
     force_reload
     ;;
-    status)
-  rh_status
+  status)
+    rh_status
     ;;
   condrestart|try-restart)
     rh_status_q || exit 0

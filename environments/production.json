@@ -2,9 +2,6 @@
   "name": "production",
   "override_attributes": {
     "algieba": {
-      "open_ports": [
-        "80:tcp"
-      ],
       "mysql_users": [
         "production"
       ]
@@ -75,9 +72,6 @@
       ]
     },
     "regulus": {
-      "open_ports": [
-        "80:tcp"
-      ],
       "mysql_users": [
         "production"
       ]
