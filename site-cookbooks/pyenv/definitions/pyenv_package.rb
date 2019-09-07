@@ -1,4 +1,4 @@
-define :pyenv_package, package: nil, virtualenv: nil, version: nil, option: nil do
+define :pyenv_package, package: nil, virtualenv: nil, version: nil, option: '' do
   package = params[:package] || params[:name]
   virtualenv = params[:virtualenv]
   version = params[:version]
@@ -19,7 +19,7 @@ define :pyenv_package, package: nil, virtualenv: nil, version: nil, option: nil 
                   '/bin',
                 ].join(':')
 
-    unless option.present? and option.include?('--upgrade')
+    unless option.include?('--upgrade')
       not_if [
         [activate_command, 'pip list'].join(' && '),
         'cut -d " " -f 1',
