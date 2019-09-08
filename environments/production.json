@@ -47,12 +47,30 @@
         ]
       },
       "plugins": [
-        "ansicolor",
-        "git",
-        "hidden-parameter",
-        "parameterized-trigger",
-        "rebuild",
-        "workflow-aggregator"
+        {
+          "id": "ansicolor",
+          "version": "0.5.2"
+        },
+        {
+          "id": "git",
+          "version": "3.9.1"
+        },
+        {
+          "id": "hidden-parameter",
+          "version": "0.0.4"
+        },
+        {
+          "id": "parameterized-trigger",
+          "version": "2.35.2"
+        },
+        {
+          "id": "rebuild",
+          "version": "1.29"
+        },
+        {
+          "id": "workflow-aggregator",
+          "version": "2.6"
+        }
       ],
       "views": [
         "payment_manager",
