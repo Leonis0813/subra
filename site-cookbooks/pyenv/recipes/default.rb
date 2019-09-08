@@ -9,6 +9,8 @@
 pyenv = node[:pyenv]
 virtualenv = node[:pyenv][:virtualenv]
 
+package node[:pyenv][:requirements]
+
 git pyenv[:root] do
   repository pyenv[:repository]
   revision pyenv[:revision]
