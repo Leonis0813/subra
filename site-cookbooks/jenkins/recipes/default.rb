@@ -45,6 +45,8 @@ remote_file node[:jenkins][:cli_path] do
   owner 'root'
   group 'root'
   mode '0755'
+  retries 3
+  retry_delay 5
   not_if { File.exist?(node[:jenkins][:cli_path]) }
 end
 

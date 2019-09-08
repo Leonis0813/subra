@@ -16,12 +16,13 @@ This cookbook install latest pyenv.
 
 ### pyenv::default
 
-|Key                  |Type  |Description                  |
-|---------------------|------|-----------------------------|
-|[:pyenv][:root]      |String|root directory path for pyenv|
-|[:pyenv][:repository]|String|pyenv git reposiroty         |
-|[:pyenv][:revision]  |String|pyenv clone version          |
-|[:pyenv][:virtualenv]|Hash  |virtualenv plugin settings   |
+|Key                    |Type         |Description                  |
+|-----------------------|-------------|-----------------------------|
+|[:pyenv][:requirements]|Array[String]|prerequirement package names |
+|[:pyenv][:root]        |String       |root directory path for pyenv|
+|[:pyenv][:repository]  |String       |pyenv git reposiroty         |
+|[:pyenv][:revision]    |String       |pyenv clone version          |
+|[:pyenv][:virtualenv]  |Hash         |virtualenv plugin settings   |
 
 ## Usage
 

@@ -1,3 +1,9 @@
+# 2019/09/08
+- [UPDATE][COOKBOOK] jenkins to 1.8.9
+- [UPDATE][COOKBOOK] nginx to 2.0.8
+- [UPDATE][COOKBOOK] pyenv to 1.1.0
+- [UPDATE][ENVIRONMENT] production
+
 # 2019/09/07
 - [REMOVE][COOKBOOK] docker
 - [UPDATE][COOKBOOK] algieba to 2.1.0

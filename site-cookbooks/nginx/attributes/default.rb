@@ -1,6 +1,6 @@
 # coding: utf-8
 
-default[:nginx][:requirements] = %w[pcre pcre-devel]
+default[:nginx][:requirements] = %w[openssl-devel pcre pcre-devel zlib-devel]
 default[:nginx][:version] = '1.10.2'
 default[:nginx][:user] = 'nginx'
 default[:nginx][:download] = {

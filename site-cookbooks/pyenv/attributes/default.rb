@@ -1,3 +1,4 @@
+default[:pyenv][:requirements] = %w[bzip2 bzip2-devel openssl-devel]
 default[:pyenv][:root] = '/usr/local/pyenv'
 default[:pyenv][:repository] = 'https://github.com/pyenv/pyenv.git'
 default[:pyenv][:revision] = 'v1.2.6'
