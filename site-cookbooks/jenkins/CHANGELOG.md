@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.10
+- Fix job templates
+
 ## 1.8.9
 - Add retry settings for downloading jenkins cli
 
