@@ -1,3 +1,8 @@
+# 2019/09/09
+- [UPDATE][COOKBOOK] chort to 1.1.0
+- [UPDATE][COOKBOOK] denebola to 2.1.4
+- [UPDATE][COOKBOOK] jenkins to 1.8.10
+
 # 2019/09/08
 - [UPDATE][COOKBOOK] jenkins to 1.8.9
 - [UPDATE][COOKBOOK] nginx to 2.0.8
