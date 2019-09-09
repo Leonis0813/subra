@@ -57,7 +57,7 @@
         rvm <%= @app_info[:ruby_version] %> do bundle install --path=vendor/bundle
         <% if @app_info[:app_name] == 'chort' %>
         export PATH=/usr/local/pyenv/versions/3.6.0/bin:/usr/local/rvm/bin:/usr/bin:/bin
-        sudo PATH=/usr/local/pyenv/versions/3.6.0/bin:/usr/bin:/bin PYENV_ROOT=/usr/local/pyenv /usr/local/pyenv/bin/pyenv global 3.6.0 &amp;&amp; /usr/local/pyenv/bin/pyenv rehash &amp;&amp; make html
+        sudo PATH=/usr/local/pyenv/versions/3.6.0/bin:/usr/bin:/bin PYENV_ROOT=/usr/local/pyenv eval "$(pyenv init -)" &amp;&amp; eval "$(pyenv virtualenv-init -)" &amp;&amp; pyenv activate sphinx &amp;&amp; make html
         <% else %>
         export PRONTO_GITHUB_ACCESS_TOKEN=<%= @token %>
         export RUBOCOP_CONFIG=.rubocop.yml
