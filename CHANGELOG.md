@@ -1,3 +1,6 @@
+# 2019/09/10
+- [UPDATE][COOKBOOK] jenkins to 1.8.11
+
 # 2019/09/09
 - [UPDATE][COOKBOOK] chort to 1.1.0
 - [UPDATE][COOKBOOK] denebola to 2.1.4
