@@ -73,7 +73,7 @@ H 0 * * *</spec>
         <% elsif @app_info[:app_name] == 'algieba' %>
         rvm 2.5.5 do bundle exec rspec --fail-fast spec/{models,controllers,views}
         <% elsif @app_info[:app_name] == 'denebola' %>
-        mkdir log
+        mkdir -p log
         rvm 2.5.5 do bundle exec rspec --fail-fast spec/{models,libs,aggregate_spec.rb}
         <% end %>
         git add Gemfile.lock
