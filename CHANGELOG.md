@@ -1,3 +1,6 @@
+# 2019/09/16
+- [UPDATE][COOKBOOK] jenkins to 1.8.12
+
 # 2019/09/10
 - [UPDATE][COOKBOOK] jenkins to 1.8.11
 
