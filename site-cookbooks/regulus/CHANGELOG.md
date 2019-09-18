@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.3.1
+- Update app recipe to add SECRET_KEY_BASE to restart command
+
 ## 2.3.0
 - Update default recipe to install geckodriver and upgrade firefox
 - Remove resource for lokkit from default recipe
