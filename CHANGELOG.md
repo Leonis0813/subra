@@ -1,3 +1,6 @@
+# 2019/09/18
+- [UPDATE][COOKBOOK] regulus to 2.3.1
+
 # 2019/09/16
 - [UPDATE][COOKBOOK] jenkins to 1.8.12
 
