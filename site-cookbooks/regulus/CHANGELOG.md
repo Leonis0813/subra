@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.3.2
+- Fix bug for production
+
 ## 2.3.1
 - Update app recipe to add SECRET_KEY_BASE to restart command
 

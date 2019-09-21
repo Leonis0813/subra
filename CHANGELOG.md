@@ -1,3 +1,6 @@
+# 2019/09/21
+- [UPDATE][COOKBOOK] regulus to 2.3.2
+
 # 2019/09/18
 - [UPDATE][COOKBOOK] regulus to 2.3.1
 
