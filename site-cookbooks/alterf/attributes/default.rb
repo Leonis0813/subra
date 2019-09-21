@@ -5,7 +5,7 @@ default[:alterf][:repository] =
 default[:alterf][:branch] = 'develop'
 default[:alterf][:symlinks] = {'log' => 'log', 'tmp' => 'tmp'}
 default[:alterf][:shared_dirs] = %w[log bundle tmp/files]
-default[:alterf][:requirements] = %w[mysql-devel]
+default[:alterf][:requirements] = %w[mysql-devel bzip2-devel]
 default[:alterf][:ruby_version] = '2.5.5'
 default[:alterf][:mysql_users] = %w[development test]
 default[:alterf][:python] = {

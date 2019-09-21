@@ -16,6 +16,8 @@ rvm_gem 'bundler' do
   gem_version '1.17.3'
 end
 
+package node[:alterf][:requirements]
+
 pyenv_python node[:alterf][:python][:version]
 pyenv_virtualenv node[:alterf][:app_name] do
   version node[:alterf][:python][:version]
@@ -35,8 +37,6 @@ node[:alterf][:python][:packages].each do |package|
     virtualenv node[:alterf][:app_name]
   end
 end
-
-package node[:alterf][:requirements]
 
 include_recipe 'alterf::app'
 
