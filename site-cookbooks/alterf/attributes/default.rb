@@ -10,7 +10,7 @@ default[:alterf][:ruby_version] = '2.5.5'
 default[:alterf][:mysql_users] = %w[development test]
 default[:alterf][:python] = {
   version: '3.6.6',
-  packages: %w[wheel mysql-connector-python-rf pyyaml pandas scikit-learn],
+  packages: %w[pycairo wheel mysql-connector-python-rf pyyaml pandas scikit-learn],
 }
 default[:alterf][:geckodriver] = {
   base_url: 'https://github.com/mozilla/geckodriver/releases/download/v0.24.0',
