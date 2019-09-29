@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.4.1
+- Add requirements
+- Add python package
+
 ## 2.4.0
 - Update default recipe to install geckodriver and upgrade firefox
 - Remove resource for lokkit from default recipe
