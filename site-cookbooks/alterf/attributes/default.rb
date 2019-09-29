@@ -5,12 +5,12 @@ default[:alterf][:repository] =
 default[:alterf][:branch] = 'develop'
 default[:alterf][:symlinks] = {'log' => 'log', 'tmp' => 'tmp'}
 default[:alterf][:shared_dirs] = %w[log bundle tmp/files]
-default[:alterf][:requirements] = %w[mysql-devel]
+default[:alterf][:requirements] = %w[librsvg2-devel mysql-devel]
 default[:alterf][:ruby_version] = '2.5.5'
 default[:alterf][:mysql_users] = %w[development test]
 default[:alterf][:python] = {
   version: '3.6.6',
-  packages: %w[wheel mysql-connector-python-rf pyyaml pandas scikit-learn],
+  packages: %w[dtreeviz mysql-connector-python-rf pandas pyyaml scikit-learn wheel],
 }
 default[:alterf][:geckodriver] = {
   base_url: 'https://github.com/mozilla/geckodriver/releases/download/v0.24.0',

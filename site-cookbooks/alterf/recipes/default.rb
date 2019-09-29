@@ -8,6 +8,8 @@
 #
 ruby_version = node[:alterf][:ruby_version]
 
+package node[:alterf][:requirements]
+
 rvm_ruby ruby_version
 
 rvm_gem 'bundler' do
@@ -35,8 +37,6 @@ node[:alterf][:python][:packages].each do |package|
     virtualenv node[:alterf][:app_name]
   end
 end
-
-package node[:alterf][:requirements]
 
 include_recipe 'alterf::app'
 

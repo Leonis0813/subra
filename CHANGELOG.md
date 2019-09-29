@@ -1,3 +1,6 @@
+# 2019/09/29
+- [UPDATE][COOKBOOK] alterf to 2.4.1
+
 # 2019/09/21
 - [UPDATE][COOKBOOK] regulus to 2.3.2
 
