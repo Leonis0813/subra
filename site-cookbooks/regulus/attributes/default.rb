@@ -15,7 +15,7 @@ default[:regulus][:geckodriver] = {
 }
 default[:regulus][:python] = {
   version: '3.6.6',
-  packages: %w[wheel mysql-connector-python-rf pyyaml],
+  packages: %w[mysql-connector-python-rf pandas pyyaml wheel],
 }
 default[:regulus][:tensorflow] = {
   base_url: 'https://storage.googleapis.com/tensorflow/linux/cpu',
