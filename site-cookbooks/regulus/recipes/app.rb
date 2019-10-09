@@ -80,12 +80,10 @@ deploy node[:regulus][:deploy_dir] do
       variables(user_name: gmail['user_name'], password: gmail['password'])
     end
 
-    %w[resque tensorboard].each do |app_name|
-      execute "#{rvm_do} bundle exec rake daemon:#{app_name}:restart" do
-        cwd release_path
-        environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
-                    'PATH' => node[:rvm][:path]
-      end
+    execute "#{rvm_do} bundle exec rake daemon:resque:restart" do
+      cwd release_path
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+                  'PATH' => node[:rvm][:path]
     end
 
     execute "#{rvm_do} bundle exec rake assets:precompile" do
