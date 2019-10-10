@@ -47,7 +47,7 @@ http {
       proxy_pass http://unicorn_<%= app %>/<%= app %>;
     }
     <% if app == 'regulus' %>
-    location ^~ /regulus/analyses/result/ {
+    location ^~ /regulus/tensorboard/ {
       limit_except GET { deny all; }
       set $redirect_uri $uri$is_args$args;
       rewrite_by_lua_file "lua/login.lua";
