@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.3.4
+- Update deploy recipe to start tensorboard daemon
+
 ## 2.3.3
 - Add python package
 

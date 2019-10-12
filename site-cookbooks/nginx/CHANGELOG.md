@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 2.0.9
+- Update nginx.conf for tensorboard
+
 ## 2.0.8
 - Add required packages
 
