@@ -5,9 +5,10 @@ default[:regulus][:repository] =
 default[:regulus][:branch] = 'develop'
 default[:regulus][:symlinks] = {'tmp' => 'tmp', 'log' => 'log'}
 default[:regulus][:shared_dirs] = %w[
-  tmp
-  log
   bundle
+  config
+  log
+  tmp
   tmp/files
   tmp/models
   tmp/models/tensorboard
