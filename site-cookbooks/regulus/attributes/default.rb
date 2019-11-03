@@ -3,11 +3,16 @@ default[:regulus][:deploy_dir] = "/opt/nginx/apps/#{default[:regulus][:app_name]
 default[:regulus][:repository] =
   "https://github.com/Leonis0813/#{default[:regulus][:app_name]}.git"
 default[:regulus][:branch] = 'develop'
-default[:regulus][:symlinks] = {'tmp' => 'tmp', 'log' => 'log'}
+default[:regulus][:symlinks] = {
+  'config/prediction.yml' => 'config/prediction.yml',
+  'log' => 'log',
+  'tmp' => 'tmp',
+}
 default[:regulus][:shared_dirs] = %w[
-  tmp
-  log
   bundle
+  config
+  log
+  tmp
   tmp/files
   tmp/models
   tmp/models/tensorboard

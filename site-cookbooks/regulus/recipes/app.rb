@@ -34,6 +34,13 @@ deploy node[:regulus][:deploy_dir] do
       to File.join(node[:regulus][:deploy_dir], 'shared/bundle')
     end
 
+    file File.join(node[:regulus][:deploy_dir], 'shared/config/prediction.yml') do
+      owner 'root'
+      group 'root'
+      mode '0664'
+      action :create_if_missing
+    end
+
     execute "#{rvm_do} bundle install --path=vendor/bundle  --clean" do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
