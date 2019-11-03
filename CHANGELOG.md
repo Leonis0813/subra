@@ -1,3 +1,7 @@
+# 2019/11/03
+- [UPDATE][COOKBOOK] nginx to 2.0.10
+- [UPDATE][COOKBOOK] regulus to 2.4.0
+
 # 2019/10/12
 - [UPDATE][COOKBOOK] nginx to 2.0.9
 - [UPDATE][COOKBOOK] regulus to 2.3.4
