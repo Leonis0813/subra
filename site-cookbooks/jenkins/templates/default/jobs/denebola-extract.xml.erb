@@ -4,7 +4,7 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.29">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
@@ -22,6 +22,17 @@
           <defaultValue></defaultValue>
           <trim>true</trim>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>OPERATION</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>create</string>
+              <string>update</string>
+              <string>upsert</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <jenkins.model.BuildDiscarderProperty>
@@ -51,7 +62,8 @@
         if [[ &quot;${TO}&quot; != &quot;&quot; ]] ; then
                 TO=&quot;--to=${TO}&quot;
         fi
-        rvmsudo rvm 2.5.5 do env RAILS_ENV=<%= node.chef_environment %> STDOUT=on bundle exec ruby extract.rb ${FROM} ${TO}
+        OPERATION=&quot;--operation=${OPERATION}&quot;
+        rvmsudo rvm 2.5.5 do env RAILS_ENV=development STDOUT=on bundle exec ruby extract.rb ${FROM} ${TO} ${OPERATION}
       </command>
     </hudson.tasks.Shell>
   </builders>
@@ -67,7 +79,7 @@
     </hudson.tasks.BuildTrigger>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.6.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
   </buildWrappers>
