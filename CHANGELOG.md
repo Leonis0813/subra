@@ -1,3 +1,6 @@
+# 2019/11/26
+- [UPDATE][COOKBOOK] jenkins to 1.8.13
+
 # 2019/11/03
 - [UPDATE][COOKBOOK] nginx to 2.0.10
 - [UPDATE][COOKBOOK] regulus to 2.4.0
