@@ -63,20 +63,29 @@
                 TO=&quot;--to=${TO}&quot;
         fi
         OPERATION=&quot;--operation=${OPERATION}&quot;
-        rvmsudo rvm 2.5.5 do env RAILS_ENV=development STDOUT=on bundle exec ruby extract.rb ${FROM} ${TO} ${OPERATION}
+        rvmsudo rvm 2.5.5 do env RAILS_ENV=<%= node.chef_environment %> STDOUT=on bundle exec ruby extract.rb ${FROM} ${TO} ${OPERATION}
       </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.BuildTrigger>
-      <childProjects>denebola-aggregate</childProjects>
-      <threshold>
-        <name>SUCCESS</name>
-        <ordinal>0</ordinal>
-        <color>BLUE</color>
-        <completeBuild>true</completeBuild>
-      </threshold>
-    </hudson.tasks.BuildTrigger>
+    <hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.35.2">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+              <properties>FROM=${FROM}
+TO=${TO}
+OPERATION=${OPERATION}</properties>
+              <textParamValueOnNewLine>false</textParamValueOnNewLine>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+          <projects>denebola-aggregate</projects>
+          <condition>SUCCESS</condition>
+          <triggerWithNoParameters>false</triggerWithNoParameters>
+          <triggerFromChildProjects>false</triggerFromChildProjects>
+        </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.BuildTrigger>
   </publishers>
   <buildWrappers>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.6.2">

@@ -1,7 +1,6 @@
-<?xml version='1.1' encoding='UTF-8'?>
-<project>
+<?xml version="1.1" encoding="UTF-8"?><project>
   <actions/>
-  <description></description>
+  <description/>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
@@ -13,18 +12,18 @@
         <hudson.model.StringParameterDefinition>
           <name>FROM</name>
           <description>format: yyyy-mm-dd</description>
-          <defaultValue></defaultValue>
+          <defaultValue/>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>TO</name>
           <description>format: yyyy-mm-dd</description>
-          <defaultValue></defaultValue>
+          <defaultValue/>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>OPERATION</name>
-          <description></description>
+          <description/>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
               <string>create</string>
@@ -56,15 +55,15 @@
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
         cd /opt/denebola/current
-        if [[ &quot;${FROM}&quot; != &quot;&quot; ]] ; then
-                FROM=&quot;--from=${FROM}&quot;
+        if [[ "${FROM}" != "" ]] ; then
+                FROM="--from=${FROM}"
         fi
-        if [[ &quot;${TO}&quot; != &quot;&quot; ]] ; then
-                TO=&quot;--to=${TO}&quot;
+        if [[ "${TO}" != "" ]] ; then
+                TO="--to=${TO}"
         fi
-        OPERATION=&quot;--operation=${OPERATION}&quot;
-        rvmsudo rvm 2.5.5 do env RAILS_ENV=development STDOUT=on bundle exec ruby aggregate.rb ${FROM} ${TO} ${OPERATION}
-</command>
+        OPERATION="--operation=${OPERATION}"
+        rvmsudo rvm 2.5.5 do env RAILS_ENV=<%= node.chef_environment %> STDOUT=on bundle exec ruby aggregate.rb ${FROM} ${TO} ${OPERATION}
+      </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
