@@ -1,13 +1,40 @@
-<?xml version='1.1' encoding='UTF-8'?>
+<?xml version="1.1" encoding="UTF-8"?>
 <project>
   <actions/>
-  <description></description>
+  <description/>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.29">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>FROM</name>
+          <description>format: yyyy-mm-dd</description>
+          <defaultValue/>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>TO</name>
+          <description>format: yyyy-mm-dd</description>
+          <defaultValue/>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>OPERATION</name>
+          <description/>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>create</string>
+              <string>update</string>
+              <string>upsert</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>-1</daysToKeep>
@@ -29,13 +56,20 @@
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
         cd /opt/denebola/current
-        rvmsudo rvm 2.5.5 do env RAILS_ENV=<%= node.chef_environment %> STDOUT=on bundle exec ruby aggregate.rb
+        if [[ "${FROM}" != "" ]] ; then
+                FROM="--from=${FROM}"
+        fi
+        if [[ "${TO}" != "" ]] ; then
+                TO="--to=${TO}"
+        fi
+        OPERATION="--operation=${OPERATION}"
+        rvmsudo rvm 2.5.5 do env RAILS_ENV=<%= node.chef_environment %> STDOUT=on bundle exec ruby aggregate.rb ${FROM} ${TO} ${OPERATION}
       </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
   <buildWrappers>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.6.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
   </buildWrappers>

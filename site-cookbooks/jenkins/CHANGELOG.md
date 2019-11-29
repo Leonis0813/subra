@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.13
+- Update config file for denebola
+
 ## 1.8.12
 - Fix jenkins host
 
