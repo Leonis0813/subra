@@ -1,3 +1,6 @@
+# 2019/11/30
+- [UPDATE][COOKBOOK] alterf to 2.4.2
+
 # 2019/11/29
 - [UPDATE][COOKBOOK] jenkins to 1.8.13
 
