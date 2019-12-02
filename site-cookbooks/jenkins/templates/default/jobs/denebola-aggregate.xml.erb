@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8"?>
+1;95;0c<?xml version="1.1" encoding="UTF-8"?>
 <project>
   <actions/>
   <description/>
@@ -63,7 +63,7 @@
                 TO="--to=${TO}"
         fi
         OPERATION="--operation=${OPERATION}"
-        rvmsudo rvm 2.5.5 do env RAILS_ENV=<%= node.chef_environment %> STDOUT=on bundle exec ruby aggregate.rb ${FROM} ${TO} ${OPERATION}
+        rvmsudo rvm 2.6.3 do env RAILS_ENV=<%= node.chef_environment %> STDOUT=on bundle exec ruby aggregate.rb ${FROM} ${TO} ${OPERATION}
       </command>
     </hudson.tasks.Shell>
   </builders>
