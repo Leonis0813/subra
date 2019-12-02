@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.4.1
+- Update ruby version
+
 ## 2.4.0
 - Update recipe to create symlink to prediction.yml
 
