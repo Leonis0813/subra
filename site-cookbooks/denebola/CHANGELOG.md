@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the denebola cookbook.
 
+## 2.1.5
+- Update ruby version
+
 ## 2.1.4
 - Add option for installing bundler
 

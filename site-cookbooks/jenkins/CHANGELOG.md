@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.14
+- Update ruby version in jenkins config
+
 ## 1.8.13
 - Update config file for denebola
 

@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the algieba cookbook.
 
+## 2.1.1
+- Update ruby version
+
 ## 2.1.0
 - Update default recipe to install geckodriver and upgrade firefox
 - Remove resource for lokkit from default recipe
