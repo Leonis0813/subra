@@ -1,3 +1,6 @@
+# 2020/05/01
+- [UPDATE][COOKBOOK] nginx to 2.0.11
+
 # 2019/12/02
 - [UPDATE][COOKBOOK] algieba to 2.1.1
 - [UPDATE][COOKBOOK] alterf to 2.4.3
