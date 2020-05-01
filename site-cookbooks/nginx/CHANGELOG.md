@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 2.0.11
+- Modify worker_processes in nginx.conf
+
 ## 2.0.10
 - Set client_max_body_size for each apps
 
