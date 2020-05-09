@@ -1,3 +1,6 @@
+# 2020/05/09
+- [UPDATE][COOKBOOK] jenkins to 1.8.15
+
 # 2020/05/01
 - [UPDATE][COOKBOOK] nginx to 2.0.11
 
