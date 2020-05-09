@@ -54,7 +54,7 @@
         export PATH=/usr/local/rvm/bin:/usr/bin:/bin
         export DANGER_GITHUB_API_TOKEN=<%= @token %>
         export JENKINS_URL=http://localhost/jenkins/
-        rvm <%= @app_info[:ruby_version] %> do bundle install --path=vendor/bundle
+        rvm <%= @app_info[:ruby_version] %> do bundle install --path=vendor/bundle --clean
         <% if @app_info[:app_name] == 'chort' %>
         export PATH=/usr/local/pyenv/versions/3.6.0/bin:/usr/local/pyenv/bin:/usr/local/rvm/bin:/usr/bin:/bin
         export PYENV_ROOT=/usr/local/pyenv
