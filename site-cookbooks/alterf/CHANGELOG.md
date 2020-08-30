@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.4.4
+- Update settings.yml.erb to add racewise_features
+
 ## 2.4.3
 - Update ruby version
 
