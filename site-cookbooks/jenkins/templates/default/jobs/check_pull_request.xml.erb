@@ -8,7 +8,7 @@
       <useBuildBlocker>true</useBuildBlocker>
       <blockLevel>GLOBAL</blockLevel>
       <scanQueueFor>DISABLED</scanQueueFor>
-      <blockingJobs><%= @app_info[:app_name] %>-*</blockingJobs>
+      <blockingJobs><%= @app_info[:app_name] %>-.*</blockingJobs>
     </hudson.plugins.buildblocker.BuildBlockerProperty>
     <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
       <autoRebuild>false</autoRebuild>
