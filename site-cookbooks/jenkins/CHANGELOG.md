@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.8.16
+- Update config file for blocking builds
+- Update config file for discarding builds
+
 ## 1.8.15
 - Update config file to add clean option
 
