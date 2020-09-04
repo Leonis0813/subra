@@ -1,3 +1,6 @@
+# 2020/09/05
+- [UPDATE][COOKBOOK] jenkins to 1.8.17
+
 # 2020/09/02
 - [UPDATE][COOKBOOK] jenkins to 1.8.16
 - [UPDATE][ENVIRONMENT] development and production
