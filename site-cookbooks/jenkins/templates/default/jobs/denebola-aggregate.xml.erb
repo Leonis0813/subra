@@ -12,13 +12,13 @@
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name>FROM</name>
-          <description>format: yyyy-mm-dd</description>
+          <description>format: yyyy-mm-dd(create) or number(update)</description>
           <defaultValue/>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>TO</name>
-          <description>format: yyyy-mm-dd</description>
+          <description>format: yyyy-mm-dd(create) or number(update)</description>
           <defaultValue/>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
@@ -29,7 +29,6 @@
             <a class="string-array">
               <string>create</string>
               <string>update</string>
-              <string>upsert</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
