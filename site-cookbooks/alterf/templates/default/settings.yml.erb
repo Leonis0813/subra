@@ -9,6 +9,7 @@ mysql:
   password: '<%= Chef::EncryptedDataBagItem.load('alterf', 'mysql')['password'] %>'
 
 analysis:
+  host: 'localhost'
   feature:
     races: &races
       - 'direction'
