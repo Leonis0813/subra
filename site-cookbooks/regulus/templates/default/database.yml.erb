@@ -1,6 +1,21 @@
-mysql:
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
   host: localhost
-  port: 3306
-  user: root
-  password: <%= Chef::EncryptedDataBagItem.load('regulus', 'mysql')['password'] %>
+  username: root
+  password: '<%= Chef::EncryptedDataBagItem.load('zosma', 'mysql')['password'] %>'
   database: <%= node[:zosma][:app_name] %>
+
+development:
+  <<: *default
+  host: '<%= Chef::EncryptedDataBagItem.load('regulus', 'sakura')['ip_address'] %>'
+
+test:
+  <<: *default
+  username: test
+  password:
+  database: denebola_test
+
+production:
+  <<: *default
