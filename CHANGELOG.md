@@ -1,5 +1,5 @@
 # 2021/01/07
-- [UPDATE][COOKBOOK] regulus to 2.4.2
+- [UPDATE][COOKBOOK] regulus to 2.5.0
 - [UPDATE][ENVIRONMENT] development and production
 
 # 2020/12/05
