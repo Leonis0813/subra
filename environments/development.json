@@ -125,7 +125,8 @@
       "mysql_users": [
         "development",
         "test"
-      ]
+      ],
+      "wait_latest": false
     },
     "subra": {
       "branch": "master",

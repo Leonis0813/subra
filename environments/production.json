@@ -96,7 +96,8 @@
     "regulus": {
       "mysql_users": [
         "production"
-      ]
+      ],
+      "wait_latest": true
     }
   }
 }
