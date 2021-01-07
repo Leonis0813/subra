@@ -71,6 +71,13 @@ deploy node[:regulus][:deploy_dir] do
   end
 
   before_restart do
+    template File.join(release_path, 'config/settings.yml') do
+      source 'settings.yml.erb'
+      owner 'root'
+      group 'root'
+      mode '0644'
+    end
+
     template File.join(release_path, 'config/zosma/database.yml') do
       source 'database.yml.erb'
       owner 'root'

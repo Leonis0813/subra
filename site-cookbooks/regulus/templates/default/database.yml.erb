@@ -4,6 +4,3 @@ mysql:
   user: root
   password: <%= Chef::EncryptedDataBagItem.load('regulus', 'mysql')['password'] %>
   database: <%= node[:zosma][:app_name] %>
-
-prediction:
-  wait_latest: <%= node[:regulus][:wait_latest] %>
