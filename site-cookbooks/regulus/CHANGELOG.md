@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.4.2
+- Update settings.yml.erb for polling
+
 ## 2.4.1
 - Update ruby version
 
