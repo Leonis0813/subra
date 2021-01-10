@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.5.0
+- Rename settings.yml.erb to database.yml.erb
+- Add database config for each environment
+- Create settings.yml.erb
+
 ## 2.4.1
 - Update ruby version
 

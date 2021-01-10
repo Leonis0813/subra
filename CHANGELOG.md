@@ -1,3 +1,7 @@
+# 2021/01/10
+- [UPDATE][COOKBOOK] regulus to 2.5.0
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2020/12/05
 - [UPDATE][COOKBOOK] alterf to 2.4.5
 

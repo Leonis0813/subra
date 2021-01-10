@@ -1,6 +1,20 @@
-mysql:
-  host: localhost
-  port: 3306
-  user: root
-  password: <%= Chef::EncryptedDataBagItem.load('regulus', 'mysql')['password'] %>
-  database: <%= node[:zosma][:app_name] %>
+pairs:
+  - 'USDJPY'
+  - 'AUDJPY'
+  - 'CADJPY'
+  - 'CHFJPY'
+  - 'EURJPY'
+  - 'EURUSD'
+  - 'GBPJPY'
+  - 'NZDJPY'
+
+analysis:
+  base_model_dir: 'tmp/models'
+  tensorboard_dir: 'tensorboard'
+
+prediction:
+  base_model_dir: 'tmp/models'
+  auto:
+    model_dir: 'auto'
+    config_file: 'config/prediction.yml'
+  wait_latest: <%= node[:regulus][:wait_latest] %>
