@@ -39,7 +39,21 @@
       </command>
     </hudson.tasks.Shell>
   </builders>
+  <% if node.chef_environment == 'development'%>
   <publishers/>
+  <% else %>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>zosma-remove</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+  </publishers>
+  <% end %>
   <buildWrappers>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.6.2">
       <colorMapName>xterm</colorMapName>
