@@ -1,3 +1,8 @@
+# 2021/01/27
+- [UPDATE][COOKBOOK] jenkins to 1.9.0
+- [UPDATE][COOKBOOK] zosma to 1.3.2
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2021/01/10
 - [UPDATE][COOKBOOK] regulus to 2.5.0
 - [UPDATE][ENVIRONMENT] development and production
