@@ -4,26 +4,16 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.29">
+    <hudson.plugins.buildblocker.BuildBlockerProperty plugin="build-blocker-plugin@1.7.3">
+      <useBuildBlocker>false</useBuildBlocker>
+      <blockLevel>GLOBAL</blockLevel>
+      <scanQueueFor>DISABLED</scanQueueFor>
+      <blockingJobs></blockingJobs>
+    </hudson.plugins.buildblocker.BuildBlockerProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <hudson.model.ParametersDefinitionProperty>
-      <parameterDefinitions>
-        <hudson.model.StringParameterDefinition>
-          <name>FROM</name>
-          <description>format: yyyy-mm-dd</description>
-          <defaultValue></defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>TO</name>
-          <description>format: yyyy-mm-dd</description>
-          <defaultValue></defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-      </parameterDefinitions>
-    </hudson.model.ParametersDefinitionProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>-1</daysToKeep>
@@ -45,19 +35,16 @@
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
         cd /opt/zosma/current
-        if [[ &quot;${FROM}&quot; != &quot;&quot; ]] ; then
-                FROM=&quot;--from=${FROM}&quot;
-        fi
-        if [[ &quot;${TO}&quot; != &quot;&quot; ]] ; then
-                TO=&quot;--to=${TO}&quot;
-        fi
-        rvmsudo rvm 2.6.3 do env STDOUT=on bundle exec ruby import/moving_averages.rb ${FROM} ${TO}
+        rvmsudo rvm 2.6.3 do env STDOUT=on bundle exec ruby tools/backup.rb
       </command>
     </hudson.tasks.Shell>
   </builders>
+  <% if node.chef_environment == 'development'%>
+  <publishers/>
+  <% else %>
   <publishers>
     <hudson.tasks.BuildTrigger>
-      <childProjects>zosma-backup</childProjects>
+      <childProjects>zosma-remove</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -66,8 +53,9 @@
       </threshold>
     </hudson.tasks.BuildTrigger>
   </publishers>
+  <% end %>
   <buildWrappers>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.6.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
   </buildWrappers>
