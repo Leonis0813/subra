@@ -14,6 +14,22 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>FROM</name>
+          <description>format: yyyy-mm-dd</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>TO</name>
+          <description>format: yyyy-mm-dd</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>-1</daysToKeep>
@@ -35,7 +51,13 @@
       <command>
         PATH=/usr/local/rvm/bin:/usr/bin:$PATH
         cd /opt/zosma/current
-        rvmsudo rvm 2.6.3 do env STDOUT=on bundle exec ruby tools/backup.rb
+        if [[ &quot;${FROM}&quot; != &quot;&quot; ]] ; then
+                FROM=&quot;--from=${FROM}&quot;
+        fi
+        if [[ &quot;${TO}&quot; != &quot;&quot; ]] ; then
+                TO=&quot;--to=${TO}&quot;
+        fi
+        rvmsudo rvm 2.6.3 do env STDOUT=on bundle exec ruby tools/backup.rb ${FROM} ${TO}
       </command>
     </hudson.tasks.Shell>
   </builders>
