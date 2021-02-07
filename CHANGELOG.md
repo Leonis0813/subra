@@ -1,3 +1,6 @@
+# 2021/02/07
+- [UPDATE][COOKBOOK] jenkins to 1.9.1
+
 # 2021/01/27
 - [UPDATE][COOKBOOK] jenkins to 1.9.0
 - [UPDATE][COOKBOOK] zosma to 1.3.2

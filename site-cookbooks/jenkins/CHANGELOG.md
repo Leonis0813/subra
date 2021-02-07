@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.9.1
+- Update config to specify backup period
+
 ## 1.9.0
 - Add jenkins config to backup zosma tables
 
