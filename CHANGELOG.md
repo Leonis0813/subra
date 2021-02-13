@@ -1,3 +1,7 @@
+# 2021/02/13
+- [UPDATE][COOKBOOK] jenkins to 1.10.0
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2021/02/07
 - [UPDATE][COOKBOOK] jenkins to 1.9.1
 
