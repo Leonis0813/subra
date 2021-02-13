@@ -60,17 +60,7 @@
       </command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.BuildTrigger>
-      <childProjects>zosma-import-candle_sticks</childProjects>
-      <threshold>
-        <name>SUCCESS</name>
-        <ordinal>0</ordinal>
-        <color>BLUE</color>
-        <completeBuild>true</completeBuild>
-      </threshold>
-    </hudson.tasks.BuildTrigger>
-  </publishers>
+  <publishers/>
   <buildWrappers>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
