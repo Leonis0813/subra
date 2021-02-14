@@ -34,6 +34,11 @@
           <defaultValue></defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>BACKUP</name>
+          <description></description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.buildblocker.BuildBlockerProperty plugin="build-blocker-plugin@1.7.3">
@@ -89,6 +94,22 @@
             steps {
                 build(
                     job: &apos;zosma-import-moving_averages&apos;,
+                    parameters: [
+                        string(name: &apos;FROM&apos;, value: params.FROM),
+                        string(name: &apos;TO&apos;, value: params.TO)
+                    ]
+                )
+            }
+        }
+
+        stage(&apos;Backup&apos;) {
+            when {
+                expression { return params.BACKUP }
+            }
+
+            steps {
+                build(
+                    job: &apos;zosma-backup&apos;,
                     parameters: [
                         string(name: &apos;FROM&apos;, value: params.FROM),
                         string(name: &apos;TO&apos;, value: params.TO)
