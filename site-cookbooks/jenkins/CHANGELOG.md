@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.10.0
+- Add jenkins config for zosma to import all data by pipeline
+
 ## 1.9.1
 - Update config to specify backup period
 
