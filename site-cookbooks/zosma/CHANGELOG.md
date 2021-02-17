@@ -2,8 +2,11 @@
 
 This file is used to list changes made in each version of the zosma cookbook.
 
+## 1.3.3
+- Update settings.yml to add log file path
+
 ## 1.3.2
-- update settings.yml to add log file path
+- Update settings.yml to add log file path
 
 ## 1.3.1
 - Update ruby version
