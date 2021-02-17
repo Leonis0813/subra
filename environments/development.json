@@ -61,6 +61,7 @@
           "zosma-import-candle_sticks",
           "zosma-import-moving_averages",
           "zosma-backup",
+          "zosma-restore",
           "zosma-compress"
         ]
       },
