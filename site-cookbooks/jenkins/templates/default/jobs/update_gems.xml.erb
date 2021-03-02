@@ -80,7 +80,7 @@ H 0 * * *</spec>
         rvm 2.6.3 do bundle exec rspec --fail-fast spec/{models,controllers,views}
         <% elsif @app_info[:app_name] == 'denebola' %>
         mkdir -p log
-        rvm 2.6.3 do bundle exec rspec --fail-fast spec/{models,libs,aggregate_spec.rb}
+        rvm 2.6.3 do bundle exec rspec --fail-fast spec/{models,aggregate_spec.rb}
         <% end %>
         git add Gemfile.lock
         git commit -m &apos;update Gemfile.lock&apos;
