@@ -18,7 +18,7 @@ default[:regulus][:shared_dirs] = %w[
   tmp/models/tensorboard
 ]
 default[:regulus][:requirements] = %w[cmake mysql-devel cronie-noanacron]
-default[:regulus][:ruby_version] = '2.6.3'
+default[:regulus][:ruby_version] = '2.7.2'
 default[:regulus][:mysql_users] = %w[development test]
 default[:regulus][:geckodriver] = {
   base_url: 'https://github.com/mozilla/geckodriver/releases/download/v0.24.0',

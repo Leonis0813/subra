@@ -13,7 +13,7 @@ rvm_ruby ruby_version
 rvm_gem 'bundler' do
   ruby_version ruby_version
   gemset 'global'
-  gem_version '1.17.3'
+  gem_version '2.1.4'
 end
 
 pyenv_python node[:regulus][:python][:version]
