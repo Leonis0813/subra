@@ -13,7 +13,7 @@ rvm_ruby ruby_version
 rvm_gem 'bundler' do
   ruby_version ruby_version
   gemset 'global'
-  gem_version '2.0.2'
+  gem_version '2.1.4'
   force true
 end
 
