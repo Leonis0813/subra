@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the regulus cookbook.
 
 ## 2.5.1
 - Update ruby version
+- Add force option to rvm_gem
 
 ## 2.5.0
 - Rename settings.yml.erb to database.yml.erb
