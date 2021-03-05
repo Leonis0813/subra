@@ -16,6 +16,7 @@ rvm_gem 'bundler' do
   ruby_version ruby_version
   gemset 'global'
   gem_version '2.1.4'
+  force true
 end
 
 pyenv_python node[:alterf][:python][:version]
