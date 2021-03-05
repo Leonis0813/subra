@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the zosma cookbook.
 
 ## 1.3.4
 - Update ruby version
+- Add force option to rvm_gem
 
 ## 1.3.3
 - Update settings.yml to add log file path
