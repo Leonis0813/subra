@@ -6,7 +6,7 @@ default[:alterf][:branch] = 'develop'
 default[:alterf][:symlinks] = {'log' => 'log', 'tmp' => 'tmp'}
 default[:alterf][:shared_dirs] = %w[log bundle tmp/files]
 default[:alterf][:requirements] = %w[librsvg2-devel mysql-devel]
-default[:alterf][:ruby_version] = '2.6.3'
+default[:alterf][:ruby_version] = '2.7.2'
 default[:alterf][:mysql_users] = %w[development test]
 default[:alterf][:python] = {
   version: '3.6.6',

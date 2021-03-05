@@ -1,3 +1,13 @@
+# 2021/03/06
+- [UPDATE][COOKBOOK] algieba to 2.1.2
+- [UPDATE][COOKBOOK] alterf to 2.4.6
+- [UPDATE][COOKBOOK] chort to 1.1.2
+- [UPDATE][COOKBOOK] denebola to 2.1.6
+- [UPDATE][COOKBOOK] jenkins to 1.11.1
+- [UPDATE][COOKBOOK] regulus to 2.5.1
+- [UPDATE][COOKBOOK] zosma to 1.3.4
+- [UPDATE][ENVIRONMENT] development
+
 # 2021/02/17
 - [UPDATE][COOKBOOK] jenkins to 1.11.0
 - [UPDATE][COOKBOOK] zosma to 1.3.3

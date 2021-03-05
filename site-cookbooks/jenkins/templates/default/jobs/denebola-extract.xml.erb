@@ -63,7 +63,7 @@
                 TO=&quot;--to=${TO}&quot;
         fi
         OPERATION=&quot;--operation=${OPERATION}&quot;
-        rvmsudo rvm 2.6.3 do env RAILS_ENV=<%= node.chef_environment %> STDOUT=on bundle exec ruby extract.rb ${FROM} ${TO} ${OPERATION}
+        rvmsudo rvm 2.7.2 do env RAILS_ENV=<%= node.chef_environment %> STDOUT=on bundle exec ruby extract.rb ${FROM} ${TO} ${OPERATION}
       </command>
     </hudson.tasks.Shell>
   </builders>
