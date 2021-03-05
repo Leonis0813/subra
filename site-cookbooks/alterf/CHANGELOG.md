@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.4.6
+- Update ruby version
+
 ## 2.4.5
 - Update settings.yml.erb to add host name for analysis
 

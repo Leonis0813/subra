@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.11.1
+- Update ruby version in jenkins config
+
 ## 1.11.0
 - Add jenkins config for zosma to restore
 
