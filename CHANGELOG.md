@@ -1,3 +1,6 @@
+# 2021/03/12
+- [UPDATE][COOKBOOK] zosma to 1.3.5
+
 # 2021/03/06
 - [UPDATE][COOKBOOK] algieba to 2.1.2
 - [UPDATE][COOKBOOK] alterf to 2.4.6
