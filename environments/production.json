@@ -56,6 +56,10 @@
           "version": "1.7.3"
         },
         {
+          "id": "extended-choice-parameter",
+          "version": "0.82"
+        },
+        {
           "id": "git",
           "version": "3.9.1"
         },
