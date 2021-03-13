@@ -41,9 +41,6 @@
         ],
         "zosma": [
           "zosma-import",
-          "zosma-import-rates",
-          "zosma-import-candle_sticks",
-          "zosma-import-moving_averages",
           "zosma-backup",
           "zosma-restore",
           "zosma-compress"
