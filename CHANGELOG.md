@@ -1,3 +1,7 @@
+# 2021/03/13
+- [UPDATE][COOKBOOK] jenkins to 1.12.0
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2021/03/12
 - [UPDATE][COOKBOOK] zosma to 1.3.5
 

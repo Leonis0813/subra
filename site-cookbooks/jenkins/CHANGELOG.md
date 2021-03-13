@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.12.0
+- Update jenkins config to aggregate import jobs
+
 ## 1.11.1
 - Update ruby version in jenkins config
 
