@@ -1,57 +1,46 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<flow-definition plugin="workflow-job@2.34">
-  <actions>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.3.9"/>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.3.9">
-      <jobProperties/>
-      <triggers/>
-      <parameters/>
-      <options/>
-    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
-  </actions>
+<project>
+  <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
-      <triggers>
-        <hudson.triggers.TimerTrigger>
-          <spec>TZ=UTC
-0 0 * * *</spec>
-        </hudson.triggers.TimerTrigger>
-      </triggers>
-    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+    <hudson.plugins.buildblocker.BuildBlockerProperty plugin="build-blocker-plugin@1.7.3">
+      <useBuildBlocker>false</useBuildBlocker>
+      <blockLevel>GLOBAL</blockLevel>
+      <scanQueueFor>DISABLED</scanQueueFor>
+      <blockingJobs></blockingJobs>
+    </hudson.plugins.buildblocker.BuildBlockerProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name>FROM</name>
           <description>format: yyyy-mm-dd</description>
           <defaultValue></defaultValue>
-          <trim>false</trim>
+          <trim>true</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>TO</name>
           <description>format: yyyy-mm-dd</description>
           <defaultValue></defaultValue>
-          <trim>false</trim>
+          <trim>true</trim>
         </hudson.model.StringParameterDefinition>
-        <hudson.model.BooleanParameterDefinition>
-          <name>BACKUP</name>
+        <com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition plugin="extended-choice-parameter@0.82">
+          <name>DATA_TYPES</name>
           <description></description>
-          <defaultValue>true</defaultValue>
-        </hudson.model.BooleanParameterDefinition>
+          <quoteValue>false</quoteValue>
+          <saveJSONParameterToFile>false</saveJSONParameterToFile>
+          <visibleItemCount>3</visibleItemCount>
+          <type>PT_MULTI_SELECT</type>
+          <value>rate,candle_stick,moving_average</value>
+          <multiSelectDelimiter>,</multiSelectDelimiter>
+          <projectName>zosma-import</projectName>
+        </com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    <hudson.plugins.buildblocker.BuildBlockerProperty plugin="build-blocker-plugin@1.7.3">
-      <useBuildBlocker>true</useBuildBlocker>
-      <blockLevel>GLOBAL</blockLevel>
-      <scanQueueFor>DISABLED</scanQueueFor>
-      <blockingJobs>zosma-.*
-.*-deploy</blockingJobs>
-    </hudson.plugins.buildblocker.BuildBlockerProperty>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
-      <autoRebuild>false</autoRebuild>
-      <rebuildDisabled>false</rebuildDisabled>
-    </com.sonyericsson.rebuild.RebuildSettings>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>-1</daysToKeep>
@@ -61,67 +50,50 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
   </properties>
-  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.74">
-    <script>pipeline {
-    agent any
-
-    stages {
-        stage(&apos;Import Rates&apos;) {
-            steps {
-                build(
-                    job: &apos;zosma-import-rates&apos;,
-                    parameters: [
-                        string(name: &apos;FROM&apos;, value: params.FROM),
-                        string(name: &apos;TO&apos;, value: params.TO)
-                    ]
-                )
-            }
-        }
-
-        stage(&apos;Import Candle Sticks&apos;) {
-            steps {
-                build(
-                    job: &apos;zosma-import-candle_sticks&apos;,
-                    parameters: [
-                        string(name: &apos;FROM&apos;, value: params.FROM),
-                        string(name: &apos;TO&apos;, value: params.TO)
-                    ]
-                )
-            }
-        }
-
-        stage(&apos;Import Moving Averages&apos;) {
-            steps {
-                build(
-                    job: &apos;zosma-import-moving_averages&apos;,
-                    parameters: [
-                        string(name: &apos;FROM&apos;, value: params.FROM),
-                        string(name: &apos;TO&apos;, value: params.TO)
-                    ]
-                )
-            }
-        }
-
-        stage(&apos;Backup&apos;) {
-            when {
-                expression { return params.BACKUP }
-            }
-
-            steps {
-                build(
-                    job: &apos;zosma-backup&apos;,
-                    parameters: [
-                        string(name: &apos;FROM&apos;, value: params.FROM),
-                        string(name: &apos;TO&apos;, value: params.TO)
-                    ]
-                )
-            }
-        }
-    }
-}
-</script>
-    <sandbox>true</sandbox>
-  </definition>
-  <triggers/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
   <disabled>false</disabled>
-</flow-definition>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>TZ=UTC
+0 0 * * *</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>
+        PATH=/usr/local/rvm/bin:/usr/bin:$PATH
+        cd /opt/zosma/current
+        if [[ &quot;${FROM}&quot; != &quot;&quot; ]] ; then
+                FROM=&quot;--from=${FROM}&quot;
+        fi
+        if [[ &quot;${TO}&quot; != &quot;&quot; ]] ; then
+                TO=&quot;--to=${TO}&quot;
+        fi
+        if [[ &quot;${DATA_TYPES}&quot; != &quot;&quot; ]] ; then
+                DATA_TYPES=&quot;--data-types=${DATA_TYPES}&quot;
+        fi
+        rvmsudo rvm 2.7.2 do env STDOUT=on bundle exec ruby import.rb ${FROM} ${TO} ${DATA_TYPES}
+      </command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>zosma-backup</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.6.2">
+      <colorMapName>xterm</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+  </buildWrappers>
+</project>
