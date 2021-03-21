@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.12.1
+- Update jenkins config to add form test case for alterf
+
 ## 1.12.0
 - Update jenkins config to aggregate import jobs
 
