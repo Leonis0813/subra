@@ -110,7 +110,8 @@ deploy node[:alterf][:deploy_dir] do
     execute "#{rvm_do} bundle exec rake unicorn:start" do
       cwd release_path
       environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
-                  'PATH' => node[:rvm][:path]
+                  'PATH' => node[:rvm][:path],
+                  'SECRET_KEY_BASE' => SecureRandom.uuid
     end
   end
 end
