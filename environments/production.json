@@ -6,6 +6,11 @@
         "production"
       ]
     },
+    "alterf": {
+      "mysql_users": [
+        "production"
+      ]
+    },
     "denebola": {
       "database": [
         {
@@ -89,6 +94,7 @@
     "nginx": {
       "apps": [
         "algieba",
+        "alterf",
         "redmine",
         "regulus"
       ],
