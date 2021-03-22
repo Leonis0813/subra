@@ -78,7 +78,8 @@ deploy node[:alterf][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake resque:worker:restart" do
       cwd release_path
-      environment 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+                  'PATH' => node[:rvm][:path]
     end
 
     execute "#{rvm_do} bundle exec rake assets:precompile" do
