@@ -86,7 +86,7 @@ deploy node[:alterf][:deploy_dir] do
       environment 'RAILS_ENV' => 'production',
                   'PATH' => node[:rvm][:path],
                   'RAILS_RELATIVE_URL_ROOT' => "/#{node[:alterf][:app_name]}"
-      only_if { node.chef_environment == 'compute' }
+      only_if { %w[compute production].include?(node.chef_environment) }
     end
 
     rake_command = "#{rvm_do} bundle exec rake secret"
