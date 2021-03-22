@@ -28,7 +28,6 @@
         ],
         "deploy": [
           "algieba-deploy",
-          "alterf-deploy",
           "chort-deploy",
           "denebola-deploy",
           "regulus-deploy",
@@ -40,7 +39,6 @@
         ],
         "polling": [
           "algieba",
-          "alterf",
           "chort",
           "denebola",
           "regulus",
