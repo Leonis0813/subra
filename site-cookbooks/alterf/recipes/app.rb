@@ -78,7 +78,8 @@ deploy node[:alterf][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake resque:worker:restart" do
       cwd release_path
-      environment 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
+                  'PATH' => node[:rvm][:path]
     end
 
     execute "#{rvm_do} bundle exec rake assets:precompile" do
@@ -87,15 +88,6 @@ deploy node[:alterf][:deploy_dir] do
                   'PATH' => node[:rvm][:path],
                   'RAILS_RELATIVE_URL_ROOT' => "/#{node[:alterf][:app_name]}"
       only_if { %w[compute production].include?(node.chef_environment) }
-    end
-
-    rake_command = "#{rvm_do} bundle exec rake secret"
-    command = "sed -i -e 's/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/`#{rake_command}`/g' " \
-              'config/secrets.yml'
-    execute command do
-      cwd release_path
-      environment 'RAILS_ENV' => 'production', 'PATH' => node[:rvm][:path]
-      only_if { node.chef_environment == 'compute' }
     end
   end
 
