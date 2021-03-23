@@ -1,3 +1,6 @@
+# 2021/03/23
+- [UPDATE][COOKBOOK] alterf to 2.4.8
+
 # 2021/03/22
 - [UPDATE][COOKBOOK] alterf to 2.4.7
 - [UPDATE][ENVIRONMENT] production
