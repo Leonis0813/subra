@@ -3,13 +3,12 @@ default: &default
   encoding: utf8
   pool: 5
   host: '<%= Chef::EncryptedDataBagItem.load('alterf', 'sakura')['ip_address'] %>'
+  username: root
   password:
   database: denebola
 
 development:
   <<: *default
-  username: development
-  username: root
   password: '<%= Chef::EncryptedDataBagItem.load('denebola', 'mysql')['password'] %>'
 
 test:
@@ -19,5 +18,5 @@ test:
 
 production:
   <<: *default
-  username: root
+  host: localhost
   password: '<%= Chef::EncryptedDataBagItem.load('denebola', 'mysql')['password'] %>'

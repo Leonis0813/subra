@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.4.8
+- Update config to fix mysql settings for production
+
 ## 2.4.7
 - Update deploy recipe to add SECRET_KEY_BASE when booting
 

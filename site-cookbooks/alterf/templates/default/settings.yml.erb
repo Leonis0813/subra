@@ -1,13 +1,6 @@
 netkeiba:
   base_url: 'https://db.netkeiba.com'
 
-mysql:
-  database: 'denebola'
-  host: '<%= Chef::EncryptedDataBagItem.load('alterf', 'sakura')['ip_address'] %>'
-  port: 3306
-  user: 'root'
-  password: '<%= Chef::EncryptedDataBagItem.load('alterf', 'mysql')['password'] %>'
-
 analysis:
   host: 'localhost'
   feature:
