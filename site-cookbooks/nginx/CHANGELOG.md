@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 2.1.0
+- Create definition to deploy conf for specify app
+
 ## 2.0.11
 - Modify worker_processes in nginx.conf
 

@@ -1,0 +1,29 @@
+location /regulus {
+  client_max_body_size 100m;
+  set $redirect_uri $uri$is_args$args;
+  rewrite_by_lua_file "lua/login.lua";
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header Host $http_host;
+  proxy_pass http://unicorn_regulus/regulus;
+}
+
+location /regulus/cable {
+  proxy_http_version 1.1;
+  proxy_set_header Upgrade websocket;
+  proxy_set_header Connection Upgrade;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header Host $http_host;
+  proxy_pass http://unicorn_regulus/regulus/cable;
+}
+
+location ^~ /regulus/tensorboard/ {
+  limit_except GET { deny all; }
+  set $redirect_uri $uri$is_args$args;
+  rewrite_by_lua_file "lua/login.lua";
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header Host $http_host;
+  proxy_pass http://localhost:6006;
+}
