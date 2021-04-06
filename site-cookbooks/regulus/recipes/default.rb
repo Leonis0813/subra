@@ -52,6 +52,8 @@ end
 
 include_recipe 'regulus::app'
 
+nginx_conf 'regulus'
+
 execute 'yum -y groupupdate "X Window System"' do
   not_if 'rpm -q xorg-x11-server-Xvfb'
   only_if { node.chef_environment == 'development' }
