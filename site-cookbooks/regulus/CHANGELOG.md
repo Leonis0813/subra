@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.6.0
+- Add definition for nginx to default recipe
+
 ## 2.5.1
 - Update ruby version
 - Add force option to rvm_gem
