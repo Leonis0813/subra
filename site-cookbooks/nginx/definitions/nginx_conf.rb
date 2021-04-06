@@ -1,14 +1,9 @@
 define :nginx_conf do
-  source_file_path = param[:source] || File.absolute_path(
-    "#{File.dirname(__FILE__)}/../../#{param[:name]}/templates/default/nginx.conf.erb"
-  )
-
-  template "#{node[:nginx][:install_dir]}/conf.d/#{param[:name]}.conf" do
-    source source_file_path
+  template "#{node[:nginx][:install_dir]}/conf.d/#{params[:name]}.conf" do
+    source params[:source] || 'nginx.conf.erb'
     owner 'nginx'
     group 'nginx'
     mode '0644'
-    variables(nginx_apps: node[:nginx][:apps])
   end
 
   service 'nginx' do
