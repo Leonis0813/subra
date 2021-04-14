@@ -1,5 +1,5 @@
 location /alterf {
-  client_max_body_size 100m;
+  client_max_body_size 0;
   set $redirect_uri $uri$is_args$args;
   rewrite_by_lua_file "lua/login.lua";
   proxy_set_header X-Real-IP $remote_addr;
