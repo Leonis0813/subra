@@ -41,6 +41,8 @@ end
 
 include_recipe 'alterf::app'
 
+nginx_conf 'alterf'
+
 execute 'yum -y groupupdate "X Window System"' do
   not_if 'rpm -q xorg-x11-server-Xvfb'
   only_if { node.chef_environment == 'development' }
