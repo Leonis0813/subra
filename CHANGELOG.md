@@ -1,3 +1,8 @@
+# 2021/04/20
+- [UPDATE][COOKBOOK] alterf to 2.5.0
+- [UPDATE][COOKBOOK] nginx to 2.1.1
+- [UPDATE][ENVIRONMENT] development and production
+
 # 2021/04/06
 - [UPDATE][COOKBOOK] nginx to 2.1.0
 - [UPDATE][COOKBOOK] regulus to 2.6.0
