@@ -14,7 +14,7 @@ http {
 
   keepalive_timeout  65;
 
-<% @nginx_apps.each do |app| %>
+<% (@nginx_apps + %w[alterf regulus]).each do |app| %>
   upstream unicorn_<%= app %> {
     server unix:/opt/nginx/apps/<%= app %>/current/tmp/sockets/unicorn.sock;
   }
