@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the nginx cookbook.
 
+## 2.1.2
+- Fix upstream settings for nginx.conf
+
 ## 2.1.1
 - Fix template for nginx.conf
 
