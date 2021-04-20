@@ -35,9 +35,9 @@ http {
       rewrite_by_lua_file "lua/authenticate.lua";
     }
 
-  <% (@nginx_apps - ['regulus']).each do |app| %>
+  <% @nginx_apps.each do |app| %>
     location /<%= app %> {
-      client_max_body_size <%= app == 'alterf' ? '0' : '100m' %>;
+      client_max_body_size '100m';
       set $redirect_uri $uri$is_args$args;
       rewrite_by_lua_file "lua/login.lua";
       proxy_set_header X-Real-IP $remote_addr;

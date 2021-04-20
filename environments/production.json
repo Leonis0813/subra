@@ -96,9 +96,7 @@
     "nginx": {
       "apps": [
         "algieba",
-        "alterf",
-        "redmine",
-        "regulus"
+        "redmine"
       ],
       "conf_files": [
         "doc",

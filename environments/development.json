@@ -116,9 +116,7 @@
     },
     "nginx": {
       "apps": [
-        "algieba",
-        "alterf",
-        "regulus"
+        "algieba"
       ],
       "conf_files": [
         "doc",

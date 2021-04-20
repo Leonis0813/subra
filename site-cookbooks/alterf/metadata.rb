@@ -6,5 +6,6 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
 depends          'denebola'
 depends          'mysql'
+depends          'nginx'
 depends          'pyenv'
 depends          'rvm'
