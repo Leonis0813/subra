@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.5.1
+- Add SECRET_KEY_BASE to environment for production
+
 ## 2.5.0
 - Add definition for nginx to default recipe
 
