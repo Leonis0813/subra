@@ -19,7 +19,8 @@ deploy node[:alterf][:deploy_dir] do
   symlinks node[:alterf][:symlinks]
   migration_command "#{rvm_do} bundle exec rake db:migrate"
   environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
-              'PATH' => node[:rvm][:path]
+              'PATH' => node[:rvm][:path],
+              'SECRET_KEY_BASE' => SecureRandom.uuid
 
   before_migrate do
     directory File.join(release_path, 'vendor')
@@ -48,7 +49,9 @@ deploy node[:alterf][:deploy_dir] do
 
     execute "#{rvm_do} bundle exec rake db:create" do
       cwd release_path
-      environment 'RAILS_ENV' => node.chef_environment, 'PATH' => node[:rvm][:path]
+      environment 'RAILS_ENV' => node.chef_environment,
+                  'PATH' => node[:rvm][:path],
+                  'SECRET_KEY_BASE' => SecureRandom.uuid
     end
   end
 
@@ -86,7 +89,8 @@ deploy node[:alterf][:deploy_dir] do
       cwd release_path
       environment 'RAILS_ENV' => 'production',
                   'PATH' => node[:rvm][:path],
-                  'RAILS_RELATIVE_URL_ROOT' => "/#{node[:alterf][:app_name]}"
+                  'RAILS_RELATIVE_URL_ROOT' => "/#{node[:alterf][:app_name]}",
+                  'SECRET_KEY_BASE' => SecureRandom.uuid
       only_if { %w[compute production].include?(node.chef_environment) }
     end
   end

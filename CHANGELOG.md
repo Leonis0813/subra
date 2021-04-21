@@ -1,3 +1,6 @@
+# 2021/04/22
+- [UPDATE][COOKBOOK] alterf to 2.5.1
+
 # 2021/04/21
 - [UPDATE][COOKBOOK] nginx to 2.1.2
 
