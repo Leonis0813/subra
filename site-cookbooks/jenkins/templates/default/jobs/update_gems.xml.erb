@@ -74,7 +74,10 @@ H 0 * * *</spec>
           echo &apos;No gems to update&apos;
           exit 0
         fi
-        <% if %w[alterf regulus].include?(@app_info[:app_name]) %>
+        <% if @app_info[:app_name] == 'regulus' %>
+        rvm 2.7.2 do bundle exec rspec --fail-fast spec/{models,controllers,views,lib}
+        <% elsif @app_info[:app_name] == 'alterf' %>
+        rvm 2.7.2 do env RAILS_ENV=test bundle exec rake webpacker:compile:clean
         rvm 2.7.2 do bundle exec rspec --fail-fast spec/{models,controllers,views,lib}
         <% elsif @app_info[:app_name] == 'algieba' %>
         rvm 2.7.2 do bundle exec rspec --fail-fast spec/{models,controllers,views}
