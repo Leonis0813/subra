@@ -76,7 +76,8 @@
         bin/danger
         <% elsif @app_info[:app_name] == 'alterf' %>
         yarn install
-        rvm <%= @app_info[:ruby_version] %> do env RAILS_ENV=test bundle exec rake webpacker:compile:clean
+        rvm <%= @app_info[:ruby_version] %> do env RAILS_ENV=test bundle exec rake webpacker:clean
+        rvm <%= @app_info[:ruby_version] %> do env RAILS_ENV=test bundle exec rake webpacker:compile
         rvm <%= @app_info[:ruby_version] %> do env COVERAGE=on bundle exec rspec spec/{models,controllers,views,forms,lib}
         bin/danger
         <% elsif @app_info[:app_name] == 'algieba' %>
