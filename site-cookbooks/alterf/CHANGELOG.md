@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the alterf cookbook.
 
+## 2.6.0
+- Update recipes for installing node modules
+
 ## 2.5.1
 - Add SECRET_KEY_BASE to environment for production
 

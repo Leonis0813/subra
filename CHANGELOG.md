@@ -1,3 +1,7 @@
+# 2021/05/27
+- [UPDATE][COOKBOOK] alterf to 2.6.0
+- [UPDATE][COOKBOOK] jenkins to 1.12.2
+
 # 2021/04/22
 - [UPDATE][COOKBOOK] alterf to 2.5.1
 

@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenkins cookbook.
 
+## 1.12.2
+- Update jenkins config to compile javascripts by webpack
+
 ## 1.12.1
 - Update jenkins config to add form test case for alterf
 
