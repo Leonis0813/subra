@@ -27,6 +27,7 @@ This cookbook deploy alterf
 |[:alterf][:requirements]|Array[String]|packages before deploying    |
 |[:alterf][:ruby_version]|String       |ruby version for alterf      |
 |[:alterf][:mysql_users] |Array[String]|users used by alterf         |
+|[:alterf][:node]        |Hash         |node.js settings             |
 |[:alterf][:python]      |Hash         |python settings              |
 |[:alterf][:geckodriver] |Hash         |geckodriver settings         |
 

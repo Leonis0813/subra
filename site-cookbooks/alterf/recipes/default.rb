@@ -8,6 +8,10 @@
 #
 ruby_version = node[:alterf][:ruby_version]
 
+execute "curl -sL #{node[:alterf][:node][:repository]} | sudo bash -" do
+  not_if 'rpm -q nodejs'
+end
+
 package node[:alterf][:requirements]
 
 rvm_ruby ruby_version
@@ -37,6 +41,10 @@ node[:alterf][:python][:packages].each do |package|
     version node[:alterf][:python][:version]
     virtualenv node[:alterf][:app_name]
   end
+end
+
+node[:alterf][:node][:packages].each do |package|
+  execute "npm install -g #{package}"
 end
 
 include_recipe 'alterf::app'

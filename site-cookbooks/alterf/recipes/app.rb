@@ -31,13 +31,22 @@ deploy node[:alterf][:deploy_dir] do
       end
     end
 
-    link File.join(release_path, 'vendor/bundle') do
-      to File.join(node[:alterf][:deploy_dir], 'shared/bundle')
+    [
+      %w[vendor/bundle bundle],
+      %w[node_modules node_modules],
+    ].each do |from, to|
+      link File.join(release_path, from) do
+        to File.join(node[:alterf][:deploy_dir], "shared/#{to}")
+      end
     end
 
     execute "#{rvm_do} bundle install --path=vendor/bundle --clean" do
       cwd release_path
       environment 'PATH' => node[:rvm][:path]
+    end
+
+    execute 'yarn install' do
+      cwd release_path
     end
 
     node[:alterf][:mysql_users].each do |user|
@@ -85,13 +94,12 @@ deploy node[:alterf][:deploy_dir] do
                   'PATH' => node[:rvm][:path]
     end
 
-    execute "#{rvm_do} bundle exec rake assets:precompile" do
+    execute "#{rvm_do} bundle exec rake webpacker:compile" do
       cwd release_path
-      environment 'RAILS_ENV' => 'production',
+      environment 'RAILS_ENV' => node.chef_environment.sub('compute', 'production'),
                   'PATH' => node[:rvm][:path],
                   'RAILS_RELATIVE_URL_ROOT' => "/#{node[:alterf][:app_name]}",
                   'SECRET_KEY_BASE' => SecureRandom.uuid
-      only_if { %w[compute production].include?(node.chef_environment) }
     end
   end
 
