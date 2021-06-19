@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the regulus cookbook.
 
+## 2.6.1
+- Add evaluation setting to settings.yml
+
 ## 2.6.0
 - Add definition for nginx to default recipe
 
