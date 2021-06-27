@@ -1,3 +1,6 @@
+# 2021/06/27
+- [UPDATE][COOKBOOK] regulus to 2.6.1
+
 # 2021/05/27
 - [UPDATE][COOKBOOK] alterf to 2.6.0
 - [UPDATE][COOKBOOK] jenkins to 1.12.2
